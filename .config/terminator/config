@@ -1,0 +1,44 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, MavenPluginURLHandler, LaunchpadBugURLHandler
+  inactive_color_offset = 1.0
+  sticky = True
+  suppress_multiple_term_dialog = True
+  title_inactive_bg_color = "#000000"
+  window_state = maximise
+[keybindings]
+  split_horiz = <Primary><Shift>h
+  split_vert = <Primary><Shift>v
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 7a18b20f-7160-4a3f-90a6-4e5527503322
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 1920:0
+      size = 814, 498
+      title = mmphego@SKA-PC: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 7a18b20f-7160-4a3f-90a6-4e5527503322
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    copy_on_selection = True
+    font = Monospace 12
+    login_shell = True
+    palette = "#000000:#cc0000:#2fb600:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scroll_on_output = False
+    scrollback_infinite = True
+    scrollback_lines = 500000
+    split_to_group = True
+    use_system_font = False
+  [[New Profile]]
+    background_image = None
