@@ -18,8 +18,17 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "window.zoomLevel": 0,
     "cSpell.userWords": [
-        "cput"
+        "IEDs",
+        "cput",
+        "csaems",
+        "electrotechnical",
+        "rtds",
+        "scsm",
+        "synchronization",
+        "upscalable"
     ],
+    "workbench.statusBar.visible": true,
+    "editor.minimap.enabled": false,
 
 
 }
