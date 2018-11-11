@@ -1,0 +1,10 @@
+{
+	// Automatically fix the imports on save
+	"autofix_on_save": false,
+
+	// Enable or disabl split of every imports in own line (one object import per line)
+	"split_import_statements": true,
+
+	// Enable or disabl sorting or import in its own group
+	"sort_import_statements": true,
+}

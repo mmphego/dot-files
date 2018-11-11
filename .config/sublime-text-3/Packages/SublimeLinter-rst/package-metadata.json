@@ -1,0 +1,1 @@
+{"dependencies": [], "description": "SublimeLinter plugin for reStructuredText, using docutils.", "version": "1.0.0", "url": "https://github.com/SublimeLinter/SublimeLinter-rst", "platforms": ["*"], "sublime_text": ">=3000"}

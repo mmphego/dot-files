@@ -1,0 +1,57 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Auto Semi-Colon",
+		"AutoImport",
+		"BracketHighlighter",
+		"C Improved",
+		"C++ Completions",
+		"Clang Format",
+		"ClangAutoComplete",
+		"Class Navigator",
+		"Dockerfile Syntax Highlighting",
+		"EasyClangComplete",
+		"Fold Python",
+		"Function Name Display",
+		"GitDiffHelper",
+		"GitGutter",
+		"Go To Definition",
+		"Google Spell Check",
+		"Goto Usage",
+		"Highlight Duplicates",
+		"Jedi - Python autocompletion",
+		"LaTeXBox",
+		"LaTeXing",
+		"MarkdownEditing",
+		"More Python Completions",
+		"Outline",
+		"Package Control",
+		"Pretty YAML",
+		"Python Completions",
+		"Python Fix Imports",
+		"Python Imports Sorter",
+		"RestructuredText Improved",
+		"ShellScriptImproved",
+		"SideBarEnhancements",
+		"SingleTrailingNewLine",
+		"Smart VHDL",
+		"Sublime Text 3 Snippets",
+		"SublimeLinter",
+		"SublimeLinter-clang",
+		"SublimeLinter-flake8",
+		"SublimeLinter-pep8",
+		"SublimeLinter-rst",
+		"SublimeLinter-shellcheck",
+		"TrailingSpaces",
+		"VHDL"
+	],
+	"repositories":
+	[
+		"https://github.com/SublimeText/TrailingSpaces"
+	]
+}

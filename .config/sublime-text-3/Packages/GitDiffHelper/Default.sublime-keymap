@@ -1,0 +1,3 @@
+[
+    { "keys": ["ctrl+alt+g"], "command": "git_diff_helper"}
+]

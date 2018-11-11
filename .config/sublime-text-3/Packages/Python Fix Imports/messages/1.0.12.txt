@@ -1,0 +1,4 @@
+1.0.12
+-----
+
+Main menu links now work! Check Package Settings > Python Fix Imports!

@@ -1,0 +1,11 @@
+[
+	{ "keys": ["ctrl+3"], "command": "toggle_comment", "args": { "block": false } },
+	{ "keys": ["ctrl+shift+3"], "command": "toggle_comment", "args": { "block": true } },
+	{ "keys": ["alt+a"], "command": "find_all_under" },
+	{ "keys": ["ctrl+alt+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["ctrl+alt+down"], "command": "select_lines", "args": {"forward": true} },
+	{ "keys": ["ctrl+alt+1"], "command": "next_misspelling" },
+	{ "keys": ["ctrl+shift+f6"], "command": "prev_misspelling" },
+    { "keys": ["alt+shift+h"], "command": "toggle_highlight_duplicates" },
+    { "keys": ["alt+shift+s"], "command": "toggle_select_duplicates" }
+]

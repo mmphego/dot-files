@@ -1,0 +1,10 @@
+language: python
+
+python:
+  # ST2 and ST3
+  - "2.6"
+  - "3.3"
+
+before_script: cd all
+
+script: py.test
