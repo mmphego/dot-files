@@ -1,0 +1,25 @@
+{
+    "editor.quickSuggestionsDelay": 25,
+    "editor.detectIndentation": true,
+    "editor.fontSize": 14,
+    "editor.matchBrackets": true,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnPaste": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "files.associations": {
+        "*.py": "python"
+    },
+    "workbench.colorTheme": "Monokai",
+    "git.confirmSync": false,
+    "files.autoSave": "afterDelay",
+    "python.jediEnabled": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "window.zoomLevel": 0,
+    "cSpell.userWords": [
+        "cput"
+    ],
+
+
+}
