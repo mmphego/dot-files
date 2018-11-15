@@ -29,6 +29,22 @@
     ],
     "workbench.statusBar.visible": true,
     "editor.minimap.enabled": false,
+    "window.titleBarStyle": "custom",
+    "editor.wordWrap": "on",
+    "files.exclude": {
+        "**/.coverage": true,
+        "**/.eggs": true,
+        "**/.env": true,
+        "**/.gitignore": true,
+        "**/.gitmodules": true,
+        "**/.hound.yml": true,
+        "**/.pyc": true,
+        "**/.pylintrc": true,
+        "**/.venv": true,
+        "**/.vscode": true,
+        "**/*.pyc": true
+    },
+    "editor.find.autoFindInSelection": true,
 
 
 }
