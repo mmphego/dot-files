@@ -110,7 +110,10 @@
 		"venv",
 		"Electrotechnical",
 		"Debian",
-		"Phasor"
+		"Phasor",
+		"anytime",
+		"Wikipedia",
+		"Stackoverflow'd"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -134,7 +137,7 @@
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
-	"font_size": 11,
+	"font_size": 10,
 	"ignored_packages":
 	[
 		"AutoImport",
