@@ -38,6 +38,7 @@
         "**/.gitignore": true,
         "**/.gitmodules": true,
         "**/.hound.yml": true,
+        "**/.idea": true,
         "**/.pyc": true,
         "**/.pylintrc": true,
         "**/.venv": true,
@@ -45,6 +46,8 @@
         "**/*.pyc": true
     },
     "editor.find.autoFindInSelection": true,
+    "diffEditor.renderSideBySide": false,
+    "explorer.confirmDelete": false,
 
 
 }
