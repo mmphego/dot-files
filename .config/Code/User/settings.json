@@ -48,6 +48,7 @@
     "editor.find.autoFindInSelection": true,
     "diffEditor.renderSideBySide": false,
     "explorer.confirmDelete": false,
+    "cSpell.language": "en",
 
 
 }
