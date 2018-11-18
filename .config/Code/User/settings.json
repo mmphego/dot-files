@@ -43,7 +43,8 @@
         "**/.pylintrc": true,
         "**/.venv": true,
         "**/.vscode": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/*.swp": true
     },
     "editor.find.autoFindInSelection": true,
     "diffEditor.renderSideBySide": false,
