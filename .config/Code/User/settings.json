@@ -49,6 +49,7 @@
     "diffEditor.renderSideBySide": false,
     "explorer.confirmDelete": false,
     "cSpell.language": "en",
+    "git.autofetch": true,
 
 
 }
