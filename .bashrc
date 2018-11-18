@@ -256,38 +256,3 @@ if [[ $- == *i* ]]; then
     bind 'set show-all-if-ambiguous on'
     bind 'set completion-ignore-case on'
 fi
-
-
-echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-echo 'export GEM_HOME=$HOME/gems' >> ~/.bashrc
-echo 'export PATH=$HOME/gems/bin:$PATH' >> ~/.bashrc
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Install Ruby Gems to ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
