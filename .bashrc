@@ -212,14 +212,14 @@ export PS1="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h
 
 alias CD='cd'
 
-#function pip() {
-#  if [[ "$1" == "install" ]]; then
-#    shift 1
-#    command pip install --user -U "$@"
-#  else
-#    command pip "$@"
-#  fi
-#}
+function pip() {
+  if [[ "$1" == "install" ]]; then
+    shift 1
+    command pip install --no-cache-dir -U "$@"
+  else
+    command pip "$@"
+  fi
+}
 
 #function sudo() {
 #  if [[ "$1" == "su" ]]; then
@@ -256,3 +256,7 @@ if [[ $- == *i* ]]; then
     bind 'set show-all-if-ambiguous on'
     bind 'set completion-ignore-case on'
 fi
+
+
+# pip command completion
+eval "`pip completion --bash`"
