@@ -260,3 +260,5 @@ fi
 
 # pip command completion
 eval "`pip completion --bash`"
+alias killfirefox="pkill -9 firefox"
+alias killslack="pkill -9 slack"
