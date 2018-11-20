@@ -58,31 +58,31 @@ function psgrep() {
 
 #export YOCTODIR=$HOME/Documents/Xilinx/EmbeddedLinux/Yocto/poky
 #export PETADIR=$HOME/Documents/Xilinx/EmbeddedLinux/Petalinux
-# function cd {
-#     # The 'builtin' keyword allows you to redefine a Bash builtin without
-#     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
-#     # directory names.
-#     builtin cd "$@"
-#     if [ "$PWD" == "$YOCTODIR" ] ;
-#         then
-#             bash $YOCTODIR/.source_yocto
-#     elif [ "$PWD" == "$PETADIR" ] ;
-#         then
-#             bash $PETADIR/.source_petalinux
-#     else
-#         ls -thor ;
-#     fi
-# }
+function cd {
+    # The 'builtin' keyword allows you to redefine a Bash builtin without
+    # creating a recursion. Quoting the parameter makes it work in case there are spaces in
+    # directory names.
+    builtin cd "$@"
+#    if [ "$PWD" == "$YOCTODIR" ] ;
+#        then
+#            bash $YOCTODIR/.source_yocto
+#    elif [ "$PWD" == "$PETADIR" ] ;
+#        then
+#            bash $PETADIR/.source_petalinux
+#    else
+        ls -thor ;
+#    fi
+}
 
 
-#function pip() {
-#  if [[ "$1" == "install" ]]; then
-#    shift 1
-#    command pip install --no-cache-dir -U "$@"
-#  else
-#    command pip "$@"
-#  fi
-#}
+function pip() {
+    if [[ "$1" == "install" ]]; then
+        shift 1
+        command pip install --no-cache-dir -U "$@"
+    else
+        command pip "$@"
+    fi
+}
 
 #function sudo() {
 #  if [[ "$1" == "su" ]]; then
