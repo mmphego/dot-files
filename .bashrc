@@ -107,25 +107,14 @@ alias upgrade-pips='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | 
 '
 #alias cleanPC='sudo apt-get -y autoclean && sudo apt-get -y clean && sudo apt-get -y autoremove'
 
-alias dbelab04='ssh -X dbelab04'
-alias dbelab06='ssh -X dbelab06'
-alias cmc3='ssh -X 10.103.254.6'
-alias cmc2='ssh -X 10.103.254.3'
-alias camserver='ssh -X kat@10.8.67.161'
-alias cmc1='ssh -X 10.103.254.1'
+
 alias lsdir='ls -ld */'
 alias display='eog -w'
 alias emptyDir='find . -empty -type d -delete'
-alias connectSSHFS='if timeout 2 ping -c 1 -W 2 192.168.4.23 &> /dev/null; then timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 192.168.4.23:/ /home/mmphego/mnt/dbelab04 &>/dev/null ; else fusermount -u -z ~/mnt/dbelab04 ; fi'
-alias dbelab06mount='if timeout 2 ping -c 1 -W 2 192.168.4.14 &> /dev/null; then timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 192.168.4.14:/ /home/mmphego/mnt/dbelab06 &>/dev/null ; else fusermount -u -z ~/mnt/dbelab06 ; fi'
-alias cmc2mount='if timeout 2 ping -c 1 -W 2 10.103.254.3 &> /dev/null; then timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 mmphego@10.103.254.3:/ /home/mmphego/mnt/cmc2 &>/dev/null ; else fusermount -u -z ~/mnt/cmc2 ; fi'
-alias cmc3mount='if timeout 2 ping -c 1 -W 2 10.103.254.6 &> /dev/null; then timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 mmphego@10.103.254.6:/ /home/mmphego/mnt/cmc3 &>/dev/null ; else fusermount -u -z ~/mnt/cmc3 ; fi'
-alias meng='cd /home/mmphego/Dropbox/MEng_Stuff/MEng-Progress'
-alias media='sshfs -o reconnect media@192.168.1.10:/mnt /home/mmphego/mnt/media_srv'
+alias meng='cd ${HOME}/Dropbox/MEng_Stuff/MEng-Progress'
+alias media='sshfs -o reconnect media@192.168.1.10:/mnt /home/"${USER}"/mnt/media_srv'
 alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -h now'
-#alias rm='rm -r'
-#alias rm=trash
 alias paux='ps aux | grep'
 alias cd.='cd ..'
 alias ..='cd ..'
@@ -135,7 +124,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias cd..='cd ..'
-alias disconnect='fusermount -u -z ~/mnt/dbelab06; fusermount -zu ~/mnt/dbelab04;fusermount -zu ~/mnt/cmc2;fusermount -zu ~/mnt/cmc1;fusermount -zu ~/mnt/pi;fusermount -zu ~/mnt/media_srv;fusermount -zu ~/mnt/cmc3'
 alias youtube="youtube-dl"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -170,78 +158,15 @@ fi
 #  \${BASH_COMMAND}\" 2>/dev/null >>~/.command_log" DEBUG
 #fi
 export PATH=$PATH:$HOME/bin
-#export PS1='\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h:\w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] '
-
-#source $HOME/.opt/Xilinx/Vivado/2017.2/settings64.sh
-#source $HOME/.opt/Vivado/2018.1/settings64.sh
-
-#export YOCTODIR=$HOME/Documents/Xilinx/EmbeddedLinux/Yocto/poky
-#export PETADIR=$HOME/Documents/Xilinx/EmbeddedLinux/Petalinux
-function cd {
-    # The 'builtin' keyword allows you to redefine a Bash builtin without
-    # creating a recursion. Quoting the parameter makes it work in case there are spaces in
-    # directory names.
-    builtin cd "$@"
-    if [ "$PWD" == "$YOCTODIR" ] ;
-        then
-            bash $YOCTODIR/.source_yocto
-    elif [ "$PWD" == "$PETADIR" ] ;
-        then
-            bash $PETADIR/.source_petalinux
-    else
-        ls -thor ;
-    fi
-}
-
 
 hash -r
 
-export PATH=/home/mmphego/bin:/home/mmphego/.opt/SDK/2018.1/bin:/home/mmphego/.opt/SDK/2018.1/gnu/microblaze/lin/bin:/home/mmphego/.opt/SDK/2018.1/gnu/arm/lin/bin:/home/mmphego/.opt/SDK/2018.1/gnu/microblaze/linux_toolchain/lin64_le/bin:/home/mmphego/.opt/SDK/2018.1/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/mmphego/.opt/SDK/2018.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin:/home/mmphego/.opt/SDK/2018.1/gnu/aarch64/lin/aarch64-linux/bin:/home/mmphego/.opt/SDK/2018.1/gnu/aarch64/lin/aarch64-none/bin:/home/mmphego/.opt/SDK/2018.1/gnu/armr5/lin/gcc-arm-none-eabi/bin:/home/mmphego/.opt/SDK/2018.1/tps/lnx64/cmake-3.3.2/bin:/home/mmphego/.opt/Vivado/2018.1/bin:/home/mmphego/.opt/DocNav:/home/mmphego/bin:/home/mmphego/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/mmphego/bin:/home/mmphego/.platformio/penv/bin:~/.platformio/penv/bin
-
 source /etc/bash_completion.d/git-prompt
 
-git_branch () {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-    }
-
-git_last_update () {
-    git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ';
-    }
-
-export PS1="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h:\w\[\033[0;32m\] \$(git_branch) \$(git_last_update)\n\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
-
-alias CD='cd'
-
-function pip() {
-  if [[ "$1" == "install" ]]; then
-    shift 1
-    command pip install --no-cache-dir -U "$@"
-  else
-    command pip "$@"
-  fi
-}
-
-#function sudo() {
-#  if [[ "$1" == "su" ]]; then
-#     shift 1
-#     printf "$(tput smso)$(tput setaf 1) [*** With great power comes great responsibility ***] $(tput sgr0)\n\n\n"
-#     command sudo bash -l
-#  else
-#     command sudo "$@"
-#  fi
-#}
-
-function ssh() {
-    command ssh -X "$@"
-}
-
-function rsync(){
-    command rsync --progress "$@"
-}
 
 if [ -f /var/run/reboot-required ] ;
     then
-        printf "$(tput smso)$(tput setaf 1)[*** Hello $USER, you must reboot your machine ***]$(tput sgr0)\n";
+        printf "$(tput smso)$(tput setaf 1)[*** Hello ${USER}, you must reboot your machine ***]$(tput sgr0)\n";
 fi
 
 if [[ $- == *i* ]]; then
@@ -257,17 +182,134 @@ if [[ $- == *i* ]]; then
     bind 'set completion-ignore-case on'
 fi
 
-
-# pip command completion
-eval "`pip completion --bash`"
+# Useful Alias
 alias killfirefox="pkill -9 firefox"
 alias killslack="pkill -9 slack"
+alias CD='cd'
+
+# Log into to Server
+alias dbelab04='ssh -X dbelab04'
+alias dbelab06='ssh -X dbelab06'
+alias cmc3='ssh -X 10.103.254.6'
+alias cmc2='ssh -X 10.103.254.3'
+alias camserver='ssh -X kat@10.8.67.161'
+alias cmc1='ssh -X 10.103.254.1'
 
 
 
-# Useful functions
+# Useful Function
 function commiter() {
-    git add -f "$1"
-    git commit -m"$2";
-    git push;
+    # Add file, commit and push
+    git add -f "$1";
+    if [ "$2" == "" ]; then
+        git commit -m"Updated $1";
+    else
+        git commit -m"$2";
+    fi;
+    nohup git push -q &
     }
+
+
+function ssh() {
+    # Always ssh with -X
+    command ssh -X "$@"
+}
+
+function rsync(){
+    command rsync --progress "$@"
+}
+
+#source $HOME/.opt/Xilinx/Vivado/2017.2/settings64.sh
+#source $HOME/.opt/Vivado/2018.1/settings64.sh
+
+#export YOCTODIR=$HOME/Documents/Xilinx/EmbeddedLinux/Yocto/poky
+#export PETADIR=$HOME/Documents/Xilinx/EmbeddedLinux/Petalinux
+# function cd {
+#     # The 'builtin' keyword allows you to redefine a Bash builtin without
+#     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
+#     # directory names.
+#     builtin cd "$@"
+#     if [ "$PWD" == "$YOCTODIR" ] ;
+#         then
+#             bash $YOCTODIR/.source_yocto
+#     elif [ "$PWD" == "$PETADIR" ] ;
+#         then
+#             bash $PETADIR/.source_petalinux
+#     else
+#         ls -thor ;
+#     fi
+# }
+
+
+#function pip() {
+#  if [[ "$1" == "install" ]]; then
+#    shift 1
+#    command pip install --no-cache-dir -U "$@"
+#  else
+#    command pip "$@"
+#  fi
+#}
+
+#function sudo() {
+#  if [[ "$1" == "su" ]]; then
+#     shift 1
+#     printf "$(tput smso)$(tput setaf 1) [*** With great power comes great responsibility ***] $(tput sgr0)\n\n\n"
+#     command sudo bash -l
+#  else
+#     command sudo "$@"
+#  fi
+#}
+
+git_branch () {
+    # Get current Git branch
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    }
+
+git_last_update () {
+    # Get last update on current Git branch
+    git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ';
+    }
+
+export PS1="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h:\w\[\033[0;32m\] \$(git_branch) \$(git_last_update)\n\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
+
+function disconnect() {
+    # Disconnect all mounted disks
+    for DIR in $(ls "${HOME}/mnt"); do
+        /bin/fusermount -u -z "${DIR}" || true
+    done
+    }
+
+function connectSSHFS(){
+    if timeout 2 ping -c 1 -W 2 192.168.4.23 &> /dev/null; then
+        timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
+        192.168.4.23:/ /home/"${USER}"/mnt/dbelab04 &>/dev/null ;
+    else
+        fusermount -u -z ~/mnt/dbelab04 ;
+    fi
+}
+function dbelab06mount(){
+    if timeout 2 ping -c 1 -W 2 192.168.4.14 &> /dev/null; then
+        timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
+        192.168.4.14:/ /home/"${USER}"/mnt/dbelab06 &>/dev/null ;
+    else
+        fusermount -u -z ~/mnt/dbelab06 ;
+    fi
+}
+function cmc2mount(){
+    if timeout 2 ping -c 1 -W 2 10.103.254.3 &> /dev/null; then
+        timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
+        "${USER}"@10.103.254.3:/ /home/"${USER}"/mnt/cmc2 &>/dev/null
+    else
+        fusermount -u -z ~/mnt/cmc2 ;
+    fi
+}
+function cmc3mount(){
+    if timeout 2 ping -c 1 -W 2 10.103.254.6 &> /dev/null; then
+        timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
+        "${USER}"@10.103.254.6:/ /home/"${USER}"/mnt/cmc3 &>/dev/null
+    else
+        fusermount -u -z ~/mnt/cmc3 ;
+    fi
+}
+
+
