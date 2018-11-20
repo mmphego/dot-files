@@ -16,7 +16,7 @@
     "files.autoSave": "afterDelay",
     "python.jediEnabled": false,
     "latex-workshop.view.pdf.viewer": "tab",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "cSpell.userWords": [
         "IEDs",
         "cput",
@@ -51,6 +51,7 @@
     "explorer.confirmDelete": false,
     "cSpell.language": "en",
     "git.autofetch": true,
+    "shellcheck.disableVersionCheck": true,
 
 
 }
