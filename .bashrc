@@ -262,3 +262,8 @@ fi
 eval "`pip completion --bash`"
 alias killfirefox="pkill -9 firefox"
 alias killslack="pkill -9 slack"
+
+
+
+# Useful functions
+function commiter() { git add -f "$1" && git commit -m"$2"; }; 
