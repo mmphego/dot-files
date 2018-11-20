@@ -266,4 +266,8 @@ alias killslack="pkill -9 slack"
 
 
 # Useful functions
-function commiter() { git add -f "$1" && git commit -m"$2"; git push -q; }; 
+function commiter() {
+    git add -f "$1"
+    git commit -m"$2";
+    git push;
+    }
