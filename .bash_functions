@@ -1,5 +1,6 @@
+# Useful Functions
 
-# Useful Function
+
 function commiter() {
     # Add file, commit and push
     git add -f "$1";
@@ -11,6 +12,15 @@ function commiter() {
     $(git push -q >> /dev/null 2>&1) &
     }
 
+# When checking out new branch always set upstream
+function git () {
+    if [ "$1" == "checkout" ] && [ "$2" == "-b" ]; then
+        shift 1
+        command git branch -u origin "$3"
+    else
+        command git "$@"
+    fi
+}
 
 function ssh() {
     # Always ssh with -X
@@ -20,7 +30,6 @@ function ssh() {
 function rsync(){
     command rsync --progress "$@"
 }
-
 
 function extract () {
      if [ -f $1 ] ; then
@@ -42,7 +51,6 @@ function extract () {
          echo "'$1' is not a valid file"
      fi
 }
-
 
 function psgrep() {
 	if [ ! -z $1 ] ; then
@@ -73,7 +81,6 @@ function cd {
         ls -thor ;
 #    fi
 }
-
 
 function pip() {
     if [[ "$1" == "install" ]]; then
@@ -122,6 +129,7 @@ function connectSSHFS(){
         fusermount -u -z ~/mnt/dbelab04 ;
     fi
 }
+
 function dbelab06mount(){
     IP="192.168.6.14"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
@@ -131,6 +139,7 @@ function dbelab06mount(){
         fusermount -u -z ~/mnt/dbelab06 ;
     fi
 }
+
 function cmc2mount(){
     IP="10.103.254.3"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
@@ -140,6 +149,7 @@ function cmc2mount(){
         fusermount -u -z ~/mnt/cmc2 ;
     fi
 }
+
 function cmc3mount(){
     IP="10.103.254.6"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
