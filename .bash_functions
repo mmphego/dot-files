@@ -114,33 +114,37 @@ function disconnect() {
     }
 
 function connectSSHFS(){
-    if timeout 2 ping -c 1 -W 2 192.168.4.23 &> /dev/null; then
+    IP="192.168.4.23"
+    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        192.168.4.23:/ /home/"${USER}"/mnt/dbelab04 &>/dev/null ;
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab04 &>/dev/null ;
     else
         fusermount -u -z ~/mnt/dbelab04 ;
     fi
 }
 function dbelab06mount(){
-    if timeout 2 ping -c 1 -W 2 192.168.6.14 &> /dev/null; then
+    IP="192.168.6.14"
+    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        192.168.4.14:/ /home/"${USER}"/mnt/dbelab06 &>/dev/null ;
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab06 &>/dev/null ;
     else
         fusermount -u -z ~/mnt/dbelab06 ;
     fi
 }
 function cmc2mount(){
-    if timeout 2 ping -c 1 -W 2 10.103.254.3 &> /dev/null; then
+    IP="10.103.254.3"
+    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@10.103.254.3:/ /home/"${USER}"/mnt/cmc2 &>/dev/null
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc2 &>/dev/null
     else
         fusermount -u -z ~/mnt/cmc2 ;
     fi
 }
 function cmc3mount(){
-    if timeout 2 ping -c 1 -W 2 10.103.254.6 &> /dev/null; then
+    IP="10.103.254.6"
+    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@10.103.254.6:/ /home/"${USER}"/mnt/cmc3 &>/dev/null
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc3 &>/dev/null
     else
         fusermount -u -z ~/mnt/cmc3 ;
     fi
