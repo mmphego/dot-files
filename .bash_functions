@@ -1,5 +1,9 @@
 # Useful Functions
 
+# Create a new directory and enter it
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
 
 function commiter() {
     # Add file, commit and push
