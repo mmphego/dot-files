@@ -122,7 +122,7 @@ function connectSSHFS(){
     fi
 }
 function dbelab06mount(){
-    if timeout 2 ping -c 1 -W 2 192.168.4.14 &> /dev/null; then
+    if timeout 2 ping -c 1 -W 2 192.168.6.14 &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
         192.168.4.14:/ /home/"${USER}"/mnt/dbelab06 &>/dev/null ;
     else
