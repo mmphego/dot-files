@@ -61,12 +61,13 @@
       </property>
       <property name="names-visible" type="array">
         <value type="string" value="thunar"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="system-config-printer"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="megasync"/>
         <value type="string" value="wicd-client.py"/>
-        <value type="string" value="network"/>
         <value type="string" value="simplescreenrecorder"/>
+        <value type="string" value="network"/>
         <value type="string" value="task manager"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="update-notifier"/>
@@ -81,6 +82,7 @@
     </property>
     <property name="plugin-5" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="vlc"/>
     </property>
     <property name="plugin-6" type="string" value="indicator">
       <property name="blacklist" type="array">

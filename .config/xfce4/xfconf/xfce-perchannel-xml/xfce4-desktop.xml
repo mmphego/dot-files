@@ -20,16 +20,16 @@
         <property name="image-show" type="empty"/>
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="3"/>
-          <property name="image-style" type="int" value="2"/>
-          <property name="last-image" type="string" value="/home/mmphego/glasses-and-computer-screen.jpg"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/mmphego/Pictures/glasses-and-computer-screen.jpg"/>
           <property name="color1" type="array">
             <value type="uint" value="5397"/>
             <value type="uint" value="8738"/>
             <value type="uint" value="13107"/>
             <value type="uint" value="65535"/>
           </property>
-          <property name="brightness" type="int" value="0"/>
-          <property name="saturation" type="double" value="1.000000"/>
+          <property name="brightness" type="int" value="-66"/>
+          <property name="saturation" type="double" value="5.500000"/>
           <property name="backdrop-cycle-enable" type="bool" value="false"/>
         </property>
         <property name="workspace1" type="empty">
