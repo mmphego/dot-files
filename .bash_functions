@@ -26,6 +26,10 @@ function git () {
     fi
 }
 
+function clone() {
+    git clone --progress "$@"
+}
+
 function ssh() {
     # Always ssh with -X
     command ssh -X "$@"
