@@ -15,8 +15,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lh='ls -lh'
-# Network Start, Stop, and Restart
-alias light='xbacklight -set'
+alias nan='nano'
 
 
 # Apt
@@ -28,10 +27,7 @@ alias links='links2'
 alias install='sudo apt-get -y install'
 alias uninstall='sudo apt-get --purge autoremove '
 alias search-installed='sudo dpkg --get-selections '
-alias upgrade-pips='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U
-'
-#alias cleanPC='sudo apt-get -y autoclean && sudo apt-get -y clean && sudo apt-get -y autoremove'
-
+alias upgrade-pips='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
 
 alias lsdir='ls -ld */'
 alias display='eog -w'
@@ -67,6 +63,3 @@ alias cmc3='ssh -X 10.103.254.6'
 alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
-
-
-
