@@ -13,7 +13,7 @@ function commiter() {
     else
         git commit -m"$2";
     fi;
-    $(git push -q >> /dev/null 2>&1) &
+    bash -c "$(git push -q >> /dev/null 2>&1) &"
     }
 
 # When checking out new branch always set upstream
