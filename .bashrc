@@ -144,6 +144,17 @@ if [[ $- == *i* ]]; then
     bind 'set completion-ignore-case on'
 fi
 
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+
 hash -r
 export PATH=$PATH:$HOME/bin
 
@@ -152,3 +163,6 @@ IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print
 printf "${LIGHTGREEN}Hello, $USER@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)${NC}\n"
+
+
+fortune | cowsay
