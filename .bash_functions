@@ -9,9 +9,9 @@ function commiter() {
     # Add file, commit and push
     git add -f "$1";
     if [ "$2" == "" ]; then
-        git commit -m"Updated $1";
+        git commit -nm"Updated $1";
     else
-        git commit -m"$2";
+        git commit -nm"$2";
     fi;
     bash -c "$(git push -q >> /dev/null 2>&1) &"
     }
