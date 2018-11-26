@@ -124,7 +124,7 @@ export PS1="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h
 function disconnect() {
     # Disconnect all mounted disks
     for DIR in $(ls "${HOME}/mnt"); do
-        /bin/fusermount -u -z "${DIR}" || true
+        /bin/fusermount -u -z "${DIR}" > /dev/null 2>&1 || true
     done
     }
 
