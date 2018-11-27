@@ -16,16 +16,6 @@ function commiter() {
     bash -c "git push -q &"
     }
 
-# When checking out new branch always set upstream
-function git () {
-    if [ "$1" == "checkout" ] && [ "$2" == "-b" ]; then
-        shift 1
-        command git branch -u origin "$3"
-    else
-        command git "$@"
-    fi
-}
-
 function clone() {
     git clone --progress "$@"
 }
