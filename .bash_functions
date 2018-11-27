@@ -59,25 +59,18 @@ function psgrep() {
 	fi
 }
 
-#source $HOME/.opt/Xilinx/Vivado/2017.2/settings64.sh
-#source $HOME/.opt/Vivado/2018.1/settings64.sh
-
-#export YOCTODIR=$HOME/Documents/Xilinx/EmbeddedLinux/Yocto/poky
-#export PETADIR=$HOME/Documents/Xilinx/EmbeddedLinux/Petalinux
 function cd {
     # The 'builtin' keyword allows you to redefine a Bash builtin without
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
     builtin cd "$@"
-#    if [ "$PWD" == "$YOCTODIR" ] ;
-#        then
-#            bash $YOCTODIR/.source_yocto
-#    elif [ "$PWD" == "$PETADIR" ] ;
-#        then
-#            bash $PETADIR/.source_petalinux
-#    else
-        ls -thor ;
-#    fi
+
+    if [ -d ".git" ]; then
+        git status -s >> /dev/null 2>&1
+        [ $? -eq 0 ] && /usr/bin/notify-send -u critical "You have uncommited changes on: $(git worktree list)"
+    fi
+
+    ls -thor ;
 }
 
 function pip() {
