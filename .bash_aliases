@@ -56,6 +56,8 @@ alias killfirefox="pkill -9 firefox"
 alias killslack="pkill -9 slack"
 alias CD='cd'
 
+alias git=hub
+
 # Log into to Server
 alias dbelab04='ssh -X dbelab04'
 alias dbelab06='ssh -X dbelab06'
@@ -63,3 +65,4 @@ alias cmc3='ssh -X 10.103.254.6'
 alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
+
