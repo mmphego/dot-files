@@ -29,6 +29,14 @@ function rsync(){
     command rsync --progress "$@"
 }
 
+function wrapper(){
+    # Desktop notification when long running commands complete
+    start=$(date +%s)
+    "$@"
+    [ $(($(date +%s) - start)) -le 15 ] || notify-send "Notification" "Long\
+running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
+}
+
 function extract () {
      if [ -f $1 ] ; then
          case $1 in
@@ -154,6 +162,5 @@ function cmc3mount(){
         fusermount -u -z ~/mnt/cmc3 ;
     fi
 }
-
 
 
