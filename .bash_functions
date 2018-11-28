@@ -2,7 +2,7 @@
 
 # Create a new directory and enter it
 function mk() {
-  mkdir -p "$@" && cd "$@"
+    mkdir -p "$@" && echo "You are in: $@" && cd "$@"
 }
 
 function committer() {
