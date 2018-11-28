@@ -67,7 +67,11 @@ function cd {
 
     if [ -d ".git" ]; then
         git status -s >> /dev/null 2>&1
-        [ $? -eq 0 ] && /usr/bin/notify-send -t 5 "You have uncommited changes on: $(git worktree list)"
+        SPANOPEN="<span color='red' font='18px'><i><b>"
+        SPANCLOSE="</b></i></span>"
+        [ $? -eq 0 ] && /usr/bin/notify-send -t 10000 --icon=error \
+                                "Notification" \
+                                "${SPANOPEN}You have uncommited changes on: $(git worktree list)${SPANCLOSE}" >/dev/null 2>&1
     fi
 
     ls -thor ;

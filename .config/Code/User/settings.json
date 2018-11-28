@@ -1,7 +1,7 @@
 {
     "editor.quickSuggestionsDelay": 25,
     "editor.detectIndentation": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.matchBrackets": true,
     "editor.tabSize": 4,
     "files.trimTrailingWhitespace": true,
