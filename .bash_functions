@@ -5,7 +5,7 @@ function mk() {
   mkdir -p "$@" && cd "$@"
 }
 
-function commiter() {
+function committer() {
     # Add file, commit and push
     git add -f "$1";
     if [ "$2" == "" ]; then
@@ -67,7 +67,7 @@ function cd {
 
     if [ -d ".git" ]; then
         git status -s >> /dev/null 2>&1
-        [ $? -eq 0 ] && /usr/bin/notify-send -u critical "You have uncommited changes on: $(git worktree list)"
+        [ $? -eq 0 ] && /usr/bin/notify-send -t 5 "You have uncommited changes on: $(git worktree list)"
     fi
 
     ls -thor ;
