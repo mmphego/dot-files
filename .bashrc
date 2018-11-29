@@ -162,7 +162,7 @@ export PATH=$PATH:$HOME/bin
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
 printf "${LIGHTGREEN}Hello, $USER@${IP_ADD}\n"
 printf "Today is, $(date)\n";
-printf "Sysinfo: $(uptime)${NC}\n"
+printf "Sysinfo: $(uptime)\n"
+printf "\nTodays fortune: $(fortune)${NC}\n"
 
 
-fortune | cowsay
