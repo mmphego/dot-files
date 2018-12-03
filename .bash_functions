@@ -13,7 +13,7 @@ function committer() {
     else
         git commit -nm"$2";
     fi;
-    bash -c "git push -q &"
+    bash -c "git push --no-verify -q &"
     }
 
 function clone() {
@@ -127,7 +127,7 @@ function connectSSHFS(){
     IP="192.168.4.23"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab04 &>/dev/null ;
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab04
     else
         fusermount -u -z ~/mnt/dbelab04 ;
     fi
@@ -137,7 +137,7 @@ function dbelab06mount(){
     IP="192.168.6.14"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab06 &>/dev/null ;
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab0
     else
         fusermount -u -z ~/mnt/dbelab06 ;
     fi
@@ -147,7 +147,7 @@ function cmc2mount(){
     IP="10.103.254.3"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc2 &>/dev/null
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc2
     else
         fusermount -u -z ~/mnt/cmc2 ;
     fi
@@ -157,10 +157,9 @@ function cmc3mount(){
     IP="10.103.254.6"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc3 &>/dev/null
+        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc3
     else
         fusermount -u -z ~/mnt/cmc3 ;
     fi
 }
-
 

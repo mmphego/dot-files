@@ -2,7 +2,7 @@
 	email = mpho112@gmail.com
 	name = Mpho Mphego
 [core]
-	editor = nano 
+	editor = nano
 	askpass = git-gui--askpass
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -19,6 +19,7 @@
 	diff = auto
 	interactive = auto
 	status = auto
+
 [push]
 	default = current
 
