@@ -1,5 +1,3 @@
-set -e
-
 # Useful Functions
 
 # Create a new directory and enter it
@@ -26,7 +24,6 @@ function create-pr() {
         /usr/local/bin/hub pull-request -b master -h "${BRANCH}" --no-edit || true
     else
         >&2 echo "Failed to create PR, create it Manually"
-        exit 1
     fi
 }
 
