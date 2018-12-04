@@ -103,18 +103,22 @@ function pip() {
 #     command sudo "$@"
 #  fi
 #}
-
-git_branch () {
-    # Get current Git branch
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-    }
-
-git_last_update () {
-    # Get last update on current Git branch
-    git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ';
-    }
-
-export PS1="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h:\w\[\033[0;32m\] \$(git_branch) \$(git_last_update)\n\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
+_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
+__git_status() {
+    STATUS=$(git status 2>/dev/null |
+    awk '
+    /^On branch / {printf($3)}
+    /^Changes not staged / {printf("|?changes not staged")}
+    /^Changes to be committed/ {printf("|* uncommitted changes")}
+    /^Your branch is ahead of/ {printf("|^Push changes!")}
+    ')
+    if [ -n "$STATUS" ]; then
+        echo -ne " ($STATUS) [$(git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ')]"
+    fi
+}
+__ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h@${_ip_add}:\w\[\033[0;32m\]"
+__ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
+export PS1="${__ps1_startline} \$(__git_status)\n ${__ps1_endline}"
 
 function disconnect() {
     # Disconnect all mounted disks
