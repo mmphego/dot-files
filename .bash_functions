@@ -13,8 +13,19 @@ function committer() {
     else
         git commit -nm"$2";
     fi;
-    bash -c "git push --no-verify -q &"
+    read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
+    [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
     }
+
+function create-pr() {
+    BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+    git push -u origin "${BRANCH}" || true;
+    if [ -f /usr/local/bin/hub ]; then
+        /usr/local/bin/hub pull-request -b master -h "${BRANCH}" --no-edit || true
+    else
+        >&2 echo "Failed to create PR, create it Manually"
+    fi
+}
 
 function clone() {
     git clone --progress "$@"
