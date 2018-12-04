@@ -103,7 +103,7 @@ function pip() {
 #     command sudo "$@"
 #  fi
 #}
-_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
+        _ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
 __git_status() {
     STATUS=$(git status 2>/dev/null |
     awk '
@@ -113,7 +113,7 @@ __git_status() {
     /^Your branch is ahead of/ {printf("|^Push changes!")}
     ')
     if [ -n "$STATUS" ]; then
-        echo -ne " ($STATUS) [$(git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ')]"
+        echo -ne " ($STATUS) [Last updated: $(git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ')]"
     fi
 }
 __ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\]"
