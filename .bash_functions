@@ -1,3 +1,5 @@
+set -e
+
 # Useful Functions
 
 # Create a new directory and enter it
@@ -13,13 +15,15 @@ function committer() {
     else
         git commit -nm"$2";
     fi;
-    bash -c "git push --no-verify -q &"
+    read -t 10 -p "Hit ENTER if you want to push else wait 10 seconds"
+    [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
     }
 
 function create-pr() {
-    git push -u origin "$(git rev-parse --abbrev-ref HEAD)" || true;
+    BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+    git push -u origin "${BRANCH}" || true;
     if [ -f /usr/local/bin/hub ]; then
-        /usr/local/bin/hub pull-request -b master -h $(git rev-parse --abbrev-ref HEAD) --no-edit || true
+        /usr/local/bin/hub pull-request -b master -h "${BRANCH}" --no-edit || true
     else
         >&2 echo "Failed to create PR, create it Manually"
         exit 1
