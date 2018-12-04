@@ -16,6 +16,16 @@ function committer() {
     bash -c "git push --no-verify -q &"
     }
 
+function create-pr() {
+    git push -u origin "$(git rev-parse --abbrev-ref HEAD)" || true;
+    if [ -f /usr/local/bin/hub ]; then
+        /usr/local/bin/hub pull-request -b master -h $(git rev-parse --abbrev-ref HEAD) --no-edit || true
+    else
+        >&2 echo "Failed to create PR, create it Manually"
+        exit 1
+    fi
+}
+
 function clone() {
     git clone --progress "$@"
 }
