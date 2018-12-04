@@ -13,7 +13,7 @@ function committer() {
     else
         git commit -nm"$2";
     fi;
-    read -t 10 -p "Hit ENTER if you want to push else wait 10 seconds"
+    read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
     }
 
