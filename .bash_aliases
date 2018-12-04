@@ -66,3 +66,4 @@ alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
 
+alias got=git
