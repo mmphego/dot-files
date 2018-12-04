@@ -90,7 +90,7 @@ function cd {
         SPANCLOSE="</b></i></span>"
         [ $? -eq 0 ] && /usr/bin/notify-send -t 10000 --icon=error \
                                 "Notification" \
-                                "${SPANOPEN}You have uncommited changes on: $(git worktree list)${SPANCLOSE}" >/dev/null 2>&1
+                                "${SPANOPEN}You have uncommitted changes on: $(git worktree list)${SPANCLOSE}" >/dev/null 2>&1
     fi
 
     ls -thor ;
@@ -105,16 +105,6 @@ function pip() {
     fi
 }
 
-#function sudo() {
-#  if [[ "$1" == "su" ]]; then
-#     shift 1
-#     printf "$(tput smso)$(tput setaf 1) [*** With great power comes great responsibility ***] $(tput sgr0)\n\n\n"
-#     command sudo bash -l
-#  else
-#     command sudo "$@"
-#  fi
-#}
-        _ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
 __git_status() {
     STATUS=$(git status 2>/dev/null |
     awk '
@@ -124,9 +114,11 @@ __git_status() {
     /^Your branch is ahead of/ {printf("|^Push changes!")}
     ')
     if [ -n "$STATUS" ]; then
-        echo -ne " ($STATUS) [Last updated: $(git log 2> /dev/null | head -n 3 | grep ^Date | cut -f4- -d' ')]"
+        echo -ne " ($STATUS) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
     fi
 }
+
+_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
 __ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\]"
 __ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
 export PS1="${__ps1_startline} \$(__git_status)\n ${__ps1_endline}"
