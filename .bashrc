@@ -163,6 +163,6 @@ IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print
 printf "${LIGHTGREEN}Hello, $USER@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)\n"
-printf "\nTodays fortune: $(fortune)${NC}\n"
+printf "\n$(fortune | cowsay)${NC}\n"
 
 
