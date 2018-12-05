@@ -82,18 +82,7 @@ function cd {
     # The 'builtin' keyword allows you to redefine a Bash builtin without
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
-    builtin cd "$@"
-
-    if [ -d ".git" ]; then
-        git status -s >> /dev/null 2>&1
-        SPANOPEN="<span color='red' font='18px'><i><b>"
-        SPANCLOSE="</b></i></span>"
-        [ $? -eq 0 ] && /usr/bin/notify-send -t 10000 --icon=error \
-                                "Notification" \
-                                "${SPANOPEN}You have uncommitted changes on: $(git worktree list)${SPANCLOSE}" >/dev/null 2>&1
-    fi
-
-    ls -thor ;
+    builtin cd "$@" && ls -thor;
 }
 
 function pip() {
@@ -122,6 +111,7 @@ _ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); pri
 __ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\]"
 __ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
 export PS1="${__ps1_startline} \$(__git_status)\n ${__ps1_endline}"
+
 
 function disconnect() {
     # Disconnect all mounted disks
