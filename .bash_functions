@@ -15,7 +15,7 @@ function committer() {
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
-    }
+}
 
 function create-pr() {
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -94,7 +94,7 @@ function pip() {
     fi
 }
 
-__git_status() {
+function __git_status() {
     STATUS=$(git status 2>/dev/null |
     awk '
     /^On branch / {printf($3)}
