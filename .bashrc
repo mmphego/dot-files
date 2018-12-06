@@ -166,3 +166,4 @@ printf "Sysinfo: $(uptime)\n"
 printf "\n$(fortune | cowsay)${NC}\n"
 
 
+source /home/mmphego/.venv/bin/activate

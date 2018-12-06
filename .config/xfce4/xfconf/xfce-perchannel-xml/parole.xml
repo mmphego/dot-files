@@ -11,7 +11,7 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/mmphego/MEGAsync Downloads"/>
+    <property name="last-used-media" type="string" value="/home/mmphego/delete me"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="false"/>

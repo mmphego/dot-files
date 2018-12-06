@@ -82,7 +82,7 @@
     </property>
     <property name="plugin-5" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="vlc"/>
+      <property name="mpris-players" type="string" value="parole;vlc"/>
     </property>
     <property name="plugin-6" type="string" value="indicator">
       <property name="blacklist" type="array">
