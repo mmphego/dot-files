@@ -1,7 +1,7 @@
 # Useful Functions
 
 # Create a new directory and enter it
-function mk() {
+function mkcd() {
     mkdir -p "$@" && echo "You are in: $@" && cd "$@" || exit 1
 }
 
