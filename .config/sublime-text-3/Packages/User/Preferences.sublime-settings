@@ -138,7 +138,7 @@
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
-	"font_size": 10,
+	"font_size": 15,
 	"ignored_packages":
 	[
 		"AutoImport",
