@@ -4,14 +4,16 @@
 [core]
 	editor = nano
 	askpass = git-gui--askpass
+
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	push = origin $(git symbolic-ref --short HEAD)
-    	create-pr="!f() { \
-            BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
-            git push -u origin "${BRANCH_NAME}"; \
-            hub pull-request --no-edit; \
-        };f"
+	create-pr="!f() { \
+        BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
+        git push -u origin "${BRANCH_NAME}"; \
+        hub pull-request --no-edit; \
+    };f"
+    clone = clone --progress
 
 [color]
 	ui = auto

@@ -28,8 +28,10 @@ function create-pr() {
     fi
 }
 
-function clone() {
-    git clone --progress "$@"
+function filefinder () {
+    for FILE in $(find . -type f -name "*$1"); do
+        echo ${FILE};
+    done
 }
 
 function ssh() {
