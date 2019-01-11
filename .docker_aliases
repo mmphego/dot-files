@@ -1,0 +1,4 @@
+### Docker Aliases
+
+# bat supports syntax highlighting for a large number of programming and markup languages
+alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'

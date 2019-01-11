@@ -102,6 +102,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# `Docker` Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.docker_aliases, instead of adding them here directly.
+
+if [ -f ~/.docker_aliases ]; then
+    . ~/.docker_aliases
+fi
+
 # functions definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.

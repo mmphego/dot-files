@@ -1,4 +1,3 @@
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -10,20 +9,20 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+### some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lh='ls -lh'
 alias nan='nano'
 
-
-# Apt
+### Apt
 alias update='sudo apt -y update'
 alias upgrade='sudo apt-get -y update && sudo apt-get -y --allow-unauthenticated upgrade && sudo apt-get autoclean && sudo apt-get autoremove && exit 0'
 alias search='sudo apt search'
 alias links='links2'
-# Install and Remove Packages
+
+### Install and Remove Packages
 alias install='sudo apt-get -y install'
 alias uninstall='sudo apt-get --purge autoremove '
 alias search-installed='sudo dpkg --get-selections '
@@ -45,18 +44,20 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias cd..='cd ..'
+# Typo cd alias
+alias CD='cd'
+
 alias youtube="youtube-dl"
 
-
-# Useful Alias
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias killfirefox="pkill -9 firefox"
 alias killslack="pkill -9 slack"
-alias CD='cd'
 
+### Git aliases
 alias git=hub
+alias got=git
 
 # Log into to Server
 alias dbelab04='ssh -X dbelab04'
@@ -66,4 +67,3 @@ alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
 
-alias got=git
