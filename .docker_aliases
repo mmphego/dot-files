@@ -1,4 +1,10 @@
 ### Docker Aliases
 
 # bat supports syntax highlighting for a large number of programming and markup languages
+# see: https://github.com/sharkdp/bat
+
 alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):/myapp" danlynn/bat'
+
+# A collection of simplified and community-driven man pages.
+# see: https://github.com/sharkdp/tldr
+alias tldr='docker run --rm -it -v ~/.tldr/:/root/.tldr/ nutellinoit/tldr'
