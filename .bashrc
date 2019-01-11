@@ -129,11 +129,9 @@ if ! shopt -oq posix; then
  fi
 fi
 
-
 if [ -f /etc/bash_completion.d/git-prompt ]; then
     . /etc/bash_completion.d/git-prompt
 fi
-
 
 if [ -f /var/run/reboot-required ]; then
     printf "$(tput smso)$(tput setaf 1)[*** Hello ${USER}, you must reboot your machine ***]$(tput sgr0)\n";
@@ -152,7 +150,6 @@ if [[ $- == *i* ]]; then
     bind 'set completion-ignore-case on'
 fi
 
-
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -162,9 +159,20 @@ shopt -s histappend
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-
 hash -r
 export PATH=$PATH:$HOME/bin
+
+source "${HOME}/.venv/bin/activate"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
+    source "${HOME}/google-cloud-sdk/path.bash.inc";
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then
+    source "${HOME}/google-cloud-sdk/completion.bash.inc";
+fi
 
 ########### Welcome Message ###########
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
@@ -172,12 +180,3 @@ printf "${LIGHTGREEN}Hello, $USER@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)\n"
 printf "\n$(fortune | cowsay)${NC}\n"
-
-
-source /home/mmphego/.venv/bin/activate
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mmphego/google-cloud-sdk/path.bash.inc' ]; then . '/home/mmphego/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mmphego/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mmphego/google-cloud-sdk/completion.bash.inc'; fi
