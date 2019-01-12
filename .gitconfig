@@ -12,7 +12,7 @@
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
         read -p 'Enter [y/n] if you want to create a PR: ' response; \
-        if [ $response != ${response#[Yy]} ] ;then hub pull-request --no-edit; fi \
+        if [[ $response != ${response#[Yy]} ]] ;then hub pull-request --no-edit; fi \
         };fnc"
     create-pr="!f() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
