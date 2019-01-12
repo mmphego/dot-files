@@ -13,9 +13,8 @@
         git push origin ${BRANCH_NAME}; \
         echo 'Do you want to create a PR (y/n)'; \
         read -t 5 -r response; \
-        if [[ ${response} =~ ^([yY][eE][sS]|[yY])$ ]]; then \
-            hub pull-request --no-edit; \
-        fi };fnc"
+        if [ $response != ${response#[Yy]} ] ;then hub pull-request --no-edit; fi \
+        };fnc"
     create-pr="!f() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push -u origin "${BRANCH_NAME}"; \
