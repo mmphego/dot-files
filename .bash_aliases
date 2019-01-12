@@ -47,6 +47,8 @@ alias cd..='cd ..'
 # Typo cd alias
 alias CD='cd'
 
+alias man='tldr'
+
 alias youtube="youtube-dl"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -58,6 +60,7 @@ alias killslack="pkill -9 slack"
 ### Git aliases
 alias git=hub
 alias got=git
+alias clone='git clone --progress'
 
 # Log into to Server
 alias dbelab04='ssh -X dbelab04'

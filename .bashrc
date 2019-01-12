@@ -162,7 +162,9 @@ shopt -s cdspell
 hash -r
 export PATH=$PATH:$HOME/bin
 
-source "${HOME}/.venv/bin/activate"
+if [ -f "${HOME}/.venv/bin/activate" ]; then
+    source "${HOME}/.venv/bin/activate";
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
