@@ -54,6 +54,7 @@ alias youtube="youtube-dl"
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+### Kill Switch
 alias killfirefox="pkill -9 firefox"
 alias killslack="pkill -9 slack"
 
@@ -69,4 +70,7 @@ alias cmc3='ssh -X 10.103.254.6'
 alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
+
+# Networking
+alias ports='netstat -tulanp'
 
