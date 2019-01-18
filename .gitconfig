@@ -1,3 +1,4 @@
+
 [user]
     email = mpho112@gmail.com
     name = Mpho Mphego
@@ -8,6 +9,7 @@
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     push = origin $(git symbolic-ref --short HEAD)
+    pushf = push -f
     pushd="!fnc() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
@@ -20,6 +22,10 @@
         hub pull-request --no-edit; \
     };f"
     clone = clone --progress
+    commit-amend = "!fnc() { \
+        echo "Amending to previous commit with HEAD commit msg!"; echo; \
+        git commit --amend -anC HEAD; \
+        };fnc"
 
 [color]
     ui = auto

@@ -28,7 +28,7 @@ alias uninstall='sudo apt-get --purge autoremove '
 alias search-installed='sudo dpkg --get-selections '
 alias upgrade-pips='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
 
-alias lsdir='ls -ld */'
+alias lsdir='ls -thord */'
 alias display='eog -w'
 alias emptyDir='find . -empty -type d -delete'
 alias meng='cd ${HOME}/Dropbox/MEng_Stuff/MEng-Progress'
@@ -48,8 +48,8 @@ alias cd..='cd ..'
 alias CD='cd'
 
 alias man='tldr'
-
 alias youtube="youtube-dl"
+alias pdf=evince
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -73,4 +73,3 @@ alias cmc1='ssh -X 10.103.254.1'
 
 # Networking
 alias ports='netstat -tulanp'
-
