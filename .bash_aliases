@@ -48,8 +48,9 @@ alias cd..='cd ..'
 alias CD='cd'
 
 alias man='tldr'
-alias youtube="youtube-dl"
-alias pdf=evince
+alias youtube='youtube-dl'
+alias youtube-mp3='youtube-dl -x --audio-format mp3'
+alias pdf='evince'
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
