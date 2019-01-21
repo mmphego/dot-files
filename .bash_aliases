@@ -44,9 +44,11 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias cd..='cd ..'
+
 # Typo cd alias
 alias CD='cd'
 
+alias hist-grep='history | grep --color=always'
 alias man='tldr'
 alias youtube='youtube-dl'
 alias youtube-mp3='youtube-dl -x --audio-format mp3'
@@ -65,12 +67,12 @@ alias got=git
 alias clone='git clone --progress'
 
 # Log into to Server
-alias dbelab04='ssh -X dbelab04'
-alias dbelab06='ssh -X dbelab06'
-alias cmc3='ssh -X 10.103.254.6'
-alias cmc2='ssh -X 10.103.254.3'
 alias camserver='ssh -X kat@10.8.67.161'
 alias cmc1='ssh -X 10.103.254.1'
+alias cmc2='ssh -X 10.103.254.3'
+alias cmc3='ssh -X 10.103.254.6'
+alias dbelab04='ssh -X dbelab04'
+alias dbelab06='ssh -X dbelab06'
 
 # Networking
 alias ports='netstat -tulanp'

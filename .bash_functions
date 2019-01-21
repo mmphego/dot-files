@@ -115,8 +115,8 @@ function __git_status() {
     /^Changes to be committed/ {printf("|*Uncommitted changes!")}
     /^Your branch is ahead of/ {printf("|^Push changes!")}
     ')
-    if [ -n "$STATUS" ]; then
-        echo -ne " ($STATUS) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
+    if [ -n "${STATUS}" ]; then
+        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
     fi
 }
 
