@@ -9,8 +9,11 @@ notifications:
 install:
   - rsync -uar --delete-after {.,}* "${HOME}" && cd "${HOME}"
 
-script:
+before_script:
   - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
 
-after_script:
+script:
   - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" test
+
+after_script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" delete
