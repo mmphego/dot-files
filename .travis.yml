@@ -3,6 +3,9 @@ language: shell
 git:
   depth: 2
 
+notifications:
+  email: change
+
 install:
   - rsync -uar --delete-after {.,}* "${HOME}"
 
