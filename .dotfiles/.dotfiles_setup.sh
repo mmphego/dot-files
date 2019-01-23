@@ -43,8 +43,8 @@ elif [ "$1" == "test" ]; then
             fi
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
         echo "Created symlinks...";
-        ls -thora "${HOME}" | grep " -> ";
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
+    ls -thora "${HOME}" | grep " -> ";
 else
     echo "'$1' is not a known function name" >&2
     exit 1;
