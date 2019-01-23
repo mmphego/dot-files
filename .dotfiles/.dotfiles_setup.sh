@@ -10,8 +10,8 @@ if [ "$1" == '' ]; then
     exit 1;
 elif [ "$1" == "install" ]; then
     while IFS= read -r -d '' FILE; do
-        ACT_FILE="$(echo ${FILE} | cut -f5 -d "/")";
         while IFS= read -r -d '' FILES; do
+        ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
             echo "Creating symlink:${FILES} -> ${HOME}/${ACT_FILE}";
             mv "${HOME}/${ACT_FILE}" "${HOME}/${ACT_FILE}.bk" >/dev/null 2>&1 || true;
             ln -sf "${FILES}" "${HOME}/${ACT_FILE}";
