@@ -1,0 +1,19 @@
+language: shell
+
+git:
+  depth: 2
+
+notifications:
+  email: change
+
+install:
+  - rsync -uar --delete-after {.,}* "${HOME}" && cd "${HOME}" && ls -thora "${HOME}"
+
+before_script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
+
+script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" test
+
+after_script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" delete
