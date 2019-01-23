@@ -4,7 +4,7 @@ git:
   depth: 2
 
 script:
-  - bash "${HOME}/.dotfiles_setup.sh" install
+  - bash .dotfiles_setup.sh install
 
 after_script:
-  - bash "${HOME}/.dotfiles_setup.sh" test
+  - bash .dotfiles_setup.sh test
