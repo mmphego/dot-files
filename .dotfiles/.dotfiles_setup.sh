@@ -9,6 +9,7 @@ if [ "$1" == '' ]; then
     echo "Usage: $0 install or $0 delete or $0 test"
     exit 1;
 elif [ "$1" == "install" ]; then
+# Install  symlinks
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -19,7 +20,7 @@ elif [ "$1" == "install" ]; then
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 
 elif [ "$1" == "delete" ]; then
-
+# Delete symlinks and restore the backed up dotfiles
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -31,7 +32,7 @@ elif [ "$1" == "delete" ]; then
             fi
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
-
+# Testing whether symlinks where installed
 elif [ "$1" == "test" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
