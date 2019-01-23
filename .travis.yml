@@ -3,10 +3,13 @@ language: shell
 git:
   depth: 2
 
-script:
+install:
   - ls -thora
   - rsync -uar --delete-after {.,}* "${HOME}"
   - ls -thora "${HOME}"
+
+after_script:
+  - bash .dotfiles_setup.sh install
 
 after_script:
   - bash .dotfiles_setup.sh test
