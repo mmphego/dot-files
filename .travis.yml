@@ -3,12 +3,8 @@ language: shell
 git:
   depth: 2
 
-install:
-  - ls -thora
-  - mv -v ../dot-files/* "${HOME}/.dotfiles/"
 script:
-  - ls -a "${HOME}/.dotfiles/"
-  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
+  - bash "${HOME}/.dotfiles_setup.sh" install
 
 after_script:
-  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" test
+  - bash "${HOME}/.dotfiles_setup.sh" test
