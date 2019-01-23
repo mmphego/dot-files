@@ -8,8 +8,8 @@ if [ "$1" == '' ]; then
     echo "Available functions: install or delete or test";
     echo "Usage: $0 install or $0 delete or $0 test"
     exit 1;
-elif [ "$1" == "install" ]; then
 # Install  symlinks
+elif [ "$1" == "install" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -19,8 +19,8 @@ elif [ "$1" == "install" ]; then
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 
-elif [ "$1" == "delete" ]; then
 # Delete symlinks and restore the backed up dotfiles
+elif [ "$1" == "delete" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -43,6 +43,7 @@ elif [ "$1" == "test" ]; then
                 exit 1;
             fi
             rsync -vuar --delete-after "${HOME}/${ACT_FILE}.bk" "${HOME}/${ACT_FILE}";
+            rsync -vuar --delete-after "${HOME}/${ACT_FILE}.bk" "${HOME}/${ACT_FILE}"
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
         echo "Created symlinks...";
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
