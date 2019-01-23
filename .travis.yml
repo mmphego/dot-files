@@ -7,7 +7,7 @@ install:
   - rsync -uar --delete-after {.,}* "${HOME}"
 
 script:
-  - bash .dotfiles_setup.sh install
+  - bash -x .dotfiles_setup.sh install
 
 after_script:
-  - bash .dotfiles_setup.sh test
+  - bash -x .dotfiles_setup.sh test
