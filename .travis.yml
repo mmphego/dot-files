@@ -11,7 +11,7 @@ install:
 
 script:
   - ls -thora
-  - bash -x .dotfiles_setup.sh || true
+  - bash -x "${HOME}/.dotfiles/.dotfiles_setup.sh" || true
   - ./.dotfiles_setup.sh || true
   # - bash -x .dotfiles_setup.sh install
 
