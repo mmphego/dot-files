@@ -2,7 +2,7 @@
 # My dotfiles setup script
 # Author: Mpho Mphego <mmphego@ska.ac.za>
 
-set -e
+set -ex
 
 if [ "$1" == '' ]; then
     echo "Available functions: install or delete or test";
