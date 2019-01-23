@@ -31,6 +31,7 @@ elif [ "$1" == "delete" ]; then
             fi
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
+    ls -thora "${HOME}"
 
 elif [ "$1" == "test" ]; then
     while IFS= read -r -d '' FILE; do
