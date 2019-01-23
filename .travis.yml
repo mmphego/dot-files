@@ -6,6 +6,7 @@ git:
 install:
   - mv ../dot-files "${HOME}/.dotfiles"
   - cd $HOME && ls -thora && ls -thora .dotfiles
+  - cd "${HOME}/.dotfiles" && ls -thora .dotfiles
 script:
   - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
 
