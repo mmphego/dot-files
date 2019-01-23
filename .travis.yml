@@ -7,7 +7,7 @@ notifications:
   email: change
 
 install:
-  - rsync -uar --delete-after {.,}* "${HOME}" && cd "${HOME}"
+  - rsync -uar --delete-after {.,}* "${HOME}" && cd "${HOME}" && ls -thora "${HOME}"
 
 before_script:
   - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
