@@ -41,6 +41,8 @@ elif [ "$1" == "test" ]; then
                 echo "${HOME}/${ACT_FILE}: Symlink doesn't exist";
                 exit 1;
             fi
+            echo "Created symlinks...";
+            ls -thora "${HOME}" | grep " -> ";
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 else
