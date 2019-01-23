@@ -11,7 +11,7 @@ if [ "$1" == '' ]; then
 elif [ "$1" == "install" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
-        ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
+            ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
             echo "Creating symlink:${FILES} -> ${HOME}/${ACT_FILE}";
             mv "${HOME}/${ACT_FILE}" "${HOME}/${ACT_FILE}.bk" >/dev/null 2>&1 || true;
             ln -sf "${FILES}" "${HOME}/${ACT_FILE}";
@@ -41,6 +41,7 @@ elif [ "$1" == "test" ]; then
                 echo "${HOME}/${ACT_FILE}: Symlink doesn't exist";
                 exit 1;
             fi
+            rsync -uar --delete-after "${HOME}/${ACT_FILE}.bk" "${HOME}/${ACT_FILE}" >/dev/null 2>&1 || true;
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
         echo "Created symlinks...";
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
