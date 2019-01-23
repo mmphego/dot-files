@@ -1,1 +1,0 @@
-/home/mmphego/.dotfiles/.bash_functions
