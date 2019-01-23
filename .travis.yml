@@ -5,7 +5,7 @@ git:
 
 script:
   - ls -thora
-  - mv -v *.* "${HOME}"
+  - rsync -vuar --delete-after {.,}* "${HOME}"
   - ls -thora "${HOME}"
 
 after_script:
