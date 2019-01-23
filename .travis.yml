@@ -4,7 +4,8 @@ git:
   depth: 2
 
 install:
-  - mv -v ../dot-files "${HOME}/.dotfiles"
+  - ls -thora
+  - mv -v ../dot-files/* "${HOME}/.dotfiles/"
 script:
   - ls -a "${HOME}/.dotfiles/"
   - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
