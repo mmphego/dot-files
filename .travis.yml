@@ -6,7 +6,7 @@ git:
 install:
   - rsync -uar --delete-after {.,}* "${HOME}"
 
-after_script:
+script:
   - bash .dotfiles_setup.sh install
 
 after_script:
