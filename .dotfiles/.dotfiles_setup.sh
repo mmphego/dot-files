@@ -12,8 +12,9 @@ elif [ "$1" == "install" ]; then
     while IFS= read -r -d '' FILE; do
         ACT_FILE="$(echo ${FILE} | cut -f5 -d "/")";
         echo "Creating symlink:${FILE} -> ${HOME}/${ACT_FILE}";
+        mv "${HOME}/${ACT_FILE}" "${HOME}/${ACT_FILE}.bk"
         ln -sf "${FILE}" "${HOME}/${ACT_FILE}";
-    done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
+    done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 
 elif [ "$1" == "delete" ]; then
     while IFS= read -r -d '' FILE; do
@@ -24,16 +25,17 @@ elif [ "$1" == "delete" ]; then
             echo "Failed to remove symlink";
             exit 1;
         fi
-    done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
+    done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 
 elif [ "$1" == "test" ]; then
     while IFS= read -r -d '' FILE; do
         ACT_FILE="$(echo ${FILE} | cut -f5 -d "/")";
+        echo "Checking if symlink exists: ${HOME}/${ACT_FILE}";
         if [ ! -L "${HOME}/${ACT_FILE}" ]; then
             echo "${HOME}/${ACT_FILE}: Symlink doesn't exist";
             exit 1;
         fi
-    done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
+    done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
 else
     echo "'$1' is not a known function name" >&2
     exit 1;

@@ -1,0 +1,13 @@
+language: shell
+
+git:
+  depth: 2
+
+install:
+  - mv ../dot-files "${HOME}/.dotfiles"
+  - cd $HOME && ls -thora && ls -thora .dotfiles
+script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" install
+
+after_script:
+  - bash "${HOME}/.dotfiles/.dotfiles_setup.sh" test
