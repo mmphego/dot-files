@@ -14,7 +14,7 @@ elif [ "$1" == "install" ]; then
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
             echo "Creating symlink:${FILES} -> ${HOME}/${ACT_FILE}";
-            mv -v "${HOME}/${ACT_FILE}" "${HOME}/${ACT_FILE}.bk" || true;
+            rsync -vuar --delete-after "${HOME}/${ACT_FILE}" "${HOME}/${ACT_FILE}.bk" || true;
             ln -sf "${FILES}" "${HOME}/${ACT_FILE}";
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
@@ -25,7 +25,7 @@ elif [ "$1" == "delete" ]; then
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
             echo "Deleting symlink: ${HOME}/${ACT_FILE}";
-            mv "${HOME}/${ACT_FILE}" /tmp
+            rsync -vuar --delete-after "${HOME}/${ACT_FILE}" /tmp
             if [ -L "${HOME}/${ACT_FILE}" ]; then
                 echo "Failed to remove symlink";
                 exit 1;
