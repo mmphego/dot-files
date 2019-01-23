@@ -4,6 +4,7 @@ git:
   depth: 2
 
 script:
+  - ls thora
   - bash .dotfiles_setup.sh install
 
 after_script:
