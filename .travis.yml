@@ -5,7 +5,7 @@ git:
 
 script:
   - ls -thora
-  - mv * "${HOME}"
+  - mv -v *.* "${HOME}"
   - ls -thora "${HOME}"
 
 after_script:
