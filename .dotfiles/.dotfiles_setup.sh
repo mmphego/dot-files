@@ -2,9 +2,8 @@
 # My dotfiles setup script
 # Author: Mpho Mphego <mmphego@ska.ac.za>
 
-set -ex
+set -eo pipefail
 
-echo "Running script"
 if [ "$1" == '' ]; then
     echo "Available functions: install or delete or test";
     echo "Usage: $0 install or $0 delete or $0 test"
