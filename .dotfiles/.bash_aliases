@@ -48,6 +48,7 @@ alias cd..='cd ..'
 # Typo cd alias
 alias CD='cd'
 
+alias diff='colordiff -y'
 alias hist-grep='history | grep --color=always'
 alias man='tldr'
 alias youtube='youtube-dl'
