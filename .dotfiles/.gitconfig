@@ -50,10 +50,12 @@
         if [ \"${response}\" != \"${response#[Yy]}\" ]; then hub pull-request --no-edit; fi \
         };fnc"
     create-pr="!f() { \
+        REMOTE="devel"; \
+        if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi; \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push -u origin "${BRANCH_NAME}"; \
-        hub pull-request --no-edit; \
-    };f"
+        hub pull-request -b "${REMOTE}" -h "${BRANCH_NAME}" --no-edit; \
+        };f"
     clone = clone --progress
     # Need I say more
     commit-amend = "!fnc() { \

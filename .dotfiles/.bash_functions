@@ -18,13 +18,15 @@ function committer() {
 }
 
 function create-pr() {
-    REMOTE=${1:-devel}
+    REMOTE="devel";
+    if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     git push -u origin "${BRANCH}" || true;
     if [ -f /usr/local/bin/hub ]; then
         /usr/local/bin/hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
     else
         >&2 echo "Failed to create PR, create it Manually"
+        >&2 echo "If you would like to continue install hub: https://github.com/github/hub/"
     fi
 }
 
