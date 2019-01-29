@@ -1,15 +1,46 @@
+[include]
+    path = ~/.dotfiles/.gitconfig.private
 
-[user]
-    email = mpho112@gmail.com
-    name = Mpho Mphego
 [core]
     editor = nano
     askpass = git-gui--askpass
 
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+    # My life is full of typos
+    ad = add
+    og = log
+    lgo = log
+    cmomit = commit
+    comimt = commit
+    comit = commit
+    ocmmit = commit
+    ocmit = commit
+    ommit = commit
+    commt = commit
+    comit = commit
+    commi = commit
+    cmit = commit
+    omit = commit
+    cmt = commit
+    cinnut = commit
+    comkmit = commit
+    cmmit = commit
+    statsu = status
+    stat = status
+    statu = status
+    sttus = status
+    stats = status
+    satus = status
+    stts = status
+    st = status
+
+    # Pretty useful
+    ci=ci-status
     push = origin $(git symbolic-ref --short HEAD)
     pushf = push -f
+    # Life saver
     pushd="!fnc() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
@@ -22,9 +53,15 @@
         hub pull-request --no-edit; \
     };f"
     clone = clone --progress
+    # Need I say more
     commit-amend = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
         git commit --amend -anC HEAD; \
+        };fnc"
+    commit-amend-push = "!fnc() { \
+        echo "Amending to previous commit with HEAD commit msg!"; echo; \
+        git commit --amend -anC HEAD; \
+        git push -f; \
         };fnc"
 
 [color]
