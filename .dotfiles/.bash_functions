@@ -130,10 +130,9 @@ export PS1="${__ps1_startline}\$(__git_status)\n${__ps1_endline}"
 
 function disconnect() {
     # Disconnect all mounted disks
-    for DIR in $(ls "${HOME}/mnt"); do
-	/bin/fusermount -qzu "${HOME}/mnt/${DIR}";
-    done
-    }
+    while IFS= read -r -d '' file; 
+	do fusermount -qzu $file >/dev/null; 
+    done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0)    
 
 function connectSSHFS(){
     IP="192.168.4.23"
