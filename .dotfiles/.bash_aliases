@@ -64,9 +64,10 @@ alias killslack="pkill -9 slack"
 
 ### Git aliases
 alias git=hub
-alias get=git
-alias gut=git
-alias got=git
+alias it=hub
+alias get=hub
+alias gut=hub
+alias got=hub
 alias clone='git clone --progress'
 
 # Log into to Server
