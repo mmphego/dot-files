@@ -8,3 +8,7 @@ alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):
 # A collection of simplified and community-driven man pages.
 # see: https://github.com/sharkdp/tldr
 alias tldr='docker run --rm -it -v ~/.tldr/:/root/.tldr/ nutellinoit/tldr'
+
+# Simplified docker based markdown linter
+# see: https://github.com/mmphego/my-dockerfiles/
+alias markdownlint='docker run --rm -it -v "$(pwd):/app" mmphego/markdownlint'
