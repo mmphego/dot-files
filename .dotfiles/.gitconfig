@@ -84,3 +84,5 @@
 [credential]
     helper = store
 
+[init]
+	templatedir = /home/mmphego/GitHub/git-hooks/

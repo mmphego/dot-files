@@ -132,7 +132,8 @@ function disconnect() {
     # Disconnect all mounted disks
     while IFS= read -r -d '' file; 
 	do fusermount -qzu $file >/dev/null; 
-    done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0)    
+    done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0);
+}
 
 function connectSSHFS(){
     IP="192.168.4.23"
