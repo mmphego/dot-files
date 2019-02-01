@@ -15,7 +15,7 @@
   <property name="backdrop" type="empty">
     <property name="screen0" type="empty">
       <property name="monitor0" type="empty">
-        <property name="image-path" type="string" value="/usr/share/backgrounds/xfce/xfce-blue.jpg"/>
+        <property name="image-path" type="string" value="/home/mmphego/Pictures/glasses-and-computer-screen.jpg"/>
         <property name="image-style" type="empty"/>
         <property name="image-show" type="empty"/>
         <property name="workspace0" type="empty">
@@ -28,8 +28,8 @@
             <value type="uint" value="13107"/>
             <value type="uint" value="65535"/>
           </property>
-          <property name="brightness" type="int" value="-66"/>
-          <property name="saturation" type="double" value="5.500000"/>
+          <property name="brightness" type="int" value="0"/>
+          <property name="saturation" type="double" value="1.000000"/>
           <property name="backdrop-cycle-enable" type="bool" value="false"/>
         </property>
         <property name="workspace1" type="empty">
@@ -97,12 +97,32 @@
             <value type="double" value="1.000000"/>
           </property>
         </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/xfce4/backdrops/xubuntu-wallpaper.png"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/xfce4/backdrops/xubuntu-wallpaper.png"/>
+        </property>
       </property>
       <property name="monitorDP-1-3" type="empty">
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="5"/>
           <property name="last-image" type="string" value="/home/mmphego/Work/36406633-cthulhu-wallpaper.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-blue.jpg"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="image-style" type="int" value="5"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-blue.jpg"/>
         </property>
       </property>
     </property>

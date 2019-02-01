@@ -10,33 +10,35 @@
 
     # My life is full of typos
     ad = add
-    og = log
+    cinnut = commit
+    cmit = commit
+    cmmit = commit
+    cmomit = commit
+    cmt = commit
+    comimt = commit
+    comit = commit
+    comit = commit
+    comkmit = commit
+    commi = commit
+    commt = commit
     lgo = log
     lof = log
     loh = log
-    cmomit = commit
-    comimt = commit
-    comit = commit
-    ocmmit = commit
     ocmit = commit
-    ommit = commit
-    commt = commit
-    comit = commit
-    commi = commit
-    cmit = commit
+    ocmmit = commit
+    og = log
     omit = commit
-    cmt = commit
-    cinnut = commit
-    comkmit = commit
-    cmmit = commit
-    statsu = status
-    stat = status
-    statu = status
-    sttus = status
-    stats = status
+    ommit = commit
     satus = status
-    stts = status
     st = status
+    stat = status
+    stats = status
+    statsu = status
+    statu = status
+    stts = status
+    sttus = status
+    pusj = push
+    pus = push
 
     # Pretty useful
     ci=!hub ci-status
