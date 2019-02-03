@@ -31,7 +31,7 @@ alias upgrade-pips='sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | 
 alias lsdir='ls -thord */'
 alias display='eog -w'
 alias emptyDir='find . -empty -type d -delete'
-alias meng='cd ${HOME}/Dropbox/MEng_Stuff/MEng-Progress'
+alias meng='cd ${HOME}/MEGA/MEng_Stuff'
 alias media='sshfs -o reconnect media@192.168.1.10:/mnt /home/"${USER}"/mnt/media_srv'
 alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -h now'
