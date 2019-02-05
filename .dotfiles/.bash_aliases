@@ -20,6 +20,7 @@ alias nan='nano'
 alias update='sudo apt -y update'
 alias upgrade='sudo apt-get -y update && sudo apt-get -y --allow-unauthenticated upgrade && sudo apt-get autoclean && sudo apt-get autoremove && exit 0'
 alias search='sudo apt search'
+alias search-version='sudo apt-cache policy'
 alias links='links2'
 
 ### Install and Remove Packages
