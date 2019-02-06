@@ -68,6 +68,7 @@ alias killslack="pkill -9 slack"
 ### Git aliases
 alias git=hub
 alias it=hub
+alias gti=hub
 alias get=hub
 alias gut=hub
 alias got=hub

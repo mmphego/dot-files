@@ -21,6 +21,9 @@
     comkmit = commit
     commi = commit
     commt = commit
+    dif = diff
+    dfi = diff
+    df = diff
     lgo = log
     lof = log
     loh = log

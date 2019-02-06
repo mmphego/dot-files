@@ -20,7 +20,7 @@ elif [ "$1" == "install" ]; then
 
     find "${HOME}/.config/" *.xml -type f -prune | while read -r FILE;
         do sed -i "s/mmphego/${USER}/g" "${FILE}";
-    done
+    done || true
 
 elif [ "$1" == "delete" ]; then
 
