@@ -17,11 +17,6 @@ elif [ "$1" == "install" ]; then
             ln -sf "${FILES}" "${HOME}/${ACT_FILE}";
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
-
-    find "${HOME}/.config/" *.xml -type f -prune | while read -r FILE;
-        do sed -i "s/mmphego/${USER}/g" "${FILE}";
-    done || true
-
 elif [ "$1" == "delete" ]; then
 
     while IFS= read -r -d '' FILE; do
@@ -36,7 +31,6 @@ elif [ "$1" == "delete" ]; then
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
     ls -thora "${HOME}"
-
 elif [ "$1" == "test" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
