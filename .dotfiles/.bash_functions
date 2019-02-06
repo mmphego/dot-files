@@ -128,6 +128,12 @@ __ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36
 __ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
 export PS1="${__ps1_startline}\$(__git_status)\n${__ps1_endline}"
 
+function gpg_delete_all_keys() {
+    for KEY in $(gpg --with-colons --fingerprint | grep "^fpr" | cut -d: -f10); do
+        gpg --batch --delete-secret-keys "${KEY}";
+    done
+}
+
 function disconnect() {
     # Disconnect all mounted disks
     while IFS= read -r -d '' file;
