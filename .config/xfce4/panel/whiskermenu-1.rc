@@ -1,5 +1,5 @@
 favorites=exo-web-browser.desktop,exo-file-manager.desktop,megasync.desktop,mendeleydesktop.desktop,code.desktop,sublime_text.desktop
-recent=sublime_text.desktop,exo-file-manager.desktop,xfce4-screenshooter.desktop,xfce-settings-manager.desktop,xfce4-settings-editor.desktop,chromium-browser.desktop,xfce-display-settings.desktop,mendeleydesktop.desktop,slack.desktop,xscreensaver-properties.desktop
+recent=virtualbox.desktop,sublime_text.desktop,exo-file-manager.desktop,xfce4-screenshooter.desktop,xfce-settings-manager.desktop,xfce4-settings-editor.desktop,chromium-browser.desktop,xfce-display-settings.desktop,mendeleydesktop.desktop,slack.desktop
 button-title=Applications Menu
 button-icon=xubuntu-logo-menu
 button-single-row=false
