@@ -17,7 +17,7 @@ function committer() {
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
 }
 
-function createPR() {
+function createpr() {
     REMOTE="devel";
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
