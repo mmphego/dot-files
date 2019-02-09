@@ -143,3 +143,22 @@ printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)\n"
 printf "\n$(fortune | cowsay)${NC}\n"
 
+############################################# Fancy PS1 ############################################
+__git_status_info() {
+    STATUS=$(git status 2>/dev/null |
+    awk '
+    /^On branch / {printf($3)}
+    /^Changes not staged / {printf("|?Changes unstaged!")}
+    /^Changes to be committed/ {printf("|*Uncommitted changes!")}
+    /^Your branch is ahead of/ {printf("|^Push changes!")}
+    ')
+    if [ -n "${STATUS}" ]; then
+        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
+    fi
+}
+
+__disk_space=$(df --output=pcent /home | tail -1)
+_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
+__ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\] \[\033[0;34m\] [disk:${__disk_space}] \[\033[0;32m\]"
+__ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
+export PS1="${__ps1_startline}\$(__git_status_info)\n${__ps1_endline}"

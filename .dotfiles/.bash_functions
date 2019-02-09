@@ -1,11 +1,18 @@
 # Useful Functions
 
+sciget() {
+    # sci-hub.tw
+    # The first pirate website in the world to provide mass and public access to tens of millions of research papers
+    URL=$(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
+    wget "${URL}"
+}
+
 # Create a new directory and enter it
-function mkcd() {
+mkcd() {
     mkdir -p "$@" && echo "You are in: $@" && cd "$@" || exit 1
 }
 
-function committer() {
+committer() {
     # Add file, commit and push
     git add -f "$1";
     if [ "$2" == "" ]; then
@@ -17,7 +24,7 @@ function committer() {
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
 }
 
-function createpr() {
+createpr() {
     REMOTE="devel";
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -30,22 +37,22 @@ function createpr() {
     fi
 }
 
-function filefinder () {
+filefinder () {
     for FILE in $(find . -type f -name "*$1"); do
         echo ${FILE};
     done
 }
 
-function ssh() {
+ssh() {
     # Always ssh with -X
     command ssh -X "$@"
 }
 
-function rsync(){
+rsync() {
     command rsync --progress "$@"
 }
 
-function wrapper(){
+wrapper() {
     # Desktop notification when long running commands complete
     start=$(date +%s)
     "$@"
@@ -53,7 +60,7 @@ function wrapper(){
 running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
 }
 
-function extract () {
+extract () {
      if [ -f $1 ] ; then
          case $1 in
              *.tar.xz)    tar -xJf $1   ;;
@@ -75,7 +82,7 @@ function extract () {
      fi
 }
 
-function psgrep() {
+psgrep() {
 	if [ ! -z $1 ] ; then
 		echo "Grepping for processes matching $1..."
 		ps aux | grep $1 | grep -v grep
@@ -84,14 +91,14 @@ function psgrep() {
 	fi
 }
 
-function cd {
+cd() {
     # The 'builtin' keyword allows you to redefine a Bash builtin without
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
     builtin cd "$@" && ls -thor;
 }
 
-function pip() {
+pip() {
     if [[ "$1" == "install" ]]; then
         shift 1
         command pip install --no-cache-dir -U "$@"
@@ -100,7 +107,7 @@ function pip() {
     fi
 }
 
-function install-pkg() {
+install-pkg() {
     echo "Installing package: $1";
     if command -v gdebi >/dev/null;then
         sudo gdebi $1;
@@ -109,39 +116,20 @@ function install-pkg() {
     fi
 }
 
-function __git_status() {
-    STATUS=$(git status 2>/dev/null |
-    awk '
-    /^On branch / {printf($3)}
-    /^Changes not staged / {printf("|?Changes unstaged!")}
-    /^Changes to be committed/ {printf("|*Uncommitted changes!")}
-    /^Your branch is ahead of/ {printf("|^Push changes!")}
-    ')
-    if [ -n "${STATUS}" ]; then
-        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
-    fi
-}
-
-__disk_space=$(df --output=pcent /home | tail -1)
-_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
-__ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\] \[\033[0;34m\] [disk:${__disk_space}] \[\033[0;32m\]"
-__ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
-export PS1="${__ps1_startline}\$(__git_status)\n${__ps1_endline}"
-
-function gpg_delete_all_keys() {
+gpg_delete_all_keys() {
     for KEY in $(gpg --with-colons --fingerprint | grep "^fpr" | cut -d: -f10); do
         gpg --batch --delete-secret-keys "${KEY}";
     done
 }
 
-function disconnect() {
+disconnect() {
     # Disconnect all mounted disks
     while IFS= read -r -d '' file;
 	do fusermount -qzu $file >/dev/null;
     done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0);
 }
 
-function connectSSHFS(){
+connectSSHFS() {
     IP="192.168.4.23"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
@@ -151,7 +139,7 @@ function connectSSHFS(){
     fi
 }
 
-function dbelab06mount(){
+dbelab06mount() {
     IP="192.168.6.14"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
@@ -161,7 +149,7 @@ function dbelab06mount(){
     fi
 }
 
-function cmc2mount(){
+cmc2mount() {
     IP="10.103.254.3"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
@@ -171,7 +159,7 @@ function cmc2mount(){
     fi
 }
 
-function cmc3mount(){
+cmc3mount() {
     IP="10.103.254.6"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
