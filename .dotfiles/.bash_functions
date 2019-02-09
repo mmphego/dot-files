@@ -1,6 +1,6 @@
 # Useful Functions
 
-sciget(){
+sciget() {
     # sci-hub.tw
     # The first pirate website in the world to provide mass and public access to tens of millions of research papers
     URL=$(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
@@ -48,11 +48,7 @@ ssh() {
     command ssh -X "$@"
 }
 
-rsync(){
-    command rsync --progress "$@"
-}
-
-wrapper(){
+wrapper() {
     # Desktop notification when long running commands complete
     start=$(date +%s)
     "$@"
@@ -91,7 +87,7 @@ psgrep() {
 	fi
 }
 
-cd {
+cd() {
     # The 'builtin' keyword allows you to redefine a Bash builtin without
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
@@ -129,7 +125,7 @@ disconnect() {
     done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0);
 }
 
-connectSSHFS(){
+connectSSHFS() {
     IP="192.168.4.23"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
@@ -139,7 +135,7 @@ connectSSHFS(){
     fi
 }
 
-dbelab06mount(){
+dbelab06mount() {
     IP="192.168.6.14"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
@@ -149,7 +145,7 @@ dbelab06mount(){
     fi
 }
 
-cmc2mount(){
+cmc2mount() {
     IP="10.103.254.3"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
@@ -159,7 +155,7 @@ cmc2mount(){
     fi
 }
 
-cmc3mount(){
+cmc3mount() {
     IP="10.103.254.6"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
