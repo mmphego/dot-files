@@ -1,30 +1,31 @@
 # Bashrc
 stty -ixon # Disable ctrl-s and ctrl-q
 
+############################################# Fancy PS1 ############################################
+__git_status_info() {
+    STATUS=$(git status 2>/dev/null |
+    awk '
+    /^On branch / {printf($3)}
+    /^Changes not staged / {printf("|?Changes unstaged!")}
+    /^Changes to be committed/ {printf("|*Uncommitted changes!")}
+    /^Your branch is ahead of/ {printf("|^Push changes!")}
+    ')
+    if [ -n "${STATUS}" ]; then
+        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
+    fi
+}
+
+__disk_space=$(df --output=pcent /home | tail -1)
+_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
+__ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\] \[\033[0;34m\] [disk:${__disk_space}] \[\033[0;32m\]"
+__ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
+export PS1="${__ps1_startline}\$(__git_status_info)\n${__ps1_endline}"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-
-# Define a few Colours
-BLACK='\e[0;30m'
-BLUE='\e[0;34m'
-GREEN='\e[0;32m'
-CYAN='\e[0;36m'
-RED='\e[0;31m'
-PURPLE='\e[0;35m'
-BROWN='\e[0;33m'
-LIGHTGRAY='\e[0;37m'
-DARKGRAY='\e[1;30m'
-LIGHTBLUE='\e[1;34m'
-LIGHTGREEN='\e[1;32m'
-LIGHTCYAN='\e[1;36m'
-LIGHTRED='\e[1;31m'
-LIGHTPURPLE='\e[1;35m'
-YELLOW='\e[1;33m'
-WHITE='\e[1;37m'
-NC='\e[0m' # No Color
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -116,10 +117,6 @@ if [ -f /var/run/reboot-required ]; then
     printf "$(tput smso)$(tput setaf 1)[*** Hello ${USER}, you must reboot your machine ***]$(tput sgr0)\n";
 fi
 
-# Activate virtualenv
-if [ -f "${HOME}/.venv/bin/activate" ]; then
-    source "${HOME}/.venv/bin/activate";
-fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
@@ -143,22 +140,8 @@ printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)\n"
 printf "\n$(fortune | cowsay)${NC}\n"
 
-############################################# Fancy PS1 ############################################
-__git_status_info() {
-    STATUS=$(git status 2>/dev/null |
-    awk '
-    /^On branch / {printf($3)}
-    /^Changes not staged / {printf("|?Changes unstaged!")}
-    /^Changes to be committed/ {printf("|*Uncommitted changes!")}
-    /^Your branch is ahead of/ {printf("|^Push changes!")}
-    ')
-    if [ -n "${STATUS}" ]; then
-        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
-    fi
-}
 
-__disk_space=$(df --output=pcent /home | tail -1)
-_ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
-__ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\] \[\033[0;34m\] [disk:${__disk_space}] \[\033[0;32m\]"
-__ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
-export PS1="${__ps1_startline}\$(__git_status_info)\n${__ps1_endline}"
+# Activate virtualenv
+if [ -f "${HOME}/.venv/bin/activate" ]; then
+    source "${HOME}/.venv/bin/activate";
+fi

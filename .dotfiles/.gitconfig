@@ -25,6 +25,7 @@
     dff = diff
     dfi = diff
     df = diff
+    lo = log
     lgo = log
     lof = log
     loh = log
