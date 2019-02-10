@@ -3,8 +3,20 @@
 sciget() {
     # sci-hub.tw
     # The first pirate website in the world to provide mass and public access to tens of millions of research papers
-    URL=$(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
-    wget "${URL}"
+    curl -O $(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
+}
+
+getbibtex() {
+    # ieeexplore
+    # extract bibtex by id/url
+    INFO="$@"
+    if [[ "${INFO}" == http* ]]; then
+        ID=$(echo "${INFO}" | cut -f5 -d '/')
+    else
+        ID="${INFO}"
+    fi
+    curl -s --data "recordIds=${ID}&download-format=download-bibtex&citations-format=citation-abstract" https://ieeexplore.ieee.org/xpl/downloadCitations > "${ID}_reference".bib
+    sed -i "s/<br>//g" "${ID}_reference".bib
 }
 
 # Create a new directory and enter it
