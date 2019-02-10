@@ -4,11 +4,11 @@
 
 set -eo pipefail
 
-if [ "$1" == '' ]; then
+if [ "$@" == '' ]; then
     echo "Available functions: install or delete or test";
     echo "Usage: $0 install or $0 delete or $0 test"
     exit 1;
-elif [ "$1" == "install" ]; then
+elif [ "$@" == "install" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -17,8 +17,7 @@ elif [ "$1" == "install" ]; then
             ln -sf "${FILES}" "${HOME}/${ACT_FILE}";
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
-elif [ "$1" == "delete" ]; then
-
+elif [ "$@" == "delete" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -31,7 +30,7 @@ elif [ "$1" == "delete" ]; then
         done < <(find "${HOME}/.dotfiles" -maxdepth 1 -type f -print0)
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
     ls -thora "${HOME}"
-elif [ "$1" == "test" ]; then
+elif [ "$@" == "test" ]; then
     while IFS= read -r -d '' FILE; do
         while IFS= read -r -d '' FILES; do
             ACT_FILE="$(echo ${FILES} | cut -f5 -d "/")";
@@ -46,6 +45,6 @@ elif [ "$1" == "test" ]; then
     done < <(find "${HOME}" -mindepth 1 -maxdepth 1 -type d -iname ".dotfiles" -print0)
     ls -thora "${HOME}" | grep " -> ";
 else
-    echo "'$1' is not a known function name" >&2
+    echo "$@ is not a known function name" >&2
     exit 1;
 fi
