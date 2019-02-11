@@ -56,8 +56,8 @@ alias diff='colordiff -y'
 alias hist='history --color=always'
 alias hist-grep='history | grep --color=always'
 alias manual='tldr'
-alias youtube='youtube-dl'
-alias youtube-mp3='youtube-dl -x --audio-format mp3'
+alias youtube="$(which youtube-dl)"
+alias youtube-mp3="$(which youtube-dl) -x --audio-format mp3"
 alias pdf='evince'
 alias rsync='rsync --progress'
 
