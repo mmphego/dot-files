@@ -4,7 +4,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=always --group-directories-first'
     #alias dir='dir --color=always'
     #alias vdir='vdir --color=always'
-    alias grep='grep --color=always'
+    #alias grep='grep --color=always'
     alias fgrep='fgrep --color=always'
     alias egrep='egrep --color=always'
 fi
