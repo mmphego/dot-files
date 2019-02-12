@@ -26,9 +26,10 @@ mkcd() {
 
 committer() {
     # Add file, commit and push
-    git add -f "$1";
-    if [ "$2" == "" ]; then
-        git commit -nm"Updated $1";
+    FILE=$(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs)
+    for file in $FILE; do git add -f $file;done
+    if [ "$1" == "" ]; then
+        git commit -nm"Updated $FILE";
     else
         git commit -nm"$2";
     fi;
