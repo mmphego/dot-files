@@ -21,18 +21,18 @@ getbibtex() {
 
 # Create a new directory and enter it
 mkcd() {
-    mkdir -p "$@" && echo "You are in: $@" && cd "$@" || exit 1
+    mkdir -p "$@" && echo "You are in: $@" && builtin cd "$@" || exit 1
 }
 
 PullAll() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
-        do cd "${DIR}" >/dev/null 2&>1;
+        do builtin cd $DIR &>/dev/null;
         git pull &>/dev/null &
         echo "Updating ${DIR}";
-        cd - >/dev/null 2&>1;
+        builtin cd - &>/dev/null;
     done
-    cd "${CUR_DIR}";
+    builtin cd $CUR_DIR &>/dev/null;
 }
 
 committer() {
