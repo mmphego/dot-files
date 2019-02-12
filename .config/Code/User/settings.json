@@ -53,7 +53,7 @@
     "git.autofetch": true,
     "shellcheck.disableVersionCheck": true,
     "[python]": {
-        
+
     },
 
 
