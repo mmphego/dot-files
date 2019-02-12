@@ -24,6 +24,17 @@ mkcd() {
     mkdir -p "$@" && echo "You are in: $@" && cd "$@" || exit 1
 }
 
+PullAll() {
+    CUR_DIR=$(pwd)
+    find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
+        do cd "${DIR}" >/dev/null 2&>1;
+        git pull &>/dev/null &
+        echo "Updating ${DIR}";
+        cd - >/dev/null 2&>1;
+    done
+    cd "${CUR_DIR}";
+}
+
 committer() {
     # Add file(s), commit and push
     FILE=$(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs)
