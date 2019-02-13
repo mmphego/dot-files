@@ -1,11 +1,5 @@
 # Useful Functions
 
-sciget() {
-    # sci-hub.tw
-    # The first pirate website in the world to provide mass and public access to tens of millions of research papers
-    curl -O $(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
-}
-
 getbibtex() {
     # ieeexplore
     # extract bibtex by id/url
@@ -17,6 +11,13 @@ getbibtex() {
     fi
     curl -s --data "recordIds=${ID}&download-format=download-bibtex&citations-format=citation-abstract" https://ieeexplore.ieee.org/xpl/downloadCitations > "${ID}_reference".bib
     sed -i "s/<br>//g" "${ID}_reference".bib
+}
+
+sciget() {
+    # sci-hub.tw
+    # The first pirate website in the world to provide mass and public access to tens of millions of research papers
+    curl -O $(curl -s http://sci-hub.tw/"$@" | $(which grep) location.href | $(which grep) -o "http.*pdf")
+    if [[ "$@" == "https://ieeexplore.ieee.org/"* ]]; then getbibtex "$@"; fi
 }
 
 # Create a new directory and enter it
