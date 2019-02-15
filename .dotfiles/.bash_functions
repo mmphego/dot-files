@@ -25,12 +25,20 @@ mkcd() {
     mkdir -p "$@" && echo "You are in: $@" && builtin cd "$@" || exit 1
 }
 
-PullAll() {
+git-pull-all() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
         git pull &>/dev/null &
-        echo "Updating ${DIR}";
+        STATUS=$(git status 2>/dev/null |
+            awk '
+            /^On branch / {printf($3)}
+            /^Changes not staged / {printf(" | ?Changes unstaged!")}
+            /^Changes to be committed/ {printf(" | *Uncommitted changes!")}
+            /^Your branch is ahead of/ {printf(" | ^Push changes!")}
+            ')
+
+        printf "Repo: ${DIR} | ${GREEN}${STATUS}${NC}\n";
         builtin cd - &>/dev/null;
     done
     builtin cd $CUR_DIR &>/dev/null;
