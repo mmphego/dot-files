@@ -194,7 +194,7 @@ cmc3mount() {
         timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
         "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc3
     else
-        fusermount -u -z ~/mnt/cmc3 ;
+        fusermount -quz ~/mnt/cmc3 ;
     fi
 }
 
