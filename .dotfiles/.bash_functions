@@ -25,6 +25,14 @@ mkcd() {
     mkdir -p "$@" && echo "You are in: $@" && builtin cd "$@" || exit 1
 }
 
+rename-to-lowercase() {
+    # Renames all items in a directory to lower case.
+    for i in *; do
+        echo "Renaming $i to ${i,,}"
+        mv "$i" "${i,,}";
+    done
+}
+
 git-pull-all() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
