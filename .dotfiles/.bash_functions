@@ -106,7 +106,7 @@ wrapper() {
         "Long running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
 }
 
-extract () {
+extract() {
      if [ -f $1 ] ; then
          case $1 in
              *.tar.xz)    tar -xJf $1   ;;
@@ -121,7 +121,19 @@ extract () {
              *.zip)       unzip $1      ;;
              *.Z)         uncompress $1 ;;
              *.7z)        7z x $1       ;;
-             *)           echo "'$1' cannot be extracted via extract()" ;;
+             *)           echo "'$1' cannot be extracted via ${FUNCNAME[0]}" ;;
+         esac
+     else
+         recho "'$1' is not a valid file"
+     fi
+}
+
+open() {
+     if [ -f $1 ] ; then
+         case $1 in
+             *.pdf)    zathura $1   ;;
+            # List should be expanded.
+             *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
          esac
      else
          recho "'$1' is not a valid file"
