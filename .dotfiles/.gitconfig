@@ -35,6 +35,7 @@
     omit = commit
     ommit = commit
     satus = status
+    sta = status
     st = status
     stat = status
     stats = status
