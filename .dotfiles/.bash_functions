@@ -140,6 +140,18 @@ open() {
      fi
 }
 
+compile() {
+     if [ -f $1 ] ; then
+         case $1 in
+             *.tex)    latexmk -pdf $1  ;;
+            # List should be expanded.
+             *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
+         esac
+     else
+         recho "'$1' is not a valid file"
+     fi
+}
+
 psgrep() {
 	if [ ! -z $1 ] ; then
 		echo "Grepping for processes matching $1..."
