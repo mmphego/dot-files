@@ -61,7 +61,7 @@ alias youtube="$(which youtube-dl)"
 alias youtube-mp3="$(which youtube-dl) -x --audio-format mp3"
 alias pdf='evince'
 alias rsync='rsync --progress'
-alias less='less -N
+alias less='less -N'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
