@@ -34,7 +34,7 @@ alias emptyDir='find . -empty -type d -delete'
 
 # Shortcuts
 alias meng='cd ${HOME}/MEGA/MEng_Stuff'
-alias media='sshfs -o reconnect media@192.168.1.10:/mnt /home/"${USER}"/mnt/media_srv'
+alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
 
 alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -h now'
@@ -52,6 +52,7 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias cd..='cd ..'
 
+# Shortcuts
 alias diff='colordiff -y'
 alias hist='history --color=always'
 alias hist-grep='history | grep --color=always'
@@ -60,6 +61,8 @@ alias youtube="$(which youtube-dl)"
 alias youtube-mp3="$(which youtube-dl) -x --audio-format mp3"
 alias pdf='evince'
 alias rsync='rsync --progress'
+alias less='less -N
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -72,6 +75,7 @@ alias killcode="pkill -9 code"
 # Typo fixes
 alias nan=nano
 alias CD=cd
+alias cdd=cd
 alias git=hub
 alias it=hub
 alias gti=hub

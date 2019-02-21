@@ -73,12 +73,21 @@ createpr() {
     if [ -f /usr/local/bin/hub ]; then
         /usr/local/bin/hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
     else
-        >&2 echo "Failed to create PR, create it Manually"
-        >&2 echo "If you would like to continue install hub: https://github.com/github/hub/"
+        recho "Failed to create PR, create it Manually"
+        recho "If you would like to continue install hub: https://github.com/github/hub/"
     fi
 }
 
-filefinder () {
+git-url-shortener(){
+    if (( "$#" != 1 )); then
+        recho "Usage $0 {Custom URL Name} {URL}"
+        recho "eg: ${FUNCNAME[0]} runme https://raw.githubusercontent.com/blablabla "
+    else
+        curl https://git.io/ -i -F "url={2}" -F "code={1}"
+    fi
+}
+
+filefinder() {
     for FILE in $(find . -type f -name "*$1"); do
         echo ${FILE};
     done
@@ -93,8 +102,8 @@ wrapper() {
     # Desktop notification when long running commands complete
     start=$(date +%s)
     "$@"
-    [ $(($(date +%s) - start)) -le 15 ] || notify-send "Notification" "Long\
-running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
+    [ $(($(date +%s) - start)) -le 15 ] || notify-send "Notification" \
+        "Long running command \"$(echo $@)\" took $(($(date +%s) - start)) seconds to finish"
 }
 
 extract () {
@@ -115,7 +124,7 @@ extract () {
              *)           echo "'$1' cannot be extracted via extract()" ;;
          esac
      else
-         echo "'$1' is not a valid file"
+         recho "'$1' is not a valid file"
      fi
 }
 
@@ -124,7 +133,7 @@ psgrep() {
 		echo "Grepping for processes matching $1..."
 		ps aux | grep $1 | grep -v grep
 	else
-		echo "!! Need name to grep for"
+		recho "!! Need name to grep for"
 	fi
 }
 

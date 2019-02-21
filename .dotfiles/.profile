@@ -40,5 +40,16 @@ fi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/.venv/bin:$HOME/bin:$HOME/.local/bin:$PATH"
-
 export PATH="$HOME/.poetry/bin:$PATH"
+
+recho() {
+    echo "${RED}$1${NC}"
+}
+
+gecho() {
+    echo "${GREEN}$1${NC}"
+}
+
+
+export -f recho
+export -f gecho
