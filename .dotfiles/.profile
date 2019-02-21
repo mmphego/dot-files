@@ -5,12 +5,31 @@
 # the files are located in the bash-doc package.
 
 # Define a few Colours
-BLUE=$(tput setaf 4)
-CYAN=$(tput setaf 6)
-GREEN=$(tput setaf 2)
-RED=$(tput setaf 1)
-YELLOW=$(tput setaf 3)
-NC=$(tput sgr0 )
+BLACK="$(tput setaf 0)"
+BLACKBG="$(tput setab 0)"
+DARKGREY="$(tput bold ; tput setaf 0)"
+LIGHTGREY="$(tput setaf 7)"
+LIGHTGREYBG="$(tput setab 7)"
+WHITE="$(tput bold ; tput setaf 7)"
+RED="$(tput setaf 1)"
+REDBG="$(tput setab 1)"
+LIGHTRED="$(tput bold ; tput setaf 1)"
+GREEN="$(tput setaf 2)"
+GREENBG="$(tput setab 2)"
+LIGHTGREEN="$(tput bold ; tput setaf 2)"
+BROWN="$(tput setaf 3)"
+BROWNBG="$(tput setab 3)"
+YELLOW="$(tput bold ; tput setaf 3)"
+BLUE="$(tput setaf 4)"
+BLUEBG="$(tput setab 4)"
+LIGHTBLUE="$(tput bold ; tput setaf 4)"
+PURPLE="$(tput setaf 5)"
+PURPLEBG="$(tput setab 5)"
+PINK="$(tput bold ; tput setaf 5)"
+CYAN="$(tput setaf 6)"
+CYANBG="$(tput setab 6)"
+LIGHTCYAN="$(tput bold ; tput setaf 6)"
+NC="$(tput sgr0)" # No Color
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
