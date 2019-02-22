@@ -1,3 +1,13 @@
+
+# function checks if the application is installed,
+# then replaces it with the one given.
+# Credit: https://github.com/slomkowski
+__add_command_replace_alias() {
+    if [ -x "$(command -v $2 2>&1)" ]; then
+        alias $1=$2
+    fi
+}
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -19,23 +29,22 @@ alias lsdir='ls -thord */'
 ### Apt
 alias update='sudo apt-get -y update'
 alias upgrade='sudo apt-get -y --allow-unauthenticated upgrade && sudo apt-get autoclean && sudo apt-get autoremove'
-alias search='sudo apt search'
-alias search-version='sudo apt-cache policy'
+alias search='apt search'
+alias search-version='apt-cache policy'
 
 ### Install and Remove Packages
 alias install='sudo apt-get -y install'
 alias uninstall='sudo apt-get --purge autoremove '
 alias search-installed='sudo dpkg --get-selections '
 
-alias display='eog -w'
-
 # Find empty directories
 alias emptyDir='find . -empty -type d -delete'
 
-# Shortcuts
+# Shortcuts directory access
 alias meng='cd ${HOME}/MEGA/MEng_Stuff'
 alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
 
+# System shortcuts
 alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown -h now'
 alias paux='ps aux | grep'
@@ -53,16 +62,18 @@ alias .....='cd ../../../../'
 alias cd..='cd ..'
 
 # Shortcuts
-alias diff='colordiff -y'
 alias hist='history --color=always'
 alias hist-grep='history | grep --color=always'
-alias manual='tldr'
-alias youtube="$(which youtube-dl)"
-alias youtube-mp3="$(which youtube-dl) -x --audio-format mp3"
-alias pdf='evince'
+alias youtube="$(command -v youtube-dl)"
+alias youtube-mp3="$(command -v youtube-dl) -x --audio-format mp3"
 alias rsync='rsync --progress'
 alias less='less -N'
 
+__add_command_replace_alias df 'pydf'
+__add_command_replace_alias diff 'colordiff -y'
+__add_command_replace_alias display 'eog -w'
+__add_command_replace_alias git 'hub'
+__add_command_replace_alias man 'tldr'
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -73,16 +84,16 @@ alias killslack="pkill -9 slack"
 alias killcode="pkill -9 code"
 
 # Typo fixes
-alias nan=nano
-alias CD=cd
-alias cdd=cd
-alias git=hub
-alias it=hub
-alias gti=hub
-alias get=hub
-alias gut=hub
-alias got=hub
-alias giot=hub
+alias nan='nano'
+alias CD='cd'
+alias cdd='cd'
+alias git='hub'
+alias it='hub'
+alias gti='hub'
+alias get='hub'
+alias gut='hub'
+alias got='hub'
+alias giot='hub'
 
 # Git Shortcuts
 alias clone='git clone --progress'

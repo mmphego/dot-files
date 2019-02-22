@@ -4,32 +4,40 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
-# Define a few Colours
-BLACK="$(tput setaf 0)"
-BLACKBG="$(tput setab 0)"
-DARKGREY="$(tput bold ; tput setaf 0)"
-LIGHTGREY="$(tput setaf 7)"
-LIGHTGREYBG="$(tput setab 7)"
-WHITE="$(tput bold ; tput setaf 7)"
-RED="$(tput setaf 1)"
-REDBG="$(tput setab 1)"
-LIGHTRED="$(tput bold ; tput setaf 1)"
-GREEN="$(tput setaf 2)"
-GREENBG="$(tput setab 2)"
-LIGHTGREEN="$(tput bold ; tput setaf 2)"
-BROWN="$(tput setaf 3)"
-BROWNBG="$(tput setab 3)"
-YELLOW="$(tput bold ; tput setaf 3)"
-BLUE="$(tput setaf 4)"
-BLUEBG="$(tput setab 4)"
-LIGHTBLUE="$(tput bold ; tput setaf 4)"
-PURPLE="$(tput setaf 5)"
-PURPLEBG="$(tput setab 5)"
-PINK="$(tput bold ; tput setaf 5)"
-CYAN="$(tput setaf 6)"
-CYANBG="$(tput setab 6)"
-LIGHTCYAN="$(tput bold ; tput setaf 6)"
-NC="$(tput sgr0)" # No Color
+BLACK=; BLACKBG=; DARKGREY=; LIGHTGREY=; LIGHTGREYBG=; WHITE=; RED=; REDBG=;
+LIGHTRED=; GREEN=; GREENBG=; LIGHTGREEN=; BROWN=; BROWNBG=; YELLOW=; BLUE=;
+BLUEBG=; LIGHTBLUE=; PURPLE=; PURPLEBG=; PINK=; CYAN=; CYANBG=; LIGHTCYAN=;
+NC=;
+case ${TERM} in
+    '') ;;
+  *)
+    # Define a few Colours
+    BLACK="$(tput -T xterm setaf 0)"
+    BLACKBG="$(tput -T xterm setab 0)"
+    DARKGREY="$(tput -T xterm bold ; tput -T xterm setaf 0)"
+    LIGHTGREY="$(tput -T xterm setaf 7)"
+    LIGHTGREYBG="$(tput -T xterm setab 7)"
+    WHITE="$(tput -T xterm bold ; tput -T xterm setaf 7)"
+    RED="$(tput -T xterm setaf 1)"
+    REDBG="$(tput -T xterm setab 1)"
+    LIGHTRED="$(tput -T xterm bold ; tput -T xterm setaf 1)"
+    GREEN="$(tput -T xterm setaf 2)"
+    GREENBG="$(tput -T xterm setab 2)"
+    LIGHTGREEN="$(tput -T xterm bold ; tput -T xterm setaf 2)"
+    BROWN="$(tput -T xterm setaf 3)"
+    BROWNBG="$(tput -T xterm setab 3)"
+    YELLOW="$(tput -T xterm bold ; tput -T xterm setaf 3)"
+    BLUE="$(tput -T xterm setaf 4)"
+    BLUEBG="$(tput -T xterm setab 4)"
+    LIGHTBLUE="$(tput -T xterm bold ; tput -T xterm setaf 4)"
+    PURPLE="$(tput -T xterm setaf 5)"
+    PURPLEBG="$(tput -T xterm setab 5)"
+    PINK="$(tput -T xterm bold ; tput -T xterm setaf 5)"
+    CYAN="$(tput -T xterm setaf 6)"
+    CYANBG="$(tput -T xterm setab 6)"
+    LIGHTCYAN="$(tput -T xterm bold ; tput -T xterm setaf 6)"
+    NC="$(tput -T xterm sgr0)" # No Color
+esac
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

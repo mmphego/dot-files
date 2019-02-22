@@ -1,4 +1,12 @@
 # Bashrc
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
 stty -ixon # Disable ctrl-s and ctrl-q
 
 ############################################# Fancy PS1 ############################################
@@ -20,17 +28,6 @@ _ip_add=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); pri
 __ps1_startline="\[\033[0;32m\]\[\033[0m\033[0;38m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h on ${_ip_add}:\w\[\033[0;32m\] \[\033[0;34m\] [disk:${__disk_space}] \[\033[0;32m\]"
 __ps1_endline="\[\033[0;32m\]└─\[\033[0m\033[0;31m\] [\D{%F %T}] \$\[\033[0m\033[0;32m\] >>>\[\033[0m\] "
 export PS1="${__ps1_startline}\$(__git_status_info)\n${__ps1_endline}"
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-HISTSIZE= HISTFILESIZE= # Infinite history.
 
 ####################################################################################################
 #################################### Alias Definitions #############################################
@@ -77,6 +74,7 @@ fi
 ################################### SHell Options ##################################################
 ####################################################################################################
 
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 # Append to the Bash history file, rather than overwriting it
@@ -89,6 +87,10 @@ shopt -s cdspell
 shopt -s autocd
 # append to the history file, don't overwrite it
 shopt -s histappend
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+HISTSIZE= HISTFILESIZE= # Infinite history.
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -113,11 +115,6 @@ if [ -f "/etc/bash_completion.d/git-prompt" ]; then
     source /etc/bash_completion.d/git-prompt
 fi
 
-if [ -f /var/run/reboot-required ]; then
-    printf "$(tput smso)$(tput setaf 1)[*** Hello ${USER}, you must reboot your machine ***]$(tput sgr0)\n";
-fi
-
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
     source "${HOME}/google-cloud-sdk/path.bash.inc";
@@ -133,9 +130,14 @@ if [ -f "${HOME}/.travis/travis.sh" ]; then
     source "${HOME}/.travis/travis.sh"
 fi
 
+
 ########### Welcome Message ###########
+if [ -f /var/run/reboot-required ]; then
+    echo "${REDBG}[*** Hello ${USER}, you must reboot your machine ***]${NC}\n";
+fi
+
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
-printf "${LIGHTGREEN}Hello, $USER@${IP_ADD}\n"
+printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "Sysinfo: $(uptime)\n"
 printf "\n$(fortune | cowsay)${NC}\n"
