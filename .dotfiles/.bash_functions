@@ -79,11 +79,11 @@ createpr() {
 }
 
 git-url-shortener(){
-    if (( "$#" != 1 )); then
+    if [ "$1" == "" ]; then
         recho "Usage $0 {Custom URL Name} {URL}"
         recho "eg: ${FUNCNAME[0]} runme https://raw.githubusercontent.com/blablabla "
     else
-        curl https://git.io/ -i -F "url={2}" -F "code={1}"
+        curl https://git.io/ -i -F "url=${2}" -F "code=${1}"
     fi
 }
 
