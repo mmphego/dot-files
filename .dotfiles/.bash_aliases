@@ -71,7 +71,7 @@ alias less='less -N'
 
 __add_command_replace_alias df 'pydf'
 __add_command_replace_alias diff 'colordiff -y'
-__add_command_replace_alias display 'eog -w'
+__add_command_replace_alias display 'eog'
 __add_command_replace_alias git 'hub'
 __add_command_replace_alias man 'tldr'
 
