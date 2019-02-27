@@ -10,17 +10,17 @@
 
     # My life is full of typos
     ad = add
-    cinnut = commit
-    cmit = commit
-    cmmit = commit
-    cmomit = commit
-    cmt = commit
-    comimt = commit
-    comit = commit
-    comit = commit
-    comkmit = commit
-    commi = commit
-    commt = commit
+    cinnut = "commit -s"
+    cmit = "commit -s"
+    cmmit = "commit -s"
+    cmomit = "commit -s"
+    cmt = "commit -s"
+    comimt = "commit -s"
+    comit = "commit -s"
+    comit = "commit -s"
+    comkmit = "commit -s"
+    commi = "commit -s"
+    commt = "commit -s"
     dif = diff
     dff = diff
     dfi = diff
@@ -29,11 +29,11 @@
     lgo = log
     lof = log
     loh = log
-    ocmit = commit
-    ocmmit = commit
+    ocmit = "commit -s"
+    ocmmit = "commit -s"
     og = log
-    omit = commit
-    ommit = commit
+    omit = "commit -s"
+    ommit = "commit -s"
     satus = status
     sta = status
     st = status
@@ -51,13 +51,16 @@
     push = origin $(git symbolic-ref --short HEAD)
     pushf = push -f
     # Life saver
-    pushd="!fnc() { \
+
+    addr = "!fnc(){ \
+        git add $(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs); }; fnc"
+    pushd = "!fnc() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
         read -p 'Enter [y/n] if you want to create a PR: ' response; \
         if [ \"${response}\" != \"${response#[Yy]}\" ]; then hub pull-request --no-edit; fi \
         };fnc"
-    create-pr="!f() { \
+    create-pr = "!f() { \
         REMOTE="devel"; \
         if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi; \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
@@ -68,11 +71,11 @@
     # Need I say more
     commit-amend = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit --amend -anC HEAD; \
+        git commit -s --amend -anC HEAD; \
         };fnc"
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit --amend -anC HEAD; \
+        git commit -s --amend -anC HEAD; \
         git push -f; \
         };fnc"
 
@@ -97,3 +100,4 @@
 
 [commit]
 	gpgsign = true
+	signoff = true
