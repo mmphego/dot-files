@@ -62,6 +62,21 @@ get-git-repos() {
     builtin cd "${CUR_DIR}" &> /dev/null
 }
 
+clone-my-repos() {
+    # Clone all my repos from file
+    CLONEDIR=~/GitHub
+    if [ "$1" == "" ]; then
+        recho "Usage $0 {filename}"
+        recho "eg: ${FUNCNAME[0]} My-Git-Repos.txt"
+    else
+        while IFS='' read -r repo || [[ -n "$repo" ]]; do
+            [ ! -d "${CLONEDIR}" ] && mkdir -p "${CLONEDIR}"
+            echo "Cloning Repo: $repo"
+            git -C "${CLONEDIR}" clone --depth 5 "$repo"
+        done < "$1"
+    fi
+}
+
 committer() {
     # Add file(s), commit and push
     FILE=$(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs)
