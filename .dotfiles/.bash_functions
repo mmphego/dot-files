@@ -56,7 +56,7 @@ get-git-repos() {
     CUR_DIR=$(pwd);
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR; do
         builtin cd $DIR &> /dev/null;
-        git config --get remote.origin.url >> ../My-Git-Repos.txt
+        git config --get remote.origin.url >> ~/My-Git-Repos.txt
         builtin cd - &> /dev/null;
     done;
     builtin cd "${CUR_DIR}" &> /dev/null
