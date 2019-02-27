@@ -1,8 +1,7 @@
 # Useful Functions
 
 getbibtex() {
-    # ieeexplore
-    # extract bibtex by id/url
+    # Download BibTex from IEEEExplore by ID or URL
     INFO="$@"
     if [[ "${INFO}" == http* ]]; then
         ID=$(echo "${INFO}" | cut -f5 -d '/')
@@ -20,8 +19,8 @@ sciget() {
     if [[ "$@" == "https://ieeexplore.ieee.org/"* ]]; then getbibtex "$@"; fi
 }
 
-# Create a new directory and enter it
 mkcd() {
+    # Create a new directory and enter it
     mkdir -p "$@" && echo "You are in: $@" && builtin cd "$@" || exit 1
 }
 
@@ -52,20 +51,32 @@ git-pull-all() {
     builtin cd $CUR_DIR &>/dev/null;
 }
 
+get-git-repos() {
+    # Get a list of all your Git repos in the current directory
+    CUR_DIR=$(pwd);
+    find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR; do
+        builtin cd $DIR &> /dev/null;
+        git config --get remote.origin.url >> ../My-Git-Repos.txt
+        builtin cd - &> /dev/null;
+    done;
+    builtin cd "${CUR_DIR}" &> /dev/null
+}
+
 committer() {
     # Add file(s), commit and push
     FILE=$(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs)
     for file in $FILE; do git add -f "$file"; done
     if [ "$1" == "" ]; then
-        git commit -nm"Updated $FILE";
+        git commit -s -S -n -m"Updated $FILE";
     else
-        git commit -nm"$2";
+        git commit -s -S -n -m"$2";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
 }
 
 createpr() {
+    # Push changes and create Pull Request on GitHub
     REMOTE="devel";
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -79,6 +90,7 @@ createpr() {
 }
 
 git-url-shortener(){
+    # GitHub URL shortener
     if [ "$1" == "" ]; then
         recho "Usage $0 {Custom URL Name} {URL}"
         recho "eg: ${FUNCNAME[0]} runme https://raw.githubusercontent.com/blablabla "
@@ -143,7 +155,8 @@ open() {
 compile() {
      if [ -f $1 ] ; then
          case $1 in
-             *.tex)    latexmk -pdf $1  ;;
+             *.tex)    latexmk -pdf $1               ;;
+             *.c)      gcc -Wall "$1" -o "main" -lm  ;;
             # List should be expanded.
              *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
          esac

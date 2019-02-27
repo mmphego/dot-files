@@ -10,17 +10,17 @@
 
     # My life is full of typos
     ad = add
-    cinnut = "commit -s"
-    cmit = "commit -s"
-    cmmit = "commit -s"
-    cmomit = "commit -s"
-    cmt = "commit -s"
-    comimt = "commit -s"
-    comit = "commit -s"
-    comit = "commit -s"
-    comkmit = "commit -s"
-    commi = "commit -s"
-    commt = "commit -s"
+    cinnut = commit -s
+    cmit = commit -s
+    cmmit = commit -s
+    cmomit = commit -s
+    cmt = commit -s
+    comimt = commit -s
+    comit = commit -s
+    comit = commit -s
+    comkmit = commit -s
+    commi = commit -s
+    commt = commit -s
     dif = diff
     dff = diff
     dfi = diff
@@ -29,11 +29,11 @@
     lgo = log
     lof = log
     loh = log
-    ocmit = "commit -s"
-    ocmmit = "commit -s"
+    ocmit = commit -s
+    ocmmit = commit -s
     og = log
-    omit = "commit -s"
-    ommit = "commit -s"
+    omit = commit -s
+    ommit = commit -s
     satus = status
     sta = status
     st = status
@@ -67,7 +67,9 @@
         git push -u origin "${BRANCH_NAME}"; \
         hub pull-request -b "${REMOTE}" -h "${BRANCH_NAME}" --no-edit; \
         };f"
+
     clone = clone --progress
+
     # Need I say more
     commit-amend = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
@@ -78,6 +80,8 @@
         git commit -s --amend -anC HEAD; \
         git push -f; \
         };fnc"
+	last = log -1 HEAD
+    commit = commit -s
 
 [color]
     ui = auto
