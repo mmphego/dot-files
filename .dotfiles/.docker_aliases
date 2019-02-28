@@ -10,5 +10,9 @@ alias bat='docker run -it --rm -e BAT_THEME -e BAT_STYLE -e BAT_TABS -v "$(pwd):
 alias tldr='docker run --rm -it -v ~/.tldr/:/root/.tldr/ nutellinoit/tldr'
 
 # Simplified docker based markdown linter
-# see: https://github.com/mmphego/my-dockerfiles/
+# see: https://github.com/mmphego/my-dockerfiles/markdownlint
 alias markdownlint='docker run --rm -it -v "$(pwd):/app" mmphego/markdownlint'
+
+# Simplified docker based latexmk
+# see: https://github.com/mmphego/my-dockerfiles/latex-full
+alias mklatex='docker run --rm -i -v "$PWD":/data --user="$(id -u):$(id -g)" mmphego/latex:ubuntu'
