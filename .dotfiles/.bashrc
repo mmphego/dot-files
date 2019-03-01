@@ -6,10 +6,9 @@ case $- in
       *) return;;
 esac
 
-
-stty -ixon # Disable ctrl-s and ctrl-q
-
-############################################# Fancy PS1 ############################################
+####################################################################################################
+############################################# Fancy Prompt #########################################
+####################################################################################################
 __git_status_info() {
     STATUS=$(git status 2>/dev/null |
     awk '
@@ -56,13 +55,40 @@ if [ -f ~/.bash_functions ]; then
     source ~/.bash_functions
 fi
 
+####################################################################################################
+#################################### Exports Definitions ###########################################
+####################################################################################################
+
+# Avoid issues with `gpg` as installed via apt.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
+
 if [ command -v subl > /dev/null ]; then
-    export EDITOR="subl -w"
+    export EDITOR="subl -w";
 else
-    export EDITOR="nano -lm"
+    export EDITOR="nano -lm";
 fi
 
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+# Infinite history.
+export HISTSIZE=
+export HISTFILESIZE=
+# don't put duplicate lines or lines starting with space in the history.
+export HISTCONTROL='ignoreboth';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+####################################################################################################
+#################################### Input edits and Keybindings ###################################
+####################################################################################################
+
 if [[ $- == *i* ]]; then
+    # Disable ctrl-s and ctrl-q
+    stty -ixon
+
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
     bind '"\e[1;5C": forward-word'
@@ -110,10 +136,6 @@ shopt -s cdspell
 shopt -s autocd
 # append to the history file, don't overwrite it
 shopt -s histappend
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-HISTSIZE= HISTFILESIZE= # Infinite history.
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -153,8 +175,9 @@ if [ -f "${HOME}/.travis/travis.sh" ]; then
     source "${HOME}/.travis/travis.sh"
 fi
 
-
-########### Welcome Message ###########
+####################################################################################################
+############################################ Welcome Message #######################################
+####################################################################################################
 if [ -f /var/run/reboot-required ]; then
     echo "${REDBG}[*** Hello ${USER}, you must reboot your machine ***]${NC}\n";
 fi
