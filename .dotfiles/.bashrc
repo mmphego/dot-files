@@ -56,6 +56,11 @@ if [ -f ~/.bash_functions ]; then
     source ~/.bash_functions
 fi
 
+if [ command -v subl > /dev/null ]; then
+    export EDITOR="subl -w"
+else
+    export EDITOR="nano -lm"
+fi
 
 if [[ $- == *i* ]]; then
     bind '"\e[A": history-search-backward'
