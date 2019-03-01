@@ -63,7 +63,7 @@ fi
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-if [ command -v subl > /dev/null ]; then
+if command -v subl > /dev/null; then
     export EDITOR="subl -w";
 else
     export EDITOR="nano -lm";
