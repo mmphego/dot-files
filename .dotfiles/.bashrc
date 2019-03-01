@@ -66,8 +66,26 @@ if [[ $- == *i* ]]; then
     bind '"\e[5D": backward-word'
     bind '"\e\e[C": forward-word'
     bind '"\e\e[D": backward-word'
+    # Flip through autocompletion matches with Shift-Tab.
+    bind '"\e[Z": menu-complete'
+
+    # List all matches in case multiple possible completions are possible
     bind 'set show-all-if-ambiguous on'
+    # Make Tab autocomplete regardless of filename case
     bind 'set completion-ignore-case on'
+    # Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+    bind 'set input-meta on'
+    bind 'set output-meta on'
+    bind 'set convert-meta off'
+    # Be more intelligent when autocompleting by also looking at the text after
+    # the cursor.
+    bind 'set skip-completed-text on'
+    # Immediately add a trailing slash when autocompleting symlinks to directories
+    bind 'set mark-symlinked-directories on'
+    # Show all autocomplete results at once
+    bind 'set page-completions off'
+    # If there are more than 200 possible completions for a word, ask to show them all
+    bind 'set completion-query-items 200'
 fi
 
 ####################################################################################################
