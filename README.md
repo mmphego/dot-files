@@ -1,4 +1,4 @@
-# dot-files
+# My Dotfiles
 
 [![Build Status](https://travis-ci.com/mmphego/dot-files.svg?branch=master)](https://travis-ci.com/mmphego/dot-files)
 [![LICENCE](https://img.shields.io/github/license/mmphego/dot-files.svg?style=flat)](https://github.com/mmphego/new-computer/blob/master/LICENSE)
