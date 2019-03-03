@@ -183,11 +183,11 @@ if [ -f /var/run/reboot-required ]; then
 fi
 
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
-printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
+    printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
 printf "Today is, $(date)\n";
-printf "Sysinfo: $(uptime)\n"
-printf "\n$(fortune | cowsay)${NC}\n"
-
+printf "\nSysinfo: $(uptime)\n"
+printf "${LIGHTBLUE}\n%s\n${NC}" "$(inxi -wxxx -c 0)"
+printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
 
 # Activate virtualenv
 if [ -f "${HOME}/.venv/bin/activate" ]; then
