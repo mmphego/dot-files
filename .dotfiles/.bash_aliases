@@ -25,6 +25,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lh='ls -lh'
 alias lsdir='ls -thord */'
+alias lsf='ls -lisAhF'
 
 ### Apt
 alias update='sudo apt-get -y update'
@@ -41,8 +42,8 @@ alias search-installed='sudo dpkg --get-selections '
 alias emptyDir='find . -empty -type d -delete'
 
 # Shortcuts directory access
-alias meng='cd ${HOME}/MEGA/MEng_Stuff'
-alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
+#alias meng='cd ${HOME}/MEGA/MEng_Stuff'
+#alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
 
 # System shortcuts
 alias reboot='sudo shutdown -r now'
@@ -102,9 +103,9 @@ alias clone='git clone --progress'
 alias ports='netstat -tulanp'
 
 # Log into to Server
-alias camserver='ssh -X kat@10.8.67.161'
-alias cmc1='ssh -X 10.103.254.1'
-alias cmc2='ssh -X 10.103.254.3'
-alias cmc3='ssh -X 10.103.254.6'
-alias dbelab04='ssh -X dbelab04'
-alias dbelab06='ssh -X dbelab06'
+#alias camserver='ssh -X kat@10.8.67.161'
+#alias cmc1='ssh -X 10.103.254.1'
+#alias cmc2='ssh -X 10.103.254.3'
+#alias cmc3='ssh -X 10.103.254.6'
+#alias dbelab04='ssh -X dbelab04'
+#alias dbelab06='ssh -X dbelab06'
