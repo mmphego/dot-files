@@ -68,7 +68,7 @@ alias youtube="$(command -v youtube-dl)"
 alias youtube-mp3="$(command -v youtube-dl) -x --audio-format mp3"
 alias rsync='rsync --progress'
 alias less='less -N'
-alias diff 'colordiff -y'
+alias diff='colordiff -y'
 
 __add_command_replace_alias df 'pydf'
 __add_command_replace_alias display 'eog'
