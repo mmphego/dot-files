@@ -97,8 +97,8 @@ createpr() {
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     git push -u origin "${BRANCH}" || true;
-    if [ -f /usr/local/bin/hub ]; then
-        /usr/local/bin/hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
+    if command -v hub > /dev/null; then
+        hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
     else
         recho "Failed to create PR, create it Manually"
         recho "If you would like to continue install hub: https://github.com/github/hub/"
