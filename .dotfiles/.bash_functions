@@ -160,6 +160,9 @@ open() {
      if [ -f $1 ] ; then
          case $1 in
              *.pdf)    zathura $1   ;;
+             *.mp3)    vlc $1 & ;;
+             *.mkv)    vlc $1 & ;;
+             *.mp4)    vlc $1 & ;;
             # List should be expanded.
              *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
          esac
