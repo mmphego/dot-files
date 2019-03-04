@@ -82,7 +82,7 @@ export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
 ####################################################################################################
-#################################### Input edits and Keybindings ###################################
+#################################### Input edits and Key-bindings ###################################
 ####################################################################################################
 
 if [[ $- == *i* ]]; then
@@ -108,7 +108,7 @@ if [[ $- == *i* ]]; then
     bind 'set input-meta on'
     bind 'set output-meta on'
     bind 'set convert-meta off'
-    # Be more intelligent when autocompleting by also looking at the text after
+    # Be more intelligent when auto-completing by also looking at the text after
     # the cursor.
     bind 'set skip-completed-text on'
     # Immediately add a trailing slash when autocompleting symlinks to directories
@@ -175,6 +175,12 @@ if [ -f "${HOME}/.travis/travis.sh" ]; then
     source "${HOME}/.travis/travis.sh"
 fi
 
+
+# Activate virtualenv
+if [ -f "${HOME}/.venv/bin/activate" ]; then
+    source "${HOME}/.venv/bin/activate";
+fi
+
 ####################################################################################################
 ############################################ Welcome Message #######################################
 ####################################################################################################
@@ -183,13 +189,12 @@ if [ -f /var/run/reboot-required ]; then
 fi
 
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
-    printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
+printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "\nSysinfo: $(uptime)\n"
-printf "${LIGHTBLUE}\n%s\n${NC}" "$(inxi -wxxx -c 0)"
-printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
-
-# Activate virtualenv
-if [ -f "${HOME}/.venv/bin/activate" ]; then
-    source "${HOME}/.venv/bin/activate";
+if [ -f ~/.weather.log ]; then
+    while IFS='' read -r line || [[ -n "$line" ]]; do
+        printf "${LIGHTBLUE}%s\n${NC}" "${line}"
+    done < ~/.weather.log
 fi
+printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
