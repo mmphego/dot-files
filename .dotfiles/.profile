@@ -54,9 +54,27 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+
 # set PATH so it includes user's private bin directories
-PATH="$HOME/.venv/bin:$HOME/bin:$HOME/.local/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.venv/bin" ]; then
+    export PATH="$HOME/.venv/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.poetry/bin" ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
+fi
+
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 recho() {
     echo "${RED}$1${NC}"
@@ -65,7 +83,6 @@ recho() {
 gecho() {
     echo "${GREEN}$1${NC}"
 }
-
 
 export -f recho
 export -f gecho

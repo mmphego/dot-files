@@ -55,6 +55,18 @@
     "[python]": {
 
     },
+    "spellright.language": [],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "Log"
+    ],
+    "spellright.parserByClass": {
+        "Log": {
+            "parser": "markdown"
+        }
+    },
 
 
 }

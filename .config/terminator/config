@@ -6,6 +6,8 @@
   title_inactive_bg_color = "#000000"
   window_state = maximise
 [keybindings]
+  page_down = Page_Down
+  page_up = Page_Up
   split_horiz = <Primary><Shift>h
   split_vert = <Primary><Shift>v
 [layouts]
@@ -30,15 +32,15 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
+    audible_bell = True
     copy_on_selection = True
+    cursor_color = "#4e9a06"
+    cursor_color_fg = False
     font = Monospace 12
     login_shell = True
     palette = "#000000:#cc0000:#2fb600:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollback_lines = 500000
     split_to_group = True
     use_system_font = False
   [[New Profile]]
-    background_image = None
