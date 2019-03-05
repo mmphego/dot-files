@@ -19,6 +19,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=always'
 fi
 
+__add_command_replace_alias df 'pydf'
+__add_command_replace_alias display 'eog'
+__add_command_replace_alias git 'hub'
+__add_command_replace_alias man 'tldr'
+__add_command_replace_alias ls 'exa'
+
 ### some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -70,10 +76,6 @@ alias rsync='rsync --progress'
 alias less='less -N'
 alias diff='colordiff -y'
 
-__add_command_replace_alias df 'pydf'
-__add_command_replace_alias display 'eog'
-__add_command_replace_alias git 'hub'
-__add_command_replace_alias man 'tldr'
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
