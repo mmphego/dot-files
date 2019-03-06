@@ -2,7 +2,7 @@
 
 
 if [ -d ~/.config/autorandr/seating ] && command -v autorandr > /dev/null; then
-    autorandr seating
+    autorandr --load seated
 else
     echo "autorandr or seating config missing!"
 fi

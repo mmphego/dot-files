@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -d ~/.config/autorandr/standing ] && command -v autorandr > /dev/null; then
-    autorandr standing
+    autorandr --load standing
 else
     echo "autorandr or standing config missing!"
 fi
