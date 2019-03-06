@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+if [ -d ~/.config/autorandr/seating ] && command -v autorandr > /dev/null; then
+    autorandr seating
+else
+    echo "autorandr or seating config missing!"
+fi
