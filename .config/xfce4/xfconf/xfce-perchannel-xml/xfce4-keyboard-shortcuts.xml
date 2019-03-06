@@ -193,6 +193,10 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_2" type="string" value="tile_down_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_4" type="string" value="tile_left_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;KP_6" type="string" value="tile_right_key"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;2" type="string" value="move_window_workspace_2_key"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;4" type="string" value="move_window_workspace_4_key"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;6" type="string" value="move_window_workspace_6_key"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;8" type="string" value="move_window_workspace_8_key"/>
     </property>
   </property>
   <property name="providers" type="array">

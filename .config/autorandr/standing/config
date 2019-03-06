@@ -1,0 +1,15 @@
+output DP-2
+off
+output DP-3
+off
+output DP-1
+gamma 1.0:0.714:0.526
+mode 1920x1200
+pos 0x0
+rate 59.95
+output eDP-1
+gamma 1.0:0.714:0.526
+mode 1920x1080
+pos 0x1200
+primary
+rate 60.00
