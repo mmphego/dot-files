@@ -23,7 +23,7 @@ __add_command_replace_alias df 'pydf'
 __add_command_replace_alias display 'eog'
 __add_command_replace_alias git 'hub'
 __add_command_replace_alias man 'tldr'
-__add_command_replace_alias ls 'exa'
+#__add_command_replace_alias ls 'exa'
 
 ### some more ls aliases
 alias ll='ls -alF'
