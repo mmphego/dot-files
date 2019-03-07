@@ -122,6 +122,13 @@
     interactive = auto
     status = auto
 
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+    whitespace = red reverse
+
 [push]
     default = current
 
