@@ -1,5 +1,10 @@
 # Useful Functions
 
+cheatsheet() {
+    # Cheatsheets https://github.com/chubin/cheat.sh
+    curl -L "https://cheat.sh/$1"
+}
+
 getbibtex() {
     # Download BibTex from IEEEExplore by ID or URL
     INFO="$@"
@@ -159,11 +164,10 @@ extract() {
 open() {
      if [ -f $1 ] ; then
          case $1 in
-             *.pdf)    zathura $1   ;;
-             *.mp3)    vlc $1 & ;;
-             *.mkv)    vlc $1 & ;;
-             *.mp4)    vlc $1 & ;;
             # List should be expanded.
+             *.pdf)                 zathura $1                 ;;
+             *.md)                  pandoc $1 | lynx -stdin    ;;
+             *.mp3|*.mp4|*.mkv)     vlc $1 & ;;
              *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
          esac
      else
