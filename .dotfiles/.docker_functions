@@ -1,0 +1,44 @@
+### Docker Functions
+
+docker_bash() {
+    # Bash into running container
+    docker exec -it $(docker ps -aqf "name=$1") /bin/bash;
+}
+
+docker_ispect() {
+    for container in "$@"; do
+        docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" "${container}";
+    done
+}
+
+
+docker_stop() {
+    if [ $# -eq 0 ]; then
+        docker stop $(docker ps -aq --no-trunc);
+    else
+        for container in "$@"; do
+            docker stop $(docker ps -aq --no-trunc | grep ${container});
+        done
+    fi
+}
+
+docker_rm_containers() {
+    if [ $# -eq 0 ];then
+        docker rm $(docker ps -aq --no-trunc);
+    else
+        for container in "$@"; do
+            docker rm $(docker ps -aq --no-trunc | grep ${container});
+        done
+    fi
+}
+
+
+docker_rm_images() {
+    if [ $# -eq 0 ]; then
+        docker rmi $(docker images --filter 'dangling=true' -aq --no-trunc);
+    else
+        for container in "$@"; do
+            docker rmi $(docker images --filter 'dangling=true' -aq --no-trunc | grep ${container});
+        done
+    fi
+}

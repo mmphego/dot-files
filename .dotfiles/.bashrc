@@ -47,6 +47,14 @@ if [ -f ~/.docker_aliases ]; then
     source ~/.docker_aliases
 fi
 
+# `Docker` Function definitions.
+# You may want to put all your additions into a separate file like
+# ~/.docker_functions, instead of adding them here directly.
+
+if [ -f ~/.docker_functions ]; then
+    source ~/.docker_functions
+fi
+
 # functions definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.
