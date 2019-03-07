@@ -6,6 +6,9 @@
     editor = nano
 
 [alias]
+	# List aliases
+	aliases = config --get-regexp alias
+
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
     # My life is full of typos
@@ -47,19 +50,23 @@
     pus = push
 
     # Pretty useful
-    ci=!hub ci-status
+    ci = !hub ci-status
     push = origin $(git symbolic-ref --short HEAD)
     pushf = push -f
+
     # Life saver
 
-    addr = "!fnc(){ \
-        git add $(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs); }; fnc"
+    # Put any file changed up for commits
+    addr = "!fnc(){ git add $(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs); }; fnc"
+
     pushd = "!fnc() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
         read -p 'Enter [y/n] if you want to create a PR: ' response; \
         if [ \"${response}\" != \"${response#[Yy]}\" ]; then hub pull-request --no-edit; fi \
         };fnc"
+
+    # Create pull request on GitHub to devel remote branch if it exists else, to master
     create-pr = "!f() { \
         REMOTE="devel"; \
         if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi; \
@@ -68,7 +75,32 @@
         hub pull-request -b "${REMOTE}" -h "${BRANCH_NAME}" --no-edit; \
         };f"
 
+    # Merge GitHub pull request on top of the current branch or,
+    # if a branch name is specified, on top of the specified branch
+    merge-pr = "!f() { \
+        declare currentBranch=\"$(git symbolic-ref --short HEAD)\"; \
+        declare branch=\"${2:-$currentBranch}\"; \
+        if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
+            git fetch origin refs/pull/$1/head:pr/$1 && \
+            git checkout -B $branch && \
+            git rebase $branch pr/$1 && \
+            git checkout -B $branch && \
+            git merge pr/$1 && \
+            git branch -D pr/$1 && \
+            git commit --amend -s -S -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
+        fi \
+        }; f"
+
     clone = clone --progress
+
+    # Show the diff between the latest commit and the current state
+	diff-previous = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+	# Clone a repository including all submodules
+	clone-rec = clone --recursive --progress
+
+	# Switch to a branch, creating it if necessary and if it exist pull latest changes
+	goto = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\" && bash -c 'git pull -f & >/dev/null 2>&1'; }; f"
 
     # Need I say more
     commit-amend = "!fnc() { \
