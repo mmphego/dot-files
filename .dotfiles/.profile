@@ -72,6 +72,15 @@ if [ -d "$HOME/.poetry/bin" ]; then
     export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
+if [ -d "${HOME}/.venvs" ]; then
+    export WORKON_HOME="${HOME}/.venvs"
+    export VIRTUALENVWRAPPER_PYTHON="$(command -v python)"
+    export VIRTUALENVWRAPPER_VIRTUALENV="$(command -v virtualenv)"
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
+    # shellcheck source=/dev/null
+    source "$(command -v virtualenvwrapper.sh)"
+fi
+
 recho() {
     echo "${RED}$1${NC}"
 }
