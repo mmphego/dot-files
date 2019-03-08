@@ -1,3 +1,4 @@
+git@bitbucket.org:mmphego/smart-homeautomation.git
 git@github.com:mmphego/axxess-data-status.git
 git@github.com:mmphego/BibLatex-Check.git
 git@github.com:mmphego/circleci-testing.git
@@ -21,6 +22,9 @@ git@github.com:mmphego/TinderBot.git
 git@github.com:mmphego/Traveling-Salesman-Portrait.git
 git@github.com:mmphego/TwitterFollowBot.git
 http://github.com/kivy/kivy
+https://github.com/10xNation/intel-edison-aws-iot-alexa-voice.git
+https://github.com/alexa/alexa-smarthome.git
+https://github.com/aws/aws-iot-device-sdk-js.git
 https://github.com/aws/aws-iot-device-sdk-python.git
 https://github.com/cbrauweiler/skin.CarPC-touch_carbon_CB.git
 https://github.com/CP1404/KivyDemos.git
@@ -35,5 +39,8 @@ https://github.com/mrichardson23/rpi-kivy-screen.git
 https://github.com/nassir-malik/IOT-Pi3-Alexa-Automation.git
 https://github.com/pr-martin/kivy_examples.git
 https://github.com/SewerynKras/arduino-RGB-led-controller.git
+https://github.com/sglahn/docker-platformio-core.git
 https://github.com/sharu725/online-cv.git
+https://github.com/sparkgene/alexa-tv-controller.git
+https://github.com/sparkgene/alexa_home_control.git
 https://github.com/timcera/spyder-desktop-ubuntu.git
