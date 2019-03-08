@@ -42,3 +42,8 @@ docker_rm_images() {
         done
     fi
 }
+
+docker_push() {
+    docker tag $1 $1
+    docker push $1
+}
