@@ -1,72 +1,101 @@
 {
-    "editor.quickSuggestionsDelay": 25,
-    "editor.detectIndentation": true,
-    "editor.fontSize": 16,
-    "editor.matchBrackets": true,
-    "editor.tabSize": 4,
-    "files.trimTrailingWhitespace": true,
-    "editor.formatOnPaste": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.snippetSuggestions": "top",
-    "files.associations": {
-        "*.py": "python"
-    },
-    "workbench.colorTheme": "Monokai",
-    "git.confirmSync": false,
-    "files.autoSave": "afterDelay",
-    "python.jediEnabled": false,
-    "latex-workshop.view.pdf.viewer": "tab",
-    "window.zoomLevel": -1,
-    "cSpell.userWords": [
-        "IEDs",
-        "cput",
-        "csaems",
-        "electrotechnical",
-        "rtds",
-        "scsm",
-        "synchronization",
-        "upscalable"
-    ],
-    "workbench.statusBar.visible": true,
-    "editor.minimap.enabled": false,
-    "window.titleBarStyle": "custom",
-    "editor.wordWrap": "on",
-    "files.exclude": {
-        "**/.coverage": true,
-        "**/.eggs": true,
-        "**/.env": true,
-        "**/.gitignore": true,
-        "**/.gitmodules": true,
-        "**/.hound.yml": true,
-        "**/.idea": true,
-        "**/.pyc": true,
-        "**/.pylintrc": true,
-        "**/.venv": true,
-        "**/.vscode": true,
-        "**/*.pyc": true,
-        "**/*.swp": true
-    },
-    "editor.find.autoFindInSelection": true,
-    "diffEditor.renderSideBySide": false,
-    "explorer.confirmDelete": false,
-    "cSpell.language": "en",
-    "git.autofetch": true,
-    "shellcheck.disableVersionCheck": true,
-    "[python]": {
+  // Editor settings
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.detectIndentation": true,
+  "editor.fontSize": 16,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.matchBrackets": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.parameterHints.enabled": false,
+  "editor.quickSuggestionsDelay": 25,
+  "editor.renderWhitespace": "boundary",
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "editor.find.autoFindInSelection": true,
+  "editor.minimap.enabled": false,
+  // Files settings
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.py": "python"
+  },
+  "files.exclude": {
+    "**/.coverage": true,
+    "**/.eggs": true,
+    "**/.env": true,
+    "**/.envs": true,
+    "**/.gitignore": true,
+    "**/.gitmodules": true,
+    "**/.hound.yml": true,
+    "**/.idea": true,
+    "**/.pyc": true,
+    "**/.pylintrc": true,
+    "**/.venv": true,
+    "**/.vscode": true,
+    "**/*.pyc": true,
+    "**/*.swp": true
+  },
+  "workbench.colorTheme": "Monokai",
+  "git.confirmSync": false,
+  "menu.fontsize": 16,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "window.zoomLevel": 0,
+  "terminal.integrated.fontSize": 16,
 
-    },
-    "spellright.language": [],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext",
-        "Log"
-    ],
-    "spellright.parserByClass": {
-        "Log": {
-            "parser": "markdown"
-        }
-    },
+  "workbench.statusBar.visible": true,
 
+  "window.titleBarStyle": "custom",
+  "diffEditor.renderSideBySide": false,
+  "explorer.confirmDelete": false,
+  "git.autofetch": true,
 
+  // Search features
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+
+  // Language Settings
+  "python.pythonPath": "python",
+  "python.linting.maxNumberOfProblems": 50,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    "**/site-packages/**/*.py",
+    ".git/**",
+    "**/__pycache__/**",
+    "**/node_modules/**"
+  ],
+  "python.jediEnabled": false,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.rulers": [79, 120],
+    "editor.tabSize": 4
+  },
+  // Spelling and Grammar
+  "cSpell.language": "en",
+  "cSpell.userWords": [
+    "IEDs",
+    "cput",
+    "csaems",
+    "electrotechnical",
+    "rtds",
+    "scsm",
+    "synchronization",
+    "upscalable"
+  ],
+  "shellcheck.disableVersionCheck": true,
+  "spellright.language": [],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext", "Log"],
+  "spellright.parserByClass": {
+    "Log": {
+      "parser": "markdown"
+    }
+  }
 }

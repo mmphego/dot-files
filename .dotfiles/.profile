@@ -60,20 +60,16 @@ if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/.venv/bin" ]; then
-    export PATH="$HOME/.venv/bin:$PATH"
-fi
-
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/.poetry/bin" ]; then
-    export PATH="$HOME/.poetry/bin:$PATH"
-fi
-
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [ -d "$HOME/.poetry/bin" ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
 recho() {
