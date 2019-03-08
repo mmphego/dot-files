@@ -48,3 +48,8 @@ else
     echo "$@ is not a known function name" >&2
     exit 1;
 fi
+
+crontab <<EOF
+*/30 * * * * inxi -wxxx -c 0 > ~/.weather.log
+EOF
+
