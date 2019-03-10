@@ -97,5 +97,7 @@
     "Log": {
       "parser": "markdown"
     }
-  }
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
