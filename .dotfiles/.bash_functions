@@ -275,3 +275,12 @@ cmc3mount() {
     fi
 }
 
+cammount() {
+    IP="10.8.67.161"
+    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
+        sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
+        kat@"${IP}":/ /home/"${HOME}"/mnt/cam
+    else
+        fusermount -quz ~/mnt/cam ;
+    fi
+}
