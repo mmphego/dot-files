@@ -19,6 +19,35 @@ up() {
     cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
+# Calculator
+calc() {
+ # $ calc 1+2 == 3
+    echo "$*" | bc -l
+}
+
+search_replace() {
+    # Search and replace strings recursively in a given dir
+    if [ -n "$2" ]; then
+        if [ -n "$3" ]; then
+            local path="$3";
+        else
+            local path=".";
+        fi
+        ag -l "$1" "$path" | xargs -I {} -- sed -i "" -e "s%${1//\\/}%$2%g" {}
+    else
+        echo "== Usage: gsed search_string replace_string [path = .]"
+    fi
+}
+
+add_alias() {
+    if [ -n "$2" ]; then
+        echo "alias $1=\"$2\"" >> ~/.bash_aliases
+        source ~/.bashrc
+    else
+        echo "Usage: add_alias <alias> <command>"
+    fi
+}
+
 getbibtex() {
     # Download BibTex from IEEEExplore by ID or URL
     INFO="$@"
