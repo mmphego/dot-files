@@ -199,4 +199,5 @@ if [ -f ~/.weather.log ]; then
         printf "${LIGHTBLUE}%s\n${NC}" "${line}"
     done < ~/.weather.log
 fi
+printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
