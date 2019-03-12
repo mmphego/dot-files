@@ -61,6 +61,7 @@ alias rm='rm -i'
 # cd aliases
 alias cd.='cd ..'
 alias cd-='cd -'
+alias -- -='cd -'
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
