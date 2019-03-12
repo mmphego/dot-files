@@ -249,52 +249,12 @@ disconnect() {
     done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0);
 }
 
-connectSSHFS() {
-    IP="192.168.4.23"
-    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
-        timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab04
-    else
-        fusermount -u -z ~/mnt/dbelab04 ;
-    fi
-}
-
-dbelab06mount() {
-    IP="192.168.6.14"
-    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
-        timeout 2 sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/dbelab0
-    else
-        fusermount -u -z ~/mnt/dbelab06 ;
-    fi
-}
-
-cmc2mount() {
-    IP="10.103.254.3"
-    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
-        timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc2
-    else
-        fusermount -u -z ~/mnt/cmc2 ;
-    fi
-}
-
-cmc3mount() {
-    IP="10.103.254.6"
-    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
-        timeout 2 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        "${USER}"@"${IP}":/ /home/"${USER}"/mnt/cmc3
-    else
-        fusermount -quz ~/mnt/cmc3 ;
-    fi
-}
-
 cammount() {
     IP="10.8.67.161"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
         sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
-        kat@"${IP}":/ /home/"${HOME}"/mnt/cam
+        kat@"${IP}":/ /home/"${USER}"/mnt/cam
     else
-        fusermount -quz ~/mnt/cam ;
+        fusermount -quz /home/"${USER}"/mnt/cam;
     fi
 }
