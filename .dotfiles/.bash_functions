@@ -5,6 +5,20 @@ cheatsheet() {
     curl -L "https://cheat.sh/$1"
 }
 
+create-venv() {
+    if [ "$1" == "" ]; then
+        recho "Usage $0 {Python version}"
+        recho "eg: ${FUNCNAME[0]} 3"
+    else command -v virtualenv > /dev/null;
+        virtualenv --python="python${1}" ".$(basename $(pwd))" --no-site-packages
+        source ".$(basename $(pwd))/bin/activate"
+    fi
+}
+
+up() {
+    cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+
 getbibtex() {
     # Download BibTex from IEEEExplore by ID or URL
     INFO="$@"
