@@ -106,9 +106,4 @@ alias push='git push'
 alias ports='netstat -tulanp'
 
 # Log into to Server
-alias camserver='ssh -AX kat@10.8.67.161'
-alias cmc1='ssh -X 10.103.254.1'
-alias cmc2='ssh -X 10.103.254.3'
-alias cmc3='ssh -X 10.103.254.6'
-alias dbelab04='ssh -X dbelab04'
-alias dbelab06='ssh -X dbelab06'
+alias camserver='ssh -AX kat@10.8.67.160'
