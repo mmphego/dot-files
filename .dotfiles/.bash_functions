@@ -10,8 +10,9 @@ create-venv() {
         recho "Usage $0 {Python version}"
         recho "eg: ${FUNCNAME[0]} 3"
     else command -v virtualenv > /dev/null;
-        virtualenv --python="python${1}" ".$(basename $(pwd))" --no-site-packages
-        source ".$(basename $(pwd))/bin/activate"
+        virtdir=".$(basename $(pwd))_Py${1}"
+        virtualenv --python="python${1}" "${virtdir}" --no-site-packages
+        source "${virtdir}/bin/activate"
     fi
 }
 
