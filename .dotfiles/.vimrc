@@ -1,4 +1,5 @@
 " BASIC SETUP:
+" See: https://realpython.com/vim-and-python-a-match-made-in-heaven/
 
 " enter the current millenium
 set nocompatible
