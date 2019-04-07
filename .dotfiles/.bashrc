@@ -11,14 +11,14 @@ esac
 ####################################################################################################
 __git_status_info() {
     STATUS=$(git status 2>/dev/null |
-    awk '
-    /^On branch / {printf($3)}
-    /^Changes not staged / {printf("|?Changes unstaged!")}
-    /^Changes to be committed/ {printf("|*Uncommitted changes!")}
-    /^Your branch is ahead of/ {printf("|^Push changes!")}
+    awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NC '
+    /^On branch / {printf(y$3n)}
+    /^Changes not staged / {printf(g"|?Changes unstaged!"n)}
+    /^Changes to be committed/ {printf(b"|*Uncommitted changes!"n)}
+    /^Your branch is ahead of/ {printf(r"|^Push changes!"n)}
     ')
     if [ -n "${STATUS}" ]; then
-        echo -ne " (${STATUS}) [Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]"
+        echo -ne " ${STATUS} ${LIGHTCYAN}[Last updated: $(git show -1 --stat | grep ^Date | cut -f4- -d' ')]${NC}"
     fi
 }
 
