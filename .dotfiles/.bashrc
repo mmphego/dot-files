@@ -63,6 +63,12 @@ if [ -f ~/.bash_functions ]; then
     source ~/.bash_functions
 fi
 
+# argcomplete - Bash tab completion for argparse
+# See: https://github.com/kislyuk/argcomplete
+if [ -f ~/.python-argcomplete.sh ]; then
+    source ~/.python-argcomplete.sh
+fi
+
 ####################################################################################################
 #################################### Exports Definitions ###########################################
 ####################################################################################################
