@@ -156,7 +156,7 @@
 [color "status"]
     added = blue bold
     changed = green bold
-    untracked = yellow bold
+    untracked = red
 
 [color "diff-highlight"]
     oldNormal = red bold
