@@ -4,6 +4,9 @@
 
 [core]
     editor = nano
+    filemode = true
+    whitespace = trailing-space, tab-in-indent, tabwidth=4
+    pager = less --tabs=4 -RFX
 
 [alias]
 	# List aliases
@@ -18,6 +21,7 @@
     cmmit = commit -s
     cmomit = commit -s
     cmt = commit -s
+    co = commit -s
     comimt = commit -s
     comit = commit -s
     comit = commit -s
@@ -131,6 +135,34 @@
 
 [push]
     default = current
+
+[color]
+    ui = true
+
+[color "diff"]
+    meta = 227
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = 227 bold
+    whitespace = red reverse
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow bold
+    remote = green bold
+    plain = red bold
+
+[color "status"]
+    added = blue bold
+    changed = green bold
+    untracked = yellow bold
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 
 [http]
     sslVerify = false
