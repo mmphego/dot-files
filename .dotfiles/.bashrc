@@ -11,7 +11,7 @@ esac
 ####################################################################################################
 __git_status_info() {
     STATUS=$(git status 2>/dev/null |
-    awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NC '
+    awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '
     /^On branch / {printf(y$3n)}
     /^Changes not staged / {printf(g"|?Changes unstaged!"n)}
     /^Changes to be committed/ {printf(b"|*Uncommitted changes!"n)}
@@ -207,3 +207,4 @@ if [ -f ~/.weather.log ]; then
 fi
 printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
+

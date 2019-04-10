@@ -16,7 +16,7 @@
     <property name="brightness-switch-restore-on-exit" type="int" value="1"/>
     <property name="brightness-switch" type="int" value="0"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
-    <property name="lid-action-on-ac" type="uint" value="0"/>
+    <property name="lid-action-on-ac" type="uint" value="3"/>
     <property name="sleep-button-action" type="uint" value="1"/>
     <property name="hibernate-button-action" type="uint" value="1"/>
     <property name="inactivity-on-battery" type="uint" value="20"/>
