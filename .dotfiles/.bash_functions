@@ -2,6 +2,11 @@
 
 cheatsheet() {
     # Cheatsheets https://github.com/chubin/cheat.sh
+    if [ "$1" == "" ]; then
+        recho "Usage $0 {filename}"
+        recho "eg: ${FUNCNAME[0]} ls"
+        exit 1
+    fi
     curl -L "https://cheat.sh/$1"
 }
 
@@ -17,15 +22,19 @@ create-venv() {
         "${virtdir}/bin/pip" install black flake8 isort
 
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
-            "${virtdir}/bin/pip" ipython['all']
+            "${virtdir}/bin/pip" install ipython['all']
         else
-            "${virtdir}/bin/pip" ipython['all']==5.8.0
+            "${virtdir}/bin/pip" install ipython['all']==5.8.0
         fi
     fi
 }
 
 up() {
     cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+
+killbg(){
+    kill -9 $(jobs -p)
 }
 
 # Calculator
@@ -57,7 +66,7 @@ add_alias() {
     fi
 }
 
-getbibtex() {
+getbib_from_ieee() {
     # Download BibTex from IEEEExplore by ID or URL
     INFO="$@"
     if [[ "${INFO}" == http* ]]; then
@@ -67,6 +76,23 @@ getbibtex() {
     fi
     curl -s --data "recordIds=${ID}&download-format=download-bibtex&citations-format=citation-abstract" https://ieeexplore.ieee.org/xpl/downloadCitations > "${ID}_reference".bib
     sed -i "s/<br>//g" "${ID}_reference".bib
+}
+
+getbib(){
+
+    if [ -f "$1" ]; then
+        # Try to get DOI from pdfinfo or pdftotext output.
+        doi=$(pdfinfo "$1" | grep -io "doi:.*") ||
+        doi=$(pdftotext "$1" 2>/dev/null - | grep -io "doi:.*" -m 1) ||
+        exit 1
+    else
+        doi="$1"
+    fi
+
+    # Check crossref.org for the bib citation.
+    curl -s "http://api.crossref.org/works/${doi}/transform/application/x-bibtex" -w "\\n"
+    # Check doi2bib.org for the bib citation.
+    curl -s "https://doi2bib.org/doi2bib?id=${doi}" -w "\\n"
 }
 
 sciget() {
@@ -230,9 +256,11 @@ open() {
 compile() {
      if [ -f $1 ] ; then
          case $1 in
-             *.tex)    latexmk -pdf $1               ;;
-             *.c)      gcc -Wall "$1" -o "main" -lm  ;;
             # List should be expanded.
+             *.c)      gcc -Wall "$1" -o "main" -lm  ;;
+             *.go)     go run "$1"                   ;;
+             *.py)     pycompile -v "$1"             ;;
+             *.tex)    latexmk -pdf "$1"             ;;
              *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
          esac
      else
