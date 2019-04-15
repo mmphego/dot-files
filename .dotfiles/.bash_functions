@@ -19,10 +19,10 @@ create-venv() {
         virtualenv --python="python${1}" "${virtdir}" --no-site-packages
         source "${virtdir}/bin/activate"
 
-        "${virtdir}/bin/pip" install black flake8 isort
+        "${virtdir}/bin/pip" install flake8 isort autopep8
 
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
-            "${virtdir}/bin/pip" install ipython['all']
+            "${virtdir}/bin/pip" install black ipython['all']
         else
             "${virtdir}/bin/pip" install ipython['all']==5.8.0
         fi
