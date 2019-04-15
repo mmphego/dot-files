@@ -24,7 +24,7 @@ create-venv() {
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
             "${virtdir}/bin/pip" install black ipython['all']
         else
-            "${virtdir}/bin/pip" install ipython['all']==5.8.0
+            "${virtdir}/bin/pip" install ipython==5.8.0
         fi
     fi
 }
