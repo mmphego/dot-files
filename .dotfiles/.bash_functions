@@ -120,15 +120,16 @@ git-pull-all() {
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
         git pull &>/dev/null &
-        STATUS=$(git status 2>/dev/null |
-            awk '
-            /^On branch / {printf($3)}
-            /^Changes not staged / {printf(" | ?Changes unstaged!")}
-            /^Changes to be committed/ {printf(" | *Uncommitted changes!")}
-            /^Your branch is ahead of/ {printf(" | ^Push changes!")}
-            ')
 
-        printf "Repo: ${DIR} | ${GREEN}${STATUS}${NC}\n";
+        STATUS=$(git status 2>/dev/null |
+        awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '
+        /^On branch / {printf(y$3n)}
+        /^Changes not staged / {printf(g"|?Changes unstaged!"n)}
+        /^Changes to be committed/ {printf(b"|*Uncommitted changes!"n)}
+        /^Your branch is ahead of/ {printf(r"|^Push changes!"n)}
+        ')
+
+        printf "Repo: ${DIR} | ${STATUS}\n";
         builtin cd - &>/dev/null;
     done
     builtin cd $CUR_DIR &>/dev/null;
