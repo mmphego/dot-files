@@ -20,3 +20,7 @@ alias mklatex='docker run --rm -i -v "$PWD":/data --user="$(id -u):$(id -g)" mmp
 # Export your Medium posts to Markdown
 # see: https://github.com/mmphego/my-dockerfiles/medium2md
 alias mediumexporter='docker run --rm -it -v "$(pwd):/app" mmphego/mediumexporter $1 > medium_post.md'
+
+# Haskell Dockerfile Linter
+# see: https://github.com/hadolint/hadolint
+alias dockerfile-linter='docker run --rm -i hadolint/hadolint < '
