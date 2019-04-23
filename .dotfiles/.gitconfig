@@ -16,18 +16,18 @@
 
     # My life is full of typos
     ad = add
-    cinnut = commit -s
-    cmit = commit -s
-    cmmit = commit -s
-    cmomit = commit -s
-    cmt = commit -s
-    co = commit -s
-    comimt = commit -s
-    comit = commit -s
-    comit = commit -s
-    comkmit = commit -s
-    commi = commit -s
-    commt = commit -s
+    cinnut = commit
+    cmit = commit
+    cmmit = commit
+    cmomit = commit
+    cmt = commit
+    co = commit
+    comimt = commit
+    comit = commit
+    comit = commit
+    comkmit = commit
+    commi = commit
+    commt = commit
     dif = diff
     dff = diff
     dfi = diff
@@ -36,11 +36,11 @@
     lgo = log
     lof = log
     loh = log
-    ocmit = commit -s
-    ocmmit = commit -s
+    ocmit = commit
+    ocmmit = commit
     og = log
-    omit = commit -s
-    ommit = commit -s
+    omit = commit
+    ommit = commit
     satus = status
     sta = status
     st = status
@@ -109,11 +109,11 @@
     # Need I say more
     commit-amend = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit -s --amend -anC HEAD; \
+        git commit --amend -anC HEAD; \
         };fnc"
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit -s --amend -anC HEAD; \
+        git commit --amend -anC HEAD; \
         git push -f; \
         };fnc"
 	last = log -1 HEAD
@@ -175,4 +175,3 @@
 
 [commit]
 	gpgsign = true
-	signoff = true
