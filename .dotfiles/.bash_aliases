@@ -106,4 +106,4 @@ alias push='git push'
 alias ports='netstat -tulanp'
 
 # Log into to Server
-alias camserver='autossh -AX kat@10.8.67.160'
+alias camserver='autossh -A kat@10.8.67.160'
