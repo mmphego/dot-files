@@ -1,6 +1,6 @@
 [Configuration]
-LastActiveMode=THUNAR_RENAMER_MODE_BOTH
-LastActiveRenamer=ThunarSbrCaseRenamer
+LastActiveMode=THUNAR_RENAMER_MODE_NAME
+LastActiveRenamer=ThunarSbrRemoveRenamer
 
 [ThunarSbrDateRenamer]
 Offset=0
@@ -8,12 +8,12 @@ Mode=THUNAR_SBR_DATE_MODE_NOW
 OffsetMode=THUNAR_SBR_OFFSET_MODE_LEFT
 Format=%Y%m%d.
 
+[ThunarSbrCaseRenamer]
+Mode=THUNAR_SBR_CASE_RENAMER_MODE_CAMEL
+
 [ThunarSbrRemoveRenamer]
 EndOffsetMode=THUNAR_SBR_OFFSET_MODE_LEFT
 StartOffset=0
-EndOffset=2
+EndOffset=22
 StartOffsetMode=THUNAR_SBR_OFFSET_MODE_LEFT
-
-[ThunarSbrCaseRenamer]
-Mode=THUNAR_SBR_CASE_RENAMER_MODE_CAMEL
 
