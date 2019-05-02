@@ -3,7 +3,7 @@
 shell $SHELL
 
 # scrollback
-defscrollback 4000
+defscrollback 10000
 
 # New windows start at 11
 bind c screen 11
@@ -85,3 +85,6 @@ escape ``
 
 # so it won't seem like there is a delay when entering copy mode
 msgminwait 0
+
+# https://stackoverflow.com/a/1125947/6165344
+termcapinfo xterm* ti@:te@
