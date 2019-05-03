@@ -168,7 +168,7 @@ clone-my-repos() {
 
 committer() {
     # Add file(s), commit and push
-    FILE=$(git status | $(command -v grep) "modified:" | cut -f2 -d ":" | xargs)
+    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | xargs)
     for file in $FILE; do git add -f "$file"; done
     if [ "$1" == "" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
