@@ -47,7 +47,7 @@ alias search-installed='sudo dpkg --get-selections '
 alias emptyDir='find . -empty -type d -delete'
 
 # Shortcuts directory access
-alias meng='cd ${HOME}/MEGA/MEng_Stuff'
+alias meng='cd ${HOME}/MEGA/MEng_Stuff/MEng-Progress/Main_Latex'
 alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
 
 # System shortcuts
