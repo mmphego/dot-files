@@ -117,7 +117,7 @@
         git push -f; \
         };fnc"
 	last = log -1 HEAD
-    commit = commit -s
+    find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
 
 [color]
     ui = auto
