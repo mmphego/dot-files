@@ -31,6 +31,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lh='ls -lh'
 alias lsdir='ls -thord */'
+alias lss='ls -thor'
 
 ### Apt
 alias update='sudo apt-get -y update'
