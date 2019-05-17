@@ -10,7 +10,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.parameterHints.enabled": false,
   "editor.quickSuggestionsDelay": 25,
-  "editor.renderWhitespace": "boundary",
+  "editor.renderWhitespace": "none",
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 4,
   "editor.wordWrap": "on",
@@ -42,7 +42,7 @@
   "git.confirmSync": false,
   "menu.fontsize": 16,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -2,
   "terminal.integrated.fontSize": 16,
 
   "workbench.statusBar.visible": true,
@@ -75,19 +75,29 @@
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
-    "editor.rulers": [79, 120],
+    "editor.rulers": [90, 120],
     "editor.tabSize": 4
   },
   // Spelling and Grammar
   "cSpell.language": "en",
   "cSpell.userWords": [
+    "APDU",
+    "Ethertype",
     "IEDs",
+    "Interconnnection",
+    "SCADA",
+    "VLAN",
     "cput",
     "csaems",
     "electrotechnical",
+    "multicast",
+    "routable",
     "rtds",
     "scsm",
     "synchronization",
+    "synchrophasor",
+    "telecontrol",
+    "teleprotection",
     "upscalable"
   ],
   "shellcheck.disableVersionCheck": true,
@@ -100,5 +110,8 @@
   },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "C_Cpp.updateChannel": "Insiders"
+  "C_Cpp.updateChannel": "Insiders",
+  "editor.renderControlCharacters": false,
+  "breadcrumbs.enabled": true,
+  "window.menuBarVisibility": "default"
 }
