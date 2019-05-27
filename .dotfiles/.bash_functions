@@ -103,7 +103,7 @@ getbib(){
 sciget() {
     # sci-hub.tw
     # The first pirate website in the world to provide mass and public access to tens of millions of research papers
-    curl -O $(curl -s http://sci-hub.tw/"$@" | $(command -v grep) location.href | $(command -v grep) -o "http.*pdf")
+    curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o "http.*pdf")
     if [[ "$@" == "https://ieeexplore.ieee.org/"* ]]; then getbibtex "$@"; fi
 }
 

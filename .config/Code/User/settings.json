@@ -42,7 +42,7 @@
   "git.confirmSync": false,
   "menu.fontsize": 16,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": -1,
   "terminal.integrated.fontSize": 16,
 
   "workbench.statusBar.visible": true,
