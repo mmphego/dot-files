@@ -9,4 +9,6 @@
     { "keys": ["alt+shift+h"], "command": "toggle_highlight_duplicates" },
     { "keys": ["alt+shift+s"], "command": "toggle_select_duplicates" },
     { "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
+    { "keys": ["ctrl+shift+1"], "command": "toggle_side_bar" },
+
 ]
