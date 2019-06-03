@@ -324,7 +324,7 @@ disconnect() {
 cammount() {
     IP="10.8.67.160"
     if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
-        sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 \
+        sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
         kat@"${IP}":/ /home/"${USER}"/mnt/cam
     else
         fusermount -quz /home/"${USER}"/mnt/cam;
