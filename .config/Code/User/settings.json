@@ -82,6 +82,7 @@
   "cSpell.language": "en",
   "cSpell.userWords": [
     "APDU",
+    "Datagram",
     "Ethertype",
     "Ethertypes",
     "GSSE",
@@ -98,6 +99,7 @@
     "dataset",
     "datasets",
     "electrotechnical",
+    "microcontroller",
     "multicast",
     "multicasting",
     "multifunctional",
