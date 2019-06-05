@@ -330,3 +330,73 @@ cammount() {
         fusermount -quz /home/"${USER}"/mnt/cam;
     fi
 }
+
+
+create_project () {
+# Easily create a project x in current dir
+    PROJECT_NAME=$1
+    [ -d "${PROJECT_NAME}" ] || mkdir -p "${PROJECT_NAME}"
+    cd "${PROJECT_NAME}"
+    read -p "What is the language you using for the project? " LANG
+    if [ "${LANG}" == "python" ]; then
+        wget -q https://github.com/mmphego/setup.py/archive/master.zip
+        unzip -q master.zip -d .
+        mv setup.py-master/* .
+        CUR_DIR="${PWD##*/}"
+        mv mypackage "${CUR_DIR~}"
+        rm -rf setup.py-master master.zip
+        curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
+        tee .travis.yml << EOF
+language: python
+
+# sudo false implies containerized builds
+sudo: false
+
+python:
+  - 2.7
+  - 3.6
+  - 3.7
+
+before_install:
+    - pip install nose
+install:
+    - python setup.py install
+script:
+    - nosetests
+EOF
+
+    else
+        curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
+        touch .travis.yml
+    fi
+
+    git init -q
+    tee README.md << EOF
+# "${PROJECT_NAME}"
+
+[![Build Status](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME}.svg?branch=master)](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME})
+![GitHub](https://img.shields.io/github/license/{{USERNAME}}/${PROJECT_NAME}.svg)
+
+## {{ STORY GOES HERE}}
+
+
+## {{ INSTALLATION }}
+
+
+## {{ USAGE }}
+
+
+## Oh, Thanks!
+
+By the way... Click if you'd like to [say thanks](https://saythanks.io/to/{{USERNAME}})... :) else *Star* it.
+
+✨🍰✨
+
+## Feedback
+
+Feel free to fork it or send me PR to improve it.
+
+EOF
+    git add .
+    git commit -nm "Initial commit"
+}
