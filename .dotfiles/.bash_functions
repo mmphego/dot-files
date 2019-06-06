@@ -335,17 +335,26 @@ cammount() {
 create_project () {
 # Easily create a project x in current dir
     PROJECT_NAME=$1
+
     [ -d "${PROJECT_NAME}" ] || mkdir -p "${PROJECT_NAME}"
     cd "${PROJECT_NAME}"
+
+    if ! pip freeze | grep -i pygithub >/dev/null ;then
+        pip install -q --user pygithub;
+    fi
+
     read -p "What is the language you using for the project? " LANG
-    if [ "${LANG}" == "python" ]; then
-        wget -q https://github.com/mmphego/setup.py/archive/master.zip
-        unzip -q master.zip -d .
-        mv setup.py-master/* .
-        CUR_DIR="${PWD##*/}"
-        mv mypackage "${CUR_DIR~}"
-        rm -rf setup.py-master master.zip
-        curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
+    if [[ "${LANG}" =~ ^([pP])$thon ]]; then
+        read -p "Is your project a Python Package? " response
+        if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+            wget -q https://github.com/mmphego/setup.py/archive/master.zip
+            unzip -q master.zip -d .
+            mv setup.py-master/* .
+            CUR_DIR="${PWD##*/}"
+            mv mypackage "${CUR_DIR~}"
+            rm -rf setup.py-master master.zip LICENSE
+        fi
+
         tee .travis.yml << EOF
 language: python
 
@@ -370,6 +379,7 @@ EOF
         touch .travis.yml
     fi
 
+###
     git init -q
     tee README.md << EOF
 # "${PROJECT_NAME}"
@@ -397,6 +407,36 @@ By the way... Click if you'd like to [say thanks](https://saythanks.io/to/{{USER
 Feel free to fork it or send me PR to improve it.
 
 EOF
+    python3 -c """
+from configparser import ConfigParser
+from github import Github
+from pathlib import Path
+from subprocess import check_output
+
+try:
+    token = check_output(['git', 'config', 'user.token'])
+    token = token.strip().decode() if type(token) == bytes else token.strip()
+except Exception:
+    p = pathlib.Path('.gitconfig.private')
+    config.read(p.absolute())
+    token = config['user']['token']
+
+proj_name = Path.cwd().name
+g = Github(token)
+user = g.get_user()
+user.create_repo(
+    proj_name,
+    has_wiki=False,
+    has_issues=False,
+    license_template='MIT',
+    auto_init=False)
+"""
+
     git add .
-    git commit -nm "Initial commit"
+    git commit -nm "Automated commit"
+    git remote add origin "git@github.com:$(git config user.username)/${PROJECT_NAME}.git"
+    git fetch --all -q
+    git merge master origin/master -q --allow-unrelated-histories --commit -m"Merge branch 'master' of github.com:$(git config user.username)/automated_proj"
+    git branch -q --set-upstream-to=origin/master master
+    git push -q -u origin master
 }
