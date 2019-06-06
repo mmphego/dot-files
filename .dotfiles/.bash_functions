@@ -430,7 +430,7 @@ user.create_repo(
     has_issues=False,
     license_template='MIT',
     auto_init=False)
-print('Successfully created repository %s" % proj_name)
+print('Successfully created repository %s' % proj_name)
 """
 
     git add .
