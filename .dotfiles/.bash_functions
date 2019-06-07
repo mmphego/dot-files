@@ -364,7 +364,6 @@ sudo: false
 python:
   - 2.7
   - 3.6
-  - 3.7
 
 before_install:
     - echo "Setup goes here"
