@@ -367,11 +367,12 @@ python:
   - 3.7
 
 before_install:
-    - pip install nose
+    - echo "Setup goes here"
 install:
-    - python setup.py install
+    - echo "Install goes here"
 script:
-    - nosetests
+    - echo "Tests go here"
+
 EOF
 
     else
