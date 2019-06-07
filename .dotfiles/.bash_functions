@@ -38,6 +38,11 @@ up() {
     cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
+backup() {
+    FILENAME=$1;
+    cp -v "${FILENAME}" ./"${FILENAME}.bk";
+}
+
 killbg(){
     kill -9 $(jobs -p)
 }
