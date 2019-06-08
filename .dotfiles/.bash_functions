@@ -173,11 +173,13 @@ clone-my-repos() {
 
 committer() {
     # Add file(s), commit and push
-    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | xargs)
-    for file in $FILE; do git add -f "$file"; done
+    FILE="$(git status | grep "modified:" | cut -f2 -d ":" | xargs)"
+    for file in "${FILE}"; do
+        git add -f "${file}";
+    done
     if [ "$1" == "" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
-        git commit -s -S -n -m"Updated $FILE";
+        git commit -s -S -n -m"Updated ${FILE}";
     else
         git commit -s -S -n -m"$2";
     fi;
