@@ -179,7 +179,8 @@ committer() {
         # SignOff by username & email, SignOff with PGP and ignore hooks
         git commit -s -S -n -m"Updated ${FILE}";
     else
-        git commit -s -S -n -m"$2";
+        MSG=$2
+        git commit -s -S -n -m "${MSG}";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
