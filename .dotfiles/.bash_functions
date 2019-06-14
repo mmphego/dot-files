@@ -447,3 +447,30 @@ print('Successfully created repository %s' % proj_name)
     git branch -q --set-upstream-to=origin/master master
     git push -q -u origin master
 }
+
+
+create_blog_post () {
+    FILENAME=$1
+    DATE=$(date +'%Y-%m-%d')
+    TIME=$(date +'%H-%M-%S')
+
+    NEW_POST="${DATE}-${FILENAME// /-}.md"
+    # Titlecase the filename
+    TITLE=($FILENAME)
+    TITLE="${TITLE[@]^}"
+
+    touch ./"${NEW_POST}"
+    tee "${NEW_POST}" << EOF
+---
+layout: post
+title: "${TITLE}"
+date: ${DATE} ${TIME}.000000000 +02:00
+tags:
+
+---
+# ${TITLE}.
+
+EOF
+
+    subl "${NEW_POST}"
+}
