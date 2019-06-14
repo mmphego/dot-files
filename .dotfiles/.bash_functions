@@ -367,6 +367,9 @@ language: python
 # sudo false implies containerized builds
 sudo: false
 
+notifications:
+  email: change
+
 python:
   - 2.7
   - 3.6
@@ -473,4 +476,12 @@ tags:
 EOF
 
     subl "${NEW_POST}"
+}
+
+mv_file_to_dir() {
+    for file in *.{avi,mp4,mkv}; do
+        DIR="${file%.*}";
+        mkdir -p "${DIR}";
+        mv "${file}" "${DIR}";
+    done
 }
