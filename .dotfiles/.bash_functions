@@ -258,10 +258,10 @@ open() {
              *.pdf)                 zathura $1 &               ;;
              *.md)                  pandoc $1 | lynx -stdin    ;;
              *.mp3|*.mp4|*.mkv)     vlc $1 & ;;
-             *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
+             *)                     xdg-open $1 >>/dev/null ;;
          esac
      else
-         recho "'$1' is not a valid file"
+        xdg-open $1 >>/dev/null
      fi
 }
 
@@ -453,6 +453,10 @@ print('Successfully created repository %s' % proj_name)
 
 
 create_blog_post () {
+    if [ "$1" == "-h" ]; then
+        recho "Usage: $0 hello world"
+        recho "This will create a file with (date)-hello-world"
+    fi
     FILENAME=$1
     DATE=$(date +'%Y-%m-%d')
     TIME=$(date +'%H-%M-%S')
