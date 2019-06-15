@@ -33,14 +33,14 @@ def main():
 
     if contents:
         wordcloud = WordCloud(
-            width=1000,
-            height=300,
+            width=900,
+            height=200,
             stopwords=STOPWORDS,
             collocations=False,
             mode="RGB",
             margin=10,
-            random_state=3,
-            max_words=100,
+            random_state=4,
+            max_words=50,
         ).generate(contents)
         wordcloud.recolor(color_func=grey_color_func)
         plt.imshow(wordcloud, interpolation="bilinear")
