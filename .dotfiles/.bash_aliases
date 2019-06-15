@@ -101,7 +101,7 @@ alias giot='hub'
 # Git Shortcuts
 alias clone='git clone --progress'
 alias checkout='git checkout -- .'
-alias push='git push &'
+alias push='git push --no-verify -q &'
 
 # Networking
 alias ports='netstat -tulanp'
