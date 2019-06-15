@@ -8,10 +8,12 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
 
-def grey_color_func(word, font_size, position, orientation, random_state=None,
+def random_color_func(word, font_size, position, orientation, random_state=None,
                     **kwargs):
-    return "hsl(134, 77%%, %d%%)" % random.randint(44, 100)
-
+    h = int(360.0 * 143.0 / 255.0)
+    s = int(77.0 * 255.0 / 255.0)
+    l = int(100.0 * float(random.randint(44, 100)) / 255.0)
+    return "hsl({}, {}%, {}%)".format(h, s, l)
 
 def main():
     parser = argparse.ArgumentParser(description="")
@@ -42,7 +44,7 @@ def main():
             random_state=4,
             max_words=50,
         ).generate(contents)
-        wordcloud.recolor(color_func=grey_color_func)
+        wordcloud.recolor(color_func=random_color_func)
         plt.imshow(wordcloud, interpolation="bilinear")
         plt.axis("off")
         location = pathlib.Path(args.get("save_location")).absolute()
