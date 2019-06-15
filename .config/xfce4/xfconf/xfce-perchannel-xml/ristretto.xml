@@ -5,7 +5,7 @@
     <property name="navigationbar" type="empty">
       <property name="position" type="string" value="left"/>
     </property>
-    <property name="height" type="uint" value="1855"/>
+    <property name="height" type="uint" value="1007"/>
     <property name="width" type="uint" value="598"/>
   </property>
   <property name="desktop" type="empty">

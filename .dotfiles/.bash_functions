@@ -480,6 +480,8 @@ tags:
 EOF
 
     subl "${NEW_POST}"
+    generate_wordcloud.py -f "${NEW_POST}" -s ../img/new_post_word_cloud.jpg
+
 }
 
 mv_file_to_dir() {
