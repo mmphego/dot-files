@@ -38,6 +38,10 @@ up() {
     cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
+touch_script() {
+    touch $1 && chmod a+x $1;
+}
+
 backup() {
     FILENAME=$1;
     cp -v "${FILENAME}" ./"${FILENAME}.bk";

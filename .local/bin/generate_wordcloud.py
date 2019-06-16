@@ -8,12 +8,14 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
 
-def random_color_func(word, font_size, position, orientation, random_state=None,
-                    **kwargs):
+def random_color_func(
+    word, font_size, position, orientation, random_state=None, **kwargs
+):
     h = int(360.0 * 143.0 / 255.0)
     s = int(77.0 * 255.0 / 255.0)
     l = int(100.0 * float(random.randint(44, 100)) / 255.0)
     return "hsl({}, {}%, {}%)".format(h, s, l)
+
 
 def main():
     parser = argparse.ArgumentParser(description="")
