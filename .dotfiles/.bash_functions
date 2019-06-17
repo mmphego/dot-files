@@ -395,7 +395,7 @@ EOF
 ###
     git init -q
     tee README.md << EOF
-# "${PROJECT_NAME}"
+# ${PROJECT_NAME}
 
 [![Build Status](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME}.svg?branch=master)](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME})
 ![GitHub](https://img.shields.io/github/license/{{USERNAME}}/${PROJECT_NAME}.svg)
