@@ -509,3 +509,7 @@ mv_file_to_dir() {
         mv "${file}" "${DIR}";
     done
 }
+
+make_gif() {
+    ffmpeg -i "$1" "$1.gif"
+}
