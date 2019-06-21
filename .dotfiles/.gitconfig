@@ -109,11 +109,11 @@
     # Need I say more
     commit-amend = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit --amend -anC HEAD; \
+        git commit --amend -sS -anC HEAD; \
         };fnc"
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
-        git commit --amend -anC HEAD; \
+        git commit --amend -sS -anC HEAD; \
         git push -f; \
         };fnc"
 	last = log -1 HEAD
