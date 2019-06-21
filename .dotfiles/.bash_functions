@@ -361,7 +361,7 @@ create_project () {
             unzip -q master.zip -d .
             mv setup.py-master/* .
             CUR_DIR="${PWD##*/}"
-            mv mypackage "${CUR_DIR~}"
+            mv mypackage "${CUR_DIR,,}"
             rm -rf setup.py-master master.zip LICENSE
         fi
 
