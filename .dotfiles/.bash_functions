@@ -513,3 +513,7 @@ mv_file_to_dir() {
 make_gif() {
     ffmpeg -i "$1" "$1.gif"
 }
+
+rm_pyc() {
+    find . -name "*.pyc" -exec rm -f {} \;
+}
