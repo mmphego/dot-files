@@ -42,6 +42,7 @@ def main():
             stopwords=STOPWORDS,
             collocations=False,
             mode="RGB",
+            colormap='jet',
             margin=10,
             random_state=4,
             max_words=50,
