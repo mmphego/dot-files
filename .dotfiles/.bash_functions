@@ -360,6 +360,7 @@ create_project () {
             unzip -q master.zip -d .
             mv setup.py-master/* .
             CUR_DIR="${PWD##*/}"
+            CUR_DIR="${CUR_DIR//-/_}"
             mv mypackage "${CUR_DIR,,}"
             rm -rf setup.py-master master.zip
         fi
@@ -427,7 +428,7 @@ print('Successfully created repository %s' % proj_name)
     git commit -nm "Automated commit"
     git remote add origin "git@github.com:$(git config user.username)/${PROJECT_NAME}.git"
     git fetch --all -q
-    git merge master origin/master -q --allow-unrelated-histories --commit -m"Merge branch 'master' of github.com:$(git config user.username)/automated_proj"
+    git merge master origin/master -q --allow-unrelated-histories --commit -m"Merge branch 'master' of github.com:$(git config user.username)/${PROJECT_NAME}"
     git branch -q --set-upstream-to=origin/master master
     git push -q -u origin master
 }
