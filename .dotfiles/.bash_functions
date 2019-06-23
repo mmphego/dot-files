@@ -361,34 +361,10 @@ create_project () {
             mv setup.py-master/* .
             CUR_DIR="${PWD##*/}"
             mv mypackage "${CUR_DIR,,}"
-            rm -rf setup.py-master master.zip LICENSE
+            rm -rf setup.py-master master.zip
         fi
-
-        tee .travis.yml << EOF
-language: python
-
-# sudo false implies containerized builds
-sudo: false
-
-notifications:
-  email: change
-
-python:
-  - 2.7
-  - 3.6
-
-before_install:
-    - echo "Setup goes here"
-install:
-    - echo "Install goes here"
-script:
-    - echo "Tests go here"
-
-EOF
-
     else
         curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
-        touch .travis.yml
     fi
 
 ###
@@ -403,9 +379,12 @@ EOF
 
 ## Installation
 
+Instructions goes here!!
+
 
 ## Usage
 
+Instructions goes here!!
 
 ## Oh, Thanks!
 
