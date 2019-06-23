@@ -345,7 +345,6 @@ cammount() {
 create_project () {
 # Easily create a project x in current dir
     PROJECT_NAME=$1
-
     [ -d "${PROJECT_NAME}" ] || mkdir -p "${PROJECT_NAME}"
     cd "${PROJECT_NAME}"
 
@@ -395,23 +394,22 @@ EOF
 ###
     git init -q
     tee README.md << EOF
-# ${PROJECT_NAME}
+# $(echo "print '${PROJECT_NAME}'.title()" | python2)
+[![Build Status](https://travis-ci.com/$(git config user.username)/${PROJECT_NAME}.svg?branch=master)](https://travis-ci.com/$(git config user.username)/${PROJECT_NAME})
+![GitHub](https://img.shields.io/github/license/$(git config user.username)/${PROJECT_NAME}.svg)
 
-[![Build Status](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME}.svg?branch=master)](https://travis-ci.com/{{USERNAME}}/${PROJECT_NAME})
-![GitHub](https://img.shields.io/github/license/{{USERNAME}}/${PROJECT_NAME}.svg)
-
-## {{ STORY GOES HERE}}
-
-
-## {{ INSTALLATION }}
+## The Story
 
 
-## {{ USAGE }}
+## Installation
+
+
+## Usage
 
 
 ## Oh, Thanks!
 
-By the way... Click if you'd like to [say thanks](https://saythanks.io/to/{{USERNAME}})... :) else *Star* it.
+By the way... Click if you'd like to [say thanks](https://saythanks.io/to/$(git config user.username))... :) else *Star* it.
 
 ✨🍰✨
 
