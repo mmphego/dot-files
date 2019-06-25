@@ -363,6 +363,22 @@ create_project () {
             CUR_DIR="${CUR_DIR//-/_}"
             mv mypackage "${CUR_DIR,,}"
             rm -rf setup.py-master master.zip
+
+            read -p "Do you want to rename your Python scripts name? " response
+            if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+                # Find all files containing a pattern and replace
+                read -p "What do you want to call your Python Script name (with underscores & No Spaces)? " SCRIPTNAME
+                if [[ "${SCRIPTNAME}" ]]; then
+                    FIND_PATTERN='mypackage'
+                    for FILE in $(grep -rl . -e "${FIND_PATTERN}"); do
+                       sed -i -e "s/${FIND_PATTERN}/${SCRIPTNAME}/g" ${FILE};
+                    done
+                    for NEW_FILENAME in  $(find . -name "*mypackage*"); do
+                        mv "${NEW_FILENAME}" $(echo ${NEW_FILENAME} | sed "s/${FIND_PATTERN}/${SCRIPTNAME}/") ;
+                    done
+                fi
+            fi
+
         fi
     else
         curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
