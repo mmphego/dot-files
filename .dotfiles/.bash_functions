@@ -372,9 +372,9 @@ create_project () {
                     FIND_PATTERN='mypackage'
                     for FILE in $(grep -rl . -e "${FIND_PATTERN}"); do
                        sed -i -e "s/${FIND_PATTERN}/${SCRIPTNAME}/g" ${FILE};
-                    done
-                    for NEW_FILENAME in  $(find . -name "*mypackage*"); do
-                        mv "${NEW_FILENAME}" $(echo ${NEW_FILENAME} | sed "s/${FIND_PATTERN}/${SCRIPTNAME}/") ;
+                        for NEW_FILENAME in  $(find . -name "*mypackage*"); do
+                            mv "${NEW_FILENAME}" $(echo ${NEW_FILENAME} | sed "s/${FIND_PATTERN}/${SCRIPTNAME}/");
+                        done
                     done
                 fi
             fi
