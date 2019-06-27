@@ -357,8 +357,14 @@ create_project () {
 
     read -p "What is the language you using for the project? " LANG
     if [[ "${LANG}" =~ ^([pP])$thon ]]; then
-        gecho "Lets build your project, Please follow the prompts."
+        gecho "Lets build your Python project, Please follow the prompts."
         cookiecutter https://github.com/mmphego/cookiecutter-python-package
+        PACKAGE_DIR=$(ls -tr --color='never' | tail -n1)
+        pushd "${PACKAGE_DIR}"
+        DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
+    elif [[ "${LANG}" =~ ^([uU])$python ]]; then
+        gecho "Lets build your Micropython project, Please follow the prompts."
+        cookiecutter https://github.com/mmphego/cookiecutter-micropython
         PACKAGE_DIR=$(ls -tr --color='never' | tail -n1)
         pushd "${PACKAGE_DIR}"
         DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
@@ -400,6 +406,7 @@ print('Successfully created repository %s' % proj_name)
         git commit -q -nm "Automated commit" > /dev/null 2>&1
         git remote add origin "git@github.com:$(git config user.username)/${PACKAGE_DIR}.git" > /dev/null 2>&1
         git push -q -u origin master > /dev/null 2>&1
+        subl .
     fi
 }
 
