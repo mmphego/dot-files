@@ -343,78 +343,34 @@ cammount() {
 
 
 create_project () {
-# Easily create a project x in current dir
-    PROJECT_NAME=$1
-    [ -d "${PROJECT_NAME}" ] || mkdir -p "${PROJECT_NAME}"
-    cd "${PROJECT_NAME}"
+# Easily create a project x in current dir using cookiecutter templates
 
-    if ! pip freeze | grep -i pygithub >/dev/null ;then
-        pip install -q --user pygithub;
-    fi
+    PACKAGES=("pygithub" "cookiecutter")
+    PACKAGE_DIR=""
+    DESCRIPTION=""
+
+    for pkg in "${PACKAGES[@]}"; do
+        if ! pip freeze | grep -i "${pkg}" >/dev/null ;then
+            pip install -q --user "${pkg}";
+        fi
+    done
 
     read -p "What is the language you using for the project? " LANG
     if [[ "${LANG}" =~ ^([pP])$thon ]]; then
-        read -p "Is your project a Python Package? " response
-        if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-            wget -q https://github.com/mmphego/setup.py/archive/master.zip
-            unzip -q master.zip -d .
-            mv setup.py-master/* .
-            CUR_DIR="${PWD##*/}"
-            CUR_DIR="${CUR_DIR//-/_}"
-            mv mypackage "${CUR_DIR,,}"
-            rm -rf setup.py-master master.zip
-
-            read -p "Do you want to rename your Python scripts name? " response
-            if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-                # Find all files containing a pattern and replace
-                read -p "What do you want to call your Python Script name (with underscores & No Spaces)? " SCRIPTNAME
-                if [[ "${SCRIPTNAME}" ]]; then
-                    FIND_PATTERN='mypackage'
-                    for FILE in $(grep -rl . -e "${FIND_PATTERN}"); do
-                       sed -i -e "s/${FIND_PATTERN}/${SCRIPTNAME}/g" ${FILE};
-                        for NEW_FILENAME in  $(find . -name "*mypackage*"); do
-                            mv "${NEW_FILENAME}" $(echo ${NEW_FILENAME} | sed "s/${FIND_PATTERN}/${SCRIPTNAME}/");
-                        done
-                    done
-                fi
-            fi
-
-        fi
-    else
-        curl -s "https://www.gitignore.io/api/${LANG}" > .gitignore
+        gecho "Lets build your project, Please follow the prompts."
+        cookiecutter https://github.com/mmphego/cookiecutter-python-package
+        PACKAGE_DIR=$(ls -tr --color='never' | tail -n1)
+        pushd "${PACKAGE_DIR}"
+        DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
     fi
 
-###
-    git init -q
-    tee README.md << EOF
-# $(echo "print '${PROJECT_NAME}'.title()" | python2)
-[![Build Status](https://travis-ci.com/$(git config user.username)/${PROJECT_NAME}.svg?branch=master)](https://travis-ci.com/$(git config user.username)/${PROJECT_NAME})
-![GitHub](https://img.shields.io/github/license/$(git config user.username)/${PROJECT_NAME}.svg)
+############################################################
 
-## The Story
+    if [[ "${PACKAGE_DIR}" == "$(basename $(pwd))" ]];then
 
+        git init -q
 
-## Installation
-
-Instructions goes here!!
-
-
-## Usage
-
-Instructions goes here!!
-
-## Oh, Thanks!
-
-By the way... Click if you'd like to [say thanks](https://saythanks.io/to/$(git config user.username))... :) else *Star* it.
-
-✨🍰✨
-
-## Feedback
-
-Feel free to fork it or send me PR to improve it.
-
-EOF
-    python3 -c """
+        python3 -c """
 from configparser import ConfigParser
 from github import Github
 from pathlib import Path
@@ -433,20 +389,18 @@ g = Github(token)
 user = g.get_user()
 user.create_repo(
     proj_name,
+    description=${DESCRIPTION},
     has_wiki=False,
-    has_issues=False,
-    license_template='MIT',
+    has_issues=True,
     auto_init=False)
 print('Successfully created repository %s' % proj_name)
 """
 
-    git add .
-    git commit -nm "Automated commit"
-    git remote add origin "git@github.com:$(git config user.username)/${PROJECT_NAME}.git"
-    git fetch --all -q
-    git merge master origin/master -q --allow-unrelated-histories --commit -m"Merge branch 'master' of github.com:$(git config user.username)/${PROJECT_NAME}"
-    git branch -q --set-upstream-to=origin/master master
-    git push -q -u origin master
+        git add .  > /dev/null 2>&1
+        git commit -q -nm "Automated commit" > /dev/null 2>&1
+        git remote add origin "git@github.com:$(git config user.username)/${PACKAGE_DIR}.git" > /dev/null 2>&1
+        git push -q -u origin master > /dev/null 2>&1
+    fi
 }
 
 
