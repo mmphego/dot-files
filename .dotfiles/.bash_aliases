@@ -99,7 +99,7 @@ alias got='hub'
 alias giot='hub'
 
 # Git Shortcuts
-alias clone='git clone --progress'
+alias clone='git clone --progress --depth=1'
 alias checkout='git checkout -- .'
 alias push='git push --no-verify -q &'
 alias pull='git pull --all &'
