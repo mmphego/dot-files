@@ -412,9 +412,11 @@ print('Successfully created repository %s' % proj_name)
 
 
 create_blog_post () {
-    if [ "$1" == "-h" ]; then
+    if [ "$1" == "" ]; then
         recho "Usage: $0 hello world"
+        recho "eg: ${FUNCNAME[0]} 'Hello world' "
         recho "This will create a file with (date)-hello-world"
+        return
     fi
 
     BLOG_DIR=$(locate -b 'mmphego.github.io')
