@@ -7,14 +7,15 @@ import random
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
+stopwords = STOPWORDS.update(["self", 'item', 'refdef'])
 
-def random_color_func(
-    word, font_size, position, orientation, random_state=None, **kwargs
-):
-    h = int(360.0 * 143.0 / 255.0)
-    s = int(77.0 * 255.0 / 255.0)
-    l = int(100.0 * float(random.randint(44, 100)) / 255.0)
-    return "hsl({}, {}%, {}%)".format(h, s, l)
+# def random_color_func(
+#     word, font_size, position, orientation, random_state=None, **kwargs
+# ):
+#     h = int(360.0 * 143.0 / 255.0)
+#     s = int(77.0 * 255.0 / 255.0)
+#     l = int(100.0 * float(random.randint(44, 100)) / 255.0)
+#     return "hsl({}, {}%, {}%)".format(h, s, l)
 
 
 def main():
@@ -39,15 +40,15 @@ def main():
         wordcloud = WordCloud(
             width=900,
             height=200,
-            stopwords=STOPWORDS,
+            stopwords=stopwords,
             collocations=False,
-            mode="RGB",
+            # mode="RGB",
             colormap='jet',
-            margin=10,
-            random_state=4,
-            max_words=50,
+            margin=5,
+            random_state=21,
+            max_words=100,
         ).generate(contents)
-        wordcloud.recolor(color_func=random_color_func)
+        # wordcloud.recolor(color_func=random_color_func)
         plt.imshow(wordcloud, interpolation="bilinear")
         plt.axis("off")
         location = pathlib.Path(args.get("save_location")).absolute()

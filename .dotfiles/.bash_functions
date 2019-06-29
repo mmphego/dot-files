@@ -423,7 +423,7 @@ create_blog_post () {
     if [ -d "${BLOG_DIR}" ]; then
         FILENAME=$1
         DATE=$(date +'%Y-%m-%d')
-        TIME=$(date +'%H-%M-%S')
+        TIME=$(date +'%H:%M:%S')
 
         NEW_POST="${BLOG_DIR}/_posts/${DATE}-${FILENAME// /-}.md"
         NEW_POST_IMG="/assets/${DATE}-${FILENAME// /-}.jpg"
@@ -446,6 +446,8 @@ tags:
 {:refdef: style="text-align: center;"}
 ![post image]({{ "${NEW_POST_IMG}" | absolute_url }})
 {: refdef}
+
+-----------------------------------------------------------------------------------------
 EOF
         subl "${NEW_POST}"
         recho "Do not forget to Run:"
