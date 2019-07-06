@@ -345,29 +345,44 @@ cammount() {
 create_project () {
 # Easily create a project x in current dir using cookiecutter templates
 
-    PACKAGES=("pygithub" "cookiecutter")
+    PACKAGES=("pygithub" "cookiecutter" "platformio")
     PACKAGE_DIR=""
-    DESCRIPTION=""
+    export DESCRIPTION="description goes here!"
+    PYTHON2_PIP="python2 -W ignore::DeprecationWarning -m pip -q --disable-pip-version-check"
+    PYTHON3_PIP="python3 -W ignore::DeprecationWarning -m pip -q --disable-pip-version-check"
+    IDE="subl"
 
     for pkg in "${PACKAGES[@]}"; do
-        if ! pip freeze | grep -i "${pkg}" >/dev/null ;then
-            pip install -q --user "${pkg}";
+        if ! ${PYTHON3_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
+            ${PYTHON3_PIP} install -q --user "${pkg}" >/dev/null 2>&1;
+        elif ! ${PYTHON2_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
+            ${PYTHON3_PIP} install -q --user "${pkg}" >/dev/null 2>&1;
         fi
     done
 
-    read -p "What is the language you using for the project? " LANG
+    read -p "What is the language you using for the  (or type of) project? " LANG
     if [[ "${LANG}" =~ ^([pP])$thon ]]; then
         gecho "Lets build your Python project, Please follow the prompts."
         cookiecutter https://github.com/mmphego/cookiecutter-python-package
         PACKAGE_DIR=$(ls -tr --color='never' | tail -n1)
-        pushd "${PACKAGE_DIR}"
-        DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
+        export DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
+        cd -- "${PACKAGE_DIR}"
     elif [[ "${LANG}" =~ ^([uU])$python ]]; then
         gecho "Lets build your Micropython project, Please follow the prompts."
         cookiecutter https://github.com/mmphego/cookiecutter-micropython
         PACKAGE_DIR=$(ls -tr --color='never' | tail -n1)
-        pushd "${PACKAGE_DIR}"
-        DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
+        cd -- "${PACKAGE_DIR}"
+        export DESCRIPTION=$(grep -oP '(?<=DESCRIPTION = ).*' setup.py)
+    elif [[ "${LANG}" =~ ^([Aa])$duino ]]; then
+        gecho "Lets build your Arduino project, Please follow the prompts."
+        read -p "Enter name of the project directory? " PACKAGE_DIR
+        read -p "Enter type of board (nodemcu/uno)? " BOARD
+        read -p "What IDE would you like to use vscode/atom/vim? " IDE
+        read -p "Enter the description of the project? " DESCRIPTION
+        export DESCRIPTION="${DESCRIPTION}"
+        mkdir -p "${PACKAGE_DIR}"
+        python2 -m platformio init -s -d ${PACKAGE_DIR} -b ${BOARD} --ide ${IDE}
+        cd -- "${PACKAGE_DIR}"
     fi
 
 ############################################################
@@ -378,9 +393,11 @@ create_project () {
 
         python3 -c """
 from configparser import ConfigParser
-from github import Github
 from pathlib import Path
+from os import getenv
 from subprocess import check_output
+
+from github import Github
 
 try:
     token = check_output(['git', 'config', 'user.token'])
@@ -395,7 +412,7 @@ g = Github(token)
 user = g.get_user()
 user.create_repo(
     proj_name,
-    description=${DESCRIPTION},
+    description=getenv('DESCRIPTION', 'Description goes here!'),
     has_wiki=False,
     has_issues=True,
     auto_init=False)
@@ -406,7 +423,7 @@ print('Successfully created repository %s' % proj_name)
         git commit -q -nm "Automated commit" > /dev/null 2>&1
         git remote add origin "git@github.com:$(git config user.username)/${PACKAGE_DIR}.git" > /dev/null 2>&1
         git push -q -u origin master > /dev/null 2>&1
-        subl .
+        "${IDE}" .
     fi
 }
 
