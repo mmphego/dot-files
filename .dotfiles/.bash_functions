@@ -465,6 +465,17 @@ tags:
 {: refdef}
 
 -----------------------------------------------------------------------------------------
+
+# The Story
+
+
+# The How
+
+
+# The Walkthrough
+
+
+# Reference
 EOF
         subl "${NEW_POST}"
         recho "Do not forget to Run:"
