@@ -469,7 +469,7 @@ EOF
         subl "${NEW_POST}"
         recho "Do not forget to Run:"
         set -x
-        generate_wordcloud.py -f "${NEW_POST}" -s "${BG_IMG}"
+        python3 generate_wordcloud.py -f "${NEW_POST}" -s "${BG_IMG}"
         cp "${BG_IMG}" "${BLOG_DIR}${NEW_POST_IMG}"
         set +x
         recho "When you are done editing."
