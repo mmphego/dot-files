@@ -7,7 +7,7 @@ import random
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
-stopwords = STOPWORDS.update(["self", 'item', 'refdef'])
+stopwords = STOPWORDS.update(["self", 'item', 'refdef', 'http', 'https', 'null'])
 
 # def random_color_func(
 #     word, font_size, position, orientation, random_state=None, **kwargs
@@ -34,26 +34,32 @@ def main():
     args = vars(parser.parse_args())
 
     with open(args.get("filename")) as _f:
-        contents = " ".join([i.strip() for i in _f.readlines()])
+        contents = [i.strip() for i in _f.readlines()]
+        contents = ' '.join(set(' '.join(set(contents)).split()))
 
     if contents:
         wordcloud = WordCloud(
             width=900,
             height=200,
             stopwords=stopwords,
+            background_color ='black',
             collocations=False,
-            # mode="RGB",
-            colormap='jet',
-            margin=5,
+            # https://matplotlib.org/users/colormaps.html
+            colormap='hsv',
             random_state=21,
-            max_words=100,
+            max_words=300,
+            min_font_size=5
         ).generate(contents)
         # wordcloud.recolor(color_func=random_color_func)
-        plt.imshow(wordcloud, interpolation="bilinear")
-        plt.axis("off")
+        fig = plt.figure(figsize=[6,6], facecolor=None)
+        ax = fig.add_subplot(111)
+        ax.imshow(wordcloud, interpolation="bilinear")
+        ax.axes.get_xaxis().set_visible(False)
+        ax.axes.get_yaxis().set_visible(False)
+        ax.set_frame_on(False)
+        ax.axis("off")
         location = pathlib.Path(args.get("save_location")).absolute()
-        plt.savefig(location, bbox_inches="tight", dpi=300)
-
+        plt.savefig(location, dpi=300, transparent=True, bbox_inches='tight', pad_inches=0)
 
 if __name__ == "__main__":
     main()
