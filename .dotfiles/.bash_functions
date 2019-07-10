@@ -348,15 +348,12 @@ create_project () {
     PACKAGES=("pygithub" "cookiecutter" "platformio")
     PACKAGE_DIR=""
     export DESCRIPTION="description goes here!"
-    PYTHON2_PIP="python2 -W ignore::DeprecationWarning -m pip -q --disable-pip-version-check"
     PYTHON3_PIP="python3 -W ignore::DeprecationWarning -m pip -q --disable-pip-version-check"
     IDE="subl"
 
     for pkg in "${PACKAGES[@]}"; do
-        if ! ${PYTHON3_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
-            ${PYTHON3_PIP} install -q --user "${pkg}" >/dev/null 2>&1;
-        elif ! ${PYTHON2_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
-            ${PYTHON3_PIP} install -q --user "${pkg}" >/dev/null 2>&1;
+        if ${PYTHON3_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
+            ${PYTHON3_PIP} install -q --user -U "${pkg}" >/dev/null 2>&1;
         fi
     done
 
