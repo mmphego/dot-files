@@ -53,7 +53,7 @@ class black_format(sublime_plugin.WindowCommand):
             self.window,
             self.settings.get("encoding", None),
             "black -l {0}{1}".format(
-                self.settings.get("line_length", 88),
+                self.settings.get("line_length", 90),
                 " -S" if self.settings.get("skip_string_normalization", False) else "",
             ),
             self.file_name,
