@@ -9,7 +9,10 @@
     { "keys": ["alt+shift+h"], "command": "toggle_highlight_duplicates" },
     { "keys": ["alt+shift+s"], "command": "toggle_select_duplicates" },
     { "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
+    { "keys": ["ctrl+k", "ctrl+u"], "command": "upper_case" },
+    { "keys": ["ctrl+k", "ctrl+l"], "command": "lower_case" },
     { "keys": ["ctrl+shift+1"], "command": "toggle_side_bar" },
     { "keys": ["ctrl+alt+d"], "command": "auto_docstring" },
+    { "keys": ["ctrl+alt+shift+i"], "command": "python_fiximports"},
 
 ]
