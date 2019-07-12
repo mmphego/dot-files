@@ -298,6 +298,9 @@ cd() {
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
     builtin cd "$@" && ls -thor;
+    if [ "${PWD}" == "${HOME}/GitHub_CAM" ]; then
+        git-pull-all
+    fi
 }
 
 pip() {
