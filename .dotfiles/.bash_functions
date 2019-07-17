@@ -497,9 +497,10 @@ mv_file_to_dir() {
     done
 }
 
-make_gif() {
-    ffmpeg -i "$1" "$1.gif"
+vid_2_gif() {
+    ffmpeg -i "$1" -r 15 -vf scale=720:-1 "$1.gif"
 }
+
 
 rm_pyc() {
     find . -name "*.pyc" -exec rm -f {} \;
