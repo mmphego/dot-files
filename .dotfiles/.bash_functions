@@ -197,7 +197,13 @@ createpr() {
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     git push -u origin "${BRANCH}" || true;
     if command -v hub > /dev/null; then
-        hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
+        if echo "${BRANCH}" | grep -q "MT-"; then
+            REVIEWERS="ajoubertza,sw00,tockards"
+            echo "Requesting PR Reviewers: ${REVIEWERS}";
+            hub pull-request -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --no-edit || true
+        else
+            hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
+        fi
     else
         recho "Failed to create PR, create it Manually"
         recho "If you would like to continue install hub: https://github.com/github/hub/"
