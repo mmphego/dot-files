@@ -476,6 +476,9 @@ tags:
 
 
 # Reference
+
+- []()
+- []()
 EOF
         subl "${NEW_POST}"
         recho "Do not forget to Run:"
