@@ -515,3 +515,8 @@ vid_2_gif() {
 rm_pyc() {
     find . -name "*.pyc" -exec rm -f {} \;
 }
+
+sync_with_cam(){
+    CAM_PATH=$(echo $(realpath $(pwd)) | cut -d'/' -f5-)
+    find . | entr rsync -truv . "${HOME}/mnt/cam/home/kat/svn/${CAM_PATH}"
+}
