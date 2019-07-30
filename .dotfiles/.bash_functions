@@ -517,6 +517,8 @@ rm_pyc() {
 }
 
 sync_with_cam(){
+    # Download entr:
+    #   http://eradman.com/entrproject/
     CAM_PATH=$(echo $(realpath $(pwd)) | cut -d'/' -f5-)
     find . | entr rsync -truv . "${HOME}/mnt/cam/home/kat/svn/${CAM_PATH}"
 }
