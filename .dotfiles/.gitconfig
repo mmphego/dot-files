@@ -6,7 +6,7 @@
     editor = nano
     filemode = true
     whitespace = trailing-space, tab-in-indent, tabwidth=4
-    pager = less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
 	# List aliases
