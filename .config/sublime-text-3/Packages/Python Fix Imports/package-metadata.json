@@ -1,1 +1,0 @@
-{"url": "https://packagecontrol.io/packages/Python%20Fix%20Imports", "sublime_text": ">=3000", "description": "Automatically split and sort your import statements in your Python scripts", "platforms": ["*"], "version": "1.0.15", "dependencies": []}

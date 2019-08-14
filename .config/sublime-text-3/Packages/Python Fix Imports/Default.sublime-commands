@@ -1,7 +1,0 @@
-[
-    { "caption": "Python Fix Imports", "command": "python_fiximports" },
-    { "caption": "Enable Python Fix Imports (until restart)", "command": "enable_python_fiximports" },
-    { "caption": "Disable Python Fix Imports (until restart)", "command": "disable_python_fiximports" },
-    { "caption": "Disable Python Fix Imports for this file (until restart)", "command": "disable_python_fiximports_for_file" },
-    { "caption": "Enable Python Fix Imports for this file (until restart)", "command": "enable_python_fiximports_for_file" },
-]

@@ -1,4 +1,0 @@
-1.0.3
------
-
-Check the rationale in the README of the plugin !

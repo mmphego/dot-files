@@ -1,3 +1,0 @@
-[
-	{ "keys": ["ctrl+command+shift+i"], "command": "python_fiximports" }
-]

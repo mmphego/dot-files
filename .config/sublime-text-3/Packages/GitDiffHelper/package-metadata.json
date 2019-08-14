@@ -1,1 +1,0 @@
-{"description": "Sublime text plugin that open or display files modified since a commit", "dependencies": [], "sublime_text": "*", "url": "https://github.com/Scopart/GitDiffHelper", "platforms": ["*"], "version": "1.0.4"}

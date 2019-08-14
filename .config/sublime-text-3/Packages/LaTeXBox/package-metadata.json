@@ -1,1 +1,0 @@
-{"dependencies": [], "description": "A lightweight LaTeX Plugin for Sublime Text 3", "version": "3.1.1", "url": "https://github.com/randy3k/LaTeXBox", "platforms": ["*"], "sublime_text": ">=3119"}
