@@ -266,10 +266,10 @@ open() {
      if [ -f $1 ] ; then
          case $1 in
             # List should be expanded.
-             *.pdf)                 zathura $1 &               ;;
+             *.pdf)                 evince $1 &                ;;
              *.md)                  pandoc $1 | lynx -stdin    ;;
-             *.mp3|*.mp4|*.mkv)     vlc $1 & ;;
-             *)                     xdg-open $1 >>/dev/null ;;
+             *.mp3|*.mp4|*.mkv)     vlc $1 &                   ;;
+             *)                     xdg-open $1 >>/dev/null    ;;
          esac
      else
         xdg-open $1 >>/dev/null
