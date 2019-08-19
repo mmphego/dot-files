@@ -20,14 +20,12 @@ create-venv() {
         source "${virtdir}/bin/activate"
 
         "${virtdir}/bin/pip" install flake8 \
-                                     isort \
-                                     autopep8 \
                                      future \
-                                     six \
-                                     future-fstrings
+                                     isort \
+                                     six
 
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
-            "${virtdir}/bin/pip" install black ipython['all']
+            "${virtdir}/bin/pip" install black flake8-black pre-commit ipython['all']
         else
             "${virtdir}/bin/pip" install ipython==5.8.0
         fi
