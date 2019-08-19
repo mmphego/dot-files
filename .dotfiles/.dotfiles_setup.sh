@@ -52,4 +52,3 @@ fi
 crontab <<EOF
 */30 * * * * inxi -wxxx -c 0 > ~/.weather.log
 EOF
-

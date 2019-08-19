@@ -127,4 +127,3 @@ set showcmd
 set number
 " highlight current line
 set cursorline
-

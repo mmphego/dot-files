@@ -33,6 +33,3 @@ while True:
             subprocess.call(["/home/mmphego/bin/standing"])
             notified = False
     time.sleep(1)
-
-
-

@@ -207,4 +207,3 @@ if [ -f ~/.weather.log ]; then
 fi
 printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
-
