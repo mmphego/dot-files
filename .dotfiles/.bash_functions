@@ -521,21 +521,20 @@ sync_with_cam(){
         exit 1
     fi
 
-    CONFIG_FILE=${HOME}/.secrets/config.sh
-    if [ ! -f $CONFIG_FILE ]; then
+    CONFIG_FILE="${HOME}/.secrets/config.sh"
+    if [ ! -f "${CONFIG_FILE}" ]; then
         recho "Config file doesnt exist."
     else
-        source ${CONFIG_FILE}
-        CWD_PATH=$(echo $(realpath $(pwd)) | cut -d'/' -f5-)
+        source "${CONFIG_FILE}"
+        CWD_PATH=$(pwd | cut -d'/' -f5-)
         RSYNC_SRC="${LOCAL_DIR}/${CWD_PATH}"
         RSYNC_DEST="${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/${CWD_PATH}"
-        WORKTREE=$(git worktree list | cut -d' ' -f1)
-
         # Download entr:
         #   https://github.com/eradman/entr
         #   http://eradman.com/entrproject/
-        find . | entr rsync -truv --exclude-from="${WORKTREE}/.gitignore" \
-                            --exclude="${WORKTREE}/.git" \
+        find . | entr rsync -truv \
+                            --exclude-from="$(git worktree list | cut -d' ' -f1)/.gitignore" \
+                            --exclude=".git" \
                             --progress "${RSYNC_SRC}/" "${RSYNC_DEST}"
     fi
 }
