@@ -443,7 +443,7 @@ create_blog_post () {
 
     BLOG_DIR=$(locate -b 'mmphego.github.io')
     if [ -d "${BLOG_DIR}" ]; then
-        FILENAME=$1
+        FILENAME=$@
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H:%M:%S')
 
