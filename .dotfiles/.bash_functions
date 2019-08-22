@@ -131,7 +131,7 @@ git-pull-all() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
-        git pull &>/dev/null &
+        (git fetch -pa && git pull) &>/dev/null &disown;
 
         STATUS=$(git status 2>/dev/null |
         awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '
@@ -144,14 +144,14 @@ git-pull-all() {
         printf "Repo: ${DIR} | ${STATUS}\n";
         builtin cd - &>/dev/null;
     done
-    builtin cd $CUR_DIR &>/dev/null;
+    builtin cd ${CUR_DIR} &>/dev/null;
 }
 
 get-git-repos() {
     # Get a list of all your Git repos in the current directory
     CUR_DIR=$(pwd);
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR; do
-        builtin cd $DIR &> /dev/null;
+        builtin cd ${DIR} &> /dev/null;
         git config --get remote.origin.url >> ~/My-Git-Repos.txt
         builtin cd - &> /dev/null;
     done;
@@ -185,7 +185,7 @@ committer() {
         git commit -s -S -n -m "${MSG}";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
-    [ $? -eq 0 ] && bash -c "git push --no-verify -q &"
+    [ $? -eq 0 ] && bash -c "git push --no-verify -q &>/dev/null &disown;"
 }
 
 createpr() {
@@ -360,8 +360,8 @@ create_project () {
     IDE="subl"
 
     for pkg in "${PACKAGES[@]}"; do
-        if ${PYTHON3_PIP} freeze | grep -i "${pkg}" >/dev/null 2>&1; then
-            ${PYTHON3_PIP} install -q --user -U "${pkg}" >/dev/null 2>&1;
+        if ${PYTHON3_PIP} freeze | grep -i "${pkg}" &>/dev/null &disown; then
+            ${PYTHON3_PIP} install -q --user -U "${pkg}" &>/dev/null &disown;;
         fi
     done
 
