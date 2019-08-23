@@ -22,7 +22,7 @@ create-venv() {
         "${virtdir}/bin/pip" install flake8 \
                                      future \
                                      isort \
-                                     six
+                                     pytest \
 
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
             "${virtdir}/bin/pip" install black flake8-black pre-commit ipython['all']
