@@ -35,7 +35,7 @@ alias lss='ls -thor'
 
 ### Apt
 alias update='sudo apt-get -y update'
-alias upgrade='sudo apt-get -y --allow-unauthenticated upgrade && sudo apt-get autoclean && sudo apt-get autoremove'
+alias upgrade='sudo apt -y --allow-unauthenticated upgrade && sudo apt autoclean && sudo apt autoremove'
 alias search='apt search'
 alias search-version='apt-cache policy'
 

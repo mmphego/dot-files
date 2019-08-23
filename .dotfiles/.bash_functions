@@ -361,7 +361,7 @@ create_project () {
 
     for pkg in "${PACKAGES[@]}"; do
         if ${PYTHON3_PIP} freeze | grep -i "${pkg}" &>/dev/null &disown; then
-            ${PYTHON3_PIP} install -q --user -U "${pkg}" &>/dev/null &disown;;
+            ${PYTHON3_PIP} install -q --user -U "${pkg}" &>/dev/null &disown;
         fi
     done
 
