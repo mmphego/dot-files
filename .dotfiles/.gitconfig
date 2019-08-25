@@ -171,7 +171,7 @@
     helper = store
 
 [init]
-	templatedir = /home/mmphego/GitHub/Productivity_Projects/git-hooks/
+	templateDir = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/
 
 [commit]
 	gpgsign = true
