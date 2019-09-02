@@ -57,7 +57,7 @@
     ci = !hub ci-status
     push = origin $(git symbolic-ref --short HEAD)
     pushf = push -f
-
+    commit = commit -S
     # Life saver
 
     # Put any file changed up for commits
