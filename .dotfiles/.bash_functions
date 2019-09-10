@@ -219,7 +219,7 @@ git-url-shortener(){
     fi
 }
 
-filefinder() {
+find-file() {
     for FILE in $(find . -type f -name "*$1"); do
         echo ${FILE};
     done
