@@ -95,6 +95,8 @@ export HISTCONTROL='ignoreboth';
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
+# Wait longer before timing out when running pip
+export PIP_DEFAULT_TIMEOUT=100
 ####################################################################################################
 #################################### Input edits and Key-bindings ###################################
 ####################################################################################################
