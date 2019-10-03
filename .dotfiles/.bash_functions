@@ -473,6 +473,9 @@ tags:
 
 # The Story
 
+## TL;DR
+
+## TS;RE
 
 # The How
 
