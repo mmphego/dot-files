@@ -158,6 +158,19 @@ get-git-repos() {
     builtin cd "${CUR_DIR}" &> /dev/null
 }
 
+git-rename-branch(){
+    if [ "$1" == "" ]; then
+        recho "Usage $0 'old_name' 'new_name'"
+        recho "eg: ${FUNCNAME[0]} 'error-fixes' 'syntax-error-fix'"
+    fi
+    old_name = $1
+    new_name = $2
+    echo "Renaming current branch from ${old_name} to ${new_name}"
+    git branch -m "${new_name}"
+    git push origin :"${old_name}"
+    git push origin "${new_name}":"refs/heads/${new_name}"
+}
+
 clone-my-repos() {
     # Clone all my repos from file
     CLONEDIR=~/GitHub
