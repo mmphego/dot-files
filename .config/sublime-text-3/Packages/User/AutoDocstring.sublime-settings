@@ -1,0 +1,22 @@
+{
+  "default_description": "Description",
+  "default_return_name": "name",
+  "default_summary": "Summary",
+  "default_type": "TYPE",
+  "inspect_class_attributes": true,
+  "inspect_exceptions": true,
+  "inspect_function_parameters": true,
+  "inspect_module_attributes": true,
+  "keep_previous": false,
+  "optional_tag": "optional",
+  "sort_class_attributes": true,
+  "sort_exceptions": true,
+  "sort_module_attributes": true,
+  "style": "numpy",
+  "template_order": false,
+  "use_snippet": true,
+  "start_with_newline": "",
+  "force_default_qstyle": true,
+  "extra_class_newlines": true,
+  "default_qstyle": "\"\"\""
+}

@@ -1,0 +1,8 @@
+<snippet>
+    <content>
+    	<![CDATA[import IPython; globals().update(locals()); IPython.embed(header='Python Debugger')]]>
+    </content>
+    <tabTrigger>ipython</tabTrigger>
+    <tabTrigger>python</tabTrigger>
+    <scope>source.python</scope>
+</snippet>

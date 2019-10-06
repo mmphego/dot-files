@@ -171,7 +171,8 @@
     helper = store
 
 [init]
-	templateDir = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/
+	templatedir = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks
 
 [commit]
 	gpgsign = true
+	template = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/commit-msg-template/commit-msg-template.txt
