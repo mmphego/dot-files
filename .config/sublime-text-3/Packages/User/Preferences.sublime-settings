@@ -242,7 +242,9 @@
 		"unhandled",
 		"excepthook",
 		"stderr",
-		"bool"
+		"bool",
+		"screenshot",
+		"Blogging"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -266,7 +268,10 @@
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_US.dic",
-	"font_size": 11,
+	"ensure_newline_at_eof_on_save": true,
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"AutoImport",
@@ -279,6 +284,7 @@
 	[
 		"bitmask"
 	],
+	"indent_to_bracket": true,
 	"match_brackets": true,
 	"match_brackets_angle": true,
 	"match_brackets_braces": true,
@@ -295,12 +301,5 @@
 	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"translate_tabs_to_spaces": true,
-	"indent_to_bracket": true,
-	"word_wrap": true,
-	"highlight_line": true,
-	"trim_trailing_white_space_on_save": true,
-    "ensure_newline_at_eof_on_save": true,
-    "highlight_modified_tabs": true,
-
+	"word_wrap": true
 }
