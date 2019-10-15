@@ -252,7 +252,11 @@
 		"podcasts",
 		"referralcandy",
 		"ebook",
-		"blogging"
+		"blogging",
+		"unescaped",
+		"nocheck",
+		"kattypes",
+		"pylint"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -275,7 +279,7 @@
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"detect_indentation": true,
-	"dictionary": "Packages/Language - English/en_US.dic",
+	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 10,
 	"highlight_line": true,
