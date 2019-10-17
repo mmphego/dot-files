@@ -10,7 +10,7 @@ cheatsheet() {
     curl -L "https://cheat.sh/$1"
 }
 
-create-venv() {
+create_venv() {
     if [ "$1" == "" ]; then
         recho "Usage $0 {Python version}"
         recho "eg: ${FUNCNAME[0]} 3"
