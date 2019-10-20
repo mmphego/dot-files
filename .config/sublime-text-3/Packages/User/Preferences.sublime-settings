@@ -307,7 +307,11 @@
 		"sensorname",
 		"sensortype",
 		"requestname",
-		"unsubscribe"
+		"unsubscribe",
+		"pretrained",
+		"lowercase",
+		"resnet",
+		"py"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -347,7 +351,6 @@
 	[
 		"bitmask"
 	],
-	"indent_to_bracket": true,
 	"match_brackets": true,
 	"match_brackets_angle": true,
 	"match_brackets_braces": true,
