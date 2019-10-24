@@ -311,7 +311,10 @@
 		"pretrained",
 		"lowercase",
 		"resnet",
-		"py"
+		"py",
+		"shutdown",
+		"threadsafe",
+		"nonzero"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
