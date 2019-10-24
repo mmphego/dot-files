@@ -5,9 +5,9 @@ cheatsheet() {
     if [ "$1" == "" ]; then
         recho "Usage $0 {filename}"
         recho "eg: ${FUNCNAME[0]} ls"
-        exit 1
+    else
+        curl -L "https://cheat.sh/$1"
     fi
-    curl -L "https://cheat.sh/$1"
 }
 
 create_venv() {
@@ -127,6 +127,17 @@ rename-to-lowercase() {
     done
 }
 
+git-revert-commit() {
+    if [ "$1" == "" ]; then
+        recho "Usage $0 'commit-hash'"
+        recho "eg: ${FUNCNAME[0]} '6e9f0998'"
+    else
+        BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+        git reset --hard $1
+        git push -f origin "$BRANCH"
+    fi
+}
+
 git-pull-all() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
@@ -162,13 +173,14 @@ git-rename-branch(){
     if [ "$1" == "" ]; then
         recho "Usage $0 'old_name' 'new_name'"
         recho "eg: ${FUNCNAME[0]} 'error-fixes' 'syntax-error-fix'"
+    else
+        old_name = $1
+        new_name = $2
+        echo "Renaming current branch from ${old_name} to ${new_name}"
+        git branch -m "${new_name}"
+        git push origin :"${old_name}"
+        git push origin "${new_name}":"refs/heads/${new_name}"
     fi
-    old_name = $1
-    new_name = $2
-    echo "Renaming current branch from ${old_name} to ${new_name}"
-    git branch -m "${new_name}"
-    git push origin :"${old_name}"
-    git push origin "${new_name}":"refs/heads/${new_name}"
 }
 
 clone-my-repos() {
