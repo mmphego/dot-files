@@ -335,11 +335,11 @@
 		"/home/mmphego/GitHub/MagicMirror/**",
 		"mkat_fpga_tests/**"
 	],
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 11,
+	"font_size": 15,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -365,9 +365,11 @@
 		90
 	],
 	"shift_tab_unindent": true,
+	"sidebar_size_14": true,
 	"spell_check": true,
+	"statusbar_size_14": true,
 	"tab_size": 4,
-	"theme": "Default.sublime-theme",
+	"theme": "Afterglow.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
