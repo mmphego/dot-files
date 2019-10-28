@@ -174,8 +174,8 @@ git-rename-branch(){
         recho "Usage $0 'old_name' 'new_name'"
         recho "eg: ${FUNCNAME[0]} 'error-fixes' 'syntax-error-fix'"
     else
-        old_name = $1
-        new_name = $2
+        old_name=$1
+        new_name=$2
         echo "Renaming current branch from ${old_name} to ${new_name}"
         git branch -m "${new_name}"
         git push origin :"${old_name}"
