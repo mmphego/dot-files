@@ -127,6 +127,11 @@ rename-to-lowercase() {
     done
 }
 
+gitignore() {
+    # Generate .gitignore
+    curl -sL https://www.gitignore.io/api/$@ ;
+}
+
 git-revert-commit() {
     if [ "$1" == "" ]; then
         recho "Usage $0 'commit-hash'"
