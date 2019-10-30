@@ -226,7 +226,7 @@ createpr() {
     git push -u origin "${BRANCH}" || true;
     if command -v hub > /dev/null; then
         if echo "${BRANCH}" | grep -q "MT-"; then
-            REVIEWERS="ajoubertza,sw00,tockards"
+            REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
             hub pull-request -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
                 --labels "WIP" --no-edit || true
