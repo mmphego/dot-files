@@ -5,9 +5,9 @@ if [ -d ~/.config/autorandr/seated ] && command -v autorandr > /dev/null; then
     autorandr --load seated > /dev/null 2>&1
     if [ "$?" -ne "0" ]; then
         xrandr --auto
-        xrandr --output DP-3 --right-of eDP-1 --rotate left
+        xrandr --output DP-1 --right-of eDP-1 --rotate left
         xrandr --output DP-2 --off
-        xrandr --output DP-1 --off
+        xrandr --output DP-3 --off
     fi
 else
     echo "autorandr or seating config missing!"

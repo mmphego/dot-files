@@ -4,9 +4,9 @@ if [ -d ~/.config/autorandr/standing ] && command -v autorandr > /dev/null; then
     autorandr --load standing > /dev/null 2>&1
     if [ "$?" -ne "0" ]; then
         xrandr --auto
-        xrandr --output DP-1 --right-of eDP-1 --rotate normal
+        xrandr --output DP-3 --right-of eDP-1 --rotate normal
         xrandr --output DP-2 --off
-        xrandr --output DP-3 --off
+        xrandr --output DP-1 --off
     fi
 else
     echo "autorandr or standing config missing!"
