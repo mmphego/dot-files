@@ -1,16 +1,14 @@
-output DP-1-2
+output DP-2
 off
-output DP-1-1
+output DP-1
 off
-output DP-1-3
-gamma 1.0:0.833:0.714
-mode 1920x1200
-pos 0x0
-rate 59.95
-rotate left
-output eDP-1-1
-gamma 1.0:0.833:0.714
+output eDP-1
+gamma 1.0:0.714:0.526
 mode 1920x1080
-pos 1200x986
-primary
+pos 0x0
 rate 60.00
+output DP-3
+gamma 1.0:0.714:0.526
+mode 1920x1200
+pos 1920x0
+rate 59.95
