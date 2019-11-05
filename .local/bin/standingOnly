@@ -4,7 +4,7 @@ if [ -d ~/.config/autorandr/standing-only ] && command -v autorandr > /dev/null;
     autorandr --load standing-only > /dev/null 2>&1
     if [ "$?" -ne "0" ]; then
         xrandr --auto
-        xrandr --output DP-3 --on
+        xrandr --output DP-3 --auto
         xrandr --output DP-1 --off
         xrandr --output eDP-1 --off
         xrandr --output DP-2 --off
