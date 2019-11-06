@@ -228,10 +228,10 @@ createpr() {
         if echo "${BRANCH}" | grep -q "MT-"; then
             REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
-            hub pull-request -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
+            hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
                 --labels "WIP" --no-edit || true
         else
-            hub pull-request -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
+            hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" --no-edit || true
         fi
     else
         recho "Failed to create PR, create it Manually"
