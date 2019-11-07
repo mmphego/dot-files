@@ -4,12 +4,12 @@ output DP-1
 off
 output DP-3
 gamma 1.0:0.714:0.526
-mode 1920x1200
+mode 1920x1080
 pos 0x0
-rate 59.95
+rate 60.00
 output eDP-1
 gamma 1.0:0.714:0.526
 mode 1920x1080
-pos 1920x120
+pos 1920x0
 primary
 rate 60.00
