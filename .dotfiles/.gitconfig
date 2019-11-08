@@ -118,6 +118,9 @@
         };fnc"
 	last = log -1 HEAD
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
+    fetch-all-branches = "!func() { \
+        git checkout --detach && git fetch origin '+refs/heads/*:refs/heads/*';\
+        };func"
 
 [color]
     ui = auto
