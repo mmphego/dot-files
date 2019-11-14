@@ -251,6 +251,22 @@ git-url-shortener(){
     fi
 }
 
+git-fetch-all-branches() {
+    # Fetch all remote branches
+    git checkout --detach
+    git fetch origin '+refs/heads/*:refs/heads/*';
+}
+
+git-checkout-update-master () {
+    # Forcefully checkout master and pull latest changes.
+    for DIR in $(ls --color=never);
+        do echo $DIR;
+        pushd $DIR;
+        git checkout -f master && git pull -q &>/dev/null &disown;
+        popd;
+    done
+}
+
 find-file() {
     for FILE in $(find . -type f -name "*$1"); do
         echo ${FILE};
@@ -340,15 +356,6 @@ cd() {
     fi
 }
 
-pip() {
-    if [[ "$1" == "install" ]]; then
-        shift 1
-        command pip install --no-cache-dir -U "$@"
-    else
-        command pip "$@"
-    fi
-}
-
 install-pkg() {
     echo "Installing package: $1";
     if command -v gdebi >/dev/null;then
@@ -383,8 +390,7 @@ cammount() {
 
 
 create_project () {
-# Easily create a project x in current dir using cookiecutter templates
-
+    # Easily create a project x in current dir using cookiecutter templates
     PACKAGES=("pygithub" "cookiecutter" "platformio")
     PACKAGE_DIR=""
     export DESCRIPTION="description goes here!"
@@ -392,8 +398,8 @@ create_project () {
     IDE="subl"
 
     for pkg in "${PACKAGES[@]}"; do
-        if ${PYTHON3_PIP} freeze | grep -i "${pkg}" &>/dev/null &disown; then
-            ${PYTHON3_PIP} install -q --user -U "${pkg}" &>/dev/null &disown;
+        if bash -c "${PYTHON3_PIP} freeze | grep -i "${pkg}" &>/dev/null &disown;"; then
+            bash -c "${PYTHON3_PIP} install -q --user -U "${pkg}" &>/dev/null &disown;"
         fi
     done
 
