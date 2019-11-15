@@ -49,7 +49,6 @@ alias emptyDir='find . -empty -type d -delete'
 
 # Shortcuts directory access
 alias meng='cd ${HOME}/MEGA/MEng_Stuff/MEng-Progress/Main_Latex'
-alias media="sshfs -o reconnect media@192.168.1.10:/mnt /home/${USER}/mnt/media_srv"
 
 # System shortcuts
 alias reboot='sudo shutdown -r now'
@@ -110,6 +109,4 @@ alias ports='netstat -tulanp'
 
 # Log into to Server
 alias camserver='autossh -A kat@10.8.67.160'
-alias cmc3="autossh ${USER}@10.103.254.6"
-
 alias log-me-out='skill -KILL -u ${USER}'

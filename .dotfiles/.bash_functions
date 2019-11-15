@@ -133,6 +133,7 @@ gitignore() {
 }
 
 git-revert-commit() {
+    # Undo last pushed commit
     if [ "$1" == "" ]; then
         recho "Usage $0 'commit-hash'"
         recho "eg: ${FUNCNAME[0]} '6e9f0998'"
@@ -144,6 +145,7 @@ git-revert-commit() {
 }
 
 git-pull-all() {
+    # Pull all remote refs from repos in the current dir
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
@@ -175,11 +177,13 @@ get-git-repos() {
 }
 
 git-rename-branch(){
+    # Rename current branch with new one and push to remote
     if [ "$1" == "" ]; then
-        recho "Usage $0 'old_name' 'new_name'"
-        recho "eg: ${FUNCNAME[0]} 'error-fixes' 'syntax-error-fix'"
+        recho "Usage $0 new_name'"
+        recho "This will rename the branch 'error-fixes' into 'syntax-error-fix'"
+        recho "eg: ${FUNCNAME[0]} 'syntax-error-fix'"
     else
-        old_name=$1
+        old_name="$(git rev-parse --abbrev-ref HEAD)"
         new_name=$2
         echo "Renaming current branch from ${old_name} to ${new_name}"
         git branch -m "${new_name}"
@@ -204,14 +208,14 @@ clone-my-repos() {
 }
 
 committer() {
-    # Add file(s), commit and push
+    # Add file(s), commit with generic message and push to remote
     FILE=$(git status | grep "modified:" | cut -f2 -d ":" | xargs)
     for file in $FILE; do git add -f "$file"; done
-    if [ "$1" == "" ]; then
+    if [ "$@" == "" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
         git commit -s -S -n -m"Updated ${FILE}";
     else
-        MSG=$2
+        MSG=$@
         git commit -s -S -n -m "${MSG}";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
@@ -225,6 +229,7 @@ createpr() {
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     git push -u origin "${BRANCH}" || true;
     if command -v hub > /dev/null; then
+        # Check if branch contains a JIRA ticket id.
         if echo "${BRANCH}" | grep -q "MT-"; then
             REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
@@ -268,6 +273,7 @@ git-checkout-update-master () {
 }
 
 find-file() {
+    # Find filename
     for FILE in $(find . -type f -name "*$1"); do
         echo ${FILE};
     done
@@ -351,7 +357,7 @@ cd() {
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
     builtin cd "$@" && ls -thor;
-    if [ "${PWD}" == "${HOME}/GitHub_CAM" ]; then
+    if [ "${PWD}" == "${HOME}/CAM_Work" ]; then
         git-pull-all
     fi
 }
