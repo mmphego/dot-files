@@ -37,7 +37,7 @@ up() {
 }
 
 touch_script() {
-    touch $1 && chmod a+x $1;
+    touch $1 && chmod a+x $1 && subl $1;
 }
 
 backup() {
@@ -211,7 +211,7 @@ committer() {
     # Add file(s), commit with generic message and push to remote
     FILE=$(git status | grep "modified:" | cut -f2 -d ":" | xargs)
     for file in $FILE; do git add -f "$file"; done
-    if [ "$@" == "" ]; then
+    if [[ "$@" == "" ]]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
         git commit -s -S -n -m"Updated ${FILE}";
     else
