@@ -335,7 +335,6 @@
 		"/home/mmphego/GitHub/MagicMirror/**",
 		"mkat_fpga_tests/**"
 	],
-	"color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
