@@ -343,6 +343,7 @@
 	"ignored_packages":
 	[
 		"Go To Definition",
+		"Markdown",
 		"RestructuredText Improved",
 		"Vintage"
 	],
