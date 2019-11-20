@@ -333,10 +333,11 @@
 		"*.ttf",
 		"*.zip"
 	],
+	"color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 10,
+	"font_size": 15,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -364,7 +365,7 @@
 	"spell_check": true,
 	"statusbar_size_14": true,
 	"tab_size": 4,
-	"theme": "Default.sublime-theme",
+	"theme": "Afterglow.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
