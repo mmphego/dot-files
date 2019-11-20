@@ -331,9 +331,7 @@
 		"*.swf",
 		"*.tga",
 		"*.ttf",
-		"*.zip",
-		"/home/mmphego/GitHub/MagicMirror/**",
-		"mkat_fpga_tests/**"
+		"*.zip"
 	],
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
@@ -343,9 +341,8 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		"RestructuredText",
-		"SublimeLinter",
+		"Go To Definition",
+		"RestructuredText Improved",
 		"Vintage"
 	],
 	"ignored_words":
@@ -367,7 +364,7 @@
 	"spell_check": true,
 	"statusbar_size_14": true,
 	"tab_size": 4,
-	"theme": "Afterglow.sublime-theme",
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
