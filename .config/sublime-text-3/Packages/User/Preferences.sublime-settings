@@ -337,7 +337,7 @@
 		"*.ttf",
 		"*.zip"
 	],
-	"color_scheme": "Packages/Color Scheme - Dusk/Dusk.tmTheme",
+	"color_scheme": "Packages/ShellScriptImproved/color_schemes/dark.tmTheme",
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,

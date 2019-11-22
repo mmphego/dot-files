@@ -209,14 +209,16 @@ clone-my-repos() {
 
 committer() {
     # Add file(s), commit with generic message and push to remote
-    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | xargs)
-    for file in $FILE; do git add -f "$file"; done
+    git status | grep "modified:" | cut -f2 -d ":" | tr -s '  ' | while read line;do
+        git add -f "${line}";
+    done
+
+    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | tr -s '  ')
     if [[ "$@" == "" ]]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
         git commit -s -S -n -m"Updated ${FILE}";
     else
-        MSG=$@
-        git commit -s -S -n -m "${MSG}";
+        git commit -s -S -n -m "$@";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q &>/dev/null &disown;"
