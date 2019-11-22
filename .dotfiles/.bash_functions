@@ -165,12 +165,15 @@ git-pull-all() {
     builtin cd ${CUR_DIR} &>/dev/null;
 }
 
-get-git-repos() {
+backup_my_git_repos() {
     # Get a list of all your Git repos in the current directory
+    FILENAME=~/My-Git-Repos.txt
+    if [ ! -f $FILENAME ]; then touch $FILENAME; fi
     CUR_DIR=$(pwd);
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR; do
         builtin cd ${DIR} &> /dev/null;
-        git config --get remote.origin.url >> ~/My-Git-Repos.txt
+        echo -e "\n[$(basename $(pwd))]" >> $FILENAME
+        git config --get remote.origin.url >> $FILENAME
         builtin cd - &> /dev/null;
     done;
     builtin cd "${CUR_DIR}" &> /dev/null
