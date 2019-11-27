@@ -318,7 +318,9 @@
 		"Futurize",
 		"tox",
 		"sed",
-		"futurize"
+		"futurize",
+		"blogged",
+		"paypal"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
