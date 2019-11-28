@@ -590,3 +590,14 @@ sync_with_cam(){
                             --progress "${RSYNC_SRC}/" "${RSYNC_DEST}"
     fi
 }
+
+install() {
+    # Debian package installer fallback.
+    sudo apt-get -y --install-recommends install "$@"
+    ret_code=$?
+    if [ "$ret_code" == 100 ]; then
+        echo -e "\nAPT doesn't have the package that you are trying to install, "
+        echo -e "I will install it using 'snap'\n\n"
+        sudo snap install "$@"
+    fi
+}

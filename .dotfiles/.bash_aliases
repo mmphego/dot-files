@@ -40,9 +40,8 @@ alias search='apt search'
 alias search-version='apt-cache policy'
 
 ### Install and Remove Packages
-alias install='sudo apt-get -y --install-recommends install'
 alias uninstall='sudo apt-get --purge autoremove '
-alias search-installed='sudo dpkg --get-selections '
+alias search-installed='sudo dpkg -l '
 
 # Find empty directories
 alias emptyDir='find . -empty -type d -delete'
