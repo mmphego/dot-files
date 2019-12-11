@@ -202,10 +202,10 @@ IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print
 printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "\nSysinfo: $(uptime)\n"
-if [ -f ~/.weather.log ]; then
-    while IFS='' read -r line || [[ -n "$line" ]]; do
-        printf "${LIGHTBLUE}%s\n${NC}" "${line}"
-    done < ~/.weather.log
-fi
+# if [ -f ~/.weather.log ]; then
+#     while IFS='' read -r line || [[ -n "$line" ]]; do
+#         printf "${LIGHTBLUE}%s\n${NC}" "${line}"
+#     done < ~/.weather.log
+# fi
 printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 #printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
