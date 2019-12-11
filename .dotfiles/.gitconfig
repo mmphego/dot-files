@@ -55,7 +55,8 @@
 
     # Pretty useful
     ci = !hub ci-status
-    push = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
+    push = origin $(git symbolic-ref --short HEAD)
+    pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pushf = push -f
     commit = commit -S
     # Life saver
