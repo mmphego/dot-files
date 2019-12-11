@@ -320,7 +320,10 @@
 		"sed",
 		"futurize",
 		"blogged",
-		"paypal"
+		"paypal",
+		"preset",
+		"fgo",
+		"Simlib"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -343,7 +346,7 @@
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 15,
+	"font_size": 11,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
