@@ -101,7 +101,7 @@ alias giot='hub'
 alias clone='git clone --progress --depth=1'
 alias checkout='git checkout -- .'
 alias push='git push --no-verify -q &>/dev/null &disown'
-alias pull='git pull --all &>/dev/null &disown'
+alias pull='git pull --allow-unrelated-histories --all &>/dev/null &disown'
 
 # Networking
 alias ports='netstat -tulanp'

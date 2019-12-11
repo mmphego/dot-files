@@ -272,7 +272,7 @@ git-checkout-update-master () {
     for DIR in $(ls --color=never);
         do echo $DIR;
         pushd $DIR;
-        git checkout -f master && git pull -q &>/dev/null &disown;
+        git checkout -f master && git pull --allow-unrelated-histories -q &>/dev/null &disown;
         popd;
     done
 }
