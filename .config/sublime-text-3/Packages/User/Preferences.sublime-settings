@@ -324,7 +324,8 @@
 		"preset",
 		"fgo",
 		"Simlib",
-		"perceptrons"
+		"perceptrons",
+		"Preprocess"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
@@ -347,7 +348,7 @@
 	"detect_indentation": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 14,
+	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
