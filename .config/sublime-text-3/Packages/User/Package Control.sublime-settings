@@ -5,11 +5,15 @@
 	],
 	"installed_packages":
 	[
+		"1337 Color Scheme",
+		"3024 Color Scheme",
 		"All Autocomplete",
 		"AutoDocstring",
+		"ayu",
 		"BracketHighlighter",
 		"Class Navigator",
 		"Color Scheme - Dusk",
+		"Colorsublime",
 		"Dockerfile Syntax Highlighting",
 		"Fold Python",
 		"Function Name Display",
@@ -31,6 +35,7 @@
 		"MarkdownLivePreview",
 		"Markmon real-time markdown preview",
 		"More Python Completions",
+		"Night Soft Color Scheme",
 		"Open in Default Application",
 		"Outline",
 		"Package Control",
