@@ -109,3 +109,4 @@ alias ports='netstat -tulanp'
 # Log into to Server
 alias camserver='autossh -A kat@10.8.67.160'
 alias log-me-out='skill -KILL -u ${USER}'
+alias pipinstall='pip install '

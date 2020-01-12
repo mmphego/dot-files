@@ -191,6 +191,11 @@ if [ -f "${HOME}/.travis/travis.sh" ]; then
     source "${HOME}/.travis/travis.sh"
 fi
 
+# The OpenVINO environment variables setup.
+if [ -d "/opt/intel/openvino/bin/setupvars.sh" ]; then
+    source /opt/intel/openvino/bin/setupvars.sh
+fi
+
 ####################################################################################################
 ############################################ Welcome Message #######################################
 ####################################################################################################
