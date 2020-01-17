@@ -214,3 +214,6 @@ printf "\nSysinfo: $(uptime)\n"
 # fi
 printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 #printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
+
+# added by travis gem
+[ -f /home/mmphego/.travis/travis.sh ] && source /home/mmphego/.travis/travis.sh
