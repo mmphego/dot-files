@@ -180,3 +180,8 @@
 [commit]
 	gpgsign = true
 	template = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/commit-msg-template/commit-msg-template.txt
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

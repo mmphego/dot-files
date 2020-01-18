@@ -236,7 +236,7 @@ createpr() {
     if command -v hub > /dev/null; then
         # Check if branch contains a JIRA ticket id.
         if echo "${BRANCH}" | grep -q "MT-"; then
-            REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards"
+            REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards,mamkhari"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
                 --labels "WIP" --no-edit || hub pull-request \
