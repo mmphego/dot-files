@@ -239,7 +239,7 @@ createpr() {
             REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards,mamkhari"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
-                --labels "WIP" --no-edit || hub pull-request \
+                --labels "Review PR" --no-edit || hub pull-request \
                     -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "WIP" --no-edit
         else
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" --no-edit || hub pull-request \
