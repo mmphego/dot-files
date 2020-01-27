@@ -112,16 +112,21 @@
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
         git commit --amend -S -anC HEAD; \
         };fnc"
+
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
         git commit --amend -S -anC HEAD; \
         git push -f; \
         };fnc"
+
 	last = log -1 HEAD
+
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
+
     fetch-all-branches = "!func() { \
         git checkout --detach && git fetch origin '+refs/heads/*:refs/heads/*';\
         };func"
+    push-all = !git push && git push --tags
 
 [color]
     ui = auto
