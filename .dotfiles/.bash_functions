@@ -230,6 +230,7 @@ committer() {
 createpr() {
     # Push changes and create Pull Request on GitHub
     REMOTE="devel";
+    LABELS="Review Me"
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
     git push -u origin "${BRANCH}" || true;
@@ -239,8 +240,8 @@ createpr() {
             REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards,mamkhari"
             echo "Requesting PR Reviewers: ${REVIEWERS}";
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
-                --labels "Review PR" --no-edit || hub pull-request \
-                    -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "WIP" --no-edit
+                --labels "${LABELS}" --no-edit || hub pull-request \
+                    -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "${LABELS}"--no-edit
         else
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" --no-edit || hub pull-request \
                  -b "${REMOTE}" -h "${BRANCH}" --no-edit
