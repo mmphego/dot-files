@@ -149,7 +149,8 @@ git-pull-all() {
     CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
-        (git fetch -pa && git pull) &>/dev/null &disown;
+        (git fetch -pa && git pull --allow-unrelated-histories \
+            origin $(git symbolic-ref --short HEAD)) &>/dev/null &disown;
 
         STATUS=$(git status 2>/dev/null |
         awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '

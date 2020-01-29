@@ -51,15 +51,19 @@
     stts = status
     sttus = status
     pusj = push
-    pus = push
+    pus = push --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
+    pul = pull
 
     # Pretty useful
     ci = !hub ci-status
-    push = origin $(git symbolic-ref --short HEAD)
-    pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
-    pushf = push -f
+    clone = clone --progress
     commit = commit -S
-    # Life saver
+    last = log -1 HEAD
+    pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
+    push = origin $(git symbolic-ref --short HEAD)
+    pushf = push -f
+
+    # Life savers
 
     # Put any file changed up for commits
     addr = "!fnc(){ git add $(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs); }; fnc"
@@ -96,16 +100,18 @@
         fi \
         }; f"
 
-    clone = clone --progress
-
     # Show the diff between the latest commit and the current state
-	diff-previous = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	diff-commits = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
 	# Clone a repository including all submodules
-	clone-rec = clone --recursive --progress
+	clone-everything = clone --recursive --progress
 
 	# Switch to a branch, creating it if necessary and if it exist pull latest changes
-	goto = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout -q \"$1\" && git branch --set-upstream-to=origin/\"$1\" \"$1\" && bash -c 'git pull --allow-unrelated-histories -q -f & >/dev/null 2>&1' >/dev/null 2>&1; }; f"
+	goto = "!f() { \
+        git checkout -b \"$1\" 2> /dev/null || git checkout -q \"$1\" && \
+        git branch --set-upstream-to=origin/\"$1\" \"$1\" && \
+        bash -c 'git pull --allow-unrelated-histories origin $(git symbolic-ref --short HEAD) -q -f & >/dev/null 2>&1' >/dev/null 2>&1; \
+        }; f"
 
     # Need I say more
     commit-amend = "!fnc() { \
@@ -119,14 +125,13 @@
         git push -f; \
         };fnc"
 
-	last = log -1 HEAD
-
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
 
     fetch-all-branches = "!func() { \
         git checkout --detach && git fetch origin '+refs/heads/*:refs/heads/*';\
         };func"
-    push-all = !git push && git push --tags
+
+    push-all = "!fnc() { git push && git push --tags; }; fnc"
 
 [color]
     ui = auto
