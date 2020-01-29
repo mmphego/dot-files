@@ -603,3 +603,7 @@ install() {
         sudo snap install "$@"
     fi
 }
+
+mp3_split_on_silence(){
+    sox $@ file.mp3 silence 1 1.0 0.2% 1 0.8 0.5% : newfile : restart
+}
