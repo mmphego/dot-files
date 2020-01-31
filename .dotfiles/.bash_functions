@@ -182,13 +182,13 @@ backup_my_git_repos() {
 
 git-rename-branch(){
     # Rename current branch with new one and push to remote
-    if [ "$1" == "" ]; then
+    if [ "$1" = "help" -o "$1" = "-h" -o "$1" = "--help" -o "$1" = "h" ] ; then
         recho "Usage $0 new_name'"
         recho "This will rename the branch 'error-fixes' into 'syntax-error-fix'"
         recho "eg: ${FUNCNAME[0]} 'syntax-error-fix'"
     else
+        new_name=$1
         old_name="$(git rev-parse --abbrev-ref HEAD)"
-        new_name=$2
         echo "Renaming current branch from ${old_name} to ${new_name}"
         git branch -m "${new_name}"
         git push origin :"${old_name}"
@@ -242,7 +242,7 @@ createpr() {
             echo "Requesting PR Reviewers: ${REVIEWERS}";
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
                 --labels "${LABELS}" --no-edit || hub pull-request \
-                    -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "${LABELS}"--no-edit
+                    -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "${LABELS}" --no-edit
         else
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" --no-edit || hub pull-request \
                  -b "${REMOTE}" -h "${BRANCH}" --no-edit
