@@ -57,7 +57,10 @@
 		"Theme - Afterglow",
 		"Theme - Outlined",
 		"TOML",
-		"TrailingSpaces"
+		"TrailingSpaces",
+		"TypeScript",
+		"TypeScript Syntax",
+		"TypescriptCompletion"
 	],
 	"repositories":
 	[
