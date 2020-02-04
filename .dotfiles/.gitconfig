@@ -147,12 +147,6 @@
 	new = green bold
     whitespace = red reverse
 
-[push]
-    default = current
-
-[color]
-    ui = true
-
 [color "diff"]
     meta = 227
     frag = magenta bold
@@ -178,6 +172,20 @@
     newNormal = green bold
     newHighlight = green bold 22
 
+[pretty]
+    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+    #                     │        │            │            │             └─ author name
+    #                     │        │            │            └─ message
+    #                     │        │            └─ date (relative)
+    #                     │        └─ decorations (branch, heads or tags)
+    #                     └─ hash (abbreviated)
+
+[push]
+    default = current
+    # Make `git push` automatically push relevant
+    # annotated tags when pushing branches out.
+    followTags = true
+
 [http]
     sslVerify = false
 
@@ -190,6 +198,7 @@
 [commit]
 	gpgsign = true
 	template = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/commit-msg-template/commit-msg-template.txt
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
