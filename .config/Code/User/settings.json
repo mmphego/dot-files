@@ -20,7 +20,10 @@
   "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
   "files.associations": {
-    "*.py": "python"
+    "*.py": "python",
+    ".bash_functions": "shellscript",
+    ".docker_functions": "shellscript",
+    ".vimrc": "shellscript"
   },
   "files.exclude": {
     "**/.coverage": true,
@@ -42,7 +45,7 @@
   "git.confirmSync": false,
   "menu.fontsize": 16,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "terminal.integrated.fontSize": 16,
 
   "workbench.statusBar.visible": true,
@@ -92,6 +95,7 @@
     "MITM",
     "SCADA",
     "TPID",
+    "Udacity",
     "VLAN",
     "VLAN's",
     "cput",
