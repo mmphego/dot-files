@@ -96,6 +96,7 @@ alias get='hub'
 alias gut='hub'
 alias got='hub'
 alias giot='hub'
+alias git-ignore-file="git update-index --assume-unchanged"
 
 # Git Shortcuts
 alias clone='git clone --progress --depth=1'
