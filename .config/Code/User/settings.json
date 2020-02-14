@@ -16,6 +16,10 @@
   "editor.wordWrap": "on",
   "editor.find.autoFindInSelection": true,
   "editor.minimap.enabled": false,
+  // Terminal settings
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.shell.linux": "/bin/bash",
+
   // Files settings
   "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
@@ -41,13 +45,10 @@
     "**/*.pyc": true,
     "**/*.swp": true
   },
-  "workbench.colorTheme": "Monokai",
   "git.confirmSync": false,
-  "menu.fontsize": 16,
+  "menu.fontsize": 20,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": -1,
-  "terminal.integrated.fontSize": 16,
-
+  "window.zoomLevel": 0,
   "workbench.statusBar.visible": true,
 
   "window.titleBarStyle": "custom",
@@ -131,7 +132,6 @@
   "editor.renderControlCharacters": false,
   "breadcrumbs.enabled": true,
   "window.menuBarVisibility": "default",
-  "terminal.integrated.shell.linux": "/bin/bash",
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",
