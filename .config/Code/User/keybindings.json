@@ -29,5 +29,13 @@
         "key": "ctrl+k ctrl+u",
         "command": "-editor.action.removeCommentLine",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]

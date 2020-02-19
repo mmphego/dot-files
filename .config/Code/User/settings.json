@@ -223,5 +223,13 @@
     "yaml",
     "yml"
   ],
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "python.venvFolders": [
+    "/home/mmphego/.venvs"
+  ],
+  "python.venvPath": "/home/mmphego/.venvs",
+  "python.linting.flake8Args": [
+    "--max-line-length=90"
+  ],
+  "workbench.colorTheme": "Night Owl"
 }
