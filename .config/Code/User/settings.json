@@ -104,6 +104,7 @@
     "dataset",
     "datasets",
     "electrotechnical",
+    "imread",
     "imutils",
     "microcontroller",
     "multicast",
@@ -231,5 +232,6 @@
   "python.linting.flake8Args": [
     "--max-line-length=90"
   ],
-  "workbench.colorTheme": "Night Owl"
+  "workbench.colorTheme": "Night Owl",
+  "editor.suggest.snippetsPreventQuickSuggestions": false
 }
