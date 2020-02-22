@@ -232,6 +232,6 @@
   "python.linting.flake8Args": [
     "--max-line-length=90"
   ],
-  "workbench.colorTheme": "Night Owl",
+  "workbench.colorTheme": "Monokai++",
   "editor.suggest.snippetsPreventQuickSuggestions": false
 }
