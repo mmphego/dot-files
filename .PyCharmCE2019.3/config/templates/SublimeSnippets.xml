@@ -1,0 +1,7 @@
+<templateSet group="SublimeSnippets">
+  <template name="ipython" value="import IPython; globals().update(locals()); IPython.embed(header='Python Debugger')" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PYTHON" value="true" />
+    </context>
+  </template>
+</templateSet>

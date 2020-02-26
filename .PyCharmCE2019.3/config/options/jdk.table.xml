@@ -1,0 +1,69 @@
+<application>
+  <component name="ProjectJdkTable">
+    <jdk version="2">
+      <name value="Python 3.6 (shopping_list_bot)" />
+      <type value="Python SDK" />
+      <homePath value="$USER_HOME$/GitHub/Productivity_Projects/shopping_list_bot/.shopping_list_bot_Py3/bin/python" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/GitHub/Productivity_Projects/shopping_list_bot/.shopping_list_bot_Py3/lib/python3.6" type="simple" />
+            <root url="file://$USER_HOME$/GitHub/Productivity_Projects/shopping_list_bot/.shopping_list_bot_Py3/lib/python3.6/lib-dynload" type="simple" />
+            <root url="file:///usr/lib/python3.6" type="simple" />
+            <root url="file://$USER_HOME$/GitHub/Productivity_Projects/shopping_list_bot/.shopping_list_bot_Py3/lib/python3.6/site-packages" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharmCE2019.3/system/python_stubs/-1734494002" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional ASSOCIATED_PROJECT_PATH="$USER_HOME$/GitHub/Productivity_Projects/shopping_list_bot" />
+    </jdk>
+    <jdk version="2">
+      <name value="Python 3.6 (venv3.6)" />
+      <type value="Python SDK" />
+      <version value="Python 3.6.8" />
+      <homePath value="$USER_HOME$/.venvs/venv3.6/bin/python" />
+      <roots>
+        <classPath>
+          <root type="composite">
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/lib-dynload" type="simple" />
+            <root url="file:///usr/lib/python3.6" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/gTTS-2.0.4-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/docker-4.1.0-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/coloredlogs-10.0-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/pdftotext-2.1.2-py3.6-linux-x86_64.egg" type="simple" />
+            <root url="jar://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/gTTS_token-1.1.3-py3.6.egg!/" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/beautifulsoup4-4.8.1-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/pyOpenSSL-19.1.0-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/cryptography-2.8-py3.6-linux-x86_64.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/websocket_client-0.56.0-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/humanfriendly-4.18-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/soupsieve-1.9.5-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/cffi-1.13.2-py3.6-linux-x86_64.egg" type="simple" />
+            <root url="file://$USER_HOME$/.venvs/venv3.6/lib/python3.6/site-packages/pycparser-2.19-py3.6.egg" type="simple" />
+            <root url="file://$USER_HOME$/GitHub/Productivity_Projects/Medium-to-speech" type="simple" />
+            <root url="file://$USER_HOME$/.PyCharmCE2019.3/system/python_stubs/1161082069" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/python-skeletons" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/2and3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/third_party/3" type="simple" />
+            <root url="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/third_party/2and3" type="simple" />
+          </root>
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional />
+    </jdk>
+  </component>
+</application>

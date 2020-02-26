@@ -1,0 +1,26 @@
+<keymap version="1" name="Sublime Text copy" parent="Sublime Text">
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl back_quote" />
+  </action>
+  <action id="BLACKReformatCode">
+    <keyboard-shortcut first-keystroke="meta alt l" />
+    <keyboard-shortcut first-keystroke="shift ctrl b" />
+  </action>
+  <action id="Diff.FocusOppositePaneAndScroll" />
+  <action id="EditorUnindentSelection">
+    <keyboard-shortcut first-keystroke="shift ctrl tab" />
+  </action>
+  <action id="HideAllWindows">
+    <keyboard-shortcut first-keystroke="shift ctrl 1" />
+  </action>
+  <action id="OptimizeImports">
+    <keyboard-shortcut first-keystroke="ctrl alt o" />
+    <keyboard-shortcut first-keystroke="shift ctrl i" />
+  </action>
+  <action id="QuickChangeScheme" />
+  <action id="QuickImplementations" />
+  <action id="Switcher">
+    <keyboard-shortcut first-keystroke="ctrl tab" />
+  </action>
+  <action id="ToggleBookmark1" />
+</keymap>
