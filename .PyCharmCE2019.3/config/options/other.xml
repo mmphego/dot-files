@@ -21,7 +21,7 @@
     <property name="ExpandBeforeRunStepsPanel" value="true" />
     <property name="ExpandRunDashboardTypesPanel" value="true" />
     <property name="InstalledPluginsSearchHistory" value="s&#10;so&#10;import&#10;impor&#10;impo" />
-    <property name="KEYMAP" value="termina&#10;hide all&#10;unind&#10;black" />
+    <property name="KEYMAP" value="insert&#10;select line&#10;termina&#10;hide all&#10;unind" />
     <property name="LAST_INJECTED_LANGUAGE" value="Python" />
     <property name="LayoutCode.codeCleanup" value="true" />
     <property name="LayoutCode.optimizeImports" value="true" />
