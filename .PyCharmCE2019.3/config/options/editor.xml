@@ -3,6 +3,11 @@
     <option name="REFORMAT_ON_PASTE" value="1" />
     <option name="INDENT_TO_CARET_ON_PASTE" value="true" />
   </component>
+  <component name="EditorSettings">
+    <option name="SOFT_WRAP_FILE_MASKS" value="*.md; *.txt; *.rst; *.adoc" />
+    <option name="IS_ENSURE_NEWLINE_AT_EOF" value="true" />
+    <option name="SHOW_QUICK_DOC_ON_MOUSE_OVER_ELEMENT" value="true" />
+  </component>
   <component name="PythonFoldingSettings">
     <option name="COLLAPSE_LONG_STRINGS" value="true" />
     <option name="COLLAPSE_LONG_COLLECTIONS" value="true" />
