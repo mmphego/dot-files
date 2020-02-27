@@ -3,6 +3,9 @@
     <option name="isContrastMode" value="true" />
     <option name="isWizardShown" value="true" />
     <option name="monochromeIcons" value="true" />
+    <option name="pristineConfig" value="false" />
+    <option name="tabFontSizeEnabled" value="true" />
+    <option name="tabFontSize" value="14" />
     <option name="accentColor" value="ff79c5" />
     <option name="selectedTheme" value="DRACULA" />
     <option name="userId" value="-3f460cd6:1706b0d3cf9:-8000" />

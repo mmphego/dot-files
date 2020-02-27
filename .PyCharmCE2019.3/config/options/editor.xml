@@ -3,6 +3,11 @@
     <option name="REFORMAT_ON_PASTE" value="1" />
     <option name="INDENT_TO_CARET_ON_PASTE" value="true" />
   </component>
+  <component name="DefaultFont">
+    <option name="FONT_SIZE" value="14" />
+    <option name="LINE_SPACING" value="1.0" />
+    <option name="SECONDARY_FONT_FAMILY" value="Monospaced" />
+  </component>
   <component name="EditorSettings">
     <option name="SOFT_WRAP_FILE_MASKS" value="*.md; *.txt; *.rst; *.adoc" />
     <option name="IS_ENSURE_NEWLINE_AT_EOF" value="true" />
