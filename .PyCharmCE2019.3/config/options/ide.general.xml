@@ -1,5 +1,6 @@
 <application>
   <component name="GeneralSettings">
+    <option name="autoSaveIfInactive" value="true" />
     <option name="confirmExit" value="false" />
   </component>
   <component name="Registry">

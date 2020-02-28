@@ -6,7 +6,9 @@
     <keyboard-shortcut first-keystroke="meta alt l" />
     <keyboard-shortcut first-keystroke="shift ctrl b" />
   </action>
+  <action id="ContextHelp" />
   <action id="Diff.FocusOppositePaneAndScroll" />
+  <action id="EditorAddOrRemoveCaret" />
   <action id="EditorToggleColumnMode">
     <keyboard-shortcut first-keystroke="shift ctrl l" />
   </action>
@@ -24,8 +26,14 @@
   <action id="PrevTemplateParameter" />
   <action id="PreviousTemplateVariable" />
   <action id="QuickChangeScheme" />
-  <action id="QuickImplementations" />
+  <action id="QuickImplementations">
+    <keyboard-shortcut first-keystroke="f1" />
+  </action>
+  <action id="QuickJavaDoc">
+    <mouse-shortcut keystroke="control button1" />
+  </action>
   <action id="SearchEverywhere.PrevTab" />
+  <action id="ShowErrorDescription" />
   <action id="Switcher">
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
