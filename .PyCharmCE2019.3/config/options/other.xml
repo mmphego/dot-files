@@ -27,7 +27,7 @@
     <property name="ExpandBeforeRunStepsPanel" value="true" />
     <property name="ExpandRunDashboardTypesPanel" value="true" />
     <property name="InstalledPluginsSearchHistory" value="tab&#10;sublime&#10;snippets&#10;s&#10;so" />
-    <property name="KEYMAP" value="quick d&#10;quick&#10;insert&#10;select line&#10;termina" />
+    <property name="KEYMAP" value="font&#10;zoom&#10;select&#10;quick d&#10;quick" />
     <property name="LAST_INJECTED_LANGUAGE" value="Python" />
     <property name="LayoutCode.codeCleanup" value="true" />
     <property name="LayoutCode.optimizeImports" value="true" />
