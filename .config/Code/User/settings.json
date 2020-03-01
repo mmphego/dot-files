@@ -233,5 +233,6 @@
     "--max-line-length=90"
   ],
   "workbench.colorTheme": "Monokai++",
-  "editor.suggest.snippetsPreventQuickSuggestions": false
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "todo-tree.tree.showScanModeButton": false
 }

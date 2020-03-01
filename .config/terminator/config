@@ -6,8 +6,10 @@
   title_inactive_bg_color = "#000000"
   window_state = maximise
 [keybindings]
+  copy = <Primary><Shift><Alt>c
   page_down = Page_Down
   page_up = Page_Up
+  paste = <Primary><Shift><Alt>v
   split_horiz = <Primary><Shift>h
   split_vert = <Primary><Shift>v
 [layouts]
