@@ -30,6 +30,7 @@
     commt = commit
     dif = diff
     dff = diff
+    doff = diff
     dfi = diff
     df = diff
     lo = log
