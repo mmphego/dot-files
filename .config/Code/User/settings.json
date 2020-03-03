@@ -54,7 +54,6 @@
   "window.titleBarStyle": "custom",
   "diffEditor.renderSideBySide": false,
   "explorer.confirmDelete": false,
-  "git.autofetch": true,
 
   // Search features
   "search.showLineNumbers": true,
@@ -234,5 +233,7 @@
   ],
   "workbench.colorTheme": "Monokai++",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "todo-tree.tree.showScanModeButton": false
+  "todo-tree.tree.showScanModeButton": false,
+  "git.autorefresh": false,
+  "gitlens.views.repositories.autoRefresh": false
 }
