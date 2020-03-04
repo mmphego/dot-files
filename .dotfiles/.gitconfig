@@ -13,21 +13,36 @@
 	aliases = config --get-regexp alias
 
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    # get pwd
+    root = rev-parse --show-toplevel
+    # Shows all commits that are in local master but not in any remote repository master branches.
+    not-pushed = log --branches --not --remotes
+    # Undo last commits
+    undo = reset --hard ^HEAD
+    # delete files recurcive
+    rmf = rm -rf
+    head = log -1
+    # url of origin, about 99% of what I use git config --list for
+    cloneurl = config --get remote.origin.url
+    # ignore local changes to a file
+    ignore = update-index --assume-unchanged
+    submodule-update = submodule update --remote --merge
+
 
     # My life is full of typos
     ad = add
-    cinnut = commit -v
-    cmit = commit -v
-    cmmit = commit -v
-    cmomit = commit -v
-    cmt = commit -v
-    co = commit -v
-    comimt = commit -v
-    comit = commit -v
-    comit = commit -v
-    comkmit = commit -v
-    commi = commit -v
-    commt = commit -v
+    cinnut = commit
+    cmit = commit
+    cmmit = commit
+    cmomit = commit
+    cmt = commit
+    co = commit
+    comimt = commit
+    comit = commit
+    comit = commit
+    comkmit = commit
+    commi = commit
+    commt = commit
     dif = diff
     dff = diff
     doff = diff
@@ -174,6 +189,9 @@
     newNormal = green bold
     newHighlight = green bold 22
 
+[commit]
+    verbose = true
+
 [pretty]
     custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
     #                     │        │            │            │             └─ author name
@@ -183,10 +201,13 @@
     #                     └─ hash (abbreviated)
 
 [push]
-    default = current
+    default = upstream
     # Make `git push` automatically push relevant
     # annotated tags when pushing branches out.
     followTags = true
+
+[pull]
+	rebase = true
 
 [http]
     sslVerify = false
