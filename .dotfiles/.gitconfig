@@ -16,18 +16,18 @@
 
     # My life is full of typos
     ad = add
-    cinnut = commit
-    cmit = commit
-    cmmit = commit
-    cmomit = commit
-    cmt = commit
-    co = commit
-    comimt = commit
-    comit = commit
-    comit = commit
-    comkmit = commit
-    commi = commit
-    commt = commit
+    cinnut = commit -v
+    cmit = commit -v
+    cmmit = commit -v
+    cmomit = commit -v
+    cmt = commit -v
+    co = commit -v
+    comimt = commit -v
+    comit = commit -v
+    comit = commit -v
+    comkmit = commit -v
+    commi = commit -v
+    commt = commit -v
     dif = diff
     dff = diff
     doff = diff
