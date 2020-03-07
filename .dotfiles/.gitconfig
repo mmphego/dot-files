@@ -27,7 +27,7 @@
     # ignore local changes to a file
     ignore = update-index --assume-unchanged
     submodule-update = submodule update --remote --merge
-
+    unstage = restore --staged
 
     # My life is full of typos
     ad = add
