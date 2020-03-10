@@ -147,7 +147,7 @@ git-revert-commit() {
 git-pull-all() {
     # Pull all remote refs from repos in the current dir
     CUR_DIR=$(pwd)
-    find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR;
+    find -type d -execdir test -d {}/.git \; -print -prune | sort | while read -r DIR;
         do builtin cd $DIR &>/dev/null;
         (git fetch -pa && git pull --allow-unrelated-histories \
             origin $(git symbolic-ref --short HEAD)) &>/dev/null &disown;
