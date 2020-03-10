@@ -159,9 +159,9 @@ git-pull-all() {
         /^Changes to be committed/ {printf(b"|*Uncommitted changes!"n)}
         /^Your branch is ahead of/ {printf(r"|^Push changes!"n)}
         ')
-        LAST_UPDATE="${STATUS} ${LIGHTCYAN}[$(git show -1 --stat | grep ^Date | cut -f4- -d' ')]${NC}"
+        LAST_UPDATE="${STATUS} | ${LIGHTCYAN}[$(git show -1 --stat | grep ^Date | cut -f4- -d' ')]${NC}"
 
-        printf "Repo: ${DIR} | ${LAST_UPDATE}\n";
+        printf "Repo: \t${DIR} \t| ${LAST_UPDATE}\n";
         builtin cd - &>/dev/null;
     done
     builtin cd ${CUR_DIR} &>/dev/null;
