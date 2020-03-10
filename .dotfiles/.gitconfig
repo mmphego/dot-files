@@ -28,6 +28,8 @@
     ignore = update-index --assume-unchanged
     submodule-update = submodule update --remote --merge
     unstage = restore --staged
+    # Get the number of commits per committer
+    no-commit = !git shortlog --summary | sort -n
 
     # My life is full of typos
     ad = add
@@ -82,6 +84,11 @@
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     push = origin $(git symbolic-ref --short HEAD)
     pushf = push -f
+    # Clone a repository including all submodules
+    clone-everything = clone --recursive --progress
+
+    # Show the diff between the latest commit and the current state
+    diff-commits = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
     # Life savers
 
@@ -119,12 +126,6 @@
             git commit --amend -s -S -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
         fi \
         }; f"
-
-    # Show the diff between the latest commit and the current state
-	diff-commits = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
-	# Clone a repository including all submodules
-	clone-everything = clone --recursive --progress
 
 	# Switch to a branch, creating it if necessary and if it exist pull latest changes
 	goto = "!f() { \
