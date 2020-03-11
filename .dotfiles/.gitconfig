@@ -24,6 +24,7 @@
     head = log -1
     # url of origin, about 99% of what I use git config --list for
     cloneurl = config --get remote.origin.url
+    url = cloneurl
     # ignore local changes to a file
     ignore = update-index --assume-unchanged
     submodule-update = submodule update --remote --merge
