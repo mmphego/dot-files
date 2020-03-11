@@ -334,7 +334,8 @@
 		"Microservices",
 		"setup",
 		"brandyourcar",
-		"incentivise"
+		"incentivise",
+		"namespace"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
