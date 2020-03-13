@@ -83,7 +83,7 @@
     commit = commit -S
     last = log -1 HEAD
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
-    push = origin $(git symbolic-ref --short HEAD)
+    push = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
     pushf = push -f
     # Clone a repository including all submodules
     clone-everything = clone --recursive --progress
@@ -210,6 +210,9 @@
     # Make `git push` automatically push relevant
     # annotated tags when pushing branches out.
     followTags = true
+
+[status]
+    showStash = true
 
 [http]
     sslVerify = false
