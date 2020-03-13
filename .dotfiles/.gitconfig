@@ -211,9 +211,6 @@
     # annotated tags when pushing branches out.
     followTags = true
 
-[pull]
-	rebase = true
-
 [http]
     sslVerify = false
 
