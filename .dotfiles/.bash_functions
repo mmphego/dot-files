@@ -16,7 +16,7 @@ create_venv() {
         recho "eg: ${FUNCNAME[0]} 3"
     else command -v virtualenv > /dev/null;
         virtdir=".$(basename $(pwd))_Py${1}"
-        virtualenv --python="python${1}" "${virtdir}" --no-site-packages
+        virtualenv --python="python${1}" "${virtdir}"
         source "${virtdir}/bin/activate"
 
         "${virtdir}/bin/pip" install flake8 \
