@@ -336,7 +336,10 @@
 		"brandyourcar",
 		"incentivise",
 		"namespace",
-		"mentoring"
+		"mentoring",
+		"Jenkinsfile",
+		"gif",
+		"cambuilder"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":

@@ -183,7 +183,7 @@ backup_my_git_repos() {
 
 git-rename-branch(){
     # Rename current branch with new one and push to remote
-    if [ "$1" = "help" -o "$1" = "-h" -o "$1" = "--help" -o "$1" = "h" ] ; then
+    if [ "$1" = "help" -o "$1" = "-h" -o "$1" = "--help" -o "$1" = "h" -o "$1" = "" ] ; then
         recho "Usage $0 new_name'"
         recho "This will rename the branch 'error-fixes' into 'syntax-error-fix'"
         recho "eg: ${FUNCNAME[0]} 'syntax-error-fix'"
