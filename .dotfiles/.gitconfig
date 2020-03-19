@@ -26,7 +26,9 @@
     cloneurl = config --get remote.origin.url
     url = cloneurl
     # ignore local changes to a file
-    ignore = update-index --assume-unchanged
+    ignore-file-changes = update-index --assume-unchanged
+    # undo-ignore local changes to a file
+    ignore-file-changes-undo = update-index --no-assume-unchanged
     submodule-update = submodule update --remote --merge
     unstage = restore --staged
     # Get the number of commits per committer
