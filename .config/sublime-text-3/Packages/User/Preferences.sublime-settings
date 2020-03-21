@@ -341,7 +341,11 @@
 		"gif",
 		"cambuilder",
 		"unfollowing",
-		"microservice"
+		"microservice",
+		"Semiphemeral",
+		"semiphemeral",
+		"app",
+		"python3"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
