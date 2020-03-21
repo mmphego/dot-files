@@ -265,3 +265,6 @@ https://github.com/SewerynKras/arduino-RGB-led-controller.git
 
 [DSTV_A6_Codes]
 git@github.com:mmphego/RgbIrLed.git
+
+[mmphego]
+git@github.com:mmphego/dot-files.git
