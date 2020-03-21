@@ -340,7 +340,8 @@
 		"Jenkinsfile",
 		"gif",
 		"cambuilder",
-		"unfollowing"
+		"unfollowing",
+		"microservice"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
