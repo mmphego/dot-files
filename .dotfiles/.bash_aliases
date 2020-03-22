@@ -113,3 +113,4 @@ alias log-me-out='skill -KILL -u ${USER}'
 alias pipinstall='pip install '
 
 alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
+alias mic='amixer set Capture toggle'
