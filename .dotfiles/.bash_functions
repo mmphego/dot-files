@@ -372,11 +372,11 @@ cd() {
 }
 
 install-pkg() {
-    echo "Installing package: $1";
+    echo "Installing package: $@";
     if command -v gdebi >/dev/null;then
-        sudo gdebi $1;
+        sudo gdebi $@;
     else
-        sudo dpkg --install $1;
+        sudo dpkg --install $@;
     fi
 }
 

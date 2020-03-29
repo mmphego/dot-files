@@ -71,6 +71,7 @@ alias cd..='cd ..'
 alias hist='history --color=always'
 alias hist-grep='history | grep --color=always'
 alias youtube="$(command -v youtube-dl)"
+alias y="$(command -v youtube-dl)"
 alias youtube-mp3="$(command -v youtube-dl) -x --audio-format mp3"
 alias rsync='rsync --progress'
 alias less='less -N'
