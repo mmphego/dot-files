@@ -561,11 +561,6 @@ mv_file_to_dir() {
     done
 }
 
-vid_2_gif() {
-    ffmpeg -i "$1" -r 15 -vf scale=720:-1 "$1.gif"
-}
-
-
 rm_pyc() {
     find . -name "*.pyc" -exec rm -f {} \;
 }
@@ -606,6 +601,14 @@ install() {
     fi
 }
 
-mp3_split_on_silence(){
+mp3_split_on_silence() {
     sox $@ file.mp3 silence 1 1.0 0.2% 1 0.8 0.5% : newfile : restart
+}
+
+vid_2_gif() {
+    ffmpeg -i "$1" -r 15 -vf scale=720:-1 "$1.gif"
+}
+
+extract_audio_from_video() {
+    ffmpeg -i $1 -vn -b:a 320k output-audio.mp3
 }
