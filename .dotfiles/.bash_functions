@@ -341,7 +341,7 @@ compile() {
      if [ -f $1 ] ; then
          case $1 in
             # List should be expanded.
-             *.c)      gcc -Wall "$1" -o "main" -lm  ;;
+             *.c)      gcc -H -Wall "$1" -o "main" -lm  ;;
              *.go)     go run "$1"                   ;;
              *.py)     pycompile -v "$1"             ;;
              *.tex)    latexmk -pdf "$1"             ;;
