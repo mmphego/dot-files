@@ -72,6 +72,8 @@ fi
 if [ -f ~/.aws_secrets ]; then
     source ~/.aws_secrets
 fi
+
+
 ####################################################################################################
 #################################### Exports Definitions ###########################################
 ####################################################################################################
@@ -100,6 +102,16 @@ export LC_ALL='en_US.UTF-8';
 
 # Wait longer before timing out when running pip
 export PIP_DEFAULT_TIMEOUT=100
+
+if [ -d ~/.npm-packages ]; then
+    NPM_PACKAGES="${HOME}/.npm-packages"
+
+    export PATH="$PATH:$NPM_PACKAGES/bin"
+
+    # Preserve MANPATH if you already defined it somewhere in your config.
+    # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+    export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+fi
 ####################################################################################################
 #################################### Input edits and Key-bindings ###################################
 ####################################################################################################
