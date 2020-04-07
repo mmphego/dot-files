@@ -345,7 +345,9 @@
 		"Semiphemeral",
 		"semiphemeral",
 		"app",
-		"python3"
+		"python3",
+		"Unfollowed",
+		"unfollow"
 	],
 	"auto_complete_delay": 25,
 	"binary_file_patterns":
