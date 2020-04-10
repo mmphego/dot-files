@@ -231,9 +231,12 @@
   "python.linting.flake8Args": [
     "--max-line-length=90"
   ],
-  "workbench.colorTheme": "Monokai++",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "todo-tree.tree.showScanModeButton": false,
   "git.autorefresh": false,
-  "gitlens.views.repositories.autoRefresh": false
+  "gitlens.views.repositories.autoRefresh": false,
+  "extensions.autoUpdate": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
