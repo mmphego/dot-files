@@ -100,3 +100,6 @@ _pip_completion() {
 }
 complete -o default -F _pip_completion pip
 # pip bash completion end
+
+# Ensure that night light is enabled always.
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
