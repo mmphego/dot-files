@@ -1,5 +1,22 @@
 # Useful Functions
 
+nightlight () {
+    # 1000 — Lowest value (super warm/red)
+    # 4000 — Default night light on temperature
+    # 5500 — Balanced night light temperature
+    # 6500 — Default night light off temperature
+    # 10000 — Highest value (super cool/blue)
+    if [ "$1" == 'low' ]; then
+        VAL=1000
+    elif [ "$1" == 'bal' ]; then
+        VAL=5500
+    else
+        VAL=4000
+    fi
+
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature $VAL
+}
+
 cheatsheet() {
     # Cheatsheets https://github.com/chubin/cheat.sh
     if [ "$1" == "" ]; then
