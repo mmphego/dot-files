@@ -13,7 +13,9 @@ nightlight () {
     else
         VAL=4000
     fi
-
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
+    sleep 0.2
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
     gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature $VAL
 }
 
