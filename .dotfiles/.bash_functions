@@ -7,9 +7,9 @@ nightlight () {
     # 6500 — Default night light off temperature
     # 10000 — Highest value (super cool/blue)
     if [ "$1" == 'low' ]; then
-        VAL=1000
+        VAL=2500
     elif [ "$1" == 'bal' ]; then
-        VAL=5500
+        VAL=5000
     else
         VAL=4000
     fi
