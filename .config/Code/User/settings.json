@@ -48,7 +48,7 @@
   "git.confirmSync": false,
   "menu.fontsize": 20,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "workbench.statusBar.visible": true,
 
   "window.titleBarStyle": "custom",
@@ -93,6 +93,7 @@
     "IEDs",
     "Interconnnection",
     "MITM",
+    "Presigned",
     "SCADA",
     "TPID",
     "Todos",
