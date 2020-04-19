@@ -48,7 +48,7 @@
   "git.confirmSync": false,
   "menu.fontsize": 20,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "workbench.statusBar.visible": true,
 
   "window.titleBarStyle": "custom",
