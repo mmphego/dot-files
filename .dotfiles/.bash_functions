@@ -392,8 +392,13 @@ cd() {
 
 install-pkg() {
     echo "Installing package: $@";
-    if command -v gdebi >/dev/null;then
-        sudo gdebi $@;
+    if command -v gdebi >/dev/null; then
+        if [[ "$@" == *"http"* ]]; then
+            wget -O /tmp/package.deb "$@";
+            sudo gdebi /tmp/package.deb;
+        else
+            sudo gdebi $@;
+        fi
     else
         sudo dpkg --install $@;
     fi
