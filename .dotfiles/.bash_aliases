@@ -35,13 +35,13 @@ alias lss='ls -thor'
 
 ### Apt
 alias update='sudo apt update'
-alias upgrade='sudo apt upgrade -y --allow-unauthenticated && sudo apt autoclean && sudo apt autoremove'
-alias search='apt search'
+alias upgrade='sudo apt-get upgrade -y --allow-unauthenticated && sudo apt-get -y dist-upgrade && sudo apt autoclean && sudo apt autoremove'
+alias search-pkg='apt search'
 alias search-version='apt-cache policy'
 
 ### Install and Remove Packages
 alias uninstall='sudo apt-get --purge autoremove '
-alias search-installed='sudo dpkg -l '
+alias installed='sudo dpkg -l '
 alias show-installed="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 # Find empty directories
 alias emptyDir='find . -empty -type d -delete'
