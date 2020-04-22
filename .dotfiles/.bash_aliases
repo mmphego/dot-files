@@ -4,7 +4,7 @@
 # Credit: https://github.com/slomkowski
 __add_command_replace_alias() {
     if [ -x "$(command -v $2 2>&1)" ]; then
-        alias $1=$2
+        alias "$1"="$2"
     fi
 }
 
@@ -115,3 +115,4 @@ alias pipinstall='pip install '
 
 alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
 alias mic='amixer set Capture toggle'
+alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"
