@@ -86,6 +86,7 @@
   "cSpell.userWords": [
     "APDU",
     "Datagram",
+    "Diarys",
     "Ethertype",
     "Ethertypes",
     "GSSE",
@@ -245,5 +246,6 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  }
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
