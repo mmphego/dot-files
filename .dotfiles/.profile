@@ -74,7 +74,7 @@ fi
 
 if [ -d "${HOME}/.venvs" ]; then
     export WORKON_HOME="${HOME}/.venvs"
-    export VIRTUALENVWRAPPER_PYTHON="$(command -v python)"
+    export VIRTUALENVWRAPPER_PYTHON="$(command -v python2)"
     export VIRTUALENVWRAPPER_VIRTUALENV="$(command -v virtualenv)"
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
     # shellcheck source=/dev/null
