@@ -19,7 +19,6 @@
   // Terminal settings
   "terminal.integrated.fontSize": 18,
   "terminal.integrated.shell.linux": "/bin/bash",
-
   // Files settings
   "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
@@ -48,17 +47,14 @@
   "git.confirmSync": false,
   "menu.fontsize": 20,
   "latex-workshop.view.pdf.viewer": "tab",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.statusBar.visible": true,
-
   "window.titleBarStyle": "custom",
   "diffEditor.renderSideBySide": false,
   "explorer.confirmDelete": false,
-
   // Search features
   "search.showLineNumbers": true,
   "search.smartCase": true,
-
   // Language Settings
   "python.pythonPath": "python",
   "python.linting.maxNumberOfProblems": 50,
@@ -78,7 +74,10 @@
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
-    "editor.rulers": [90, 120],
+    "editor.rulers": [
+      90,
+      120
+    ],
     "editor.tabSize": 4
   },
   // Spelling and Grammar
@@ -108,6 +107,8 @@
     "csaems",
     "dataset",
     "datasets",
+    "devapi",
+    "dynamodb",
     "electrotechnical",
     "imread",
     "imutils",
@@ -115,6 +116,7 @@
     "multicast",
     "multicasting",
     "multifunctional",
+    "reqvalidator",
     "routable",
     "rtds",
     "scsm",
@@ -127,7 +129,12 @@
   ],
   "shellcheck.disableVersionCheck": true,
   "spellright.language": [],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext", "Log"],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "Log"
+  ],
   "spellright.parserByClass": {
     "Log": {
       "parser": "markdown"
@@ -248,5 +255,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "liveServer.settings.CustomBrowser": "chrome"
 }
