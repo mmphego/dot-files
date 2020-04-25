@@ -256,5 +256,11 @@
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "liveServer.settings.CustomBrowser": "chrome"
+  "liveServer.settings.CustomBrowser": "chrome",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  }
 }
