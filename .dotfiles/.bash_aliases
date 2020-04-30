@@ -34,7 +34,7 @@ alias lsdir='ls -thord */'
 alias lss='ls -thor'
 
 ### Apt
-alias update='sudo apt update'
+alias update='sudo apt update --fix-missing'
 alias upgrade='sudo apt-get upgrade -y --allow-unauthenticated && sudo apt-get -y dist-upgrade && sudo apt autoclean && sudo apt autoremove'
 alias search-pkg='apt search'
 alias search-version='apt-cache policy'
