@@ -26,4 +26,4 @@ alias mediumexporter='docker run --rm -it -v "$(pwd):/app" mmphego/mediumexporte
 alias dockerfile-linter='docker run --rm -i hadolint/hadolint < '
 
 # CHANGELOG generator implemented in Go (Golang) running in a Docker image/container.
-alias git-changelog='docker run -it --rm -v "$(pwd)":/usr/local/src/your-app mmphego/github-changelog'
+alias git-changelog='docker run -it --rm -v "$(pwd)":/usr/local/src/your-app mmphego/git-changelog-generator'
