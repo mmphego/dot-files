@@ -38,6 +38,7 @@ create_venv() {
         virtualenv --python="python${1}" "${virtdir}"
         source "${virtdir}/bin/activate"
 
+        "${virtdir}/bin/pip" install -U pip
         "${virtdir}/bin/pip" install flake8 \
                                      future \
                                      isort \
