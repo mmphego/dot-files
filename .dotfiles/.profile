@@ -81,6 +81,10 @@ if [ -d "${HOME}/.venvs" ]; then
     source "$(command -v virtualenvwrapper.sh)"
 fi
 
+if [ -d "/var/lib/flatpak/exports/share" ]; then
+    export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+fi
+
 recho() {
     echo "${RED}$1${NC}"
 }
