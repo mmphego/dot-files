@@ -526,8 +526,8 @@ create_blog_post () {
         TIME=$(date +'%H:%M:%S')
 
         NEW_POST="${BLOG_DIR}/_posts/${DATE}-${FILENAME// /-}.md"
-        NEW_POST_IMG="/assets/${DATE}-${FILENAME// /-}.jpg"
-        BG_IMG="${BLOG_DIR}/img/new_post_word_cloud.jpg"
+        NEW_POST_IMG="/assets/${DATE}-${FILENAME// /-}.png"
+        BG_IMG="${BLOG_DIR}/img/new_post_word_cloud.png"
         # Titlecase the filename
         TITLE=($FILENAME)
         TITLE="${TITLE[@]^}"
