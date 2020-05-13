@@ -76,6 +76,7 @@
     stts = status
     sttus = status
     pusj = push
+    push = pushup
     pus = push --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pul = pull
 
@@ -153,6 +154,11 @@
 
     fetch-all-branches = "!func() { \
         git checkout --detach && git fetch origin '+refs/heads/*:refs/heads/*';\
+        };func"
+
+    cleanup-branches = "!func() { \
+        git fetch -pa && \
+        git branch --merged | egrep -v '(^\\*|master|dev|devel)' | xargs git branch -d;\
         };func"
 
     push-all = "!fnc() { git push && git push --tags; }; fnc"
