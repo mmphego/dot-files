@@ -631,7 +631,19 @@ mp3_split_on_silence() {
 }
 
 vid_2_gif() {
-    ffmpeg -i "$1" -r 15 -vf scale=720:-1 "$1.gif"
+    if [ "$1" == "" ]; then
+        recho "Usage $0 filename.mp4"
+    else
+        ffmpeg -i "$1" -r 15 -vf scale=720:-1 "$1.gif"
+    fi
+}
+
+gif_2_vid() {
+    if [ "$1" == "" ]; then
+        recho "Usage $0 filename.gif"
+    else
+        ffmpeg -i "$1" -movflags faststart -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "${1}.mp4"
+    fi
 }
 
 extract_audio_from_video() {
