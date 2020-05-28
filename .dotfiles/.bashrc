@@ -215,7 +215,7 @@ fi
 ############################################ Welcome Message #######################################
 ####################################################################################################
 if [ -f /var/run/reboot-required ]; then
-    echo "${REDBG}[*** Hello ${USER}, you must reboot your machine ***]${NC}\n";
+    echo -e "${REDBG}[*** Hello ${USER}, you must reboot your machine ***]${NC}\n";
 fi
 
 IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
