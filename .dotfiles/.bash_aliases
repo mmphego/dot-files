@@ -116,3 +116,4 @@ alias pipinstall='pip install '
 alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
 alias mic='amixer set Capture toggle'
 alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"
+alias aliases="subl ~/.dotfiles"
