@@ -61,7 +61,8 @@
 		"TrailingSpaces",
 		"TypeScript",
 		"TypeScript Syntax",
-		"TypescriptCompletion"
+		"TypescriptCompletion",
+		"WakaTime"
 	],
 	"repositories":
 	[

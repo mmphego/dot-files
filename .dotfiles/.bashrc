@@ -74,6 +74,9 @@ if [ -f ~/.aws_secrets ]; then
 fi
 
 
+if [ -f ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh ] && [ -f ~/.wakatime.cfg ]; then
+    source ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh
+fi
 ####################################################################################################
 #################################### Exports Definitions ###########################################
 ####################################################################################################
