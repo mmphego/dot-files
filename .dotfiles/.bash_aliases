@@ -68,15 +68,16 @@ alias .....='cd ../../../../'
 alias cd..='cd ..'
 
 # Shortcuts
-alias hist='history --color=always'
+alias cwd="basename \"$PWD\""
+alias diff='colordiff -y'
+alias gitprojects='cd -- /home/mmphego/GitHub'
 alias hist-grep='history | grep --color=always'
-alias youtube="$(command -v youtube-dl)"
+alias hist='history --color=always'
+alias less='less -N'
+alias rsync='rsync --progress'
 alias y="$(command -v youtube-dl)"
 alias youtube-mp3="$(command -v youtube-dl) -x --audio-format mp3"
-alias rsync='rsync --progress'
-alias less='less -N'
-alias diff='colordiff -y'
-alias gitprojects-dir='cd -- /home/mmphego/GitHub'
+alias youtube="$(command -v youtube-dl)"
 
 # Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -113,7 +114,8 @@ alias camserver='autossh -A kat@10.8.67.160'
 alias log-me-out='skill -KILL -u ${USER}'
 alias pipinstall='pip install '
 
-alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
-alias mic='amixer set Capture toggle'
-alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"
+# Misc
 alias aliases="subl ~/.dotfiles"
+alias mic='amixer set Capture toggle'
+alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
+alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"

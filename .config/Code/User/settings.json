@@ -263,5 +263,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "HookyQR.beautify"
   },
-  "python.formatting.blackPath": "/home/mmphego/.local/bin/black"
+"python.formatting.blackPath": "/home/mmphego/.local/bin/black",
+"python.languageServer": "Microsoft"
 }
