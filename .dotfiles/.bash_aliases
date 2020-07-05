@@ -68,7 +68,7 @@ alias .....='cd ../../../../'
 alias cd..='cd ..'
 
 # Shortcuts
-alias cwd="basename \"$PWD\""
+alias cwd="basename \"$(pwd)\""
 alias diff='colordiff -y'
 alias gitprojects='cd -- /home/mmphego/GitHub'
 alias hist-grep='history | grep --color=always'
