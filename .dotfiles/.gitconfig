@@ -103,7 +103,7 @@
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
         read -p 'Enter [y/n] if you want to create a PR: ' response; \
-        if [ \"${response}\" != \"${response#[Yy]}\" ]; then hub pull-request --no-edit; fi \
+        if [ \"${response}\" != \"${response#[Yy]}\" ]; then hub pull-request --no-edit -f; fi \
         };fnc"
 
     # Create pull request on GitHub to devel remote branch if it exists else, to master
