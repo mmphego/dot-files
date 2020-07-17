@@ -547,6 +547,8 @@ tags:
 ![post image]({{ "${NEW_POST_IMG}" | absolute_url }})
 {: refdef}
 
+<<TIME TO READ>>
+
 -----------------------------------------------------------------------------------------
 
 # The Story
