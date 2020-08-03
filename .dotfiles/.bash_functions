@@ -651,3 +651,7 @@ gif_2_vid() {
 extract_audio_from_video() {
     ffmpeg -i $1 -vn -b:a 320k output-audio.mp3
 }
+
+pdf_merge(){
+    pdftk "$1" "$2" cat output mergedfile.pdf
+}
