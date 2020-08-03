@@ -98,6 +98,9 @@ export HISTSIZE=999999
 export HISTFILESIZE=999999
 # don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL='ignoreboth';
+## history -a causes the last command to be written to the
+## history file automatically and history -r imports the history
+export PROMPT_COMMAND='history -a;history -r'
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
