@@ -94,8 +94,8 @@ fi
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 # Infinite history.
-export HISTSIZE=
-export HISTFILESIZE=
+export HISTSIZE=999999
+export HISTFILESIZE=999999
 # don't put duplicate lines or lines starting with space in the history.
 export HISTCONTROL='ignoreboth';
 
