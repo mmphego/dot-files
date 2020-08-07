@@ -88,6 +88,8 @@
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pushup = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
     pushf = push -f
+    show-stashed = stash show stash@{0}
+
     # Clone a repository including all submodules
     clone-everything = clone --recursive --progress
 
