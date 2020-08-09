@@ -74,9 +74,9 @@ if [ -f ~/.aws_secrets ]; then
 fi
 
 
-if [ -f ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh ] && [ -f ~/.wakatime.cfg ]; then
-    source ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh || true
-fi
+# if [ -f ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh ] && [ -f ~/.wakatime.cfg ]; then
+#     source ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh || true
+# fi
 ####################################################################################################
 #################################### Exports Definitions ###########################################
 ####################################################################################################
@@ -241,4 +241,4 @@ printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 
 # tabtab source for packages
 # uninstall by removing these lines
-[ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
+# [ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
