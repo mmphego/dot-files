@@ -61,8 +61,7 @@
 		"TOML",
 		"TrailingSpaces",
 		"TypeScript Syntax",
-		"TypescriptCompletion",
-		"WakaTime"
+		"TypescriptCompletion"
 	],
 	"repositories":
 	[

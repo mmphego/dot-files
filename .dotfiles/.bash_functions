@@ -11,7 +11,7 @@ nightlight () {
     elif [ "$1" == 'bal' ]; then
         VAL=5000
     else
-        VAL=4000
+        VAL=$1
     fi
     gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
     sleep 0.2
