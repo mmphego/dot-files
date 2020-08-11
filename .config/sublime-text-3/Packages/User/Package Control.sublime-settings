@@ -19,6 +19,8 @@
 		"Google Spell Check",
 		"Goto Usage",
 		"INI",
+		"Jedi - Python autocompletion",
+		"Jedi Syntax",
 		"Markdown Extended",
 		"MarkdownEditing",
 		"More Python Completions",
@@ -39,7 +41,7 @@
 		"Theme - Afterglow",
 		"Theme - Outlined",
 		"TOML",
-		"TrailingSpaces",
+		"TrailingSpaces"
 	],
 	"repositories":
 	[
