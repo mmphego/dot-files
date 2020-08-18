@@ -93,6 +93,9 @@
     # Clone a repository including all submodules
     clone-everything = clone --recursive --progress
 
+    # Rebase commits from a selected number.
+    rebase-from-commit-no = "!func() { git rebase -i HEAD~$1; }; func"
+
     # Show the diff between the latest commit and the current state
     diff-commits = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
