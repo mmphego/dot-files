@@ -55,6 +55,8 @@
     doff = diff
     dfi = diff
     df = diff
+    duf = diff
+    duff = diff
     lo = log
     lgo = log
     lof = log
@@ -75,6 +77,7 @@
     statu = status
     stts = status
     sttus = status
+    srtat = status
     pusj = push
     push = pushup
     pus = push --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
