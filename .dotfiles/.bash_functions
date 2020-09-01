@@ -160,7 +160,7 @@ git-revert-commit() {
     else
         BRANCH="$(git rev-parse --abbrev-ref HEAD)"
         git reset --hard $1
-        git push -f origin "$BRANCH"
+        git push --force-with-lease origin "$BRANCH"
     fi
 }
 

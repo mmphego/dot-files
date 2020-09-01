@@ -90,7 +90,7 @@
     last = log -1 HEAD
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pushup = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
-    pushf = push -f
+    pushf = push --force-with-lease
     show-stashed = stash show stash@{0}
 
     # Clone a repository including all submodules
@@ -155,7 +155,7 @@
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
         git commit --amend -S -anC HEAD; \
-        git push -f; \
+        git push --force-with-lease; \
         };fnc"
 
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
