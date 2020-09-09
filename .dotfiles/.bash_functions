@@ -239,7 +239,7 @@ committer() {
         git add -f "${line}";
     done
 
-    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | tr -s '  ')
+    FILE=$(git status | grep "modified:" | cut -f2 -d ":" | tr "\n" " ")
     if [ ! -z "$MSG" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
         git commit -s -S -n -m "$MSG";
