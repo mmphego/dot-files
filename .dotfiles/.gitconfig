@@ -107,6 +107,9 @@
     # Put any file changed up for commits
     addr = "!fnc(){ git add $(git status | $(which grep) "modified:" | cut -f2 -d ":" | xargs); }; fnc"
 
+    # Stash, pull and pop
+    stash-pull-pop = "!fnc(){ git stash; git pull origin $(git rev-parse --abbrev-ref HEAD); git stash pop;  }; fnc"
+
     pushd = "!fnc() { \
         BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
         git push origin ${BRANCH_NAME}; \
