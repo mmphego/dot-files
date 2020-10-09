@@ -39,10 +39,12 @@ create_venv() {
         source "${virtdir}/bin/activate"
 
         "${virtdir}/bin/pip" install -U pip
-        "${virtdir}/bin/pip" install flake8 \
-                                     future \
-                                     isort \
-                                     pytest \
+        "${virtdir}/bin/pip" install \
+                                    --use-feature=2020-resolver \
+                                    flake8 \
+                                    future \
+                                    isort \
+                                    pytest \
 
         if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
             "${virtdir}/bin/pip" install black flake8-black pre-commit ipython['all']
