@@ -249,7 +249,7 @@ committer() {
         git commit -s -S -n -m"Updated ${FILE}";
     fi;
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
-    [ $? -eq 0 ] && bash -c "git push --no-verify -q &>/dev/null &disown;"
+    [ $? -eq 0 ] && bash -c "git push --no-verify -q -u origin $(git rev-parse --abbrev-ref HEAD) &>/dev/null &disown;"
 }
 
 createpr() {
