@@ -595,6 +595,11 @@ rm_pyc() {
 }
 
 sync_with_cam(){
+    if [ "$1" == "" ]; then
+        recho "Usage: $0 devm"
+        recho "eg: ${FUNCNAME[0]} devm"
+        return
+    fi
     if ! command -v entr >/dev/null 2>&1; then
         recho "Entr is not installed."
         recho "Install entr: http://eradman.com/entrproject/"
