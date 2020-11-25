@@ -393,6 +393,22 @@ cd() {
     fi
 }
 
+mv-new-files (){
+    if [ "$1" == "" ]; then
+        recho "Usage: $0 {from_dir} {to_dir} {no of files}"
+        recho "eg: ${FUNCNAME[0]} ~/Downloads ~/Videos 3"
+    else
+        from_dir=$1;
+        to_dir=$2;
+        no_files=$3;
+        all_files=$(ls -A1tr --color="never" ${from_dir} | tail -$no_files);
+
+        for FILE in ${all_files}; do
+            mv "${from_dir}/${FILE}" $to_dir
+        done
+    fi
+}
+
 install-pkg() {
     echo "Installing package: $@";
     if command -v gdebi >/dev/null; then
