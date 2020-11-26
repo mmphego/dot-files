@@ -29,28 +29,29 @@ cheatsheet() {
     fi
 }
 
+create-venv() {
+    create_venv
+}
+
 create_venv() {
-    if [ "$1" == "" ]; then
-        recho "Usage $0 {Python version}"
-        recho "eg: ${FUNCNAME[0]} 3"
-    else command -v virtualenv > /dev/null;
-        virtdir=".$(basename $(pwd))_Py${1}"
-        virtualenv --python="python${1}" "${virtdir}"
+    if command -v virtualenv > /dev/null; then
+        virtdir=".venv"
+        virtualenv --python="python3" "${virtdir}"
         source "${virtdir}/bin/activate"
 
-        "${virtdir}/bin/pip" install -U pip
-        "${virtdir}/bin/pip" install \
+        "${virtdir}/bin/pip" install -U \
                                     --use-feature=2020-resolver \
+                                    black \
                                     flake8 \
+                                    flake8-black \
                                     future \
+                                    ipython['all'] \
                                     isort \
-                                    pytest \
-
-        if [ $(echo " $@ >= 3" | bc) -eq 1 ]; then
-            "${virtdir}/bin/pip" install black flake8-black pre-commit ipython['all']
-        else
-            "${virtdir}/bin/pip" install ipython==5.8.0
-        fi
+                                    numpy \
+                                    pandas \
+                                    pip \
+                                    pre-commit \
+                                    pytest
     fi
 }
 
