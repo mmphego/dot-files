@@ -184,7 +184,11 @@
 
     # ------------------------------------------------------------------------------------
     # Aliases defined in ~/.bash_functions
+    fetch-all-branches =  !git fetch-all-branches
     flash-back = !git flash-back
+    pull-all =  !git pull-all
+    rename-branch =  !git rename-branch
+    revert-commit =  !git revert-commit
 
 [color]
     ui = auto
