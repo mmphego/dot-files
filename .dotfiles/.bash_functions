@@ -155,6 +155,25 @@ gitignore() {
     curl -sL https://www.gitignore.io/api/$@ ;
 }
 
+
+# Git related functions and aliases
+git() {
+    if [[ "$1" == "flash-back" ]]; then
+        git-flash-back;
+    elif [[ "$1" == "revert-commit" ]]; then
+        git-revert-commit;
+    elif [[ "$1" == "pull-all" ]]; then
+        git-pull-all;
+    elif [[ "$1" == "rename-branch" ]]; then
+        git-rename-branch;
+    elif [[ "$1" == "fetch-all-branches" ]]; then
+        git-fetch-all-branches;
+    else
+        command git "$@";
+    fi
+}
+
+
 git-revert-commit() {
     # Undo last pushed commit
     if [ "$1" == "" ]; then
@@ -165,6 +184,10 @@ git-revert-commit() {
         git reset --hard $1
         git push --force-with-lease origin "$BRANCH"
     fi
+}
+
+git-flash-back(){
+    git reflog --date=relative | gawk 'match($0, /HEAD@\{(.+)\}: chec.out: moving from .+ to (.+)/, m) && !branches[m[2]]++ {print m[1] "\t" m[2]} ';
 }
 
 git-pull-all() {

@@ -9,32 +9,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
-	# List aliases
-	aliases = config --get-regexp alias
-
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    # get pwd
-    root = rev-parse --show-toplevel
-    # Shows all commits that are in local master but not in any remote repository master branches.
-    not-pushed = log --branches --not --remotes
-    # Undo last commits
-    undo = reset --hard ^HEAD
-    uncommit = reset --soft HEAD~1
-    # delete files recurcive
-    rmf = rm -rf
-    head = log -1
-    # url of origin, about 99% of what I use git config --list for
-    cloneurl = config --get remote.origin.url
-    url = cloneurl
-    # ignore local changes to a file
-    ignore-file-changes = update-index --assume-unchanged
-    # undo-ignore local changes to a file
-    ignore-file-changes-undo = update-index --no-assume-unchanged
-    submodule-update = submodule update --remote --merge
-    unstage = restore --staged
-    # Get the number of commits per committer
-    num-commit = !git shortlog --summary | sort -n
-
+    # -------------------TYPO HANDLERS----------------------------------------------------
     # My life is full of typos
     ad = add
     as = add
@@ -81,21 +56,50 @@
     srtat = status
     pusj = push
     push = pushup
-    pus = push --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pul = pull
 
+
+	# List aliases
+	aliases = config --get-regexp alias
+
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    # get pwd
+    root = rev-parse --show-toplevel
+    # Shows all commits that are in local master but not in any remote repository master branches.
+    not-pushed = log --branches --not --remotes
+    # Undo last commits
+    undo = reset --hard ^HEAD
+    uncommit = reset --soft HEAD~1
+    # delete files recurcive
+    rmf = rm -rf
+    head = log -1
+    # url of origin, about 99% of what I use git config --list for
+    cloneurl = config --get remote.origin.url
+    url = cloneurl
+    # ignore local changes to a file
+    ignore-file-changes = update-index --assume-unchanged
+    # undo-ignore local changes to a file
+    ignore-file-changes-undo = update-index --no-assume-unchanged
+    submodule-update = submodule update --remote --merge
+    unstage = restore --staged
+    # Get the number of commits per committer
+    num-commit = !git shortlog --summary | sort -n
+
     # Pretty useful
-    ci = !hub ci-status
+    branch-name = "!git symbolic-ref --short HEAD"
+    ci = "!hub ci-status"
     clone = clone --progress
     commit = commit -S
     last = log -1 HEAD
-    get = pull origin $(git symbolic-ref --short HEAD)
+    get = pull --ff-only origin $(git symbolic-ref --short HEAD)
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
-    pushup = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
+    pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
     pushf = push --force-with-lease
     yolo = pushf
-    show-stashed = stash show stash@{0}
-
+    pop = stash pop
+    show-stashed = stash show stash@{0} -p
+    stash-list = stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    save  = "!git commit --no-verify -a -m \"WIP: auto save at $(date '+%Y%m%d %H:%M:%S')\""
     # Clone a repository including all submodules
     clone-everything = clone --recursive --progress
 
@@ -103,7 +107,7 @@
     rebase-from-commit-no = "!func() { git rebase -i HEAD~$1; }; func"
 
     # Show the diff between the latest commit and the current state
-    diff-commits = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    diff-commits = "!git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
     # Life savers
 
@@ -164,6 +168,7 @@
         git push --force-with-lease; \
         };fnc"
 
+    # Find text from previously committed files.
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
 
     fetch-all-branches = "!func() { \
@@ -176,6 +181,10 @@
         };func"
 
     push-all = "!fnc() { git push && git push --tags; }; fnc"
+
+    # ------------------------------------------------------------------------------------
+    # Aliases defined in ~/.bash_functions
+    flash-back = !git flash-back
 
 [color]
     ui = auto
