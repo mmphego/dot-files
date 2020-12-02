@@ -177,7 +177,7 @@
 
     cleanup-branches = "!func() { \
         git fetch -pa && \
-        git branch --merged | egrep -v '(^\\*|master|dev|devel)' | xargs git branch -d;\
+        git branch --merged | egrep -v '(^\\*|master|dev|devel)' | xargs git branch -d  >/dev/null 2>&1;\
         };func"
 
     push-all = "!fnc() { git push && git push --tags; }; fnc"
