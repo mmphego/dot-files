@@ -1,6 +1,6 @@
 # Useful Functions
 
-nightlight () {
+nightlight() {
     # 1000 — Lowest value (super warm/red)
     # 4000 — Default night light on temperature
     # 5500 — Balanced night light temperature
@@ -34,47 +34,47 @@ create-venv() {
 }
 
 create_venv() {
-    if command -v virtualenv > /dev/null; then
+    if command -v virtualenv >/dev/null; then
         virtdir=".venv"
         virtualenv --python="python3" "${virtdir}"
         source "${virtdir}/bin/activate"
 
         "${virtdir}/bin/pip" install -U \
-                                    --use-feature=2020-resolver \
-                                    black \
-                                    flake8 \
-                                    flake8-black \
-                                    future \
-                                    ipython['all'] \
-                                    isort \
-                                    numpy \
-                                    pandas \
-                                    pip \
-                                    pre-commit \
-                                    pytest
+            --use-feature=2020-resolver \
+            black \
+            flake8 \
+            flake8-black \
+            future \
+            ipython['all'] \
+            isort \
+            numpy \
+            pandas \
+            pip \
+            pre-commit \
+            pytest
     fi
 }
 
 up() {
-    cd $(printf "%0.s../" $(seq 1 $1 ));
+    cd $(printf "%0.s../" $(seq 1 $1))
 }
 
 touch_script() {
-    touch $1 && chmod a+x $1 && subl $1;
+    touch $1 && chmod a+x $1 && subl $1
 }
 
 backup() {
-    FILENAME=$1;
-    cp -v "${FILENAME}" ./"${FILENAME}.bk";
+    FILENAME=$1
+    cp -v "${FILENAME}" ./"${FILENAME}.bk"
 }
 
-killbg(){
+killbg() {
     kill -9 $(jobs -p)
 }
 
 # Calculator
 calc() {
- # $ calc 1+2 == 3
+    # $ calc 1+2 == 3
     echo "$*" | bc -l
 }
 
@@ -82,9 +82,9 @@ search_replace() {
     # Search and replace strings recursively in a given dir
     if [ -n "$2" ]; then
         if [ -n "$3" ]; then
-            local path="$3";
+            local path="$3"
         else
-            local path=".";
+            local path="."
         fi
         ag -l "$1" "$path" | xargs -I {} -- sed -i "" -e "s%${1//\\/}%$2%g" {}
     else
@@ -94,7 +94,7 @@ search_replace() {
 
 add_alias() {
     if [ -n "$2" ]; then
-        echo "alias $1=\"$2\"" >> ~/.bash_aliases
+        echo "alias $1=\"$2\"" >>~/.bash_aliases
         source ~/.bashrc
     else
         echo "Usage: add_alias <alias> <command>"
@@ -109,17 +109,17 @@ getbib_from_ieee() {
     else
         ID="${INFO}"
     fi
-    curl -s --data "recordIds=${ID}&download-format=download-bibtex&citations-format=citation-abstract" https://ieeexplore.ieee.org/xpl/downloadCitations > "${ID}_reference".bib
+    curl -s --data "recordIds=${ID}&download-format=download-bibtex&citations-format=citation-abstract" https://ieeexplore.ieee.org/xpl/downloadCitations >"${ID}_reference".bib
     sed -i "s/<br>//g" "${ID}_reference".bib
 }
 
-getbib(){
+getbib() {
 
     if [ -f "$1" ]; then
         # Try to get DOI from pdfinfo or pdftotext output.
         doi=$(pdfinfo "$1" | grep -io "doi:.*") ||
-        doi=$(pdftotext "$1" 2>/dev/null - | grep -io "doi:.*" -m 1) ||
-        exit 1
+            doi=$(pdftotext "$1" - 2>/dev/null | grep -io "doi:.*" -m 1) ||
+            exit 1
     else
         doi="$1"
     fi
@@ -146,33 +146,31 @@ rename-to-lowercase() {
     # Renames all items in a directory to lower case.
     for i in *; do
         echo "Renaming $i to ${i,,}"
-        mv "$i" "${i,,}";
+        mv "$i" "${i,,}"
     done
 }
 
 gitignore() {
     # Generate .gitignore
-    curl -sL https://www.gitignore.io/api/$@ ;
+    curl -sL https://www.gitignore.io/api/$@
 }
-
 
 # Git related functions and aliases
 git() {
     if [[ "$1" == "flash-back" ]]; then
-        git-flash-back;
+        git-flash-back
     elif [[ "$1" == "revert-commit" ]]; then
-        git-revert-commit;
+        git-revert-commit
     elif [[ "$1" == "pull-all" ]]; then
-        git-pull-all;
+        git-pull-all
     elif [[ "$1" == "rename-branch" ]]; then
-        git-rename-branch;
+        git-rename-branch
     elif [[ "$1" == "fetch-all-branches" ]]; then
-        git-fetch-all-branches;
+        git-fetch-all-branches
     else
-        command git "$@";
+        command git "$@"
     fi
 }
-
 
 git-revert-commit() {
     # Undo last pushed commit
@@ -186,20 +184,21 @@ git-revert-commit() {
     fi
 }
 
-git-flash-back(){
-    git reflog --date=relative | gawk 'match($0, /HEAD@\{(.+)\}: chec.out: moving from .+ to (.+)/, m) && !branches[m[2]]++ {print m[1] "\t" m[2]} ';
+git-flash-back() {
+    git reflog --date=relative | gawk 'match($0, /HEAD@\{(.+)\}: chec.out: moving from .+ to (.+)/, m) && !branches[m[2]]++ {print m[1] "\t" m[2]} '
 }
 
 git-pull-all() {
     # Pull all remote refs from repos in the current dir
     CUR_DIR=$(pwd)
-    find -type d -execdir test -d {}/.git \; -print -prune | sort | while read -r DIR;
-        do builtin cd $DIR &>/dev/null;
+    find -type d -execdir test -d {}/.git \; -print -prune | sort | while read -r DIR; do
+        builtin cd $DIR &>/dev/null
         (git fetch -pa && git pull --allow-unrelated-histories \
-            origin $(git symbolic-ref --short HEAD)) &>/dev/null &disown;
+            origin $(git symbolic-ref --short HEAD)) &>/dev/null &
+        disown
 
         STATUS=$(git status 2>/dev/null |
-        awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '
+            awk -v r=${RED} -v y=${YELLOW} -v g=${GREEN} -v b=${BLUE} -v n=${NC} '
         /^On branch / {printf(y$3n)}
         /^Changes not staged / {printf(g"|?Changes unstaged!"n)}
         /^Changes to be committed/ {printf(b"|*Uncommitted changes!"n)}
@@ -207,29 +206,29 @@ git-pull-all() {
         ')
         LAST_UPDATE="${STATUS} | ${LIGHTCYAN}[$(git show -1 --stat | grep ^Date | cut -f4- -d' ')]${NC}"
 
-        printf "Repo: \t${DIR} \t| ${LAST_UPDATE}\n";
-        builtin cd - &>/dev/null;
+        printf "Repo: \t${DIR} \t| ${LAST_UPDATE}\n"
+        builtin cd - &>/dev/null
     done
-    builtin cd ${CUR_DIR} &>/dev/null;
+    builtin cd ${CUR_DIR} &>/dev/null
 }
 
 backup_my_git_repos() {
     # Get a list of all your Git repos in the current directory
     FILENAME=~/My-Git-Repos.txt
     if [ ! -f $FILENAME ]; then touch $FILENAME; fi
-    CUR_DIR=$(pwd);
+    CUR_DIR=$(pwd)
     find -type d -execdir test -d {}/.git \; -print -prune | while read -r DIR; do
-        builtin cd ${DIR} &> /dev/null;
-        echo -e "\n[$(basename $(pwd))]" >> $FILENAME
-        git config --get remote.origin.url >> $FILENAME
-        builtin cd - &> /dev/null;
-    done;
-    builtin cd "${CUR_DIR}" &> /dev/null
+        builtin cd ${DIR} &>/dev/null
+        echo -e "\n[$(basename $(pwd))]" >>$FILENAME
+        git config --get remote.origin.url >>$FILENAME
+        builtin cd - &>/dev/null
+    done
+    builtin cd "${CUR_DIR}" &>/dev/null
 }
 
-git-rename-branch(){
+git-rename-branch() {
     # Rename current branch with new one and push to remote
-    if [ "$1" = "help" -o "$1" = "-h" -o "$1" = "--help" -o "$1" = "h" -o "$1" = "" ] ; then
+    if [ "$1" = "help" -o "$1" = "-h" -o "$1" = "--help" -o "$1" = "h" -o "$1" = "" ]; then
         recho "Usage $0 new_name'"
         recho "This will rename the branch 'error-fixes' into 'syntax-error-fix'"
         recho "eg: ${FUNCNAME[0]} 'syntax-error-fix'"
@@ -254,46 +253,46 @@ clone-my-repos() {
             [ ! -d "${CLONEDIR}" ] && mkdir -p "${CLONEDIR}"
             echo "Cloning Repo: $repo"
             git -C "${CLONEDIR}" clone --depth 5 "$repo"
-        done < "$1"
+        done <"$1"
     fi
 }
 
 committer() {
-    MSG=$@;
+    MSG=$@
     # Add file(s), commit with generic message and push to remote
     git status | grep "modified:" | cut -f2 -d ":" | tr -s '  ' | while read line; do
-        git add -f "${line}";
+        git add -f "${line}"
     done
 
     FILE=$(git status | grep "modified:" | cut -f2 -d ":" | tr "\n" " " | xargs)
     if [ ! -z "$MSG" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
-        git commit -s -S -n -m "$MSG";
+        git commit -s -S -n -m "$MSG"
     else
-        git commit -s -S -n -m"Updated ${FILE}";
-    fi;
+        git commit -s -S -n -m"Updated ${FILE}"
+    fi
     read -t 5 -p "Hit ENTER if you want to push else wait 5 seconds"
     [ $? -eq 0 ] && bash -c "git push --no-verify -q -u origin $(git rev-parse --abbrev-ref HEAD) &>/dev/null &disown;"
 }
 
 createpr() {
     # Push changes and create Pull Request on GitHub
-    REMOTE="devel";
+    REMOTE="devel"
     LABELS="Review Me"
     if ! git show-ref --quiet refs/heads/devel; then REMOTE="master"; fi
     BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-    git push -u origin "${BRANCH}" || true;
-    if command -v hub > /dev/null; then
+    git push -u origin "${BRANCH}" || true
+    if command -v hub >/dev/null; then
         # Check if branch contains a JIRA ticket id.
         if echo "${BRANCH}" | grep -q "MT-"; then
             REVIEWERS="ajoubertza,amakhaba,bngcebetsha,lanceWilliams,tockards,mamkhari"
-            echo "Requesting PR Reviewers: ${REVIEWERS}";
+            echo "Requesting PR Reviewers: ${REVIEWERS}"
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" \
                 --labels "${LABELS}" --no-edit || hub pull-request \
-                    -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "${LABELS}" --no-edit
+                -b "${REMOTE}" -h "${BRANCH}" -r "${REVIEWERS}" --labels "${LABELS}" --no-edit
         else
             hub pull-request --draft -b "${REMOTE}" -h "${BRANCH}" --no-edit || hub pull-request \
-                 -b "${REMOTE}" -h "${BRANCH}" --no-edit
+                -b "${REMOTE}" -h "${BRANCH}" --no-edit
         fi
     else
         recho "Failed to create PR, create it Manually"
@@ -301,7 +300,7 @@ createpr() {
     fi
 }
 
-git-url-shortener(){
+git-url-shortener() {
     # GitHub URL shortener
     if [ "$1" == "" ]; then
         recho "Usage $0 {Custom URL Name} {URL}"
@@ -314,23 +313,24 @@ git-url-shortener(){
 git-fetch-all-branches() {
     # Fetch all remote branches
     git checkout --detach
-    git fetch origin '+refs/heads/*:refs/heads/*';
+    git fetch origin '+refs/heads/*:refs/heads/*'
 }
 
-git-checkout-update-master () {
+git-checkout-update-master() {
     # Forcefully checkout master and pull latest changes.
-    for DIR in $(ls --color=never);
-        do echo $DIR;
-        pushd $DIR;
-        git checkout -f master && git pull --allow-unrelated-histories -q &>/dev/null &disown;
-        popd;
+    for DIR in $(ls --color=never); do
+        echo $DIR
+        pushd $DIR
+        git checkout -f master && git pull --allow-unrelated-histories -q &>/dev/null &
+        disown
+        popd
     done
 }
 
 find-file() {
     # Find filename
     for FILE in $(find . -type f -name "*$1"); do
-        echo ${FILE};
+        echo ${FILE}
     done
 }
 
@@ -348,84 +348,84 @@ wrapper() {
 }
 
 extract() {
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.xz)    tar -xJf $1   ;;
-             *.tar.bz2)   tar xjf $1    ;;
-             *.tar.gz)    tar xzf $1    ;;
-             *.bz2)       bunzip2 $1    ;;
-             *.rar)       rar x $1      ;;
-             *.gz)        gunzip $1     ;;
-             *.tar)       tar xf $1     ;;
-             *.tbz2)      tar xjf $1    ;;
-             *.tgz)       tar xzf $1    ;;
-             *.zip)       unzip $1      ;;
-             *.Z)         uncompress $1 ;;
-             *.7z)        7z x $1       ;;
-             *)           echo "'$1' cannot be extracted via ${FUNCNAME[0]}" ;;
-         esac
-     else
-         recho "'$1' is not a valid file"
-     fi
+    if [ -f $1 ]; then
+        case $1 in
+        *.tar.xz) tar -xJf $1 ;;
+        *.tar.bz2) tar xjf $1 ;;
+        *.tar.gz) tar xzf $1 ;;
+        *.bz2) bunzip2 $1 ;;
+        *.rar) rar x $1 ;;
+        *.gz) gunzip $1 ;;
+        *.tar) tar xf $1 ;;
+        *.tbz2) tar xjf $1 ;;
+        *.tgz) tar xzf $1 ;;
+        *.zip) unzip $1 ;;
+        *.Z) uncompress $1 ;;
+        *.7z) 7z x $1 ;;
+        *) echo "'$1' cannot be extracted via ${FUNCNAME[0]}" ;;
+        esac
+    else
+        recho "'$1' is not a valid file"
+    fi
 }
 
 open() {
-     if [ -f $1 ] ; then
-         case $1 in
-            # List should be expanded.
-             *.pdf)                 evince $1 &                ;;
-             *.md)                  pandoc $1 | lynx -stdin    ;;
-             *.mp3|*.mp4|*.mkv)     vlc $1 &                   ;;
-             *)                     xdg-open $1 >>/dev/null    ;;
-         esac
-     else
+    if [ -f $1 ]; then
+        case $1 in
+        # List should be expanded.
+        *.pdf) evince $1 & ;;
+        *.md) pandoc $1 | lynx -stdin ;;
+        *.mp3 | *.mp4 | *.mkv) vlc $1 & ;;
+        *) xdg-open $1 >>/dev/null ;;
+        esac
+    else
         xdg-open $1 >>/dev/null
-     fi
+    fi
 }
 
 compile() {
-     if [ -f $1 ] ; then
-         case $1 in
-            # List should be expanded.
-             *.c)      gcc -H -Wall "$1" -o "main" -lm  ;;
-             *.go)     go run "$1"                   ;;
-             *.py)     pycompile -v "$1"             ;;
-             *.tex)    latexmk -pdf "$1"             ;;
-             *)        recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
-         esac
-     else
-         recho "'$1' is not a valid file"
-     fi
+    if [ -f $1 ]; then
+        case $1 in
+        # List should be expanded.
+        *.c) gcc -H -Wall "$1" -o "main" -lm ;;
+        *.go) go run "$1" ;;
+        *.py) pycompile -v "$1" ;;
+        *.tex) latexmk -pdf "$1" ;;
+        *) recho "'$1' cannot opened via ${FUNCNAME[0]}" ;;
+        esac
+    else
+        recho "'$1' is not a valid file"
+    fi
 }
 
 psgrep() {
-	if [ ! -z $1 ] ; then
-		echo "Grepping for processes matching $1..."
-		ps aux | grep $1 | grep -v grep
-	else
-		recho "!! Need name to grep for"
-	fi
+    if [ ! -z $1 ]; then
+        echo "Grepping for processes matching $1..."
+        ps aux | grep $1 | grep -v grep
+    else
+        recho "!! Need name to grep for"
+    fi
 }
 
 cd() {
     # The 'builtin' keyword allows you to redefine a Bash builtin without
     # creating a recursion. Quoting the parameter makes it work in case there are spaces in
     # directory names.
-    builtin cd "$@" && ls -thor;
+    builtin cd "$@" && ls -thor
     if [ "${PWD}" == "${HOME}/CAM_Work" ]; then
         git-pull-all
     fi
 }
 
-mv-new-files (){
+mv-new-files() {
     if [ "$1" == "" ]; then
         recho "Usage: $0 {from_dir} {to_dir} {no of files}"
         recho "eg: ${FUNCNAME[0]} ~/Downloads ~/Videos 3"
     else
-        from_dir=$1;
-        to_dir=$2;
-        no_files=$3;
-        all_files=$(ls -A1tr --color="never" ${from_dir} | tail -$no_files);
+        from_dir=$1
+        to_dir=$2
+        no_files=$3
+        all_files=$(ls -A1tr --color="never" ${from_dir} | tail -$no_files)
 
         for FILE in ${all_files}; do
             mv "${from_dir}/${FILE}" $to_dir
@@ -434,44 +434,43 @@ mv-new-files (){
 }
 
 install-pkg() {
-    echo "Installing package: $@";
+    echo "Installing package: $@"
     if command -v gdebi >/dev/null; then
         if [[ "$@" == *"http"* ]]; then
-            wget -O /tmp/package.deb "$@";
-            sudo gdebi /tmp/package.deb;
+            wget -O /tmp/package.deb "$@"
+            sudo gdebi /tmp/package.deb
         else
-            sudo gdebi $@;
+            sudo gdebi $@
         fi
     else
-        sudo dpkg --install $@;
+        sudo dpkg --install $@
     fi
 }
 
 gpg_delete_all_keys() {
     for KEY in $(gpg --with-colons --fingerprint | grep "^fpr" | cut -d: -f10); do
-        gpg --batch --delete-secret-keys "${KEY}";
+        gpg --batch --delete-secret-keys "${KEY}"
     done
 }
 
 disconnect() {
     # Disconnect all mounted disks
-    while IFS= read -r -d '' file;
-	do fusermount -qzu $file >/dev/null;
-    done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0);
+    while IFS= read -r -d '' file; do
+        fusermount -qzu $file >/dev/null
+    done < <(find "${HOME}/mnt" -maxdepth 1 -type d -print0)
 }
 
 cammount() {
     IP="10.8.67.160"
-    if timeout 2 ping -c 1 -W 2 "${IP}" &> /dev/null; then
+    if timeout 2 ping -c 1 -W 2 "${IP}" &>/dev/null; then
         sshfs -o reconnect,ServerAliveInterval=5,ServerAliveCountMax=5 \
-        kat@"${IP}":/ /home/"${USER}"/mnt/cam
+            kat@"${IP}":/ /home/"${USER}"/mnt/cam
     else
-        fusermount -quz /home/"${USER}"/mnt/cam;
+        fusermount -quz /home/"${USER}"/mnt/cam
     fi
 }
 
-
-create_project () {
+create_project() {
     # Easily create a project x in current dir using cookiecutter templates
     PACKAGES=("pygithub" "cookiecutter" "platformio")
     PACKAGE_DIR=""
@@ -510,9 +509,9 @@ create_project () {
         cd -- "${PACKAGE_DIR}"
     fi
 
-############################################################
+    ############################################################
 
-    if [[ "${PACKAGE_DIR}" == "$(basename $(pwd))" ]];then
+    if [[ "${PACKAGE_DIR}" == "$(basename $(pwd))" ]]; then
 
         git init -q
 
@@ -544,16 +543,15 @@ user.create_repo(
 print('Successfully created repository %s' % proj_name)
 """
 
-        git add .  > /dev/null 2>&1
-        git commit -q -nm "Automated commit" > /dev/null 2>&1
-        git remote add origin "git@github.com:$(git config user.username)/${PACKAGE_DIR}.git" > /dev/null 2>&1
-        git push -q -u origin master > /dev/null 2>&1
+        git add . >/dev/null 2>&1
+        git commit -q -nm "Automated commit" >/dev/null 2>&1
+        git remote add origin "git@github.com:$(git config user.username)/${PACKAGE_DIR}.git" >/dev/null 2>&1
+        git push -q -u origin master >/dev/null 2>&1
         "${IDE}" .
     fi
 }
 
-
-create_blog_post () {
+create_blog_post() {
     if [ "$1" == "" ]; then
         recho "Usage: $0 hello world"
         recho "eg: ${FUNCNAME[0]} 'Hello world' "
@@ -624,9 +622,9 @@ EOF
 
 mv_file_to_dir() {
     for file in *.{avi,mp4,mkv}; do
-        DIR="${file%.*}";
-        mkdir -p "${DIR}";
-        mv "${file}" "${DIR}";
+        DIR="${file%.*}"
+        mkdir -p "${DIR}"
+        mv "${file}" "${DIR}"
     done
 }
 
@@ -634,7 +632,7 @@ rm_pyc() {
     find . -name "*.pyc" -exec rm -f {} \;
 }
 
-sync_with_cam(){
+sync_with_cam() {
     if [ "$1" == "" ]; then
         recho "Usage: $0 devm"
         recho "eg: ${FUNCNAME[0]} devm"
@@ -658,9 +656,9 @@ sync_with_cam(){
         #   https://github.com/eradman/entr
         #   http://eradman.com/entrproject/
         find . | entr rsync -truv \
-                            --exclude-from="$(git worktree list | cut -d' ' -f1)/.gitignore" \
-                            --exclude=".git" \
-                            --progress "${RSYNC_SRC}/" "${RSYNC_DEST}"
+            --exclude-from="$(git worktree list | cut -d' ' -f1)/.gitignore" \
+            --exclude=".git" \
+            --progress "${RSYNC_SRC}/" "${RSYNC_DEST}"
     fi
 }
 
@@ -699,6 +697,6 @@ extract_audio_from_video() {
     ffmpeg -i $1 -vn -b:a 320k output-audio.mp3
 }
 
-pdf_merge(){
+pdf_merge() {
     pdftk "$1" "$2" cat output mergedfile.pdf
 }
