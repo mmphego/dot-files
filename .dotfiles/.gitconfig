@@ -19,6 +19,7 @@
     not-pushed = log --branches --not --remotes
     # Undo last commits
     undo = reset --hard ^HEAD
+    uncommit = reset --soft HEAD~1
     # delete files recurcive
     rmf = rm -rf
     head = log -1
@@ -32,7 +33,7 @@
     submodule-update = submodule update --remote --merge
     unstage = restore --staged
     # Get the number of commits per committer
-    no-commit = !git shortlog --summary | sort -n
+    num-commit = !git shortlog --summary | sort -n
 
     # My life is full of typos
     ad = add
@@ -88,6 +89,7 @@
     clone = clone --progress
     commit = commit -S
     last = log -1 HEAD
+    get = pull origin $(git symbolic-ref --short HEAD)
     pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
     pushup = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
     pushf = push --force-with-lease
