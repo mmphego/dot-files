@@ -91,13 +91,14 @@ alias killcode="pkill -9 code"
 alias nan='nano'
 alias CD='cd'
 alias cdd='cd'
-alias git='hub'
-alias it='hub'
-alias gti='hub'
-alias get='hub'
-alias gut='hub'
-alias got='hub'
-alias giot='hub'
+alias github="$(which hub)"
+alias git="$(which hub)"
+alias it="$(which hub)"
+alias gti="$(which hub)"
+alias get="$(which hub)"
+alias gut="$(which hub)"
+alias got="$(which hub)"
+alias giot="$(which hub)"
 alias git-ignore-file="git update-index --assume-unchanged"
 
 # Git Shortcuts
