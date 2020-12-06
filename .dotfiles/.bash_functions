@@ -167,8 +167,22 @@ git() {
         git-rename-branch
     elif [[ "$1" == "fetch-all-branches" ]]; then
         git-fetch-all-branches
+    elif [[ "$1" == "init-repo" ]]; then
+        git-init-repo
     else
         command git "$@"
+    fi
+}
+
+
+git-init-repo () {
+    if [ "$1" == "" ]; then
+        recho "Usage $0 "
+        recho "eg: ${FUNCNAME[0]}"
+    else
+        command git init
+        gitignore venv,python > .gitignore
+        echo "# $(basename "$(pwd)")" > README.md
     fi
 }
 
