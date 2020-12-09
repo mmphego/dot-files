@@ -1,6 +1,13 @@
 <snippet>
     <content>
-    	<![CDATA[import IPython; globals().update(locals()); IPython.embed(header='Python Debugger')]]>
+    	<![CDATA[
+import inspect
+where_am_i = inspect.currentframe()
+func_name = where_am_i.f_code.co_name
+line_no = where_am_i.f_code.co_firstlineno
+header = '>>> In {!r} line no: {!r}'.format(func_name, line_no)
+import IPython; globals().update(locals()); IPython.embed(header=header)
+        ]]>
     </content>
     <tabTrigger>ipython</tabTrigger>
     <tabTrigger>python</tabTrigger>
