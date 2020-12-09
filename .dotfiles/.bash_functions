@@ -176,14 +176,9 @@ git() {
 
 
 git-init-repo () {
-    if [ "$1" == "" ]; then
-        recho "Usage $0 "
-        recho "eg: ${FUNCNAME[0]}"
-    else
-        command git init
-        gitignore venv,python > .gitignore
-        echo "# $(basename "$(pwd)")" > README.md
-    fi
+    command git init
+    gitignore venv,python > .gitignore
+    echo "# $(basename "$(pwd)")" > README.md
 }
 
 git-revert-commit() {

@@ -189,6 +189,7 @@
     pull-all =  !git pull-all
     rename-branch =  !git rename-branch
     revert-commit =  !git revert-commit
+    init-repo = !git init-repo
 
 [color]
     ui = auto
