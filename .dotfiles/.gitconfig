@@ -60,6 +60,12 @@
 
 
 	# List aliases
+    ## Hub aliases
+    ci = "!hub ci-status"
+    repo = "!hub create"
+
+    ## Misc
+
 	aliases = config --get-regexp alias
 
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -87,7 +93,6 @@
 
     # Pretty useful
     branch-name = "!git symbolic-ref --short HEAD"
-    ci = "!hub ci-status"
     clone = clone --progress
     commit = commit -S
     last = log -1 HEAD
