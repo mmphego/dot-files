@@ -169,11 +169,12 @@ git() {
         git-fetch-all-branches
     elif [[ "$1" == "init-repo" ]]; then
         git-init-repo
+    elif [[ "$1" == "create-repo-n-push" ]]; then
+        git-create-repo-and-push
     else
         command hub "$@"
     fi
 }
-
 
 git-init-repo () {
     command git init
@@ -181,6 +182,11 @@ git-init-repo () {
     echo "# $(basename "$(pwd)")" > README.md
     command git add .gitignore README.md
     command git commit -nm'Add README and .gitignore files <automated msg>'
+}
+
+git-create-repo-and-push () {
+    git create
+    git push --set-upstream origin $(git symbolic-ref --short HEAD)
 }
 
 git-revert-commit() {
