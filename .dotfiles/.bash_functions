@@ -170,7 +170,7 @@ git() {
     elif [[ "$1" == "init-repo" ]]; then
         git-init-repo
     else
-        command git "$@"
+        command hub "$@"
     fi
 }
 
