@@ -176,6 +176,8 @@
     # Find text from previously committed files.
     find-str = "!fnc() { git grep "$1" "$(git show-ref --heads)"; }; fnc"
 
+
+
     fetch-all-branches = "!func() { \
         git checkout --detach && git fetch origin '+refs/heads/*:refs/heads/*';\
         };func"
