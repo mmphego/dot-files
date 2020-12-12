@@ -180,7 +180,7 @@ git-init-repo () {
     gitignore venv,python > .gitignore
     echo "# $(basename "$(pwd)")" > README.md
     command git add .gitignore README.md
-    command git commit -nm'Add README and gitignore files'
+    command git commit -nm'Add README and .gitignore files'
 }
 
 git-revert-commit() {
