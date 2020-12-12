@@ -172,19 +172,20 @@ git() {
     elif [[ "$1" == "create-repo-n-push" ]]; then
         git-create-repo-and-push
     else
+        # Specifically use hub (wrapper) instead of git.
         command hub "$@"
     fi
 }
 
-git-init-repo () {
-    command git init
-    gitignore venv,python,JupyterNotebooks,SublimeText,VisualStudioCode > .gitignore
-    echo "# $(basename "$(pwd)")" > README.md
-    command git add .gitignore README.md
-    command git commit -nm'Add README and .gitignore files <automated msg>'
+git-init-repo() {
+    git init
+    gitignore venv,python,JupyterNotebooks,SublimeText,VisualStudioCode >.gitignore
+    echo "# $(basename "$(pwd)")" >README.md
+    git add .gitignore README.md
+    git commit -nm'Add README and .gitignore files <automated msg>'
 }
 
-git-create-repo-and-push () {
+git-create-repo-and-push() {
     git create
     git push --set-upstream origin $(git symbolic-ref --short HEAD)
 }
