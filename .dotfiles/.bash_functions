@@ -152,7 +152,7 @@ rename-to-lowercase() {
 
 gitignore() {
     # Generate .gitignore
-    curl -sL https://www.gitignore.io/api/$@
+    curl -sL "https://www.gitignore.io/api/$@"
 }
 
 # Git related functions and aliases
