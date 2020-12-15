@@ -237,7 +237,7 @@ printf "\n${YELLOW}Get a list of available functions: 'declare -F'\n"
 #printf "${LIGHTCYAN}\n$(fortune | cowsay)${NC}\n"
 
 # added by travis gem
-[ -f /home/mmphego/.travis/travis.sh ] && source /home/mmphego/.travis/travis.sh
+# [ -f /home/mmphego/.travis/travis.sh ] && source /home/mmphego/.travis/travis.sh
 
 # tabtab source for packages
 # uninstall by removing these lines

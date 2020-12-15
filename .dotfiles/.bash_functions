@@ -178,9 +178,9 @@ git() {
 }
 
 git-init-repo() {
-    git init
+    git init -q
     gitignore venv,python,JupyterNotebooks,SublimeText,VisualStudioCode >.gitignore
-    echo "# $(basename "$(pwd)")" >README.md
+    echo "# $(basename "$(pwd)")" > README.md
     git add .gitignore README.md
     git commit -nm'Add README and .gitignore files <automated msg>'
 }
