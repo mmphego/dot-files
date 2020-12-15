@@ -213,14 +213,6 @@
 	new = green bold
     whitespace = red reverse
 
-[color "diff"]
-    meta = 227
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    commit = 227 bold
-    whitespace = red reverse
-
 [color "branch"]
     current = yellow reverse
     local = yellow bold
