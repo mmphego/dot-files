@@ -73,6 +73,10 @@ if [ -f ~/.aws_secrets ]; then
     source ~/.aws_secrets
 fi
 
+# Bash tab completion for kubectl
+if command -v kubectl > /dev/null; then
+    source <(kubectl completion bash)
+fi
 
 # if [ -f ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh ] && [ -f ~/.wakatime.cfg ]; then
 #     source ~/GitHub/Random_Projects/bash-wakatime/bash-wakatime.sh || true
