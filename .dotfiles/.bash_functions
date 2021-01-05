@@ -30,27 +30,34 @@ cheatsheet() {
 }
 
 create-venv() {
-    create_venv
+    create_venv "$@"
 }
 
 create_venv() {
     if command -v virtualenv >/dev/null; then
         virtdir=".venv"
+        printf ">>> Creating Python3 virtualenv: ${virtdir}\n\n"
         virtualenv --python="python3" "${virtdir}"
         source "${virtdir}/bin/activate"
+        printf "\n\n>>> Installing a few packages. This will take a few seconds\n\n"
 
-        "${virtdir}/bin/pip" install -U pip
-        "${virtdir}/bin/pip" install -U \
+        "${virtdir}/bin/pip" install -Uq pip
+        "${virtdir}/bin/pip" install -Uq \
             black \
             flake8 \
             flake8-black \
-            future \
             ipython['all'] \
             isort \
             numpy \
             pandas \
             pre-commit \
-            pytest
+            pytest \
+            tqdm
+
+        if [[ $1 == *".txt"* ]]; then
+            printf ">>> Installing packages from $1\n\n"
+            "${virtdir}/bin/pip" install -U -r $1
+        fi
     fi
 }
 
