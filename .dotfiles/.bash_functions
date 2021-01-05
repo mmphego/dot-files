@@ -39,8 +39,8 @@ create_venv() {
         virtualenv --python="python3" "${virtdir}"
         source "${virtdir}/bin/activate"
 
+        "${virtdir}/bin/pip" install -U pip
         "${virtdir}/bin/pip" install -U \
-            --use-feature=2020-resolver \
             black \
             flake8 \
             flake8-black \
@@ -49,7 +49,6 @@ create_venv() {
             isort \
             numpy \
             pandas \
-            pip \
             pre-commit \
             pytest
     fi
