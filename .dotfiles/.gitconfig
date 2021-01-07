@@ -14,6 +14,8 @@
     ad = add
     as = add
     ass = add
+
+    # Commit Typo
     cinnut = commit
     cmit = commit
     cmmit = commit
@@ -22,41 +24,47 @@
     co = commit
     comimt = commit
     comit = commit
-    comit = commit
     comkmit = commit
     commi = commit
     commt = commit
-    dif = diff
-    dff = diff
-    doff = diff
-    dfi = diff
-    df = diff
-    duf = diff
-    duff = diff
-    lo = log
-    lgo = log
-    lof = log
-    loh = log
     ocmit = commit
     ocmmit = commit
-    og = log
     omit = commit
     ommit = commit
+
+    # Diff Typo
+    df = diff
+    dff = diff
+    dfi = diff
+    dif = diff
+    doff = diff
+    duf = diff
+    duff = diff
+
+    # Log typo
+    lgo = log --name-only
+    lo = log --name-only
+    lof = log --name-only
+    loh = log --name-only
+    og = log --name-only
+
     satus = status
-    sta = status
+    srtat = status
     st = status
-    stt = status
+    sta = status
     stat = status
     stats = status
-    syay = status
     statsu = status
     statu = status
+    stt = status
     stts = status
     sttus = status
-    srtat = status
-    pusj = push
-    push = pushup
+    syay = status
+
     pul = pull
+
+    push = pushup
+    pusj = push
 
 
 	# List aliases
