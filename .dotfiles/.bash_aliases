@@ -88,17 +88,20 @@ alias killslack="pkill -9 slack"
 alias killcode="pkill -9 code"
 
 # Typo fixes
-alias nan='nano'
 alias CD='cd'
 alias cdd='cd'
-alias github="$(which hub)"
-alias git="$(which hub)"
-alias it="$(which hub)"
-alias gti="$(which hub)"
 alias get="$(which hub)"
-alias gut="$(which hub)"
-alias got="$(which hub)"
 alias giot="$(which hub)"
+alias git="$(which hub)"
+alias github="$(which hub)"
+alias got="$(which hub)"
+alias gt="$(which hub)"
+alias gti="$(which hub)"
+alias gut="$(which hub)"
+alias it="$(which hub)"
+alias nan='nano'
+
+
 alias git-ignore-file="git update-index --assume-unchanged"
 
 # Git Shortcuts
@@ -117,7 +120,7 @@ alias pipinstall='pip install '
 
 # Misc
 alias aliases="subl ~/.dotfiles"
-alias mic='amixer set Capture toggle'
+alias mic-toggle='amixer set Capture toggle'
 alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
 alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"
 alias please="sudo"
