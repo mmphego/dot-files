@@ -221,6 +221,12 @@ if [ -d "/opt/intel/openvino/bin/setupvars.sh" ]; then
     source /opt/intel/openvino/bin/setupvars.sh
 fi
 
+if [ -f $(which vagrant) ]; then
+    VERSION=$(vagrant --version | cut -f 2 -d ' ')
+    # >>>> Vagrant command completion (start)
+    source "/opt/vagrant/embedded/gems/${VERSION}/gems/vagrant-${VERSION}/contrib/bash/completion.sh"
+    # <<<<  Vagrant command completion (end)
+fi
 ####################################################################################################
 ############################################ Welcome Message #######################################
 ####################################################################################################
