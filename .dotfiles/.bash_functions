@@ -282,16 +282,16 @@ clone-my-repos() {
 }
 
 committer() {
-    MSG=$@
+    MSG="$@"
     # Add file(s), commit with generic message and push to remote
     git status | grep "modified:" | cut -f2 -d ":" | tr -s '  ' | while read line; do
         git add -f "${line}"
     done
 
     FILE=$(command git status | grep "modified:" | cut -f2 -d ":" | tr "\n" " " | xargs)
-    if [ ! -z "$MSG" ]; then
+    if [ ! -z "${MSG}" ]; then
         # SignOff by username & email, SignOff with PGP and ignore hooks
-        git commit -s -S -n -m "$MSG"
+        git commit -s -S -n -m "${MSG}"
     else
         git commit -s -S -n -m"Updated ${FILE}"
     fi
