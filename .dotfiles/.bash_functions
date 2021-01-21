@@ -177,6 +177,8 @@ git() {
         git-init-repo
     elif [[ "$1" == "create-repo-n-push" ]]; then
         git-create-repo-and-push
+    elif [[ "$1" == "checkout-update-master" ]]; then
+        git-checkout-update-master
     else
         # Specifically use hub (wrapper) instead of git.
         command hub "$@"
@@ -345,7 +347,7 @@ git-checkout-update-master() {
     for DIR in $(ls --color=never); do
         echo $DIR
         pushd $DIR
-        git checkout -f master && git pull --allow-unrelated-histories -q &>/dev/null &
+        git checkout -f master && git pull -q &>/dev/null &
         disown
         popd
     done
