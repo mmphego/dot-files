@@ -143,7 +143,7 @@ sciget() {
     if [[ "$@" == "https://ieeexplore.ieee.org/"* ]]; then getbibtex "$@"; fi
 }
 
-mkcd() {
+mkdir_cd() {
     # Create a new directory and enter it
     mkdir -p "$@" && echo "You are in: $@" && builtin cd "$@" || exit 1
 }
