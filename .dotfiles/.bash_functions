@@ -4,6 +4,10 @@ unload_my_bashrc() {
     export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@$(hostname -f)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 }
 
+load_my_bashrc() {
+    source ~/.bashrc
+}
+
 nightlight() {
     # 1000 — Lowest value (super warm/red)
     # 4000 — Default night light on temperature
