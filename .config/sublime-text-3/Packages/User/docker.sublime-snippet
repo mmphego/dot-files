@@ -1,0 +1,14 @@
+<snippet>
+    <content>
+        <![CDATA[
+# Usage:
+# docker run --rm --name=<name> -v "$PWD:/<dir" -p <port>:<port> <image>
+
+FROM python:3-7-slim
+LABEL maintainer="Mpho Mphego <mpho112@gmail.com>"
+        ]]>
+    </content>
+    <tabTrigger>docker</tabTrigger>
+    <tabTrigger>docker</tabTrigger>
+    <scope>source.docker</scope>
+</snippet>
