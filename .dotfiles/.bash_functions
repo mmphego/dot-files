@@ -403,6 +403,10 @@ extract() {
     fi
 }
 
+find_and_unzip_all() {
+    find . -name '*.zip' -exec sh -c 'unzip -d "`dirname \"{}\"`" "{}"' ';'
+}
+
 open() {
     if [ -f $1 ]; then
         case $1 in
