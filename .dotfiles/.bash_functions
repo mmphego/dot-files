@@ -1,7 +1,7 @@
 # Useful Functions
 
 unload_my_bashrc() {
-    export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@$(hostname -f)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 }
 
 load_my_bashrc() {
