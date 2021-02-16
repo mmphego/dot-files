@@ -239,9 +239,6 @@
     newNormal = green bold
     newHighlight = green bold 22
 
-[commit]
-    verbose = true
-
 [pretty]
     custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
     #                     │        │            │            │             └─ author name
@@ -269,6 +266,7 @@
 	templatedir = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks
 
 [commit]
+    verbose = true
 	gpgsign = true
 	template = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/commit-msg-template/commit-msg-template.txt
 
@@ -277,5 +275,9 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
 [pull]
 	rebase = false
+
+[fetch]
+    prune = true
