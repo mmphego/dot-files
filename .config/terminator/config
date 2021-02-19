@@ -1,17 +1,32 @@
 [global_config]
-  enabled_plugins = CustomCommandsMenu, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, MavenPluginURLHandler, LaunchpadBugURLHandler
-  inactive_color_offset = 1.0
-  sticky = True
-  suppress_multiple_term_dialog = True
-  title_inactive_bg_color = "#000000"
   window_state = maximise
+  sticky = True
+  title_inactive_bg_color = "#000000"
+  inactive_color_offset = 1.0
+  enabled_plugins = CustomCommandsMenu, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, MavenPluginURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
 [keybindings]
-  copy = <Primary><Shift><Alt>c
-  page_down = Page_Down
-  page_up = Page_Up
-  paste = <Primary><Shift><Alt>v
   split_horiz = <Primary><Shift>h
   split_vert = <Primary><Shift>v
+  copy = <Primary><Shift><Alt>c
+  paste = <Primary><Shift><Alt>v
+  page_up = Page_Up
+  page_down = Page_Down
+[profiles]
+  [[default]]
+    audible_bell = True
+    cursor_color = "#4e9a06"
+    cursor_color_fg = False
+    font = Monospace 12
+    scrollback_lines = 500000
+    scrollback_infinite = True
+    palette = "#000000:#cc0000:#2fb600:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    login_shell = True
+    use_system_font = False
+    copy_on_selection = True
+    split_to_group = True
+  [[New Profile]]
+    cursor_color = "#aaaaaa"
 [layouts]
   [[default]]
     [[[child0]]]
@@ -32,17 +47,3 @@
       type = Terminal
       uuid = 7a18b20f-7160-4a3f-90a6-4e5527503322
 [plugins]
-[profiles]
-  [[default]]
-    audible_bell = True
-    copy_on_selection = True
-    cursor_color = "#4e9a06"
-    cursor_color_fg = False
-    font = Monospace 12
-    login_shell = True
-    palette = "#000000:#cc0000:#2fb600:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    scrollback_infinite = True
-    scrollback_lines = 500000
-    split_to_group = True
-    use_system_font = False
-  [[New Profile]]
