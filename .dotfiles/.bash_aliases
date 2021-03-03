@@ -120,3 +120,4 @@ alias openvino='source /opt/intel/openvino/bin/setupvars.sh --pyenv py3.6'
 alias soundon="pacmd set-card-profile bluez_card.B0_18_6F_0A_1F_AA a2dp_sink"
 alias please="sudo"
 alias mdkir="mkdir -p"
+alias get_makefile="curl -fsSL https://git.io/get-makefile > ./Makefile"
