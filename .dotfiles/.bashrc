@@ -227,6 +227,12 @@ if [ -f $(which vagrant) ]; then
     source "/opt/vagrant/embedded/gems/${VERSION}/gems/vagrant-${VERSION}/contrib/bash/completion.sh"
     # <<<<  Vagrant command completion (end)
 fi
+
+# The Azure-CLI environment variables setup.
+if [ -f "${HOME}/.lib/azure-cli/az.completion" ]; then
+    source "${HOME}/.lib/azure-cli/az.completion"
+fi
+
 ####################################################################################################
 ############################################ Welcome Message #######################################
 ####################################################################################################
@@ -234,7 +240,7 @@ if [ -f /var/run/reboot-required ]; then
     echo -e "${REDBG}[*** Hello ${USER}, you must reboot your machine ***]${NC}\n";
 fi
 
-IP_ADD=`ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'`
+IP_ADD=$(ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}')
 printf "${LIGHTGREEN}Hello, ${USER}@${IP_ADD}\n"
 printf "Today is, $(date)\n";
 printf "\nSysinfo: $(uptime)\n"
