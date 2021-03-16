@@ -355,7 +355,7 @@ git-checkout-update-master() {
     for DIR in $(ls --color=never); do
         echo $DIR
         pushd $DIR
-        git checkout -f master && git pull -q &>/dev/null &
+        git checkout -f master && git pull -q origin master &>/dev/null &
         disown
         popd
     done
