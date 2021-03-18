@@ -263,5 +263,11 @@
 "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
 "python.languageServer": "Microsoft",
 "editor.codeActionsOnSave": null,
-"jupyter.alwaysTrustNotebooks": true
+"jupyter.alwaysTrustNotebooks": true,
+"workbench.editorAssociations": [
+  {
+    "viewType": "jupyter.notebook.ipynb",
+    "filenamePattern": "*.ipynb"
+  }
+]
 }
