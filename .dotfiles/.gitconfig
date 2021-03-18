@@ -104,8 +104,8 @@
     clone = clone --progress
     commit = commit -S
     last = log -1 HEAD
-    get = pull --ff-only origin $(git symbolic-ref --short HEAD)
-    pull = --allow-unrelated-histories origin $(git symbolic-ref --short HEAD)
+    get = "!git pull --ff-only origin $(git symbolic-ref --short HEAD)"
+    pullup = "!git pull origin $(git symbolic-ref --short HEAD)"
     pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
     pushf = push --force-with-lease
     yolo = pushf
