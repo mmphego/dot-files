@@ -72,6 +72,11 @@ if [ -d "$HOME/.poetry/bin" ]; then
     export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
+if [ -d "$HOME/go" ]; then
+    export PATH="$HOME/go/bin:$PATH"
+    export GOPATH="$HOME/go"
+fi
+
 if [ -d "${HOME}/.venvs" ]; then
     export WORKON_HOME="${HOME}/.venvs"
     export VIRTUALENVWRAPPER_PYTHON="$(command -v python2)"
