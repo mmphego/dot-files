@@ -668,6 +668,7 @@ mv_file_to_dir() {
 
 rm_pyc() {
     find . -name "*.pyc" -exec rm -f {} \;
+    find . -name "__pycache__" -exec rm -rf {} \;
 }
 
 sync_with_cam() {
