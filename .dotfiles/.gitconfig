@@ -178,7 +178,7 @@
     commit-amend-push = "!fnc() { \
         echo "Amending to previous commit with HEAD commit msg!"; echo; \
         git commit --amend -S -anC HEAD; \
-        git push --force-with-lease origin $(git symbolic-ref --short HEAD); \
+        git push -f origin $(git symbolic-ref --short HEAD); \
         };fnc"
 
     # Find text from previously committed files.
