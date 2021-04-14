@@ -206,7 +206,6 @@
     revert-commit =  !git revert-commit
     init-repo = !git init-repo
     create-repo-n-push = !git create-repo-n-push
-    checkout-and-update-master = !git checkout-update-master
 
 [color]
     ui = auto
