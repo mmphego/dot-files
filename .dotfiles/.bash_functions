@@ -739,3 +739,17 @@ extract_audio_from_video() {
 pdf_merge() {
     pdftk "$1" "$2" cat output mergedfile.pdf
 }
+
+
+public_ip_open_ports() {
+    nmap $(curl ifconfig.me)
+}
+
+ips() {
+    IP_RANGE=192.168.1.0/24
+    if command -v netdiscover >/dev/null 2>&1; then
+        sudo netdiscover -r $IP_RANGE
+    else
+        nmap -sP $IP_RANGE
+    fi
+}
