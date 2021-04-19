@@ -346,8 +346,13 @@ git-url-shortener() {
 
 git-fetch-all-branches() {
     # Fetch all remote branches
-    git checkout --detach
-    git fetch origin '+refs/heads/*:refs/heads/*'
+    if command -v hub >/dev/null 2>&1; then
+        /usr/local/bin/hub checkout --detach;
+        /usr/local/bin/hub fetch origin '+refs/heads/*:refs/heads/*'
+    else
+        /usr/bin/git checkout --detach
+        /usr/bin/git fetch origin '+refs/heads/*:refs/heads/*'
+    fi
 }
 
 git-checkout-update-master() {
