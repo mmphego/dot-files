@@ -758,3 +758,8 @@ ips() {
         nmap -sP $IP_RANGE
     fi
 }
+
+
+epoch_to_human() {
+    date -d @"$1"
+}
