@@ -11,34 +11,12 @@ docker_ispect() {
     done
 }
 
-
 docker_stop() {
     if [ $# -eq 0 ]; then
         docker stop $(docker ps -aq --no-trunc);
     else
         for container in "$@"; do
             docker stop $(docker ps -aq --no-trunc | grep ${container});
-        done
-    fi
-}
-
-docker_rm_containers() {
-    if [ $# -eq 0 ];then
-        docker rm $(docker ps -aq --no-trunc);
-    else
-        for container in "$@"; do
-            docker rm $(docker ps -aq --no-trunc | grep ${container});
-        done
-    fi
-}
-
-
-docker_rm_images() {
-    if [ $# -eq 0 ]; then
-        docker rmi $(docker images --filter 'dangling=true' -aq --no-trunc);
-    else
-        for container in "$@"; do
-            docker rmi $(docker images --filter 'dangling=true' -aq --no-trunc | grep ${container});
         done
     fi
 }
@@ -59,4 +37,10 @@ docker_security() {
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     --label docker_bench_security \
     docker/docker-bench-security
+}
+
+docker-cleanup(){
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+    docker system prune -f --filter "until=$((30*24))h"
 }
