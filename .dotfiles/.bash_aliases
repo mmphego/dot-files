@@ -107,7 +107,7 @@ alias pull='git pull --allow-unrelated-histories --all &>/dev/null &disown'
 
 # Networking
 alias ports='netstat -tulanp'
-alias ports-listen='lsof -nP -iTCP -sTCP:LISTEN'
+alias ports-listen='sudo lsof -nP -iTCP -sTCP:LISTEN'
 
 # Log into to Server
 alias camserver='autossh -A kat@10.8.67.160'
