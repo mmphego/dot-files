@@ -38,7 +38,7 @@ cheatsheet() {
 }
 
 create-venv() {
-    create_venv "$@"
+    create_venv
 }
 
 create_venv() {
@@ -62,9 +62,14 @@ create_venv() {
             pytest \
             tqdm
 
-        if [[ $1 == *".txt"* ]]; then
-            printf ">>> Installing packages from $1\n\n"
-            "${virtdir}/bin/pip" install -U -r $1
+        FILE=$(find . -type f -name requirements.txt)
+        if test -s $FILE; then
+            echo "$FILE exists and not empty"
+            read -t 5 -p "Hit ENTER if you want install packages in $1 else wait 5 seconds to exit."
+            if [ $? -eq 0 ]; then
+                printf ">>> Installing packages from $FILE\n\n"
+                "${virtdir}/bin/pip" install -U -r $FILE
+            fi
         fi
     fi
 }
