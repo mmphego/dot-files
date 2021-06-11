@@ -4,6 +4,10 @@ unload_my_bashrc() {
     export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\033[01;34m\]\[\033[00m\]\n\n>>> $ '
 }
 
+tor() {
+    sh -c '"${HOME}/Documents/tor-browser_en-US/Browser/start-tor-browser" --detach || ([ !  -x "${HOME}/Documents/tor-browser_en-US/Browser/start-tor-browser" ] && "$(dirname "$*")"/Browser/start-tor-browser --detach)' dummy %k
+}
+
 load_my_bashrc() {
     source ~/.bashrc
 }
