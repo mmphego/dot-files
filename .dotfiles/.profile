@@ -90,6 +90,10 @@ if [ -d "/var/lib/flatpak/exports/share" ]; then
     export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 fi
 
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
+
 recho() {
     echo "${RED}$1${NC}"
 }
