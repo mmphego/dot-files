@@ -116,3 +116,6 @@ complete -o default -F _pip_completion pip
 
 # Ensure that night light is enabled always.
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+
+# show line numbers and colors in the “less” command line
+export LESS="-NR";
