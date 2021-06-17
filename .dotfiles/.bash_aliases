@@ -126,3 +126,5 @@ alias venv="source .venv/bin/activate"
 alias kube="kubectl"
 #alias docker="podman"
 alias ping="ping -c 3"
+alias diffs='diff --side-by-side --suppress-common-lines'
+
