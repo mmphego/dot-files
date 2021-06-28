@@ -265,12 +265,9 @@
 "python.languageServer": "Microsoft",
 "editor.codeActionsOnSave": null,
 "jupyter.alwaysTrustNotebooks": true,
-"workbench.editorAssociations": [
-  {
-    "viewType": "jupyter.notebook.ipynb",
-    "filenamePattern": "*.ipynb"
-  }
-],
+"workbench.editorAssociations": {
+  "*.ipynb": "jupyter.notebook.ipynb"
+},
 "todo-tree.general.tags": [
   "BUG",
   "HACK",
