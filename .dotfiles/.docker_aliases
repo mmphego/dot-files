@@ -28,4 +28,4 @@ alias dockerfile-linter='docker run --rm -i hadolint/hadolint < '
 # CHANGELOG generator implemented in Go (Golang) running in a Docker image/container.
 alias git-changelog='docker run -it --rm -v "$(pwd)":/usr/local/src/your-app mmphego/git-changelog-generator'
 
-alias jupyter-docker="docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/work jupyter/minimal-notebook"
+alias jupyter-docker="docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v \"$(pwd)\":/home/jovyan/work jupyter/minimal-notebook"
