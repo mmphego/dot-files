@@ -44,3 +44,7 @@ docker-cleanup(){
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
     docker system prune -f --filter "until=$((30*24))h"
 }
+
+jupyter_docker() {
+    docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/work jupyter/minimal-notebook
+}
