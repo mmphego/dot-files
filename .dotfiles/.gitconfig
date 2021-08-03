@@ -263,6 +263,7 @@
 
 [init]
 	templatedir = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks
+	defaultBranch = master
 
 [commit]
     verbose = true
