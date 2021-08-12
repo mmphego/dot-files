@@ -80,7 +80,7 @@
     "editor.tabSize": 4
   },
   // Spelling and Grammar
-  "cSpell.language": "en-uk",
+  "cSpell.language": "en",
   "cSpell.userWords": [
     "APDU",
     "Africa",
@@ -92,6 +92,7 @@
     "GSSE",
     "IED's",
     "IEDs",
+    "Installation",
     "Interconnnection",
     "MITM",
     "Presigned",
@@ -130,11 +131,11 @@
     "synchrophasor",
     "telecontrol",
     "teleprotection",
+    "that",
     "unicast",
     "upscalable",
     "want"
   ],
-  "spellright.language": [],
   "spellright.documentTypes": [
     "markdown",
     "latex",
@@ -220,7 +221,8 @@
 "python.defaultInterpreterPath": "python",
 "editor.inlineSuggest.enabled": true,
 "workbench.colorTheme": "NarutoDark",
-"window.zoomLevel": 2,
 "editor.fontWeight": "normal",
 "tabnine.experimentalAutoImports": true,
+"guides.enabled": false,
+"window.zoomLevel": 1,
 }
