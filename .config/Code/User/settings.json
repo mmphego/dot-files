@@ -63,7 +63,7 @@
     "**/__pycache__/**",
     "**/node_modules/**"
   ],
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
@@ -279,5 +279,6 @@
   "[x]"
 ],
 "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-"python.defaultInterpreterPath": "python"
+"python.defaultInterpreterPath": "python",
+"editor.inlineSuggest.enabled": true
 }
