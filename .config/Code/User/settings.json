@@ -3,7 +3,7 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
-  "editor.fontSize": 18,
+  "editor.fontSize": 14,
   "editor.formatOnPaste": true,
   "editor.matchBrackets": "always",
   "editor.multiCursorModifier": "ctrlCmd",
@@ -50,9 +50,11 @@
   "search.smartCase": true,
   // Language Settings
   "python.pythonPath": "python",
+  "editor.gotoLocation.multipleImplementations": "gotoAndPeek",
   "python.linting.maxNumberOfProblems": 50,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
+  "python.autoUpdateLanguageServer": true,
   "python.linting.ignorePatterns": [
     ".vscode/*.py",
     "**/site-packages/**/*.py",
@@ -60,7 +62,6 @@
     "**/__pycache__/**",
     "**/node_modules/**"
   ],
-  "python.jediEnabled": true,
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": false
@@ -128,7 +129,6 @@
     "upscalable",
     "want"
   ],
-  "shellcheck.disableVersionCheck": true,
   "spellright.language": [],
   "spellright.documentTypes": [
     "markdown",
@@ -190,28 +190,15 @@
     "--max-line-length=90"
   ],
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "todo-tree.tree.showScanModeButton": false,
   "git.autorefresh": false,
   "gitlens.views.repositories.autoRefresh": false,
   "extensions.autoUpdate": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "liveServer.settings.CustomBrowser": "chrome",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
 "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
-"python.languageServer": "Jedi",
-"editor.codeActionsOnSave": "Jedi",
-"jupyter.alwaysTrustNotebooks": true,
+"python.languageServer": "Pylance",
 "workbench.editorAssociations": {
   "*.ipynb": "jupyter.notebook.ipynb"
 },
@@ -227,5 +214,8 @@
 "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 "python.defaultInterpreterPath": "python",
 "editor.inlineSuggest.enabled": true,
-"workbench.colorTheme": "NarutoDark"
+"workbench.colorTheme": "NarutoDark",
+"window.zoomLevel": 2,
+"editor.fontWeight": "normal",
+"tabnine.experimentalAutoImports": true,
 }
