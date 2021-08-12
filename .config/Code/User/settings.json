@@ -5,7 +5,7 @@
   "editor.detectIndentation": true,
   "editor.fontSize": 18,
   "editor.formatOnPaste": true,
-  "editor.matchBrackets": false,
+  "editor.matchBrackets": "always",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.parameterHints.enabled": false,
   "editor.quickSuggestionsDelay": 25,
@@ -13,11 +13,10 @@
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 4,
   "editor.wordWrap": "on",
-  "editor.find.autoFindInSelection": true,
+  "editor.find.autoFindInSelection": "always",
   "editor.minimap.enabled": false,
   // Terminal settings
   "terminal.integrated.fontSize": 18,
-  "terminal.integrated.shell.linux": "/bin/bash",
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "*.py": "python",
@@ -42,8 +41,6 @@
     "**/*.swp": true
   },
   "git.confirmSync": false,
-  "menu.fontsize": 20,
-  "latex-workshop.view.pdf.viewer": "tab",
   "workbench.statusBar.visible": true,
   "window.titleBarStyle": "custom",
   "diffEditor.renderSideBySide": false,
@@ -66,10 +63,10 @@
   "python.jediEnabled": true,
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": false
     },
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
     "editor.rulers": [
       90,
       120
@@ -77,13 +74,15 @@
     "editor.tabSize": 4
   },
   // Spelling and Grammar
-  "cSpell.language": "en",
+  "cSpell.language": "en-uk",
   "cSpell.userWords": [
     "APDU",
+    "Africa",
     "Datagram",
     "Diarys",
     "Ethertype",
     "Ethertypes",
+    "Example",
     "GSSE",
     "IED's",
     "IEDs",
@@ -106,8 +105,10 @@
     "devapi",
     "dynamodb",
     "electrotechnical",
+    "encoded",
     "imread",
     "imutils",
+    "just",
     "kubernetes",
     "microcontroller",
     "microservices",
@@ -124,7 +125,8 @@
     "telecontrol",
     "teleprotection",
     "unicast",
-    "upscalable"
+    "upscalable",
+    "want"
   ],
   "shellcheck.disableVersionCheck": true,
   "spellright.language": [],
@@ -140,65 +142,9 @@
     }
   },
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "C_Cpp.updateChannel": "Insiders",
   "editor.renderControlCharacters": false,
   "breadcrumbs.enabled": true,
-  "window.menuBarVisibility": "default",
-  "peacock.favoriteColors": [
-    {
-      "name": "Angular Red",
-      "value": "#b52e31"
-    },
-    {
-      "name": "Auth0 Orange",
-      "value": "#eb5424"
-    },
-    {
-      "name": "Azure Blue",
-      "value": "#007fff"
-    },
-    {
-      "name": "C# Purple",
-      "value": "#68217A"
-    },
-    {
-      "name": "Gatsby Purple",
-      "value": "#639"
-    },
-    {
-      "name": "Go Cyan",
-      "value": "#5dc9e2"
-    },
-    {
-      "name": "Java Blue-Gray",
-      "value": "#557c9b"
-    },
-    {
-      "name": "JavaScript Yellow",
-      "value": "#f9e64f"
-    },
-    {
-      "name": "Mandalorian Blue",
-      "value": "#1857a4"
-    },
-    {
-      "name": "Node Green",
-      "value": "#215732"
-    },
-    {
-      "name": "React Blue",
-      "value": "#00b3e6"
-    },
-    {
-      "name": "Something Different",
-      "value": "#832561"
-    },
-    {
-      "name": "Vue Green",
-      "value": "#42b883"
-    }
-  ],
+  "window.menuBarVisibility": "classic",
   "todo-tree.highlights.enabled": false,
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -263,8 +209,8 @@
     "editor.defaultFormatter": "HookyQR.beautify"
   },
 "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
-"python.languageServer": "Microsoft",
-"editor.codeActionsOnSave": null,
+"python.languageServer": "Jedi",
+"editor.codeActionsOnSave": "Jedi",
 "jupyter.alwaysTrustNotebooks": true,
 "workbench.editorAssociations": {
   "*.ipynb": "jupyter.notebook.ipynb"
@@ -280,5 +226,6 @@
 ],
 "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
 "python.defaultInterpreterPath": "python",
-"editor.inlineSuggest.enabled": true
+"editor.inlineSuggest.enabled": true,
+"workbench.colorTheme": "NarutoDark"
 }
