@@ -3,9 +3,9 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
   "editor.formatOnPaste": true,
-  "editor.matchBrackets": "always",
+  "editor.matchBrackets": true,
   "editor.autoClosingBrackets": "always",
   "editor.tabCompletion": "on",
   "editor.codeLens": true,
@@ -225,4 +225,5 @@
 "tabnine.experimentalAutoImports": true,
 "guides.enabled": false,
 "window.zoomLevel": 1,
+"files.insertFinalNewline": true,
 }
