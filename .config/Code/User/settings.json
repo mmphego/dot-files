@@ -223,4 +223,5 @@
 "guides.enabled": false,
 "window.zoomLevel": 1,
 "files.insertFinalNewline": true,
+"redhat.telemetry.enabled": false,
 }
