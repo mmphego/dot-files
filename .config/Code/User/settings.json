@@ -5,7 +5,7 @@
   "editor.detectIndentation": true,
   "editor.fontSize": 12,
   "editor.formatOnPaste": true,
-  "editor.matchBrackets": true,
+  "editor.matchBrackets": "always",
   "editor.autoClosingBrackets": "always",
   "editor.tabCompletion": "on",
   "editor.codeLens": true,
@@ -199,9 +199,6 @@
   "git.autorefresh": false,
   "gitlens.views.repositories.autoRefresh": false,
   "extensions.autoUpdate": true,
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
   "typescript.updateImportsOnFileMove.enabled": "always",
 "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
 "python.languageServer": "Pylance",

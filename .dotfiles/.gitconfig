@@ -283,3 +283,5 @@
     prune = true
 [merge]
 	tool = meld
+[advice]
+	addIgnoredFile = false
