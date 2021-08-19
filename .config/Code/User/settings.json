@@ -1,33 +1,39 @@
 {
-    "workbench.colorTheme": "NarutoDark",
-    "editor.fontWeight": "normal",
-    "tabnine.experimentalAutoImports": true,
-    "guides.enabled": false,
-    "window.zoomLevel": 2,
-    "files.insertFinalNewline": true,
-    "redhat.telemetry.enabled": false,
+    "editor.autoClosingBrackets": "always",
+    "editor.codeLens": true,
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": true,
     "editor.detectIndentation": true,
-    "editor.fontSize": 12,
-    "editor.formatOnPaste": true,
-    "editor.matchBrackets": "always",
-    "editor.autoClosingBrackets": "always",
-    "editor.tabCompletion": "on",
-    "editor.codeLens": true,
+    "editor.find.autoFindInSelection": "always",
     "editor.folding": true,
-    "editor.showFoldingControls": "mouseover",
+    "editor.fontSize": 12,
+    "editor.fontWeight": "normal",
+    "editor.formatOnPaste": true,
+    "editor.insertSpaces": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.matchBrackets": "always",
+    "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.parameterHints.enabled": false,
     "editor.quickSuggestionsDelay": 25,
+    "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
+    "editor.rulers": [90, 120],
+    "editor.showFoldingControls": "mouseover",
     "editor.snippetSuggestions": "top",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
-    "editor.find.autoFindInSelection": "always",
-    "editor.minimap.enabled": false,
-    "terminal.integrated.fontSize": 18,
+    "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "guides.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "terminal.integrated.fontSize": 18,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "NarutoDark",
     "files.associations": {
         "*.py": "python",
         ".bash_functions": "shellscript",
@@ -125,6 +131,7 @@
         "multicasting",
         "multifunctional",
         "perfomance",
+        "println",
         "reqvalidator",
         "routable",
         "rtds",
@@ -149,8 +156,6 @@
             "parser": "markdown"
         }
     },
-    "editor.suggestSelection": "first",
-    "editor.renderControlCharacters": false,
     "breadcrumbs.enabled": true,
     "window.menuBarVisibility": "classic",
     "todo-tree.highlights.enabled": false,
@@ -197,7 +202,7 @@
     "python.linting.flake8Args": [
         "--max-line-length=90"
     ],
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
+
     "git.autorefresh": false,
     "gitlens.views.repositories.autoRefresh": false,
     "extensions.autoUpdate": true,
@@ -218,11 +223,13 @@
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "python.defaultInterpreterPath": "python",
-    "editor.inlineSuggest.enabled": true,
     "cSpell.enableFiletypes": [
         "jenkinsfile"
     ],
     "jenkins.pipeline.linter.connector.user": "mmphego",
     "jenkins.pipeline.linter.connector.url": "http://ci.camlab.kat.ac.za/pipeline-model-converter/validate",
-    "jenkins.pipeline.linter.connector.crumbUrl": "http://ci.camlab.kat.ac.za/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)"
+    "jenkins.pipeline.linter.connector.crumbUrl": "http://ci.camlab.kat.ac.za/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)",
+    "remove-tabs-on-save.ignoreFileExtensions": [
+        "*.go"
+    ]
 }
