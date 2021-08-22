@@ -112,6 +112,7 @@
         "csaems",
         "dataset",
         "datasets",
+        "datefmt",
         "devapi",
         "dotenv",
         "dynamodb",
@@ -230,5 +231,8 @@
     "jenkins.pipeline.linter.connector.crumbUrl": "http://ci.camlab.kat.ac.za/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)",
     "remove-tabs-on-save.ignoreFileExtensions": [
         "*.go"
-    ]
+    ],
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.linux": "/home/mmphego/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    }
 }
