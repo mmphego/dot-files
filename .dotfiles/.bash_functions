@@ -660,7 +660,11 @@ tags:
 - []()
 - []()
 EOF
-        subl "${NEW_POST}"
+        if command -v code >/dev/null 2>&1; then
+            code -n "${NEW_POST}"
+        else
+            subl "${NEW_POST}"
+        fi
         recho "Do not forget to Run:"
         set -x
         generate_wordcloud.py -f "${NEW_POST}" -s "${BG_IMG}"
