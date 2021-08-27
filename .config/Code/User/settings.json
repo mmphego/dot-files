@@ -1,6 +1,9 @@
 {
+    "breadcrumbs.enabled": true,
     "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
     "editor.codeLens": true,
+    "editor.comments.insertSpace": true,
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": true,
     "editor.detectIndentation": true,
@@ -19,23 +22,14 @@
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
     "editor.showFoldingControls": "mouseover",
+    "editor.showUnused":true,
     "editor.snippetSuggestions": "top",
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "on",
     "editor.tabSize": 4,
-    "editor.wordWrap": "on",
-    "editor.autoClosingQuotes": "always",
-    "editor.comments.insertSpace": true,
-    "editor.showUnused":true,
     "editor.wordBasedSuggestions": false,
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "guides.enabled": false,
-    "redhat.telemetry.enabled": false,
-    "terminal.integrated.fontSize": 18,
-    "window.zoomLevel": 2,
-    "workbench.colorTheme": "NarutoDark",
+    "editor.wordWrap": "on",
     "files.associations": {
         "*.py": "python",
         ".bash_functions": "shellscript",
@@ -61,16 +55,31 @@
     "diffEditor.renderSideBySide": false,
     "editor.gotoLocation.multipleImplementations": "goto",
     "explorer.confirmDelete": false,
+    "extensions.autoUpdate": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "git.autorefresh": false,
     "git.confirmSync": false,
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "gitlens.views.repositories.autoRefresh": false,
+    "guides.enabled": false,
+    "jenkins.pipeline.linter.connector.user": "mmphego",
+    "jenkins.pipeline.linter.connector.url": "http://ci.camlab.kat.ac.za/pipeline-model-converter/validate",
+    "jenkins.pipeline.linter.connector.crumbUrl": "http://ci.camlab.kat.ac.za/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)",
     "python.autoUpdateLanguageServer": true,
     "python.linting.flake8Enabled": true,
     "python.linting.maxNumberOfProblems": 50,
     "python.linting.pylintEnabled": false,
     "python.pythonPath": "python",
+    "redhat.telemetry.enabled": false,
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "window.titleBarStyle": "custom",
-    "workbench.statusBar.visible": true,
+    "terminal.integrated.fontSize": 18,
     "python.linting.ignorePatterns": [
         ".vscode/*.py",
         "**/site-packages/**/*.py",
@@ -90,9 +99,7 @@
         ],
         "editor.tabSize": 4
     },
-    "breadcrumbs.enabled": true,
-    "window.menuBarVisibility": "classic",
-    "todo-tree.highlights.enabled": false,
+    "python.defaultInterpreterPath": "python",
     "python.formatting.provider": "black",
     "python.venvFolders": [
         "/home/mmphego/.venvs"
@@ -107,14 +114,9 @@
     ],
     "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
     "python.languageServer": "Pylance",
-    "python.defaultInterpreterPath": "python",
-    "git.autorefresh": false,
-    "gitlens.views.repositories.autoRefresh": false,
-    "extensions.autoUpdate": true,
+
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
+    "todo-tree.highlights.enabled": false,
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -125,13 +127,15 @@
         "[x]"
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "jenkins.pipeline.linter.connector.user": "mmphego",
-    "jenkins.pipeline.linter.connector.url": "http://ci.camlab.kat.ac.za/pipeline-model-converter/validate",
-    "jenkins.pipeline.linter.connector.crumbUrl": "http://ci.camlab.kat.ac.za/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)",
-    "remove-tabs-on-save.ignoreFileExtensions": [
-        "*.go"
-    ],
     "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path.linux": "/home/mmphego/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
-    }
+        "vscode-kubernetes.minikube-path.linux": "/home/mmphego/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "workbench.statusBar.visible": true,
+    "window.menuBarVisibility": "classic",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 2,
+    "workbench.colorTheme": "NarutoDark",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    },
 }
