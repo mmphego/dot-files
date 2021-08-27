@@ -61,7 +61,7 @@
     "git.autorefresh": false,
     "git.confirmSync": false,
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "yaml": false,
         "plaintext": false,
         "markdown": true
@@ -138,4 +138,9 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     },
+    "remove-tabs-on-save.ignoreFileExtensions": [
+        "*.go"
+    ],
+    "window.zoomLevel": 1,
+    "security.workspace.trust.untrustedFiles": "open",
 }
