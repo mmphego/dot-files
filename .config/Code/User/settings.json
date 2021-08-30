@@ -139,8 +139,12 @@
     },
     },
     "remove-tabs-on-save.ignoreFileExtensions": [
-        "*.go"
+        "*.go",
+        "*Makefile*"
     ],
     "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
 }
