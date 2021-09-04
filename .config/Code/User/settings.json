@@ -63,7 +63,7 @@
     "github.copilot.enable": {
         "*": true,
         "yaml": true,
-        "plaintext": false,
+        "plaintext": true,
         "markdown": true
     },
     "gitlens.views.repositories.autoRefresh": false,
@@ -146,5 +146,8 @@
     "security.workspace.trust.untrustedFiles": "open",
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
 }
