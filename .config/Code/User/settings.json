@@ -7,7 +7,6 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": true,
     "editor.detectIndentation": true,
-    "editor.find.autoFindInSelection": "always",
     "editor.folding": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "normal",
