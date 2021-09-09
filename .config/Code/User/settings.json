@@ -78,7 +78,7 @@
     "redhat.telemetry.enabled": false,
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontSize": 14,
     "python.linting.ignorePatterns": [
         ".vscode/*.py",
         "**/site-packages/**/*.py",
@@ -141,7 +141,6 @@
         "*.go",
         "*Makefile*"
     ],
-    "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
@@ -149,4 +148,6 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
+    "window.zoomLevel": 1,
+    "liveshare.presence": true,
 }
