@@ -57,8 +57,11 @@
     "extensions.autoUpdate": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "git.autorefresh": false,
+    "git.autofetchPeriod": 60,
+    "git.autorefresh": true,
     "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.fetchOnPull": true,
     "github.copilot.enable": {
         "*": true,
         "yaml": true,
@@ -181,6 +184,5 @@
     ],
     "yaml.schemas": {},
     "aws.profile": "profile:default",
-    "go.toolsManagement.autoUpdate": true,
-    "git.enableSmartCommit": true,
+    "go.toolsManagement.autoUpdate": true
 }
