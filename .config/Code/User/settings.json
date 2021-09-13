@@ -182,4 +182,5 @@
     "yaml.schemas": {},
     "aws.profile": "profile:default",
     "go.toolsManagement.autoUpdate": true,
+    "git.enableSmartCommit": true,
 }
