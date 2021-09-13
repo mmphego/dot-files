@@ -184,5 +184,8 @@
     ],
     "yaml.schemas": {},
     "aws.profile": "profile:default",
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
