@@ -21,7 +21,7 @@
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "none",
     "editor.showFoldingControls": "mouseover",
-    "editor.showUnused":true,
+    "editor.showUnused": true,
     "editor.snippetSuggestions": "top",
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -116,7 +116,6 @@
     ],
     "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
     "python.languageServer": "Pylance",
-
     "typescript.updateImportsOnFileMove.enabled": "always",
     "todo-tree.highlights.enabled": false,
     "todo-tree.general.tags": [
@@ -131,14 +130,14 @@
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "vs-kubernetes": {
         "vscode-kubernetes.minikube-path.linux": "/home/mmphego/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
-    "workbench.statusBar.visible": true,
-    "window.menuBarVisibility": "classic",
-    "window.titleBarStyle": "custom",
-    "window.zoomLevel": 2,
-    "workbench.colorTheme": "NarutoDark",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
+        "workbench.statusBar.visible": true,
+        "window.menuBarVisibility": "classic",
+        "window.titleBarStyle": "custom",
+        "window.zoomLevel": 2,
+        "workbench.colorTheme": "NarutoDark",
+        "workbench.editorAssociations": {
+            "*.ipynb": "jupyter.notebook.ipynb"
+        },
     },
     "remove-tabs-on-save.ignoreFileExtensions": [
         "*.go",
@@ -147,9 +146,6 @@
     "security.workspace.trust.untrustedFiles": "open",
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "window.zoomLevel": 1,
     "liveshare.presence": true,
@@ -187,5 +183,8 @@
     "go.toolsManagement.autoUpdate": true,
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
 }
