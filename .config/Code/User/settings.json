@@ -93,8 +93,9 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": false
         },
-        "editor.formatOnPaste": true,
+        "editor.formatOnPaste": false,
         "editor.formatOnSave": false,
+        "editor.formatOnSaveMode": "file",
         "editor.rulers": [
             90,
             120
@@ -109,10 +110,6 @@
     "python.venvPath": "/home/mmphego/.venvs",
     "python.linting.flake8Args": [
         "--max-line-length=90"
-    ],
-    "python.formatting.blackArgs": [
-        "-l",
-        "90"
     ],
     "python.formatting.blackPath": "/home/mmphego/.local/bin/black",
     "python.languageServer": "Pylance",
