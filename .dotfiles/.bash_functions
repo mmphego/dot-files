@@ -775,3 +775,15 @@ ips() {
 epoch_to_human() {
     date -d @"$1"
 }
+
+describe_pod()
+{
+    if [ $# -ne 1 ];then
+        echo "Error: Pod name is missing as input argument"
+        return 1
+    fi
+
+    pod_name=${1}
+    kubectl describe pod "${pod_name}" -n \
+         $(kubectl get pod -A | awk -v pod="$pod_name" -v def=default '$2==pod{ns=$1} END{if(!length(ns))print def; else print ns}')
+}
