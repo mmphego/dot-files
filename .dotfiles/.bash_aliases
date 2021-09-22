@@ -40,7 +40,6 @@ alias search-pkg='apt search'
 alias search-version='apt-cache policy'
 
 ### Install and Remove Packages
-alias uninstall='sudo apt-get --purge autoremove '
 alias installed='sudo dpkg -l '
 alias show-installed="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 # Find empty directories

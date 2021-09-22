@@ -499,6 +499,8 @@ install-pkg() {
     fi
 }
 
+
+
 gpg_delete_all_keys() {
     for KEY in $(gpg --with-colons --fingerprint | grep "^fpr" | cut -d: -f10); do
         gpg --batch --delete-secret-keys "${KEY}"
@@ -727,6 +729,14 @@ install() {
         echo -e "\nAPT doesn't have the package that you are trying to install, "
         echo -e "I will install it using 'snap'\n\n"
         sudo snap install "$@"
+    fi
+}
+
+uninstall_pkgs() {
+    sudo snap remove "$@"
+    ret_code=$?
+    if [ "$ret_code" == 100 ]; then
+        sudo apt-get --purge autoremove "$@"
     fi
 }
 
