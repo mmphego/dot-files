@@ -736,10 +736,7 @@ install() {
 
 uninstall_pkgs() {
     sudo snap remove "$@"
-    ret_code=$?
-    if [ "$ret_code" == 100 ]; then
-        sudo apt-get --purge autoremove "$@"
-    fi
+    sudo apt-get --purge autoremove "$@"
 }
 
 mp3_split_on_silence() {
