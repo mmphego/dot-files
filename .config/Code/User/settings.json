@@ -181,4 +181,7 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "spellchecker.ignoreWordsList": [
+        "JSON"
+    ],
 }
