@@ -185,4 +185,5 @@
         "JSON"
     ],
     "json.schemas": [],
+    "workbench.experimental.sidePanel.enabled": true,
 }
