@@ -134,7 +134,7 @@
         "workbench.colorTheme": "NarutoDark",
         "workbench.editorAssociations": {
             "*.ipynb": "jupyter.notebook.ipynb"
-        },
+        }
     },
     "remove-tabs-on-save.ignoreFileExtensions": [
         "*.go",
@@ -186,4 +186,5 @@
     ],
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
+    "workbench.iconTheme": "material-icon-theme",
 }
