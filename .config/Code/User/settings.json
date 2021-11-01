@@ -179,7 +179,7 @@
     "aws.profile": "profile:default",
     "go.toolsManagement.autoUpdate": true,
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "mblode.pretty-formatter"
     },
     "spellchecker.ignoreWordsList": [
         "JSON"
