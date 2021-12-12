@@ -64,7 +64,8 @@ create_venv() {
             pandas \
             pre-commit \
             pytest \
-            tqdm
+            tqdm \
+            kube-manifest-lint
 
         FILE=$(find . -type f -name requirements.txt)
         if test -s $FILE; then
