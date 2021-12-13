@@ -144,7 +144,7 @@
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "liveshare.presence": true,
     "yaml.customTags": [
         "!And",
@@ -187,4 +187,5 @@
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
     "workbench.iconTheme": "material-icon-theme",
+    "files.autoSave": "afterDelay",
 }
