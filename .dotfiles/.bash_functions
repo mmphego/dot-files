@@ -468,7 +468,8 @@ cd() {
     if [ "${PWD}" == "${HOME}/CAM_Work" ]; then
         git-pull-all
     elif [ "${PWD}" == "${HOME}/Udacity-work" ]; then
-        unload_my_bashrc
+        unload_my_bashrc;
+        code .
     fi
 }
 
