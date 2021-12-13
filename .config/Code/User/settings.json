@@ -144,7 +144,7 @@
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "liveshare.presence": true,
     "yaml.customTags": [
         "!And",
