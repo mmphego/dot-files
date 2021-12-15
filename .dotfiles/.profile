@@ -119,3 +119,5 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 
 # show line numbers and colors in the “less” command line
 export LESS="-NR";
+
+chmod go-r ~/.kube/config
