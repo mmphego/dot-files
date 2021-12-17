@@ -188,5 +188,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "files.autoSave": "afterDelay",
     "bracketPairColorizer.depreciation-notice": false,
-    "window.zoomLevel": 1,
+    "explorer.confirmDragAndDrop": false,
 }
