@@ -427,7 +427,7 @@ open() {
         case $1 in
         # List should be expanded.
         *.pdf) evince $1 & ;;
-        *.md) pandoc $1 | lynx -stdin ;;
+        *.md) code $1 ;;
         *.mp3 | *.mp4 | *.mkv) vlc $1 & ;;
         *) xdg-open $1 >>/dev/null ;;
         esac
