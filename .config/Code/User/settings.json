@@ -189,5 +189,5 @@
     "files.autoSave": "afterDelay",
     "bracketPairColorizer.depreciation-notice": false,
     "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": 1,
+    "terminal.integrated.allowChords": false,
 }
