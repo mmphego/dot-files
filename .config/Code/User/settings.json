@@ -190,4 +190,5 @@
     "bracketPairColorizer.depreciation-notice": false,
     "explorer.confirmDragAndDrop": false,
     "terminal.integrated.allowChords": false,
+    "window.zoomLevel": 1,
 }
