@@ -181,7 +181,8 @@
         "editor.defaultFormatter": "mblode.pretty-formatter"
     },
     "spellchecker.ignoreWordsList": [
-        "JSON"
+        "JSON",
+        "PythonOperator"
     ],
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
