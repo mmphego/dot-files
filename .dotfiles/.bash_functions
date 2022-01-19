@@ -250,7 +250,7 @@ git-pull-all() {
         ')
         LAST_UPDATE="${STATUS} | ${LIGHTCYAN}[$(git show -1 --stat | grep ^Date | cut -f4- -d' ')]${NC}"
 
-        printf "Repo: \t${DIR} \t| ${LAST_UPDATE}\n"
+        printf "Repo: \t${DIR} \t\t | ${LAST_UPDATE}\n"
         builtin cd - &>/dev/null
     done
     builtin cd ${CUR_DIR} &>/dev/null
