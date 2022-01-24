@@ -802,13 +802,12 @@ describe_pod()
 }
 
 function clean_root {
-    ## Show free space
-    df -Th | grep -v fs
     # Will need English output for processing
     LANG=en_GB.UTF-8
-
+    ## Show free space
+    df -h /
     ## Clean apt cache
-    sudo apt-get update
+    sudo apt-get update -qq
     sudo apt-get -f install
     sudo apt-get -y autoremove
     sudo apt-get clean
@@ -827,8 +826,9 @@ function clean_root {
     # This one-liner is deprecated since 18.04
     # dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs apt-get -y purge
     # New 2 lines to remove old kernels
-    sudo dpkg --list | grep 'linux-image' | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p' | xargs apt-get -y purge
-    sudo dpkg --list | grep 'linux-headers' | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p' | xargs apt-get -y purge
+    sudo dpkg --list | grep 'linux-image' | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p' | xargs sudo apt-get -y purge
+    sleep 1
+    sudo dpkg --list | grep 'linux-headers' | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p' | xargs sudo apt-get -y purge
 
     ## Rotate and delete old logs
     sudo /etc/cron.daily/logrotate
@@ -836,7 +836,7 @@ function clean_root {
     sudo journalctl --rotate
     sudo journalctl --vacuum-time=1s
 
-    ## Show free space
-    df -Th | grep -v fs
     sudo update-grub
+    ## Show free space
+    df -h /
 }
