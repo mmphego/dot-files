@@ -78,6 +78,7 @@
     "python.linting.maxNumberOfProblems": 50,
     "python.linting.pylintEnabled": false,
     "python.pythonPath": "python",
+    "python.analysis.typeCheckingMode": "off",
     "redhat.telemetry.enabled": false,
     "search.showLineNumbers": true,
     "search.smartCase": true,
