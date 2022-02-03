@@ -2,17 +2,21 @@
     "breadcrumbs.enabled": true,
     // TURN OFF AUTOCOMPLETION
     // Controls if quick suggestions should show up or not while typing
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
     // Controls the delay in ms after which quick suggestions will show up
-    "editor.quickSuggestionsDelay": 90,
+    "editor.quickSuggestionsDelay": 30,
     // Enables parameter hints
     "editor.parameterHints.cycle": false,
     // Controls if suggestions should automatically show up when typing trigger characters
     "editor.suggestOnTriggerCharacters": false,
     // Controls if suggestions should be accepted 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
     // "editor.acceptSuggestionOnEnter": "off",
-    "editor.autoClosingBrackets": "always",
-    "editor.autoClosingQuotes": "always",
+    // "editor.autoClosingBrackets": "always",
+    // "editor.autoClosingQuotes": "always",
     "editor.codeLens": true,
     "editor.comments.insertSpace": true,
     "editor.cursorBlinking": "solid",
