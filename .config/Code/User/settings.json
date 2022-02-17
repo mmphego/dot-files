@@ -209,4 +209,7 @@
     "terminal.integrated.allowChords": false,
     "window.zoomLevel": 1,
     "workbench.colorTheme": "Sourcegraph Dark",
+    "workbench.editorAssociations": {
+        "*.html": "default"
+    },
 }
