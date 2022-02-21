@@ -27,6 +27,10 @@ stopwords = STOPWORDS.update(
         "df",
         "pd",
         "import",
+        "time",
+        'site',
+        'audience',
+        'fail',
         "docs",
         "refdef",
         "review",
@@ -483,6 +487,9 @@ stopwords = STOPWORDS.update(
         "your",
         "yours",
         "z",
+        "sign",
+        "signed",
+        "using"
     ]
 )
 
@@ -523,7 +530,6 @@ def main():
             collocations=False,
             # https://matplotlib.org/users/colormaps.html
             colormap="hsv",
-            random_state=21,
             max_words=300,
             min_font_size=5,
         ).generate(contents)

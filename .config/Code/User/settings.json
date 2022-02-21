@@ -198,7 +198,8 @@
     "spellchecker.ignoreWordsList": [
         "JSON",
         "PythonOperator",
-        "leaderboard"
+        "leaderboard",
+        "behaviours"
     ],
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
