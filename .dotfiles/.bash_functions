@@ -840,3 +840,12 @@ function clean_root {
     ## Show free space
     df -h /
 }
+
+
+kill-process () {
+    if [ $# -ne 1 ];then
+        echo "Error: Process name is missing as input argument"
+        return 1
+    fi
+    kill -9 $(pgrep $1 -d ' ')
+}
