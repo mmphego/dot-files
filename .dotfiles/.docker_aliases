@@ -27,3 +27,6 @@ alias dockerfile-linter='docker run --rm -i hadolint/hadolint < '
 
 # CHANGELOG generator implemented in Go (Golang) running in a Docker image/container.
 alias git-changelog='docker run -it --rm -v "$(pwd)":/usr/local/src/your-app mmphego/git-changelog-generator'
+
+# https://github.com/jesseduffield/lazydocker
+alias lazydocker='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.lazydocker:/.config/jesseduffield/lazydocker lazyteam/lazydocker'

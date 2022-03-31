@@ -213,4 +213,5 @@
     "workbench.editorAssociations": {
         "*.html": "default"
     },
+    "githubPullRequests.createOnPublishBranch": "never",
 }
