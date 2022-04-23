@@ -54,6 +54,8 @@
         "**/.eggs": true,
         "**/.env": true,
         "**/.envs": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
         "**/.gitignore": true,
         "**/.gitmodules": true,
         "**/.hound.yml": true,
@@ -63,7 +65,8 @@
         "**/.venv": true,
         "**/.vscode": true,
         "**/*.pyc": true,
-        "**/*.swp": true
+        "**/*.swp": true,
+        "**/node_modules/*/**": true,
     },
     "diffEditor.renderSideBySide": false,
     "editor.gotoLocation.multipleImplementations": "goto",
