@@ -217,4 +217,5 @@
         "*.html": "default"
     },
     "githubPullRequests.createOnPublishBranch": "never",
+    "editor.foldingMaximumRegions": 10000,
 }
