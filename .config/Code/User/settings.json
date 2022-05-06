@@ -218,4 +218,5 @@
     },
     "githubPullRequests.createOnPublishBranch": "never",
     "editor.foldingMaximumRegions": 10000,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
 }
