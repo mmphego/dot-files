@@ -3,7 +3,7 @@
     path = ~/.dotfiles/.gitconfig.private
 
 [core]
-    editor = nano
+    editor = code --wait
     filemode = true
     whitespace = trailing-space, tab-in-indent, tabwidth=4
 	pager = diff-so-fancy | less --tabs=4 -RFX

@@ -222,4 +222,19 @@
     "gitlens.advanced.messages": {
         "suppressRebaseSwitchToTextWarning": true
     },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#56180e",
+        "activityBar.activeBorder": "#126e1f",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#126e1f",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "titleBar.activeBackground": "#2a0c07",
+        "titleBar.inactiveBackground": "#2a0c0799",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "statusBar.background": "#2a0c07",
+        "statusBarItem.hoverBackground": "#56180e",
+        "statusBar.foreground": "#e7e7e7"
+    },
 }
