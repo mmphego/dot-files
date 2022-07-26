@@ -23,6 +23,7 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.detectIndentation": true,
     "editor.folding": true,
+    "editor.foldingStrategy": "indentation",
     "editor.fontSize": 12,
     "editor.fontWeight": "normal",
     "editor.formatOnPaste": true,
