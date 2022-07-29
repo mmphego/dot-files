@@ -203,7 +203,9 @@
         "JSON",
         "PythonOperator",
         "leaderboard",
-        "behaviours"
+        "behaviours",
+        "PostgreSQL",
+        "insertable"
     ],
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
