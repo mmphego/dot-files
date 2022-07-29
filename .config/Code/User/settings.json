@@ -238,4 +238,5 @@
         "statusBarItem.hoverBackground": "#56180e",
         "statusBar.foreground": "#e7e7e7"
     },
+    "tabnine.experimentalAutoImports": true,
 }
