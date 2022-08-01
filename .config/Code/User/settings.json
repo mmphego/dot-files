@@ -241,4 +241,7 @@
         "statusBar.foreground": "#e7e7e7"
     },
     "tabnine.experimentalAutoImports": true,
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
 }
