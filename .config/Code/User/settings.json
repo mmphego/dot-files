@@ -223,6 +223,7 @@
     "editor.foldingMaximumRegions": 10000,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true,
         "suppressRebaseSwitchToTextWarning": true
     },
     "workbench.colorCustomizations": {
