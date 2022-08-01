@@ -66,5 +66,9 @@
         "key": "f12",
         "command": "-editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "dendron.togglePreview"
     }
 ]
