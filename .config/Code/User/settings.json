@@ -205,7 +205,9 @@
         "leaderboard",
         "behaviours",
         "PostgreSQL",
-        "insertable"
+        "insertable",
+        "codebase",
+        "DevOps"
     ],
     "json.schemas": [],
     "workbench.experimental.sidePanel.enabled": true,
@@ -248,5 +250,8 @@
     "tabnine.experimentalAutoImports": true,
     "[markdown]": {
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "mblode.pretty-formatter"
     },
 }
