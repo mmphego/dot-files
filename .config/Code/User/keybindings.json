@@ -70,5 +70,15 @@
     {
         "key": "ctrl+alt+p",
         "command": "dendron.togglePreview"
+    },
+    {
+        "key": "ctrl+insert",
+        "command": "github.copilot.generate",
+        "when": "editorTextFocus && github.copilot.activated"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-github.copilot.generate",
+        "when": "editorTextFocus && github.copilot.activated"
     }
 ]
