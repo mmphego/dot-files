@@ -254,4 +254,5 @@
     "[jsonc]": {
         "editor.defaultFormatter": "mblode.pretty-formatter"
     },
+    "editor.experimental.stickyScroll.enabled": true,
 }
