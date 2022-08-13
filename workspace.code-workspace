@@ -1,0 +1,158 @@
+{
+    "folders": [
+        {
+            "path": "GitHub"
+        }, {
+            "path": ".dotfiles"
+        }, {
+            "path": "CAM_Work"
+        }, {
+            "path": "Udacity-work"
+        }
+    ],
+    "settings": {
+        "terminal.integrated.env.linux": {
+            "PATH": "/home/mmphego/go/bin:/home/mmphego/.cargo/bin:/home/mmphego/.local/bin:/home/mmphego/bin:/home/mmphego/go/bin:/home/mmphego/.cargo/bin:/home/mmphego/.local/bin:/home/mmphego/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mmphego/.npm-packages/bin"
+        },
+        "workbench.colorCustomizations": {
+            "activityBar.background": "#65c89b",
+            "activityBar.activeBorder": "#945bc4",
+            "activityBar.foreground": "#15202b",
+            "activityBar.inactiveForeground": "#15202b99",
+            "activityBarBadge.background": "#945bc4",
+            "activityBarBadge.foreground": "#e7e7e7",
+            "titleBar.activeBackground": "#42b883",
+            "titleBar.inactiveBackground": "#42b88399",
+            "titleBar.activeForeground": "#15202b",
+            "titleBar.inactiveForeground": "#15202b99",
+            "statusBar.background": "#42b883",
+            "statusBarItem.hoverBackground": "#359268",
+            "statusBar.foreground": "#15202b",
+            "activityBar.activeBackground": "#65c89b",
+            "sash.hoverBorder": "#65c89b",
+            "statusBarItem.remoteBackground": "#42b883",
+            "statusBarItem.remoteForeground": "#15202b"
+        },
+        "peacock.color": "#42b883",
+        "spellchecker.ignoreWordsList": [
+            "internet",
+            "screenshot",
+            "rollercoaster",
+            "Online",
+            "deserialization",
+            "interoperate",
+            "impactful"
+        ],
+        "docwriter.style": "NumPy",
+        "docwriter.progress.trackMethods": true,
+        "docwriter.progress.trackFunctions": true,
+        "docwriter.progress.trackClasses": true,
+        "docwriter.hotkey.mac": "⌥ + .",
+        "grammarly.selectors": [
+            {
+                "language": "markdown",
+                "scheme": "file",
+                "pattern": "GitHub/Productivity_Projects/mmphego.github.io/_posts/2022-05-09-How-I-setup-Jenkins-on-Docker-container-using-Ansible-Part-1.md"
+            }, {
+                "language": "markdown",
+                "scheme": "file",
+                "pattern": "GitHub/Productivity_Projects/mmphego.github.io/_posts/2022-05-09-How-I-setup-Jenkins-on-Docker-container-using-Ansible-Part-1.md"
+            }, {
+                "language": "markdown",
+                "scheme": "file"
+            }
+        ]
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.sublime-keybindings",
+            "4ops.terraform",
+            "akamud.vscode-theme-onedark",
+            "alefragnani.project-manager",
+            "azemoh.one-monokai",
+            "bbenoist.vagrant",
+            "benspaulding.python-manifest-template",
+            "bierner.markdown-mermaid",
+            "bungcip.better-toml",
+            "codezombiech.gitignore",
+            "cschleiden.vscode-github-actions",
+            "dakara.transformer",
+            "DavidAnson.vscode-markdownlint",
+            "dendron.dendron",
+            "dendron.dendron-markdown-preview-enhanced",
+            "dendron.dendron-markdown-shortcuts",
+            "dendron.dendron-paste-image",
+            "dendron.dendron-snippet-maker",
+            "donjayamanne.git-extension-pack",
+            "donjayamanne.githistory",
+            "donjayamanne.python-environment-manager",
+            "donjayamanne.python-extension-pack",
+            "eamodio.gitlens",
+            "ecmel.vscode-html-css",
+            "erd0s.terraform-autocomplete",
+            "freakypie.code-python-isort",
+            "frenco.vscode-notion",
+            "geeebe.duplicate",
+            "GitHub.codespaces",
+            "GitHub.copilot",
+            "GitHub.github-vscode-theme",
+            "GitHub.vscode-pull-request-github",
+            "GrapeCity.gc-excelviewer",
+            "Gruntfuggly.todo-tree",
+            "gurumukhi.selected-lines-count",
+            "hashicorp.terraform",
+            "humao.rest-client",
+            "ivory-lab.jenkinsfile-support",
+            "jianbingfang.dupchecker",
+            "johnpapa.vscode-peacock",
+            "johnpapa.winteriscoming",
+            "jprestidge.theme-material-theme",
+            "kevinglasson.cornflakes-linter",
+            "KevinRose.vsc-python-indent",
+            "lucasmelin.airflow-snippets",
+            "marcostazi.VS-code-vagrantfile",
+            "MattiasBaake.vscode-snippets-for-ansible",
+            "mblode.pretty-formatter",
+            "mechatroner.rainbow-csv",
+            "mintlify.document",
+            "mrmlnc.vscode-duplicate",
+            "ms-azuretools.vscode-docker",
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-toolsai.jupyter",
+            "ms-toolsai.jupyter-keymap",
+            "ms-toolsai.jupyter-renderers",
+            "ms-vscode-remote.remote-containers",
+            "ms-vscode-remote.remote-ssh",
+            "ms-vscode-remote.remote-ssh-edit",
+            "ms-vscode.sublime-keybindings",
+            "ms-vscode.wordcount",
+            "ms-vsliveshare.vsliveshare",
+            "ms-vsliveshare.vsliveshare-audio",
+            "ms-vsliveshare.vsliveshare-pack",
+            "mushan.vscode-paste-image",
+            "njpwerner.autodocstring",
+            "paulshestakov.aws-step-functions-constructor",
+            "PKief.material-icon-theme",
+            "rangav.vscode-thunder-client",
+            "redhat.ansible",
+            "redhat.vscode-yaml",
+            "scala-lang.scala",
+            "scalameta.metals",
+            "slevesque.vscode-zipexplorer",
+            "sourcegraph.sourcegraph",
+            "sourcegraph.vscode-sourcegraph-theme",
+            "swyphcosmo.spellchecker",
+            "tht13.html-preview-vscode",
+            "Tim-Koehler.helm-intellisense",
+            "tomoki1207.pdf",
+            "trond-snekvik.simple-rst",
+            "VisualStudioExptTeam.vscodeintellicode",
+            "wholroyd.jinja",
+            "yzane.markdown-pdf",
+            "yzhang.markdown-all-in-one",
+            "ziyasal.vscode-open-in-github",
+            "znck.grammarly"
+        ]
+    }
+}
