@@ -2,7 +2,6 @@ set constantshow
 set linenumbers
 set brackets ""')>]}"
 set historylog
-set morespace
 unset nowrap
 set regexp
 set smarthome
