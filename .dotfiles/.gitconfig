@@ -267,7 +267,7 @@
 
 [commit]
     verbose = true
-	gpgsign = true
+	# gpgsign = true
 	template = /home/mmphego/GitHub/Productivity_Projects/pre-commit-hooks/commit-msg-template/commit-msg-template.txt
 
 [filter "lfs"]
