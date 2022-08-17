@@ -82,13 +82,18 @@
         "when": "editorTextFocus && github.copilot.activated"
     },
     {
-        "key": "ctrl+shift+v",
-        "command": "markdown.showPreviewToSide",
-        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
-    },
-    {
         "key": "ctrl+k v",
         "command": "-markdown.showPreviewToSide",
         "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "markdown-preview-enhanced.openPreviewToTheSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+k v",
+        "command": "-markdown-preview-enhanced.openPreviewToTheSide",
+        "when": "editorLangId == 'markdown'"
     }
 ]
