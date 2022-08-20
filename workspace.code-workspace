@@ -42,7 +42,8 @@
             "Online",
             "deserialization",
             "interoperate",
-            "impactful"
+            "impactful",
+            "YALM"
         ],
         "docwriter.style": "NumPy",
         "docwriter.progress.trackMethods": true,

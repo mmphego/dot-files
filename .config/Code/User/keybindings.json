@@ -95,5 +95,9 @@
         "key": "ctrl+k v",
         "command": "-markdown-preview-enhanced.openPreviewToTheSide",
         "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "markdown.showPreviewToSide"
     }
 ]
