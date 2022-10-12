@@ -281,7 +281,20 @@
 
 [fetch]
     prune = true
-[merge]
-	tool = meld
+
 [advice]
 	addIgnoredFile = false
+	
+[diff]
+    tool = vscode
+
+[merge]
+    tool = vscode
+
+[difftool "vscode"]
+	prompt = false
+    cmd = code --diff $LOCAL $REMOTE
+
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
