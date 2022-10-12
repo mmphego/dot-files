@@ -284,17 +284,19 @@
 
 [advice]
 	addIgnoredFile = false
-	
+
 [diff]
     tool = vscode
+
+[difftool]
+    prompt = false
+
+
+[difftool "vscode"]
+    cmd = code --diff $LOCAL $REMOTE
 
 [merge]
     tool = vscode
 
-[difftool "vscode"]
-	prompt = false
-    cmd = code --diff $LOCAL $REMOTE
-
 [mergetool "code"]
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
-
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
