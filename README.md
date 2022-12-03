@@ -19,17 +19,6 @@ There are various ways you can install the dotfiles either fork or clone or down
 * Option #1
 
 ```shell
-cd $HOME
-git init
-git remote add -f git@github.com:mmphego/dot-files.git
-git pull -f
-git checkout -f master
-bash .dotfiles/.dotfiles_setup.sh install
-```
-
-* Option #2
-
-```shell
 wget https://github.com/mmphego/dot-files/archive/master.zip
 unzip master.zip
 rsync -uar --delete-after dot-files-master/{.,}* $HOME
@@ -37,7 +26,7 @@ cd $HOME
 bash .dotfiles/.dotfiles_setup.sh install
 ```
 
-* Option #3
+* Option #2
 
 ```shell
 cd $HOME
