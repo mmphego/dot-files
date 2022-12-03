@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # My dotfiles setup script
-# Author: Mpho Mphego <mmphego@ska.ac.za>
+# Author: Mpho Mphego
 
 set -eo pipefail
 
