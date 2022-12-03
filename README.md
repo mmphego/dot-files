@@ -21,7 +21,7 @@ There are various ways you can install the dotfiles either fork or clone or down
 ```shell
 cd $HOME
 git init
-git remote add -f git@github.com:[USERNAME/REPO_NAME].git
+git remote add -f git@github.com:mmphego/dot-files.git
 git pull -f
 git checkout -f master
 bash .dotfiles/.dotfiles_setup.sh install
